@@ -39,7 +39,7 @@ const Menu = ({
         activeClassName="menu-link--active"
         key={category}
         className="menu-link"
-        to={`/recipe/${category}`}
+        to={`/categories/${category}`}
       >
         {category}
       </NavLink>
@@ -52,13 +52,7 @@ Menu.propTypes = {
   logged: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   showMenu: PropTypes.bool.isRequired,
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Menu;

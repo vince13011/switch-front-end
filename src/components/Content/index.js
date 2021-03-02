@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import recipesd from 'src/data'
+
 import Card from 'src/components/Card';
 
 import './style.scss';
@@ -11,8 +11,8 @@ const Content = ({ title, text,articles}) => (
     <p className="content-text">{text}</p>
     {articles && (
       <div className="content-list">
-        {articles.map((recipe) => (
-          <Card key={recipe.id} {...recipe} />
+        {articles.map((article) => (
+          <Card key={article.id} {...article} />
         ))}
       </div>
     )}

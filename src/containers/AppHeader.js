@@ -4,6 +4,7 @@ import { toggleMenu } from '../actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
+  categories: state.categories,
 
 });
 

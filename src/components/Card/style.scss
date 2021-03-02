@@ -9,33 +9,13 @@
   margin-top: vars.$gutter;
   overflow: hidden;
   
- 
-
-  &-content {
-    padding: vars.$gutter / 2;
+  @media(min-width:768px){
+    width:200px;
+    height:200px
   }
 
-  &-title {
-    font-size: 1.15em;
-    margin-bottom: .2em;
-  }
-
-  &-desc {
-    color: rgba(0,0,0,.4);
-    font-size: .8em;
-    margin-bottom: vars.$gutter / 2;
-  }
-
-  &-link {
-    
-    color: white;
-    display: block;
-    text-align: center;
-    padding: vars.$gutter / 2;
-    border-radius: 3px;
 
     &:hover {
       background-color: filter();
     }
-  }
 }
