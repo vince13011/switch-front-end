@@ -9,6 +9,7 @@ import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
 import Account from 'src/components/Account';
+import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';
@@ -61,6 +62,12 @@ function App({
           path="/login"
         >
           <Login />
+        </Route>
+        <Route
+          exact
+          path="/signup"
+        >
+          <Signup />
         </Route>
         <Error />
       </Switch>

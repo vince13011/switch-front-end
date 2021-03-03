@@ -12,7 +12,7 @@ const Login = () => (
       <h2 className="loginpage__subtitle"> Pas encore de compte ? </h2>
       <Link
         className="loginpage__link"
-        to="/"
+        to="/signup"
         exact
       >
         s'inscrire

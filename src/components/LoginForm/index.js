@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Field from './Field';
+import Field from 'src/components/Field';
 
 import './styles.scss';
 

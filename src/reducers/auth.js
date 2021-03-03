@@ -1,20 +1,19 @@
 import {
-  SET_INPUT_VALUE,
+  SET_LOGIN_INPUT_VALUE,
   SET_LOGIN_TRUE,
   LOGOUT,
   SAVE_FAVS,
 } from '../actions';
 
 export const initialState = {
-  email: 'acidman@herocorp.io',
-  password: 'fructis',
-  favorites: [],
+  email: '',
+  password: '',
   logged: false,
 };
 
 const auth = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_INPUT_VALUE:
+    case SET_LOGIN_INPUT_VALUE:
       return {
         ...state,
         [action.name]: action.value,
