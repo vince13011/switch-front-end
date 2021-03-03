@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
-import './styles.css';
+import './style.scss';
 
 // == Composant
 const Field = ({
@@ -21,6 +21,14 @@ const Field = ({
 
   return (
     <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+ 
+      <label
+        htmlFor={inputId}
+        className="field__label"
+      >
+        {placeholder}
+      </label>
+
       <input
         // React - state
         value={value}
@@ -28,17 +36,12 @@ const Field = ({
         // infos de base
         id={inputId}
         type={type}
-        className="field-input"
+        className="field__input"
         placeholder={placeholder}
         name={name}
       />
 
-      <label
-        htmlFor={inputId}
-        className="field-label"
-      >
-        {placeholder}
-      </label>
+    
     </div>
   );
 };

@@ -1,0 +1,22 @@
+.loginpage{
+  &__title{
+    padding-top:3rem;
+    margin-bottom:1rem;
+  }
+  &__signup{
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    width:50%;
+    max-width:200px;
+  }
+  &__link{
+    font-size:.8em;
+    border:2px solid;
+    padding:.5rem;
+    
+  }
+  &__subtitle{
+    margin-bottom: 1rem;
+  }
+}

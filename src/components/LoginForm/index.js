@@ -2,18 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Field from './Field';
-// import { useField } from './hooks';
 
-import './styles.css';
+import './styles.scss';
 
 const LoginForm = ({
   email,
   password,
   changeField,
   handleLogin,
-  handleLogout,
-  isLogged,
-  loggedMessage,
+
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -21,46 +18,31 @@ const LoginForm = ({
   };
 
   return (
-    <div className="login-form">
-      {isLogged && (
-        <div className="login-form-logged">
-          <p className="login-form-message">
-            {loggedMessage}
-          </p>
-          <button
-            type="button"
-            className="login-form-button"
-            onClick={handleLogout}
-          >
-            Déconnexion
-          </button>
-        </div>
-      )}
-      {!isLogged && (
 
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
-          <button
-            type="submit"
-            className="login-form-button"
-          >
-            OK
-          </button>
-        </form>
-      )}
-    </div>
+    <form autoComplete="off" className="loginform" onSubmit={handleSubmit}>
+      <Field
+        className="loginform__field"
+        name="email"
+        placeholder="Adresse Email"
+        onChange={changeField}
+        value={email}
+      />
+      <Field
+        className="loginform__field"
+        name="password"
+        type="password"
+        placeholder="Mot de passe"
+        onChange={changeField}
+        value={password}
+      />
+      <button
+        type="submit"
+        className="loginform__button"
+      >
+        S'identifier
+      </button>
+    </form>
+
   );
 };
 

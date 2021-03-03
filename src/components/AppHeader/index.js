@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './style.scss';
 
-const AppHeader = ({ onClick, categories }) => (
+const AppHeader = ({ onClick, categories, logged }) => (
   <header className="header">
     <div className="header__main">
       <button
@@ -12,10 +12,25 @@ const AppHeader = ({ onClick, categories }) => (
         onClick={onClick}
       >--
       </button>
-      <div className="header__logo">SWITCH</div>
+      <Link
+        to="/"
+        className="header__logo"
+      >
+        <div>SWITCH</div>
+      </Link>
       <div className="header__buttons">
         <div className="header__buttons__btn">panier</div>
-        <div className="header__buttons__btn">Mon Compte</div>
+        {logged ? (
+          <Link to="/mon-compte">
+            <div className="header__buttons__btn">Mon Compte</div>
+          </Link>
+        )
+          : (
+            <Link to="/login">
+              <div className="header__buttons__btn">login</div>
+            </Link>
+          )}
+
       </div>
     </div>
     <nav className="header__nav">
@@ -39,4 +54,5 @@ export default AppHeader;
 
 AppHeader.propTypes = {
   onClick: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired,
 };

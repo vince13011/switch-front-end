@@ -8,6 +8,8 @@ import {
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
+import Account from 'src/components/Account';
+import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';
 
@@ -47,6 +49,18 @@ function App({
           path="/recipe/:slug"
         >
           <Article />
+        </Route>
+        <Route
+          exact
+          path="/mon-compte"
+        >
+          <Account />
+        </Route>
+        <Route
+          exact
+          path="/login"
+        >
+          <Login />
         </Route>
         <Error />
       </Switch>

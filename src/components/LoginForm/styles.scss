@@ -1,0 +1,21 @@
+.loginform {
+  margin:auto;
+  text-align: center;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  padding:1rem;
+  margin-bottom:1rem;
+  
+  &__button{
+    width: 100%;
+    border:2px solid;
+    box-shadow: none;
+    background-color: #fff;
+    padding:.5rem;
+  }
+  @media(min-width:768px){
+    width:50%;
+    max-width:500px;
+  }
+}
