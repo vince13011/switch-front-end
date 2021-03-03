@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { MdClose } from 'react-icons/md';
+
 import './style.scss';
 
 const Menu = ({
@@ -12,13 +14,15 @@ const Menu = ({
 
   <nav className={showMenu ? 'menu' : 'menu menu--hidden'}>
     <button
+      className="menu__button"
       type="button"
       onClick={onClick}
-    >X
+    ><MdClose />
     </button>
+    
     <NavLink
-      className="menu-link"
-      activeClassName="menu-link--active"
+      className="menu__link"
+      activeClassName="menu__link--active"
       exact
       to="/"
     >
@@ -26,9 +30,9 @@ const Menu = ({
     </NavLink>
     {logged && (
     <NavLink
-      className="menu-link"
+      className="menu__link"
       to="/favorites"
-      activeClassName="menu-link--active"
+      activeClassName="menu__link--active"
       exact
     >
       Mes recettes préférées
@@ -36,9 +40,9 @@ const Menu = ({
     )}
     {categories.map((category) => (
       <NavLink
-        activeClassName="menu-link--active"
+        activeClassName="menu__link--active"
         key={category}
-        className="menu-link"
+        className="menu__link"
         to={`/categories/${category}`}
       >
         {category}

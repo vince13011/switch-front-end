@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
+import { MdAccountCircle, MdShoppingCart ,MdMenu} from 'react-icons/md';
 import './style.scss';
 
 const AppHeader = ({ onClick, categories, logged }) => (
@@ -10,7 +11,8 @@ const AppHeader = ({ onClick, categories, logged }) => (
         className="header__button"
         type="button"
         onClick={onClick}
-      >--
+      >
+        <MdMenu />
       </button>
       <Link
         to="/"
@@ -19,15 +21,29 @@ const AppHeader = ({ onClick, categories, logged }) => (
         <div>SWITCH</div>
       </Link>
       <div className="header__buttons">
-        <div className="header__buttons__btn">panier</div>
+        <Link to="#">
+          <div>
+            <MdShoppingCart />
+          </div>
+          <div className="header__buttons__btn">Panier
+          </div>
+        </Link>
         {logged ? (
           <Link to="/mon-compte">
-            <div className="header__buttons__btn">Mon Compte</div>
+            <div>
+              <MdAccountCircle />
+            </div>
+            <div className="header__buttons__btn">mon Compte
+            </div>
           </Link>
         )
           : (
             <Link to="/login">
-              <div className="header__buttons__btn">login</div>
+              <div>
+                <MdAccountCircle />
+              </div>
+              <div className="header__buttons__btn">login
+              </div>
             </Link>
           )}
 
