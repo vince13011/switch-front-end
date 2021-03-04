@@ -1,6 +1,5 @@
 @use 'src/styles/vars';
-.header {
-    position: fixed;
+.footer {
     top: 0;
     right: 0;
     left: 0;
@@ -11,17 +10,6 @@
     flex-direction: column;
     padding: 1rem;
     align-items: center;
-    &__button {
-        font-size: 2em;
-        position: absolute;
-        background: #fff;
-        padding: none;
-        border: none;
-    }
-    &__logo {
-        margin-left: 50%;
-        transform: translateX(-50%);
-    }
     &__buttons {
         display: flex;
         &__btn {
@@ -33,7 +21,7 @@
         align-items: center;
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     &__nav {
         display: none;
@@ -41,9 +29,6 @@
     @media (min-width:768px) {
         &__main {
             padding: 1rem;
-        }
-        &__button {
-            display: none;
         }
         &__logo {
             margin-left: 50%;

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
+import Footer from 'src/components/Footer';
 import Article from 'src/containers/Article';
 import Account from 'src/components/Account';
 import Signup from 'src/components/Signup';
@@ -71,7 +72,7 @@ function App({
         </Route>
         <Error />
       </Switch>
-
+      <Footer />
     </div>
   );
 }
