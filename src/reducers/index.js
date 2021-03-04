@@ -3,6 +3,7 @@ import articles from './articles';
 import categories from './categories';
 import home from './home';
 import auth from './auth';
+import signup from './signup';
 import app from './app';
 import menu from './menu';
 
@@ -13,6 +14,7 @@ const globalReducer = combineReducers({
   app,
   menu,
   categories,
+  signup,
 
 });
 

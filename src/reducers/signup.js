@@ -1,9 +1,17 @@
 import { SET_SIGNUP_INPUT_VALUE } from '../actions';
 
 const initialState = {
-  firstName: '',
-  lastName: '',
-  address: '',
+  changeField: '',
+  email: '',
+  password: '',
+  confirm: '',
+  firstname: '',
+  lastname: '',
+  phoneNumber: '',
+  number: '',
+  streetName: '',
+  zipcode: '',
+  city: '',
 };
 
 const signup = (state = initialState, action = {}) => {
