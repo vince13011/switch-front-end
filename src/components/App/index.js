@@ -71,7 +71,6 @@ function App({
         </Route>
         <Error />
       </Switch>
-
     </div>
   );
 }
