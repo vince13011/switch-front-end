@@ -12,6 +12,7 @@ const Field = ({
   name,
   placeholder,
   onChange,
+  className,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -20,7 +21,7 @@ const Field = ({
   const inputId = `field-${name}`;
 
   return (
-    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+    <div className={value.length > 0 ? `${className} ${className}--has-content` : `${className}`}>
  
       <label
         htmlFor={inputId}
@@ -41,7 +42,6 @@ const Field = ({
         name={name}
       />
 
-    
     </div>
   );
 };
@@ -50,6 +50,7 @@ Field.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
+  className: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
@@ -58,6 +59,8 @@ Field.propTypes = {
 Field.defaultProps = {
   value: '',
   type: 'text',
+  className: 'field',
+
 };
 
 // == Export
