@@ -46,7 +46,7 @@ function App({
         )}
         <Route
           exact
-          path="/recipe/:slug"
+          path="/article"
         >
           <Article />
         </Route>
