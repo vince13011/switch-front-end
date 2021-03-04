@@ -9,7 +9,7 @@ import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
 import Account from 'src/components/Account';
-import Signup from 'src/components/Signup';
+import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';

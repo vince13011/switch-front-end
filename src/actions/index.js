@@ -1,6 +1,7 @@
 export const GET_ARTICLES_FROM_API = 'GET_ARTICLES_FROM_API';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
 export const SET_LOGIN_INPUT_VALUE = 'SET_LOGIN_INPUT_VALUE';
+export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
@@ -41,6 +42,11 @@ export const saveCategories = (categories) => ({
 
 export const setLoginInputValue = (value, name) => ({
   type: SET_LOGIN_INPUT_VALUE,
+  value,
+  name,
+});
+export const setSignupInputValue = (value, name) => ({
+  type: SET_SIGNUP_INPUT_VALUE,
   value,
   name,
 });
