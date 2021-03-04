@@ -1,4 +1,4 @@
-import { GET_CATEGORIES_FROM_API, saveCategories, isLoading} from 'src/actions';
+import { GET_CATEGORIES_FROM_API, saveCategories, isLoading } from 'src/actions';
 import axios from 'axios';
 
 const getAllCategories = (store) => (next) => (action) => {

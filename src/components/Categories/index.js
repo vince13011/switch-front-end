@@ -6,10 +6,9 @@ import Card from 'src/components/Card';
 
 import './style.scss';
 
-const Content = ({ title, text, articles }) => (
+const Categories = ({ title, articles }) => (
   <section className="content">
     <h1 className="content-title">{title}</h1>
-    <p className="content-text">{text}</p>
     {articles && (
       <div className="content-list">
         {articles.map((article) => (
@@ -20,18 +19,9 @@ const Content = ({ title, text, articles }) => (
   </section>
 );
 
-Content.propTypes = {
+Categories.propTypes = {
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }),
-  ),
+  articles: PropTypes.string.isRequired,
 };
 
-Content.defaultProps = {
-  recipes: null,
-};
-
-export default Content;
+export default Categories;

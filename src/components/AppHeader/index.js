@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
-import { MdAccountCircle, MdShoppingCart ,MdMenu} from 'react-icons/md';
+import { MdAccountCircle, MdShoppingCart, MdMenu } from 'react-icons/md';
 import './style.scss';
 
 const AppHeader = ({ onClick, categories, logged }) => (

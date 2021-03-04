@@ -15,7 +15,6 @@ import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';
 
 import Loading from './Loading';
-
 import './style.scss';
 
 function App({
