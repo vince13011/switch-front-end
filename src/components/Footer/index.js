@@ -21,6 +21,9 @@ const Footer = () => (
         </Link>
       </div>
     </div>
+    <p className="footer__buttons__btn">
+      © Lorem ipsum.
+    </p>
   </footer>
 );
 
