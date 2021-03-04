@@ -7,12 +7,10 @@ import getLogin from '../middlewares/getLogin';
 import getFavs from '../middlewares/getFavs';
 import getCategories from '../middlewares/getCategories';
 
-
-
 // le store est le gardien du state
 // la fonction createStore prend en argument le reducer
 const store = createStore(reducer, composeWithDevTools(
-  applyMiddleware(getCategories,getArticles,getLogin,getFavs),
+  applyMiddleware(getCategories, getArticles, getLogin, getFavs),
 ));
 
 export default store;

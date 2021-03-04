@@ -19,7 +19,7 @@ const Menu = ({
       onClick={onClick}
     ><MdClose />
     </button>
-    
+
     <NavLink
       className="menu__link"
       activeClassName="menu__link--active"

@@ -22,7 +22,7 @@ const Field = ({
 
   return (
     <div className={value.length > 0 ? `${className} ${className}--has-content` : `${className}`}>
- 
+
       <label
         htmlFor={inputId}
         className="field__label"
@@ -41,7 +41,6 @@ const Field = ({
         placeholder={placeholder}
         name={name}
       />
-
     </div>
   );
 };
