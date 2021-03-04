@@ -27,18 +27,21 @@ const Signup = ({
         placeholder="Email"
         onChange={changeField}
         value={email}
+        type="email"
       />
       <Field
         name="password"
         placeholder="Mot de Passe"
         onChange={changeField}
         value={password}
+        type="password"
       />
       <Field
         name="confirm"
         placeholder="Confirmer le mot de passe"
         onChange={changeField}
         value={confirm}
+        type="password"
       />
       <Field
         name="firstname"
@@ -110,7 +113,7 @@ const Signup = ({
 
 export default Signup;
 
-Signup.propTypes={
+Signup.propTypes = {
   changeField: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
@@ -123,4 +126,4 @@ Signup.propTypes={
   zipcode: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-}
+};
