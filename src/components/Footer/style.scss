@@ -1,22 +1,13 @@
 @use 'src/styles/vars';
 .footer {
-    top: 0;
-    right: 0;
-    left: 0;
+   
     background: white;
-    box-shadow: 0 20px 20px -25px rgba(0, 0, 0, .4);
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     align-items: center;
-    &__buttons {
-        display: flex;
-        &__btn {
-            font-size: .8em;
-            margin: 0 .5rem
-        }
-    }
+    font-size:.8em;
+ 
     &__main {
         align-items: center;
         display: flex;
