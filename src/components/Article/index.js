@@ -19,8 +19,7 @@ function Recipe({ recipe }) {
   }
   return (
     <Page>
-    
-    
+
     </Page>
   );
 }
