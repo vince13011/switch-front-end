@@ -7,15 +7,15 @@ const Footer = () => (
     <div className="footer__main">
 
       <div className="footer__buttons">
-        <Link to="/Nous-contacter">
+        <Link to="/nous-contacter">
           <div className="footer__buttons__btn">Nous contacter
           </div>
         </Link>
-        <Link to="/A-propos-de-nous">
+        <Link to="/a-propos-de-nous">
           <div className="footer__buttons__btn">A propos de nous
           </div>
         </Link>
-        <Link to="/Mentions-legales">
+        <Link to="/mentions-legales">
           <div className="footer__buttons__btn">Mentions légales
           </div>
         </Link>
