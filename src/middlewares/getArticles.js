@@ -4,6 +4,7 @@ import axios from 'axios';
 const getAllArticles = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_ARTICLES_FROM_API:
+      
       axios.get('https://fakestoreapi.com/products/')
         .then(
           (response) => {

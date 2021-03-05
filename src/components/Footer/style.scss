@@ -15,8 +15,11 @@
         justify-content: space-around;
     }
     &__nav {
-        display: none;
-    }
+      display: flex;
+      &__link {
+          padding: .5rem;
+      }
+  }
     @media (min-width:768px) {
         &__main {
             padding: 1rem;
@@ -25,12 +28,7 @@
             margin-left: 50%;
             transform: translateX(-50%);
         }
-        &__nav {
-            display: flex;
-            &__link {
-                padding: .5rem;
-            }
-        }
+        
     }
     ;
 }

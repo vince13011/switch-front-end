@@ -4,6 +4,7 @@ import axios from 'axios';
 const getAllCategories = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_CATEGORIES_FROM_API:
+      
       axios.get('https://fakestoreapi.com/products/categories')
         .then(
           (response) => {

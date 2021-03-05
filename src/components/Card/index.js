@@ -5,10 +5,11 @@ import './style.scss';
 
 const Card = ({
   image,
+  id,
 
 }) => (
   <article className="card">
-    <Link to="/" className="card-link">
+    <Link to={`/article/${id}`} className="card-link">
       <img className="card-img" src={image} alt="" />
     </Link>
   </article>

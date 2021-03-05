@@ -23,7 +23,7 @@ function App({
   useEffect(() => {
     loadArticles();
     loadCategories();
-  }, []);
+  },[]);
 
   // const recipes = {recipes}
   if (loading) {
@@ -46,7 +46,7 @@ function App({
         )}
         <Route
           exact
-          path="/article"
+          path="/article/:id"
         >
           <Article />
         </Route>

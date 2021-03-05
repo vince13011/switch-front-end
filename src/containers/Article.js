@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Article from 'src/components/Article';
-import { findRecipeBySlug } from '../selectors/recipes';
+import { findArticleById } from '../selectors/Article';
 
 // branchement en lecture du state
 const mapStateToProps = (state, ownProps) => {
-  const { slug } = ownProps.match.params;
+  const { id } = ownProps.match.params;
+  console.log(findArticleById(state.articles, Number(id)))
+  
   return {
-    recipe: findRecipeBySlug(state.recipes, slug),
+    toto:'tata',
+    article: findArticleById(state.articles, Number(id)),
   };
 };
 

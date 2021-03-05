@@ -23,6 +23,9 @@
     background-color: #fff;
     padding:.5rem;
     }
+   &__price{
+    display: none;
+   } 
   @media (min-width:768px){
     &__add-to-cart-button{
       width:100%;
@@ -36,6 +39,9 @@
       
         flex-direction:row;
     }
+    &__price{
+      display: block;
+     } 
     &__descriptioncontainer{
      width: 100%;
      display:flex;

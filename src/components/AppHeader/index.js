@@ -21,6 +21,7 @@ const AppHeader = ({ onClick, categories, logged }) => (
       >
         <div>SWITCH</div>
       </Link>
+      
       <div className="header__buttons">
         <Link to="#">
           <div>
@@ -46,6 +47,7 @@ const AppHeader = ({ onClick, categories, logged }) => (
               <div className="header__buttons__btn">login
               </div>
             </Link>
+          
           )}
 
       </div>

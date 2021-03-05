@@ -1,7 +1,7 @@
 import { IS_LOADING } from 'src/actions';
 
 const initialState = {
-  loading: false,
+  loading: true,
 };
 
 export default (state = initialState, action = {}) => {

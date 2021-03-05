@@ -13,7 +13,7 @@ import ArticleMobileMenu from './ArticleMobileMenu';
 import './style.scss';
 
 // == Composant
-function Article() {
+function Article({ article }) {
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
@@ -21,17 +21,15 @@ function Article() {
     <Page>
       <div className="article__maincontainer">
         <div className="article__picturecontainer">
-          <img src="https://img.ltwebstatic.com/images2_pi/2019/06/04/1559631949293247477_thumbnail_900x1199.webp" alt="" />
+          <img src={article.image} alt="" />
         </div>
         <div className="article__descriptioncontainer">
-          <h1>Mon Super T shirt</h1>
-          <ArticleMobileMenu />
+          <h1>{article.title}</h1>
+          <ArticleMobileMenu {...article}/>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente sunt nisi eligendi hic maxime. Numquam maxime debitis optio inventore tenetur, earum ea nostrum. Qui placeat aliquid fuga at sint modi.
-            Accusantium labore corrupti aspernatur voluptates eum? Amet laboriosam tenetur unde voluptate accusamus distinctio excepturi. Neque numquam nulla nam sint. Culpa rerum numquam vitae itaque ratione debitis. Deserunt modi repellendus totam.
-
+            {article.description}
           </p>
-          <p>19.99 €</p>
+          <p className="article__price ">{article.price} €</p>
           <button type="button" className="article__add-to-cart-button"> ajouter au panier</button>
 
         </div>
