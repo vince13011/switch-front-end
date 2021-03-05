@@ -13,12 +13,18 @@ import ArticleMobileMenu from './ArticleMobileMenu';
 import './style.scss';
 
 // == Composant
-function Article({ article, toCart, size ,setSize }) {
+function Article({
+  article, toCart, size, setSize,
+}) {
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
   const handleClick = () => {
     toCart(article, size);
+  };
+  const handleSizeClick = (e) => {
+    console.log(e.target.name);
+    setSize(e.target.name);
   };
   return (
     <Page>
@@ -38,6 +44,16 @@ function Article({ article, toCart, size ,setSize }) {
             {article.description}
           </p>
           <p className="article__price ">{article.price} €</p>
+          <div className="article__info">
+            <p className="article__info__size">taille: {size}</p>
+            <p className="article__info__color">NOIR</p>
+          </div>
+          <div className="article__size">
+
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="xs">XS</button>
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="S">S</button>
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="M">M</button>
+          </div>
           <button
             type="button"
             className="article__add-to-cart-button"

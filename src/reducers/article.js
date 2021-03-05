@@ -1,7 +1,7 @@
 import { SET_SIZE_VALUE } from '../actions';
 
 const initialState = {
-  size: 'test',
+  size: '',
 };
 
 const article = (state = initialState, action = {}) => {

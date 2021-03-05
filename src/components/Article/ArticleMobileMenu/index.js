@@ -13,7 +13,7 @@ const ArticleMobileMenu = ({
   const handleSizeClick = (e) => {
     setSize(e.target.name);
   };
-  
+
   return (
     <div className="article__mobile__menu ">
       <div className="article__mobile__menu__header">
@@ -31,7 +31,7 @@ const ArticleMobileMenu = ({
           </Dropdown.Toggle>
 
           <Dropdown.Menu className="article__mobile__menu__dropdown">
-            <Dropdown.Item onClick={handleSizeClick} name="XS">xs</Dropdown.Item>
+            <Dropdown.Item onClick={handleSizeClick} name="XS">XS</Dropdown.Item>
             <Dropdown.Item onClick={handleSizeClick} name="S">S</Dropdown.Item>
             <Dropdown.Item onClick={handleSizeClick} name="M">M</Dropdown.Item>
           </Dropdown.Menu>
