@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './style.scss';
 
-const ArticleMobileMenu = ({ article, toCart, size ,setSize }) => {
+const ArticleMobileMenu = ({
+  article, toCart, size, setSize,
+}) => {
   const handleClick = () => {
     toCart(article, size);
   };
   const handleSizeClick = (e) => {
-    console.log(e.target.name)
     setSize(e.target.name);
-
   };
+  
   return (
     <div className="article__mobile__menu ">
       <div className="article__mobile__menu__header">

@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { MdAccountCircle, MdShoppingCart, MdMenu } from 'react-icons/md';
 import './style.scss';
 
-const AppHeader = ({ onClick, categories, logged }) => (
+const AppHeader = ({ onClick, categories, logged ,count }) => (
   <header className="header">
     <div className="header__main">
       <button
@@ -21,13 +21,13 @@ const AppHeader = ({ onClick, categories, logged }) => (
       >
         <div>SWITCH</div>
       </Link>
-      
+
       <div className="header__buttons">
         <Link to="#">
           <div>
             <MdShoppingCart />
           </div>
-          <div className="header__buttons__btn">Panier
+          <div className="header__buttons__btn">Panier ({count})
           </div>
         </Link>
         {logged ? (
@@ -47,7 +47,7 @@ const AppHeader = ({ onClick, categories, logged }) => (
               <div className="header__buttons__btn">login
               </div>
             </Link>
-          
+
           )}
 
       </div>

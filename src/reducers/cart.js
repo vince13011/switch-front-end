@@ -1,16 +1,24 @@
 import { ADD_TO_CART } from '../actions';
 
-const initialState = [];
+const initialState = {
+  articles: [],
+  count: 0,
+};
 
 const cart = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_TO_CART:
-      return [
-        ...state, {
-          ...action.article,
-          size: action.size,
-        },
-      ];
+      return {
+        ...state,
+        articles: [
+          ...state.articles, {
+            ...action.article,
+            size: action.size,
+          },
+        ],
+        count: state.count + 1,
+
+      };
 
     default:
       return state;

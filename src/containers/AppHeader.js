@@ -6,6 +6,7 @@ import { toggleMenu } from '../actions';
 const mapStateToProps = (state) => ({
   categories: state.categories,
   logged: state.auth.logged,
+  count: state.cart.count,
 
 });
 
