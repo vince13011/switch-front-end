@@ -55,6 +55,7 @@ const AppHeader = ({ onClick, categories, logged }) => (
     <nav className="header__nav">
       {categories.map((category) => (
         <NavLink
+          key={category}
           className="header__nav__link"
           activeClassName="header__nav__link--active"
           exact

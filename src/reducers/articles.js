@@ -1,8 +1,8 @@
-import { SAVE_ARTICLES} from 'src/actions';
+import { SAVE_ARTICLES } from 'src/actions';
 
 export const initialState = [];
 
-const recipes = (state = initialState, action = {}) => {
+const articles = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_ARTICLES:
       return [...action.articles,
@@ -13,4 +13,4 @@ const recipes = (state = initialState, action = {}) => {
   }
 };
 
-export default recipes;
+export default articles;

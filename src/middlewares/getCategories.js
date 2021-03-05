@@ -1,4 +1,4 @@
-import { GET_CATEGORIES_FROM_API, saveCategories, isLoading } from 'src/actions';
+import { GET_CATEGORIES_FROM_API, saveCategories, categoryLoaded } from 'src/actions';
 import axios from 'axios';
 
 const getAllCategories = (store) => (next) => (action) => {
@@ -10,7 +10,7 @@ const getAllCategories = (store) => (next) => (action) => {
           (response) => {
             const categories = response.data;
             store.dispatch(saveCategories(categories));
-            store.dispatch(isLoading(false));
+            store.dispatch(categoryLoaded());
           },
         ).catch((err) => console.log(err));
 

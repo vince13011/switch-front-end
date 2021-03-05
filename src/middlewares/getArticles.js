@@ -1,4 +1,4 @@
-import { GET_ARTICLES_FROM_API, saveArticles, isLoading} from 'src/actions';
+import { GET_ARTICLES_FROM_API, saveArticles,articleLoaded} from 'src/actions';
 import axios from 'axios';
 
 const getAllArticles = (store) => (next) => (action) => {
@@ -10,7 +10,8 @@ const getAllArticles = (store) => (next) => (action) => {
           (response) => {
             const Articles = response.data;
             store.dispatch(saveArticles(Articles));
-            store.dispatch(isLoading(false));
+            store.dispatch(articleLoaded())
+            ;
           },
         ).catch((err) => console.log(err));
 

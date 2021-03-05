@@ -1,15 +1,30 @@
-import { IS_LOADING } from 'src/actions';
+import { ARTICLE_LOADED, CATEGORY_LOADED } from 'src/actions';
 
 const initialState = {
-  loading: true,
+  isLoading: true,
+  loading: {
+    articleLoading: true,
+    categoryLoading: true,
+  },
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case IS_LOADING:
+    case ARTICLE_LOADED:
       return {
         ...state,
-        loading: action.status,
+        loading: { ...state.loading, articleLoading: false },
+      };
+    case CATEGORY_LOADED:
+      console.log({ ...state.loading });
+      return {
+        ...state,
+        loading: { ...state.loading, categoryLoading: false },
+      };
+    case 'IS_LOADING':
+      return {
+        ...state,
+        loading: { ...state.loading },
       };
     default:
       return state;

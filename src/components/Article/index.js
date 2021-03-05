@@ -13,7 +13,7 @@ import ArticleMobileMenu from './ArticleMobileMenu';
 import './style.scss';
 
 // == Composant
-function Article({ article }) {
+function Article({ article, toCart }) {
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
@@ -25,12 +25,19 @@ function Article({ article }) {
         </div>
         <div className="article__descriptioncontainer">
           <h1>{article.title}</h1>
-          <ArticleMobileMenu {...article}/>
+          <ArticleMobileMenu article={article} onClick="" />
           <p>
             {article.description}
           </p>
           <p className="article__price ">{article.price} €</p>
-          <button type="button" className="article__add-to-cart-button"> ajouter au panier</button>
+          <button
+            type="button"
+            className="article__add-to-cart-button"
+            onClick={() => {
+              toCart(article);
+            }}
+          > ajouter au panier
+          </button>
 
         </div>
       </div>

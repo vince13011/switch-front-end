@@ -23,16 +23,17 @@ function App({
   useEffect(() => {
     loadArticles();
     loadCategories();
-  },[]);
+  }, []);
 
   // const recipes = {recipes}
-  if (loading) {
+  if (loading.articleLoading || loading.categoryLoading) {
+   
     return <Loading />;
   }
   return (
     <div className="app">
       <Menu />
-
+    
       <Switch>
         <Route exact path="/">
           <Home />

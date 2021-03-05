@@ -1,4 +1,4 @@
-import { LOGIN, setLoginTrue, logout, isLoading,fetchFavs} from 'src/actions';
+import { LOGIN, setLoginTrue, logout, fetchFavs} from 'src/actions';
 import axios from 'axios';
 
 const getLogin = (store) => (next) => (action) => {

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './style.scss';
 
-const ArticleMobileMenu = ({title,price}) => (
+const ArticleMobileMenu = ({article,}) => (
   <div className="article__mobile__menu ">
     <div className="article__mobile__menu__header">
-      <h2>{title}</h2>
-      <p>{price} € </p>
+      <h2>{article.title}</h2>
+      <p>{article.price} € </p>
     </div>
     <div className="article__mobile__menu__main">
       <div className="article__mobile__menu__color">NOIR</div>
@@ -27,7 +27,7 @@ const ArticleMobileMenu = ({title,price}) => (
         </Dropdown.Menu>
       </Dropdown>
     </div>
-    <button type="button"> ajouter au panier</button>
+    <button type="button" > ajouter au panier</button>
   </div>
 );
 
