@@ -21,6 +21,9 @@ export default (state = initialState, action = {}) => {
         ...state,
         loading: { ...state.loading, categoryLoading: false },
       };
+
+      //TODO rework on login loading
+       
     case 'IS_LOADING':
       return {
         ...state,

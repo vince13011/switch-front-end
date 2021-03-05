@@ -14,10 +14,16 @@ export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const ARTICLE_LOADED = 'ARTICLE_LOADED';
 export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 
 export const toggleMenu = () => ({
   type: TOGGLE_MENU,
 
+});
+
+export const setSizeValue = (size) => ({
+  type: SET_SIZE_VALUE,
+  size,
 });
 
 export const articleLoaded = () => ({
@@ -37,9 +43,10 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
-export const addToCart = (article) => ({
+export const addToCart = (article,size) => ({
   type: ADD_TO_CART,
   article,
+  size,
 });
 
 export const getAllCategories = () => ({

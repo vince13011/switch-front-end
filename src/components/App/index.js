@@ -25,15 +25,13 @@ function App({
     loadCategories();
   }, []);
 
-  // const recipes = {recipes}
   if (loading.articleLoading || loading.categoryLoading) {
-   
     return <Loading />;
   }
   return (
     <div className="app">
       <Menu />
-    
+
       <Switch>
         <Route exact path="/">
           <Home />

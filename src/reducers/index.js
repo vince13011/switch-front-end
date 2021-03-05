@@ -7,6 +7,7 @@ import signup from './signup';
 import cart from './cart';
 import app from './app';
 import menu from './menu';
+import article from './article';
 
 const globalReducer = combineReducers({
   articles,
@@ -17,6 +18,7 @@ const globalReducer = combineReducers({
   categories,
   signup,
   cart,
+  article,
 
 });
 
