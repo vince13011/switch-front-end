@@ -7,20 +7,34 @@ const initialState = {
 
 const cart = (state = initialState, action = {}) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case ADD_TO_CART: {
+      const alreadyInCart = state.articles.find((article) => (
+        article.id === action.article.id && article.size === action.size
+      ));
+
+      if (alreadyInCart) {
+        return {
+          ...state,
+          articles: state.articles.map(
+            (article) => (
+              article.id === alreadyInCart.id ? { ...article, qty: article.qty + 1 } : article),
+          ),
+          count: state.count + 1,
+        };
+      }
       return {
         ...state,
         articles: [
           ...state.articles, {
             ...action.article,
             size: action.size,
-            qty:1,
+            qty: 1,
           },
         ],
         count: state.count + 1,
 
       };
-
+    }
     default:
       return state;
   }
