@@ -8,6 +8,7 @@ import {
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
+import Cart from 'src/containers/Cart';
 import Account from 'src/components/Account';
 import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
@@ -60,6 +61,12 @@ function App({
           path="/login"
         >
           <Login />
+        </Route>
+        <Route
+          exact
+          path="/panier"
+        >
+          <Cart />
         </Route>
         <Route
           exact

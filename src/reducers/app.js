@@ -1,7 +1,7 @@
 import { ARTICLE_LOADED, CATEGORY_LOADED } from 'src/actions';
 
 const initialState = {
-  isLoading: true,
+  
   loading: {
     articleLoading: true,
     categoryLoading: true,
@@ -22,13 +22,6 @@ export default (state = initialState, action = {}) => {
         loading: { ...state.loading, categoryLoading: false },
       };
 
-      //TODO rework on login loading
-       
-    case 'IS_LOADING':
-      return {
-        ...state,
-        loading: { ...state.loading },
-      };
     default:
       return state;
   }

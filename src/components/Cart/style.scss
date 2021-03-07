@@ -1,0 +1,17 @@
+.cart{
+ &__container{
+   padding-top:2rem
+ }
+  &__article{
+  margin-bottom:1rem;
+  display:flex;
+  justify-content:space-evenly;
+  height:200px;
+  align-items:center;
+ &__image{
+   max-width:100px;
+ 
+ }
+} 
+}
+

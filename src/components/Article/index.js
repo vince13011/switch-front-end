@@ -19,7 +19,10 @@ function Article({
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
-  const handleClick = () => {
+  const handleCartClick = () => {
+    if (!size) {
+      return console.log('pas de size ');
+    }
     toCart(article, size);
   };
   const handleSizeClick = (e) => {
@@ -33,20 +36,20 @@ function Article({
           <img src={article.image} alt="" />
         </div>
         <div className="article__descriptioncontainer">
-          <h1>{article.title}</h1>
+          <h1>{article.name}</h1>
           <ArticleMobileMenu
             article={article}
-            toCart={toCart}
+            handleCartClick={handleCartClick}
             size={size}
-            setSize={setSize}
+            handleSizeClick={handleSizeClick}
           />
           <p>
             {article.description}
           </p>
-          <p className="article__price ">{article.price} €</p>
+          <p className="article__price ">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
           <div className="article__info">
             <p className="article__info__size">taille: {size}</p>
-            <p className="article__info__color">NOIR</p>
+            <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
 
@@ -57,7 +60,7 @@ function Article({
           <button
             type="button"
             className="article__add-to-cart-button"
-            onClick={handleClick}
+            onClick={handleCartClick}
           > ajouter au panier
           </button>
 

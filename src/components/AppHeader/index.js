@@ -23,7 +23,7 @@ const AppHeader = ({ onClick, categories, logged ,count }) => (
       </Link>
 
       <div className="header__buttons">
-        <Link to="#">
+        <Link to="/panier">
           <div>
             <MdShoppingCart />
           </div>
@@ -55,13 +55,13 @@ const AppHeader = ({ onClick, categories, logged ,count }) => (
     <nav className="header__nav">
       {categories.map((category) => (
         <NavLink
-          key={category}
+          key={category.id}
           className="header__nav__link"
           activeClassName="header__nav__link--active"
           exact
-          to={`/categories/${category}`}
+          to={`/categories/${category.title}`}
         >
-          {category}
+          {category.title}
 
         </NavLink>
       ))}

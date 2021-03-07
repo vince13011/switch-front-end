@@ -14,6 +14,7 @@ const cart = (state = initialState, action = {}) => {
           ...state.articles, {
             ...action.article,
             size: action.size,
+            qty:1,
           },
         ],
         count: state.count + 1,

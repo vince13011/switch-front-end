@@ -2,17 +2,24 @@ import {
   SET_LOGIN_INPUT_VALUE,
   SET_LOGIN_TRUE,
   LOGOUT,
-  SAVE_FAVS,
+  AUTH_IS_LOADING,
 } from '../actions';
 
 export const initialState = {
   email: '',
   password: '',
   logged: false,
+  AuthIsLoading: false,
 };
 
 const auth = (state = initialState, action = {}) => {
   switch (action.type) {
+    case AUTH_IS_LOADING:
+      return {
+        ...state,
+        AuthIsloading: action.status,
+      };
+      
     case SET_LOGIN_INPUT_VALUE:
       return {
         ...state,
@@ -27,10 +34,7 @@ const auth = (state = initialState, action = {}) => {
         ...initialState,
       };
 
-    case SAVE_FAVS:
-      return {
-        ...state, favorites: action.favorites,
-      };
+
     default:
       return state;
   }

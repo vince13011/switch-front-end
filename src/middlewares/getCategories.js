@@ -4,15 +4,15 @@ import axios from 'axios';
 const getAllCategories = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_CATEGORIES_FROM_API:
-      
-      axios.get('https://fakestoreapi.com/products/categories')
+      axios.get('https://switch-e-commerce.herokuapp.com/v1/categories')
         .then(
           (response) => {
             const categories = response.data;
             store.dispatch(saveCategories(categories));
             store.dispatch(categoryLoaded());
           },
-        ).catch((err) => console.log(err));
+        )
+        .catch((err) => console.log(err));
 
       break;
     default:
