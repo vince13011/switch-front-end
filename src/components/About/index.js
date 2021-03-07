@@ -1,34 +1,54 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import Page from 'src/components/Page';
 import './style.scss';
 
-const About = ({
-  thumbnail,
-  title,
-}) => (
-  <>
-    <article className="card">
-      <img className="card-img" src={thumbnail} alt={title} />
-      <div className="card-content">
-        <h2 className="card-title">{title}</h2>
-        <p className="card-desc">Lorem ipsum.</p>
+const About = () => (
+  <Page>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-4">
+          <div className="panel widget">
+            <div className="half-float">
+              <img src="https://bootdey.com/img/Content/bg1.jpg" alt="" className="img-responsive" />
+              <div className="half-float-bottom">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="Image"
+                  className="img-thumbnail img-circle thumb128"
+                />
+              </div>
+              <div className="panel-body text-center">
+                <h3 className="m0">Clark Kentman</h3>
+                <p className="text-muted">Lead director</p>
+                <p>Proin metus justo, commodo in ultrices at,
+                  lobortis sit amet dui. Fusce dolor purus, adipiscing a tempus
+                  at, gravida vel purus.
+                </p>
+              </div>
+              <div className="panel-body text-center bg-gray-dark">
+                <div className="row row-table">
+                  <div className="col-xs-4">
+                    <h3 className="m0">400</h3>
+                    <p className="m0">Photos</p>
+                  </div>
+                  <div className="col-xs-4">
+                    <h3 className="m0">2000</h3>
+                    <p className="m0">Likes</p>
+                  </div>
+                  <div className="col-xs-4">
+                    <h3 className="m0">500</h3>
+                    <p className="m0">Following</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </article>
-    <p>
-      Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Quidem similique atque
-      optio adipisci asperiores vero ducimus
-      rem incidunt aut enim et commodi modi
-      corporis, est culpa libero ipsa. Sequi.
-    </p>
-  </>
-
+    </div>
+  </Page>
 );
-
-About.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default About;

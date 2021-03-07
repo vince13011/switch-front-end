@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -13,6 +14,7 @@ import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';
+import About from 'src/components/About';
 
 import Loading from './Loading';
 import './style.scss';
@@ -67,6 +69,15 @@ function App({
           path="/signup"
         >
           <Signup />
+        </Route>
+        <Route
+          exact
+          path="/about"
+        >
+          <About
+            title="test"
+            thumbnail="https://picsum.photos/250"
+          />
         </Route>
         <Error />
       </Switch>
