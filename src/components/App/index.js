@@ -99,10 +99,15 @@ function App({
         </Route>
         <Route
           exact
-
           path="/about"
         >
           <About />
+        </Route>
+        <Route
+          exact
+          path="/mentions-legales"
+        >
+          <LegalNotice />
 
         </Route>
         <Error />
