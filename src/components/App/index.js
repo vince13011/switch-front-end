@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,6 +15,7 @@ import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
+import About from 'src/components/About';
 
 import Loading from './Loading';
 import './style.scss';
@@ -84,9 +86,11 @@ function App({
         </Route>
         <Route
           exact
-          path="/legalNotice"
+
+          path="/about"
         >
-          <LegalNotice />
+          <About />
+
         </Route>
         <Error />
       </Switch>
