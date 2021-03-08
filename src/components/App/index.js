@@ -74,10 +74,7 @@ function App({
           exact
           path="/about"
         >
-          <About
-            title="test"
-            thumbnail="https://picsum.photos/250"
-          />
+          <About />
         </Route>
         <Error />
       </Switch>
