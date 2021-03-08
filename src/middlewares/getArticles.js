@@ -9,7 +9,7 @@ const getAllArticles = (store) => (next) => (action) => {
         .then(
           (response) => {
             const Articles = response.data;
-            store.dispatch(saveArticles(Articles))
+            store.dispatch(saveArticles(Articles));
             store.dispatch(articleLoaded());
           },
         ).catch((err) => console.log(err))
