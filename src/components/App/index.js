@@ -19,7 +19,10 @@ import Loading from './Loading';
 import './style.scss';
 
 function App({
-  loading, loadArticles, loadCategories, logged,
+  loading,
+  loadArticles,
+  loadCategories,
+  logged,
 }) {
   useEffect(() => {
     loadArticles();
@@ -35,16 +38,26 @@ function App({
       <Menu />
 
       <Switch>
-        <Route exact path="/">
+        <Route
+          exact
+          path="/"
+        >
           <Home />
-        </Route>
-        {logged ? (
-          <Route path="/favorites" exact>
-            <Fav />
-          </Route>
-        ) : (
-          <Redirect from="/favorites" to="/" />
-        )}
+        </Route> {
+          logged ? (
+            <Route
+              path="/favorites"
+              exact
+            >
+              <Fav />
+            </Route>
+          ) : (
+            <Redirect
+              from="/favorites"
+              to="/"
+            />
+          )
+        }
         <Route
           exact
           path="/recipe/:slug"
