@@ -12,13 +12,17 @@ import Account from 'src/components/Account';
 import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
+import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 
 import Loading from './Loading';
 import './style.scss';
 
 function App({
-  loading, loadArticles, loadCategories, logged,
+  loading,
+  loadArticles,
+  loadCategories,
+  logged,
 }) {
   useEffect(() => {
     loadArticles();
@@ -34,16 +38,26 @@ function App({
       <Menu />
 
       <Switch>
-        <Route exact path="/">
+        <Route
+          exact
+          path="/"
+        >
           <Home />
-        </Route>
-        {logged ? (
-          <Route path="/favorites" exact>
-            <Fav />
-          </Route>
-        ) : (
-          <Redirect from="/favorites" to="/" />
-        )}
+        </Route> {
+          logged ? (
+            <Route
+              path="/favorites"
+              exact
+            >
+              <Fav />
+            </Route>
+          ) : (
+            <Redirect
+              from="/favorites"
+              to="/"
+            />
+          )
+        }
         <Route
           exact
           path="/article"
@@ -67,6 +81,12 @@ function App({
           path="/signup"
         >
           <Signup />
+        </Route>
+        <Route
+          exact
+          path="/legalNotice"
+        >
+          <LegalNotice />
         </Route>
         <Error />
       </Switch>
