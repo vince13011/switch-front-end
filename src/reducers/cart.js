@@ -17,7 +17,9 @@ const cart = (state = initialState, action = {}) => {
           ...state,
           articles: state.articles.map(
             (article) => (
-              article.id === alreadyInCart.id ? { ...article, qty: article.qty + 1 } : article),
+              article.id === alreadyInCart.id && article.size === action.size
+                ? { ...article, qty: article.qty + 1 }
+                : article),
           ),
           count: state.count + 1,
         };
