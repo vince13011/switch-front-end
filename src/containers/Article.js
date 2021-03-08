@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
   console.log(article);
 
   return {
-    toto: 'tata',
     article,
     size: state.article.size,
   };
