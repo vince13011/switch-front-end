@@ -13,26 +13,56 @@ import ArticleMobileMenu from './ArticleMobileMenu';
 import './style.scss';
 
 // == Composant
-function Article() {
+function Article({
+  article, toCart, size, setSize,
+}) {
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
+  const handleCartClick = () => {
+    if (!size) {
+      return console.log('pas de size ');
+    }
+    toCart(article, size);
+  };
+  const handleSizeClick = (e) => {
+    console.log(e.target.name);
+    setSize(e.target.name);
+  };
   return (
     <Page>
       <div className="article__maincontainer">
         <div className="article__picturecontainer">
-          <img src="https://img.ltwebstatic.com/images2_pi/2019/06/04/1559631949293247477_thumbnail_900x1199.webp" alt="" />
+          <img src={article.image} alt="" />
         </div>
         <div className="article__descriptioncontainer">
-          <h1>Mon Super T shirt</h1>
-          <ArticleMobileMenu />
+          <h1>{article.name}</h1>
+          <ArticleMobileMenu
+            article={article}
+            handleCartClick={handleCartClick}
+            size={size}
+            handleSizeClick={handleSizeClick}
+          />
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente sunt nisi eligendi hic maxime. Numquam maxime debitis optio inventore tenetur, earum ea nostrum. Qui placeat aliquid fuga at sint modi.
-            Accusantium labore corrupti aspernatur voluptates eum? Amet laboriosam tenetur unde voluptate accusamus distinctio excepturi. Neque numquam nulla nam sint. Culpa rerum numquam vitae itaque ratione debitis. Deserunt modi repellendus totam.
-
+            {article.description}
           </p>
-          <p>19.99 €</p>
-          <button type="button" className="article__add-to-cart-button"> ajouter au panier</button>
+          <p className="article__price ">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
+          <div className="article__info">
+            <p className="article__info__size">taille: {size}</p>
+            <p className="article__info__color">{article.color}</p>
+          </div>
+          <div className="article__size">
+
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="xs">XS</button>
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="S">S</button>
+            <button className="article__size__button" onClick={handleSizeClick} type="button" name="M">M</button>
+          </div>
+          <button
+            type="button"
+            className="article__add-to-cart-button"
+            onClick={handleCartClick}
+          > ajouter au panier
+          </button>
 
         </div>
       </div>

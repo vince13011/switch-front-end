@@ -9,6 +9,8 @@ import {
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
+import Cart from 'src/containers/Cart';
+import Category from 'src/containers/Category';
 import Account from 'src/components/Account';
 import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
@@ -31,8 +33,7 @@ function App({
     loadCategories();
   }, []);
 
-  // const recipes = {recipes}
-  if (loading) {
+  if (loading.articleLoading || loading.categoryLoading) {
     return <Loading />;
   }
   return (
@@ -62,9 +63,15 @@ function App({
         }
         <Route
           exact
-          path="/article"
+          path="/article/:id"
         >
           <Article />
+        </Route>
+        <Route
+          exact
+          path="/categories/:name"
+        >
+          <Category />
         </Route>
         <Route
           exact
@@ -77,6 +84,12 @@ function App({
           path="/login"
         >
           <Login />
+        </Route>
+        <Route
+          exact
+          path="/panier"
+        >
+          <Cart />
         </Route>
         <Route
           exact

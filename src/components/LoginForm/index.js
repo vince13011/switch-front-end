@@ -36,6 +36,7 @@ const LoginForm = ({
       <button
         type="submit"
         className="loginform__button"
+        onClick={handleSubmit}
       >
         S'identifier
       </button>
