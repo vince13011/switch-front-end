@@ -1,5 +1,49 @@
 @use 'src/styles/vars';
 
-.recipe {
+
+.article{
   padding: 0 vars.$gutter;
+  &__add-to-cart-button{
+   display:none
+    }
+  &__maincontainer{
+    display:flex;
+    flex-direction:column;
+  }
+  &__descriptioncontainer{
+    h1{
+      display: none;
+    }
+    padding: 1rem
+    
+  }
+  & button{
+    border:2px solid;
+    box-shadow: none;
+    background-color: #fff;
+    padding:.5rem;
+    }
+  @media (min-width:768px){
+    &__add-to-cart-button{
+      width:100%;
+      display:block;
+      border:2px solid;
+      box-shadow: none;
+      background-color: #fff;
+      padding:.5rem;
+      }
+    &__maincontainer{
+      
+        flex-direction:row;
+    }
+    &__descriptioncontainer{
+     width: 100%;
+     display:flex;
+     flex-direction: column; 
+     justify-content: space-between;    
+     h1{
+      display: block;
+    }
+    }
+  }
 }

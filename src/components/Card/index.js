@@ -8,7 +8,7 @@ const Card = ({
 
 }) => (
   <article className="card">
-    <Link to={`/`} className="card-link">
+    <Link to="/" className="card-link">
       <img className="card-img" src={image} alt="" />
     </Link>
   </article>

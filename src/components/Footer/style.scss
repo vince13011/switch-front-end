@@ -1,0 +1,36 @@
+@use 'src/styles/vars';
+.footer {
+   
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:.8em;
+ 
+    &__main {
+        align-items: center;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    &__nav {
+        display: none;
+    }
+    @media (min-width:768px) {
+        &__main {
+            padding: 1rem;
+        }
+        &__logo {
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        &__nav {
+            display: flex;
+            &__link {
+                padding: .5rem;
+            }
+        }
+    }
+    ;
+}

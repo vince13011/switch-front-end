@@ -9,14 +9,13 @@ import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
 import Account from 'src/components/Account';
-import Signup from 'src/components/Signup';
+import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 
 import Loading from './Loading';
-
 import './style.scss';
 
 function App({
@@ -61,7 +60,7 @@ function App({
         }
         <Route
           exact
-          path="/recipe/:slug"
+          path="/article"
         >
           <Article />
         </Route>
@@ -91,7 +90,6 @@ function App({
         </Route>
         <Error />
       </Switch>
-
     </div>
   );
 }

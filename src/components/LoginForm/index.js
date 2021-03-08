@@ -21,14 +21,12 @@ const LoginForm = ({
 
     <form autoComplete="off" className="loginform" onSubmit={handleSubmit}>
       <Field
-        className="loginform__field"
         name="email"
         placeholder="Adresse Email"
         onChange={changeField}
         value={email}
       />
       <Field
-        className="loginform__field"
         name="password"
         type="password"
         placeholder="Mot de passe"
