@@ -11,7 +11,7 @@ import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
 import Cart from 'src/containers/Cart';
 import Category from 'src/containers/Category';
-import Account from 'src/components/Account';
+import Account from 'src/containers/Account';
 import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
