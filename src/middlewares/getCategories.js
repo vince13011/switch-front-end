@@ -5,6 +5,7 @@ const getAllCategories = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_CATEGORIES_FROM_API:
       axios.get('https://switch-e-commerce.herokuapp.com/v1/categories')
+
         .then(
           (response) => {
             const categories = response.data;

@@ -11,7 +11,9 @@ const getLogin = (store) => (next) => (action) => {
             email: store.getState().auth.email,
             password: store.getState().auth.password,
           });
-          store.dispatch(setLoginTrue(response.data));
+          console.log(response.data)
+          store.dispatch(setLoginTrue(response.data[0]))
+          store.dispatch(authIsLoading(false));
         }
         catch (error) {
           console.log(error);

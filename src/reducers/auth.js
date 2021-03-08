@@ -6,8 +6,8 @@ import {
 } from '../actions';
 
 export const initialState = {
-  email: 'jeanD@gmail.com',
-  password: 'czieuze113',
+  email: 'ZREZxs@gmail.com',
+  password: 'enceneee',
   logged: false,
   AuthIsLoading: false,
 };
@@ -17,7 +17,7 @@ const auth = (state = initialState, action = {}) => {
     case AUTH_IS_LOADING:
       return {
         ...state,
-        AuthIsloading: action.status,
+        AuthIsLoading: action.status,
       };
 
     case SET_LOGIN_INPUT_VALUE:
@@ -27,7 +27,10 @@ const auth = (state = initialState, action = {}) => {
       };
     case SET_LOGIN_TRUE:
       return {
-        ...state, ...action.authObject,
+        ...state,
+        ...action.authObject,
+        logged: true,
+
       };
     case LOGOUT:
       return {
