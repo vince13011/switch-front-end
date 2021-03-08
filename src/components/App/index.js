@@ -12,6 +12,7 @@ import Account from 'src/components/Account';
 import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
+import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 
 import Loading from './Loading';
@@ -81,6 +82,12 @@ function App({
           path="/signup"
         >
           <Signup />
+        </Route>
+        <Route
+          exact
+          path="/legalNotice"
+        >
+          <LegalNotice />
         </Route>
         <Error />
       </Switch>
