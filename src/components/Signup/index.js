@@ -8,13 +8,13 @@ const Signup = ({
   changeField,
   email,
   password,
-  confirm,
+  passwordConfirm,
   firstname,
   lastname,
   phoneNumber,
   number,
   streetName,
-  zipcode,
+  zipCode,
   city,
   country,
   onSubmit,
@@ -49,7 +49,7 @@ const Signup = ({
           name="passwordConfirm"
           placeholder="Confirmer le mot de passe"
           onChange={changeField}
-          value={confirm}
+          value={passwordConfirm}
           type="password"
         />
         <Field
@@ -65,7 +65,7 @@ const Signup = ({
           value={lastname}
         />
         <Field
-          name="phone_number"
+          name="phoneNumber"
           placeholder="Telephone"
           onChange={changeField}
           value={phoneNumber}
@@ -81,17 +81,17 @@ const Signup = ({
               className="signup__address__field signup__address__field--numero"
             />
             <Field
-              name="street_name"
+              name="streetName"
               placeholder="Nom de Rue"
               onChange={changeField}
               value={streetName}
               className="signup__address__field"
             />
             <Field
-              name="zip_code"
+              name="zipCode"
               placeholder="Code postal"
               onChange={changeField}
-              value={zipcode}
+              value={zipCode}
               className="signup__address__field signup__address__field--zipcode"
             />
             <Field
@@ -132,13 +132,13 @@ Signup.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  confirm: PropTypes.string.isRequired,
+  passwordConfirm: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   phoneNumber: PropTypes.number.isRequired,
   number: PropTypes.number.isRequired,
   streetName: PropTypes.string.isRequired,
-  zipcode: PropTypes.number.isRequired,
+  zipCode: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
 };

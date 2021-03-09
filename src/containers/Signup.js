@@ -4,17 +4,7 @@ import { setSignupInputValue, signup } from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
-  email: state.signup.email,
-  password: state.signup.password,
-  confirm: state.signup.passwordConfirm,
-  firstname: state.signup.firstname,
-  lastname: state.signup.lastname,
-  phoneNumber: state.signup.phone_number,
-  number: state.signup.number,
-  streetName: state.signup.street_name,
-  zipcode: state.signup.zip_code,
-  city: state.signup.city,
-  country: state.signup.country,
+  ...state.signup.fields,
   message: state.signup.message,
 });
 
