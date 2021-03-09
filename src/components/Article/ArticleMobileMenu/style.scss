@@ -1,5 +1,17 @@
 .article{
-
+  &__size{
+    margin:auto;
+    width:50%;
+    display:flex;
+    justify-content: space-between;
+    
+    &__button{
+    border:2px solid;
+    box-shadow: none;
+    background-color: #fff;
+    padding:.5rem;
+    }
+  }
   &__mobile__menu{
     margin-bottom: 1rem;
     display: flex;

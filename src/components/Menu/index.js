@@ -7,7 +7,7 @@ import './style.scss';
 
 const Menu = ({
   categories,
-  logged,
+
   onClick,
   showMenu,
 }) => (
@@ -28,24 +28,14 @@ const Menu = ({
     >
       Accueil
     </NavLink>
-    {logged && (
-    <NavLink
-      className="menu__link"
-      to="/favorites"
-      activeClassName="menu__link--active"
-      exact
-    >
-      Mes recettes préférées
-    </NavLink>
-    )}
     {categories.map((category) => (
       <NavLink
         activeClassName="menu__link--active"
-        key={category}
+        key={category.id}
         className="menu__link"
-        to={`/categories/${category}`}
+        to={`/categories/${category.title}`}
       >
-        {category}
+        {category.title}
       </NavLink>
     ))}
 
@@ -53,7 +43,7 @@ const Menu = ({
 );
 
 Menu.propTypes = {
-  logged: PropTypes.bool.isRequired,
+
   onClick: PropTypes.func.isRequired,
   showMenu: PropTypes.bool.isRequired,
   categories: PropTypes.arrayOf(PropTypes.string).isRequired,

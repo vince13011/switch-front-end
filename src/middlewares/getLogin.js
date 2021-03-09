@@ -1,4 +1,4 @@
-import { LOGIN, setLoginTrue, logout, isLoading,fetchFavs} from 'src/actions';
+import { LOGIN, setLoginTrue, logout, authIsLoading} from 'src/actions';
 import axios from 'axios';
 
 const getLogin = (store) => (next) => (action) => {
@@ -6,13 +6,14 @@ const getLogin = (store) => (next) => (action) => {
     case LOGIN: {
       const checkLogin = async () => {
         try {
-          store.dispatch(isLoading(true));
-          const response = await axios.post('http://localhost:3001/login', {
+          store.dispatch(authIsLoading(true));
+          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/users', {
             email: store.getState().auth.email,
             password: store.getState().auth.password,
           });
-          store.dispatch(setLoginTrue(response.data));
-          store.dispatch(fetchFavs());
+          console.log(response.data)
+          store.dispatch(setLoginTrue(response.data[0]))
+          store.dispatch(authIsLoading(false));
         }
         catch (error) {
           console.log(error);
