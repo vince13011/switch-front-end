@@ -52,10 +52,21 @@ function Article({
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
+            {article.sizes.map((size) => {
+              if (size.stock !== 0) {
+                return (
+                  <button
+                    className="article__size__button"
+                    onClick={handleSizeClick}
+                    type="button"
+                    name={size.size_name}
+                  >{size.size_name}
+                  </button>
 
-            <button className="article__size__button" onClick={handleSizeClick} type="button" name="xs">XS</button>
-            <button className="article__size__button" onClick={handleSizeClick} type="button" name="S">S</button>
-            <button className="article__size__button" onClick={handleSizeClick} type="button" name="M">M</button>
+                );
+              }
+            })}
+
           </div>
           <button
             type="button"

@@ -13,7 +13,7 @@ import Cart from 'src/containers/Cart';
 import Category from 'src/containers/Category';
 import Account from 'src/containers/Account';
 import Signup from 'src/containers/Signup';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';

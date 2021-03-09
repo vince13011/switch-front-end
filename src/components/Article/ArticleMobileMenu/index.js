@@ -9,8 +9,8 @@ const ArticleMobileMenu = ({
 }) => (
   <div className="article__mobile__menu ">
     <div className="article__mobile__menu__header">
-      <h2>{article.title}</h2>
-      <p>{article.price} € </p>
+      <h2>{article.name}</h2>
+      <p>{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100}  € </p>
     </div>
     <div className="article__mobile__menu__main">
       <div className="article__mobile__menu__color">{article.color}</div>
@@ -23,9 +23,19 @@ const ArticleMobileMenu = ({
         </Dropdown.Toggle>
 
         <Dropdown.Menu className="article__mobile__menu__dropdown">
-          <Dropdown.Item onClick={handleSizeClick} name="XS">XS</Dropdown.Item>
-          <Dropdown.Item onClick={handleSizeClick} name="S">S</Dropdown.Item>
-          <Dropdown.Item onClick={handleSizeClick} name="M">M</Dropdown.Item>
+          {article.sizes.map((size) => {
+            if (size.stock !== 0) {
+              return (
+                <Dropdown.Item
+                  onClick={handleSizeClick}
+                  name={size.size_name}
+                >
+                  {size.size_name}
+                </Dropdown.Item>
+              );
+            }
+          })}
+         
         </Dropdown.Menu>
       </Dropdown>
     </div>
