@@ -1,0 +1,44 @@
+@use 'src/styles/vars';
+.contact {
+    width: 50%;
+    height: 470px;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgb(0, 0, 0);
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .8rem;
+    margin: 10rem auto 2rem;
+    &__h1 {
+        font: bold;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    &__form {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    &__name {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        margin-left: -9rem;
+    }
+    &__email {
+        margin-bottom: 1rem;
+        margin-left: -8rem;
+    }
+    &__msg {
+        margin-bottom: 1rem;
+        margin-left: -8rem;
+        line-height: 1.52857143;
+    }
+    &__input {
+        text-align: start;
+    }
+    &__submit {
+        margin-bottom: 1rem;
+        width: 80%;
+    }
+}

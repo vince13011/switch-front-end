@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="footer__main">
 
       <div className="footer__nav">
-        <NavLink to="/nous-contacter">
+        <NavLink to="/contact">
           <div className="footer__nav__link">Nous contacter
           </div>
         </NavLink>

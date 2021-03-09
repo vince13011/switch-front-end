@@ -13,6 +13,7 @@ import Signup from 'src/containers/Signup';
 import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import Error from 'src/components/Error';
+import Contact from 'src/components/Contact';
 
 import Loading from './Loading';
 import './style.scss';
@@ -67,6 +68,12 @@ function App({
           path="/signup"
         >
           <Signup />
+        </Route>
+        <Route
+          exact
+          path="/contact"
+        >
+          <Contact />
         </Route>
         <Error />
       </Switch>
