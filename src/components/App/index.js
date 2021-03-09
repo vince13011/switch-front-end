@@ -17,11 +17,8 @@ import Login from 'src/components/Login';
 import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
-<<<<<<< HEAD
-import Contact from 'src/components/Contact';
-=======
 import About from 'src/components/About';
->>>>>>> c48b23781993132e748ca92e19c61edf1223fb39
+import Contact from 'src/components/Contact';
 
 import Loading from './Loading';
 import './style.scss';
@@ -103,12 +100,7 @@ function App({
         </Route>
         <Route
           exact
-<<<<<<< HEAD
-          path="/contact"
-        >
-          <Contact />
-=======
-          path="/about"
+          path="/a-propos"
         >
           <About />
         </Route>
@@ -117,8 +109,12 @@ function App({
           path="/mentions-legales"
         >
           <LegalNotice />
-
->>>>>>> c48b23781993132e748ca92e19c61edf1223fb39
+        </Route>
+        <Route
+          exact
+          path="/contact"
+        >
+          <Contact />
         </Route>
         <Error />
       </Switch>
