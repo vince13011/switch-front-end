@@ -24,9 +24,13 @@
    margin:.5rem;
    &__qty-btn{
      margin-left:.8rem;
-     
-     border:1px solid
+     border:1px solid;
+
    }
+   &__delete{
+    border:none;
+    margin-left:.8rem;
+         }
 
  }
     &__image{

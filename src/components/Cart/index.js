@@ -2,12 +2,14 @@ import React from 'react';
 import {
   MdAdd,
   MdRemove,
+  MdDelete,
 
 } from 'react-icons/md';
 import Page from 'src/components/Page';
+
 import './style.scss';
 
-const CART = ({ articles }) => (
+const CART = ({ articles, onPlusClick, onLessClick }) => (
   <Page>
     <div className="cart__container">
       {articles ? (
@@ -21,8 +23,30 @@ const CART = ({ articles }) => (
               <div className="cart__article__item cart__article__item--qty">
                 quantité: {article.qty}
                 <div>
-                  <MdRemove className="cart__article__item__qty-btn" />
-                  <MdAdd className="cart__article__item__qty-btn" />
+                  {article.qty > 1 ? (
+                    <MdRemove
+                      key={`less${article.id}`}
+                      className="cart__article__item__qty-btn"
+                      onClick={() => {
+                        onLessClick(article);
+                      }}
+                    />
+                  ) : (
+                    <MdDelete
+                      key={`less${article.id}`}
+                      className="cart__article__item__delete"
+                      onClick={() => {
+                        onLessClick(article);
+                      }}
+                    />
+                  )}
+                  <MdAdd
+                    key={`plus${article.id}`}
+                    className="cart__article__item__qty-btn"
+                    onClick={() => {
+                      onPlusClick(article);
+                    }}
+                  />
                 </div>
               </div>
               <div className="cart__article__item cart__article__item--price">{article.pre_tax_price} € </div>

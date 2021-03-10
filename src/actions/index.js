@@ -1,19 +1,26 @@
 export const GET_ARTICLES_FROM_API = 'GET_ARTICLES_FROM_API';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
+
+export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
+export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+export const ARTICLE_LOADED = 'ARTICLE_LOADED';
+export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+
 export const SET_LOGIN_INPUT_VALUE = 'SET_LOGIN_INPUT_VALUE';
 export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
+
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
 export const AUTH_IS_LOADING = 'AUTH_IS_LOADING';
-export const GET_FAVS = 'GET_FAVS';
-export const SAVE_FAVS = 'SAVE_FAVS';
+
+
 export const TOGGLE_MENU = 'TOGGLE_MENU';
-export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
-export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+
 export const ADD_TO_CART = 'ADD_TO_CART';
-export const ARTICLE_LOADED = 'ARTICLE_LOADED';
-export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
+export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
+
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
@@ -71,6 +78,16 @@ export const addToCart = (article, size) => ({
   size,
 });
 
+export const increaseQuantity = (article) => ({
+  type: INCREASE_QTY_ARTICLE,
+  article,
+});
+
+export const decreaseQuantity = (article) => ({
+  type: DECREASE_QTY_ARTICLE,
+  article,
+});
+
 export const getAllCategories = () => ({
   type: GET_CATEGORIES_FROM_API,
 });
@@ -106,13 +123,3 @@ export const setLoginTrue = (authObject) => ({
 
 });
 
-export const fetchFavs = () => ({
-  type: GET_FAVS,
-
-});
-
-export const saveFavs = ({ favorites }) => ({
-  type: SAVE_FAVS,
-  favorites,
-
-});

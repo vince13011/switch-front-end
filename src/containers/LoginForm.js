@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LoginForm from 'src/components/LoginForm';
-import { setLoginInputValue, login , logout } from '../actions';
+import { setLoginInputValue, login, logout } from '../actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setLoginInputValue(value, name));
   },
   handleLogin: () => {
-   dispatch(login());
+    dispatch(login());
   },
   handleLogout: () => {
     dispatch(logout());
