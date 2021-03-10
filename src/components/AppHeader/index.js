@@ -2,10 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
-import { MdAccountCircle, MdShoppingCart, MdMenu } from 'react-icons/md';
+import {
+  MdAccountCircle, MdShoppingCart, MdMenu, MdClose,
+} from 'react-icons/md';
 import './style.scss';
 
-const AppHeader = ({ onClick, categories, logged ,count,name }) => (
+const AppHeader = ({
+  onClick,
+  categories,
+  logged,
+  count,
+  name,
+  logout,
+}) => (
   <header className="header">
     <div className="header__main">
       <button
@@ -31,14 +40,23 @@ const AppHeader = ({ onClick, categories, logged ,count,name }) => (
           </div>
         </Link>
         {logged ? (
-          <Link to="/mon-compte">
-            <div>
-              <MdAccountCircle />
+          <>
+            <Link to="/mon-compte">
+              <div>
+                <MdAccountCircle />
+              </div>
+              <div>{name}</div>
+              <div className="header__buttons__btn">mon Compte</div>
+
+            </Link>
+            <div><MdClose
+              onClick={() => {
+                logout();
+              }}
+              cursor="pointer"
+            />
             </div>
-            <div>{name}</div>
-            <div className="header__buttons__btn">mon Compte
-            </div>
-          </Link>
+          </>
         )
           : (
             <Link to="/login">

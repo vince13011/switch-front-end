@@ -1,20 +1,12 @@
 import { connect } from 'react-redux';
 import Signup from 'src/components/Signup';
-import { setSignupInputValue } from 'src/actions';
+import { setSignupInputValue, signup } from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
-  email: state.signup.email,
-  password: state.signup.password,
-  confirm: state.signup.confirm,
-  firstname: state.signup.firstname,
-  lastname: state.signup.lastname,
-  phoneNumber: state.signup.phone_number,
-  number: state.signup.number,
-  streetName: state.signup.street_name,
-  zipcode: state.signup.zipcode,
-  city: state.signup.city,
-  country: state.signup.country,
+  ...state.signup.fields,
+  message: state.signup.message,
+  success: state.signup.success,
 
 });
 
@@ -22,6 +14,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(setSignupInputValue(value, name));
+  },
+  onSubmit: () => {
+    dispatch(signup());
   },
 });
 

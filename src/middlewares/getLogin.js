@@ -1,4 +1,6 @@
-import { LOGIN, setLoginTrue, logout, authIsLoading} from 'src/actions';
+import {
+  LOGIN, setLoginTrue, logout, authIsLoading,
+} from 'src/actions';
 import axios from 'axios';
 
 const getLogin = (store) => (next) => (action) => {
@@ -11,8 +13,8 @@ const getLogin = (store) => (next) => (action) => {
             email: store.getState().auth.email,
             password: store.getState().auth.password,
           });
-          console.log(response.data)
-          store.dispatch(setLoginTrue(response.data[0]))
+          console.log(response.data);
+          store.dispatch(setLoginTrue(response.data[0]));
           store.dispatch(authIsLoading(false));
         }
         catch (error) {

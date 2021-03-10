@@ -38,7 +38,7 @@ const LoginForm = ({
         className="loginform__button"
         onClick={handleSubmit}
       >
-        S'identifier
+        Se Connecter
       </button>
     </form>
 

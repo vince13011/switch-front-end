@@ -5,7 +5,7 @@ import Login from 'src/components/Login';
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
   logged: state.auth.logged,
-  
+
 });
 
 // branchement en écriture du state
