@@ -12,6 +12,13 @@
    max-width:100px;
  
  }
+ &__item{
+   padding:1rem;
+ }
+ &__description{
+   display:flex;
+   flex-direction: row;
+ }
 } 
 }
 

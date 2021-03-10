@@ -9,7 +9,7 @@ const getLogin = (store) => (next) => (action) => {
       const checkLogin = async () => {
         try {
           store.dispatch(authIsLoading(true));
-          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/users', {
+          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/user', {
             email: store.getState().auth.email,
             password: store.getState().auth.password,
           });
