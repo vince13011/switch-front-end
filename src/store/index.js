@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore } from 'redux-persist';
+
 import reducer from 'src/reducers';
 import getArticles from '../middlewares/getArticles';
 import getLogin from '../middlewares/getLogin';
@@ -10,8 +12,9 @@ import signup from '../middlewares/signup';
 
 // le store est le gardien du state
 // la fonction createStore prend en argument le reducer
-const store = createStore(reducer, composeWithDevTools(
+export const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(getCategories, getArticles, getLogin, getFavs, signup),
 ));
+export const persistor = persistStore(store);
 
-export default store;
+export default { store, persistor };
