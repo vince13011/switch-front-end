@@ -1,35 +1,141 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs, { init } from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
 import Page from 'src/components/Page';
+import 'react-toastify/dist/ReactToastify.min.css';
 import './style.scss';
 
-const Contact = () => (
-  <Page>
-    <h1 className="contact__h1">Besoin d'un renseignement ?</h1>
-    <div className="contact">
-      <h1 className="contact__h1">Nous envoyer un message</h1>
-      <form className="contact__form">
-        <div className="contact__name">
-          <label htmlFor="name">Nom : </label>
-          <input className="contact__input" type="text" id="name" name="user_name" />
-        </div>
-        <div className="contact__email">
-          <label htmlFor="mail">e-mail : </label>
-          <input className="contact__input" type="email" id="mail" name="user_mail" />
-        </div>
-        <div className="contact__msg">
-          <label htmlFor="name">Message:  </label>
-          <textarea id="msg" name="user_message" />
-        </div>
-        <input className="contact__submit" type="submit" name="submit" />
-      </form>
-    </div>
-    <div>
-      <h1 className="contact__h1">Nous appeler</h1>
-      <p>Tel: 0403020100</p>
-      <p>Adresse: 1 Bd Général de Gaulle, 75000 Paris</p>
-    </div>
-  </Page>
-);
+init('user_AwR2Hl44WRiKU4CyxjWAO');
 
-export default Contact;
+const ContactForm = () => {
+  const {
+    register, errors, handleSubmit, reset,
+  } = useForm();
+
+  const toastifySuccess = () => {
+    toast('Form sent!', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast',
+    });
+  };
+
+  const onSubmit = async (data) => {
+    // Send form email
+    try {
+      const templateParams = {
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+      };
+
+      await emailjs.send(
+        'service_r75mfxx',
+        'template_0ahzi8m',
+        templateParams,
+        'user_AwR2Hl44WRiKU4CyxjWAO',
+      );
+
+      reset();
+      toastifySuccess();
+    }
+    catch (e) {
+      console.log(e);
+    }
+  };
+
+  return (
+    <Page>
+      <div className="ContactForm">
+        <div className="container">
+          <div className="row">
+            <div className="col-12__text-center">
+              <div className="contactForm">
+                <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+                  {/* Row 1 of form */}
+                  <div className="row__formRow">
+                    <div className="col-6">
+                      <input
+                        type="text"
+                        name="name"
+                        ref={register({
+                          required: { value: true, message: 'Please enter your name' },
+                          maxLength: {
+                            value: 30,
+                            message: 'Please use 30 characters or less',
+                          },
+                        })}
+                        placeholder="Name"
+                      />
+                      {errors.name && <span className="errorMessage">{errors.name.message}</span>}
+                    </div>
+                    <div className="col-6">
+                      <input
+                        type="email"
+                        name="email"
+                        ref={register({
+                          required: true,
+                          pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                        })}
+                        placeholder="Email address"
+                      />
+                      {errors.email && (
+                        <span className="errorMessage">Please enter a valid email address</span>
+                      )}
+                    </div>
+                  </div>
+                  {/* Row 2 of form */}
+                  <div className="row__formRow">
+                    <div className="col">
+                      <input
+                        type="text"
+                        name="subject"
+                        ref={register({
+                          required: { value: true, message: 'Please enter a subject' },
+                          maxLength: {
+                            value: 75,
+                            message: 'Subject cannot exceed 75 characters',
+                          },
+                        })}
+                        className="form-control__formInput"
+                        placeholder="Subject"
+                      />
+                    </div>
+                  </div>
+                  {/* Row 3 of form */}
+                  <div className="row__formRow">
+                    <div className="col">
+                      <textarea
+                        rows={3}
+                        name="message"
+                        ref={register({
+                          required: true,
+                        })}
+                        className="form-control__formInput"
+                        placeholder="Message"
+                      />
+                      {errors.message && <span className="errorMessage">Please enter a message</span>}
+                    </div>
+                  </div>
+                  <button className="submit-btn" type="submit">
+                    Submit
+                  </button>
+                </form>
+              </div>
+              <ToastContainer />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Page>
+  );
+};
+
+export default ContactForm;
