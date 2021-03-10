@@ -17,6 +17,7 @@ export const CATEGORY_LOADED = 'CATEGORY_LOADED';
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
+export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
 
 export const signup = () => ({
   type: SIGNUP,
@@ -25,6 +26,11 @@ export const signup = () => ({
 export const setSignupMessage = (message) => ({
   type: SET_SIGNUP_MESSAGE,
   message,
+});
+
+export const setSignupSuccess = (status) => ({
+  type: SET_SIGNUP_SUCCESS,
+  status,
 });
 
 export const authIsLoading = (status) => ({

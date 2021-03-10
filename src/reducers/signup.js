@@ -1,4 +1,4 @@
-import { SET_SIGNUP_INPUT_VALUE, SET_SIGNUP_MESSAGE } from '../actions';
+import { SET_SIGNUP_INPUT_VALUE, SET_SIGNUP_MESSAGE, SET_SIGNUP_SUCCESS } from '../actions';
 
 const initialState = {
   message: '',
@@ -17,6 +17,7 @@ const initialState = {
     additional: 'étage 5',
 
   },
+  success: false,
 
 };
 
@@ -32,7 +33,11 @@ const signup = (state = initialState, action = {}) => {
         ...state,
         message: action.message,
       };
-
+    case SET_SIGNUP_SUCCESS:
+      return {
+        ...state,
+        success: action.status,
+      };
     default:
       return state;
   }

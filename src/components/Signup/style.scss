@@ -1,5 +1,9 @@
 .signup { 
-  
+  &__success{
+    padding:0 1rem;
+    max-width: 500px;
+    margin:auto;
+  }
   &__button{
     width: 100%;
     border:2px solid;

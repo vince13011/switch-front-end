@@ -6,6 +6,8 @@ import { setSignupInputValue, signup } from 'src/actions';
 const mapStateToProps = (state) => ({
   ...state.signup.fields,
   message: state.signup.message,
+  success: state.signup.success,
+
 });
 
 // branchement en écriture du state

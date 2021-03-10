@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     articles,
     size: state.article.size,
-    title:name,
+    title: name,
   };
 };
 
