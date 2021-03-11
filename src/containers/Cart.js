@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Cart from 'src/components/Cart';
-import { increaseQuantity, decreaseQuantity, removeFromCart } from 'src/actions';
+import { increaseQuantity, decreaseQuantity, removeFromCart, checkingStock} from 'src/actions';
+
 
 // branchement en lecture du state
 const mapStateToProps = (state) => {
@@ -13,6 +14,9 @@ const mapStateToProps = (state) => {
   return {
     articles: state.cart.articles,
     total,
+    cartChecked: false,
+    message: state.cart.message,
+    
   };
 };
 
@@ -27,7 +31,9 @@ const mapDispatchToProps = (dispatch) => ({
   onRemoveClick: (article) => {
     dispatch(removeFromCart(article));
   },
-
+  checkingCart:(articles)=>{
+    dispatch(checkingStock(articles))
+  }
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Cart);
