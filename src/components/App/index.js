@@ -18,6 +18,7 @@ import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
+import Contact from 'src/components/Contact';
 
 import Loading from './Loading';
 import './style.scss';
@@ -99,7 +100,7 @@ function App({
         </Route>
         <Route
           exact
-          path="/about"
+          path="/a-propos"
         >
           <About />
         </Route>
@@ -108,7 +109,12 @@ function App({
           path="/mentions-legales"
         >
           <LegalNotice />
-
+        </Route>
+        <Route
+          exact
+          path="/contact"
+        >
+          <Contact />
         </Route>
         <Error />
       </Switch>
