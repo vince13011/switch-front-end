@@ -101,16 +101,16 @@ const About = () => (
             </div>
           </div>
         </div>
+        <p className="card_text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed mattis nulla vitae diam cursus vestibulum.Sed ornare
+          purus odio, in molestie lectus mollis quis.Duis pretium
+          tortor ipsum, sed ultricies augue imperdiet quis.Nulla
+          bibendum placerat sollicitudin.Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus.
+          Aenean cursus ex nec dignissim tempus.
+        </p>
       </div>
-      <p className="card_text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed mattis nulla vitae diam cursus vestibulum.Sed ornare
-        purus odio, in molestie lectus mollis quis.Duis pretium
-        tortor ipsum, sed ultricies augue imperdiet quis.Nulla
-        bibendum placerat sollicitudin.Orci varius natoque penatibus
-        et magnis dis parturient montes, nascetur ridiculus mus.
-        Aenean cursus ex nec dignissim tempus.
-      </p>
     </div>
   </Page>
 );

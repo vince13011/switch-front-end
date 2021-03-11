@@ -69,18 +69,18 @@ const LegalNotice = () => (
         cookie par l’intermédiaire des paramètres figurant au sein de son logiciel de navigation.
       </p>
       <h2 className="LegalNotice__h2">ARTICLE 6 : Propriété intellectuelle</h2>
+      <p className="LegalNotice__p">
+        Toute utilisation, reproduction, diffusion, commercialisation,
+        modification de toute ou partie du site
+        switch.io, sans autorisation de l’Editeur est prohibée et pourra entraînée des actions
+        et poursuites
+        judiciaires telles que notamment prévues par
+        le Code de la propriété intellectuelle et le Code civil.
+        Pour plus d’informations, se reporter aux CGU du site switch.io
+        accessible à la rubrique« CGU »
+        Rédigé sur http://legalplace.fr
+      </p>
     </div>
-    <p className="LegalNotice__p">
-      Toute utilisation, reproduction, diffusion, commercialisation,
-      modification de toute ou partie du site
-      switch.io, sans autorisation de l’Editeur est prohibée et pourra entraînée des actions
-      et poursuites
-      judiciaires telles que notamment prévues par
-      le Code de la propriété intellectuelle et le Code civil.
-      Pour plus d’informations, se reporter aux CGU du site switch.io
-      accessible à la rubrique« CGU »
-      Rédigé sur http://legalplace.fr
-    </p>
   </Page>
 );
 
