@@ -14,10 +14,11 @@ export const LOGOUT = 'LOGOUT';
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
 export const AUTH_IS_LOADING = 'AUTH_IS_LOADING';
 
-
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+
 export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
 export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
 
@@ -78,6 +79,13 @@ export const addToCart = (article, size) => ({
   size,
 });
 
+export const removeFromCart = (article) => ({
+  type: REMOVE_FROM_CART,
+  article,
+ 
+});
+
+
 export const increaseQuantity = (article) => ({
   type: INCREASE_QTY_ARTICLE,
   article,
@@ -122,4 +130,3 @@ export const setLoginTrue = (authObject) => ({
   authObject,
 
 });
-

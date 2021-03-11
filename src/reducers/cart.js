@@ -1,4 +1,9 @@
-import { ADD_TO_CART, INCREASE_QTY_ARTICLE, DECREASE_QTY_ARTICLE } from '../actions';
+import {
+  ADD_TO_CART,
+  INCREASE_QTY_ARTICLE,
+  DECREASE_QTY_ARTICLE,
+  REMOVE_FROM_CART,
+} from '../actions';
 
 const initialState = {
   articles: [],
@@ -46,6 +51,7 @@ const cart = (state = initialState, action = {}) => {
               ? { ...article, qty: article.qty + 1 } : article
           ),
         ),
+        count: state.count + 1,
       };
 
     case DECREASE_QTY_ARTICLE:
@@ -54,12 +60,22 @@ const cart = (state = initialState, action = {}) => {
         articles: state.articles.map(
           (article) => {
             if (article.id === action.article.id && article.size === action.article.size) {
-              return (article.qty > 0 ? { ...article, qty: article.qty - 1 } : article );
+              return (article.qty > 0 ? { ...article, qty: article.qty - 1 } : article);
             }
-
             return article;
           },
         ),
+        count: state.count - 1,
+      };
+
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        articles: [
+          ...state.articles.filter((article) => (
+            article !== action.article)),
+        ],
+        count: state.count - 1,
 
       };
     default:

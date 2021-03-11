@@ -9,7 +9,13 @@ import Page from 'src/components/Page';
 
 import './style.scss';
 
-const CART = ({ articles, onPlusClick, onLessClick }) => (
+const CART = ({
+  articles,
+  onPlusClick,
+  onLessClick,
+  onRemoveClick,
+}) => (
+
   <Page>
     <div className="cart__container">
       {articles ? (
@@ -36,7 +42,7 @@ const CART = ({ articles, onPlusClick, onLessClick }) => (
                       key={`less${article.id}`}
                       className="cart__article__item__delete"
                       onClick={() => {
-                        onLessClick(article);
+                        onRemoveClick(article);
                       }}
                     />
                   )}
