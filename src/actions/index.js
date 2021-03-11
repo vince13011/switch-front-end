@@ -31,6 +31,18 @@ export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
 export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
 
+export const SEND_ORDER='SEND_ORDER';
+export const ORDER_IS_LOADING ='ORDER_IS_LOADING';
+
+export const sendOrder = () => ({
+  type: SEND_ORDER,
+});
+
+export const orderIsLoading = (status) => ({
+  type: ORDER_IS_LOADING,
+  status,
+});
+
 export const signup = () => ({
   type: SIGNUP,
 });

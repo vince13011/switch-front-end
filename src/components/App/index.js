@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Switch,
   Route,
-  Redirect,
+  
 } from 'react-router-dom';
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
@@ -14,7 +14,7 @@ import Category from 'src/containers/Category';
 import Account from 'src/containers/Account';
 import Signup from 'src/containers/Signup';
 import Login from 'src/containers/Login';
-import Fav from 'src/containers/Fav';
+import Order from 'src/containers/Order';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
@@ -47,21 +47,8 @@ function App({
           path="/"
         >
           <Home />
-        </Route> {
-          logged ? (
-            <Route
-              path="/favorites"
-              exact
-            >
-              <Fav />
-            </Route>
-          ) : (
-            <Redirect
-              from="/favorites"
-              to="/"
-            />
-          )
-        }
+        </Route>
+
         <Route
           exact
           path="/article/:id"
@@ -79,6 +66,12 @@ function App({
           path="/mon-compte"
         >
           <Account />
+        </Route>
+        <Route
+          exact
+          path="/order"
+        >
+          <Order />
         </Route>
         <Route
           exact

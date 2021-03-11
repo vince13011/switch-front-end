@@ -8,6 +8,7 @@ import home from './home';
 import auth from './auth';
 import signup from './signup';
 import cart from './cart';
+import order from './order';
 import app from './app';
 import menu from './menu';
 import article from './article';
@@ -27,6 +28,7 @@ const globalReducer = combineReducers({
   signup,
   cart,
   article,
+  order,
 
 });
 

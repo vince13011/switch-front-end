@@ -8,8 +8,6 @@ const checkingCart = (store) => (next) => (action) => {
         return store.dispatch(setCartMessage('connecte toi !'));
       }
 
-      // checking stock
-
       action.articles.forEach((article) => {
         axios.get(`https://switch-e-commerce.herokuapp.com/v1/article/${article.id}`)
           .then(
@@ -20,12 +18,13 @@ const checkingCart = (store) => (next) => (action) => {
               if (selectedSize.stock <= article.qty) {
                 return store.dispatch(setCartMessage(`stock insufisant  pour l'article ${article.name}`));
               }
+              return store.dispatch(setCartMessage('OK'));
             },
           );
       });
+
       // after the fetch
       console.log('coucou');
-
       break;
     default:
       next(action);
