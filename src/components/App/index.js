@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import {
   Switch,
   Route,
-  
+
 } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
@@ -33,6 +36,8 @@ function App({
     loadArticles();
     loadCategories();
   }, []);
+
+  const stripePromise = loadStripe('pk_test_51ITtjSFqylvRHC31SNrW8LYUUKtyp0MUfNUAgTI3i8mC4fHXB7O5lxSlzISa5ta0KndYihXNbip2ukifjluRmY5r00QAJk4yMO');
 
   if (loading.articleLoading || loading.categoryLoading) {
     return <Loading />;
@@ -71,7 +76,10 @@ function App({
           exact
           path="/order"
         >
-          <Order />
+          <Elements stripe={stripePromise}>
+            <Order />
+          </Elements>
+
         </Route>
         <Route
           exact

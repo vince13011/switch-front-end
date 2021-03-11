@@ -55,14 +55,13 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/stripe-js": "^1.13.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-
-    "persist": "^0.2.7",
-
     "dotenv": "^8.2.0",
     "emailjs-com": "^2.6.4",
-
+    "persist": "^0.2.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",

@@ -20,10 +20,10 @@ const mapStateToProps = (state) => {
 
 // branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
-  onClick: () => {
-    dispatch(sendOrder());
+  onClick: async (paiment) => {
+    console.log(paiment);
   },
-  
+
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Order);
