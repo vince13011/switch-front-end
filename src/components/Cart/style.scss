@@ -47,6 +47,26 @@
     flex-direction: row;
   } 
  }
+}
+&__footer{
+  display:flex;
+  flex-direction: column;
+  @media (min-width:768px) {
+  align-items: flex-end;
+
+  } 
+  &__total{
+  display: flex;
+  flex-direction:column;
+ 
+  margin-bottom: .5rem;
+    @media (min-width:768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 50%;
+    }
+  }
+  
 } 
 }
 

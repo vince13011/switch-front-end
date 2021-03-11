@@ -4,9 +4,17 @@ import Cart from 'src/components/Cart';
 import { increaseQuantity, decreaseQuantity, removeFromCart } from 'src/actions';
 
 // branchement en lecture du state
-const mapStateToProps = (state) => ({
-  articles: state.cart.articles,
-});
+const mapStateToProps = (state) => {
+  let total = 0;
+  state.cart.articles.forEach((article) => {
+    total += article.qty * article.pre_tax_price;
+  });
+
+  return {
+    articles: state.cart.articles,
+    total,
+  };
+};
 
 // branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
@@ -19,6 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   onRemoveClick: (article) => {
     dispatch(removeFromCart(article));
   },
+
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Cart);

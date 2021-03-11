@@ -21,6 +21,7 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
 export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
+export const SET_CART_TOTAL = 'SET_CART_TOTAL';
 
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
@@ -95,6 +96,11 @@ export const decreaseQuantity = (article) => ({
   type: DECREASE_QTY_ARTICLE,
   article,
 });
+
+export const setCartTotal=(total)=>({
+type:SET_CART_TOTAL,
+total
+})
 
 export const getAllCategories = () => ({
   type: GET_CATEGORIES_FROM_API,

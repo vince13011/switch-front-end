@@ -14,6 +14,7 @@ const CART = ({
   onPlusClick,
   onLessClick,
   onRemoveClick,
+  total,
 }) => (
 
   <Page>
@@ -55,7 +56,7 @@ const CART = ({
                   />
                 </div>
               </div>
-              <div className="cart__article__item cart__article__item--price">{article.pre_tax_price} € </div>
+              <div className="cart__article__item cart__article__item--price">{article.pre_tax_price * article.qty} € </div>
             </div>
           </div>
         ))
@@ -64,8 +65,16 @@ const CART = ({
         : (
           <h1>Panier vide</h1>
         )}
+      <div className="cart__footer">
+        <div className="cart__footer__total">
+          <h2>Total</h2>
+          <div>{total}€</div>
+        </div>
+        <div className="cart__footer__button">
+          <button type="button">Passer la commande</button>
+        </div>
+      </div>
     </div>
-
   </Page>
 );
 

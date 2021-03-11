@@ -3,11 +3,14 @@ import {
   INCREASE_QTY_ARTICLE,
   DECREASE_QTY_ARTICLE,
   REMOVE_FROM_CART,
+  SET_CART_TOTAL,
 } from '../actions';
+
 
 const initialState = {
   articles: [],
   count: 0,
+  total: 0,
 };
 
 const cart = (state = initialState, action = {}) => {
@@ -27,6 +30,7 @@ const cart = (state = initialState, action = {}) => {
                 : article),
           ),
           count: state.count + 1,
+
         };
       }
       return {
@@ -78,6 +82,14 @@ const cart = (state = initialState, action = {}) => {
         count: state.count - 1,
 
       };
+
+    case SET_CART_TOTAL:
+      return {
+
+        ...state,
+        total: action.total,
+      };
+
     default:
       return state;
   }
