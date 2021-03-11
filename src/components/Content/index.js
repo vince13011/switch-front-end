@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,7 +6,7 @@ import Card from 'src/components/Card';
 
 import './style.scss';
 
-const Content = ({ title, text,articles}) => (
+const Content = ({ title, text, articles }) => (
   <section className="content">
     <h1 className="content-title">{title}</h1>
     <p className="content-text">{text}</p>

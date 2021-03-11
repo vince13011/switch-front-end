@@ -1,10 +1,20 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
-import { MdAccountCircle, MdShoppingCart ,MdMenu} from 'react-icons/md';
+import {
+  MdAccountCircle, MdShoppingCart, MdMenu, MdClose,
+} from 'react-icons/md';
 import './style.scss';
 
-const AppHeader = ({ onClick, categories, logged }) => (
+const AppHeader = ({
+  onClick,
+  categories,
+  logged,
+  count,
+  name,
+  logout,
+}) => (
   <header className="header">
     <div className="header__main">
       <button
@@ -20,22 +30,33 @@ const AppHeader = ({ onClick, categories, logged }) => (
       >
         <div>SWITCH</div>
       </Link>
+
       <div className="header__buttons">
-        <Link to="#">
+        <Link to="/panier">
           <div>
             <MdShoppingCart />
           </div>
-          <div className="header__buttons__btn">Panier
+          <div className="header__buttons__btn">Panier ({count})
           </div>
         </Link>
         {logged ? (
-          <Link to="/mon-compte">
-            <div>
-              <MdAccountCircle />
+          <>
+            <Link to="/mon-compte">
+              <div>
+                <MdAccountCircle />
+              </div>
+              <div>{name}</div>
+              <div className="header__buttons__btn">mon Compte</div>
+
+            </Link>
+            <div><MdClose
+              onClick={() => {
+                logout();
+              }}
+              cursor="pointer"
+            />
             </div>
-            <div className="header__buttons__btn">mon Compte
-            </div>
-          </Link>
+          </>
         )
           : (
             <Link to="/login">
@@ -45,6 +66,7 @@ const AppHeader = ({ onClick, categories, logged }) => (
               <div className="header__buttons__btn">login
               </div>
             </Link>
+
           )}
 
       </div>
@@ -52,12 +74,13 @@ const AppHeader = ({ onClick, categories, logged }) => (
     <nav className="header__nav">
       {categories.map((category) => (
         <NavLink
+          key={category.id}
           className="header__nav__link"
           activeClassName="header__nav__link--active"
           exact
-          to={`/categories/${category}`}
+          to={`/categories/${category.title}`}
         >
-          {category}
+          {category.title}
 
         </NavLink>
       ))}

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -8,26 +9,31 @@ import {
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
-import Account from 'src/components/Account';
-import Signup from 'src/components/Signup';
-import Login from 'src/components/Login';
+import Cart from 'src/containers/Cart';
+import Category from 'src/containers/Category';
+import Account from 'src/containers/Account';
+import Signup from 'src/containers/Signup';
+import Login from 'src/containers/Login';
 import Fav from 'src/containers/Fav';
+import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
+import About from 'src/components/About';
 
 import Loading from './Loading';
-
 import './style.scss';
 
 function App({
-  loading, loadArticles, loadCategories, logged,
+  loading,
+  loadArticles,
+  loadCategories,
+  logged,
 }) {
   useEffect(() => {
     loadArticles();
     loadCategories();
   }, []);
 
-  // const recipes = {recipes}
-  if (loading) {
+  if (loading.articleLoading || loading.categoryLoading) {
     return <Loading />;
   }
   return (
@@ -35,21 +41,37 @@ function App({
       <Menu />
 
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        {logged ? (
-          <Route path="/favorites" exact>
-            <Fav />
-          </Route>
-        ) : (
-          <Redirect from="/favorites" to="/" />
-        )}
         <Route
           exact
-          path="/recipe/:slug"
+          path="/"
+        >
+          <Home />
+        </Route> {
+          logged ? (
+            <Route
+              path="/favorites"
+              exact
+            >
+              <Fav />
+            </Route>
+          ) : (
+            <Redirect
+              from="/favorites"
+              to="/"
+            />
+          )
+        }
+        <Route
+          exact
+          path="/article/:id"
         >
           <Article />
+        </Route>
+        <Route
+          exact
+          path="/categories/:name"
+        >
+          <Category />
         </Route>
         <Route
           exact
@@ -65,13 +87,31 @@ function App({
         </Route>
         <Route
           exact
+          path="/panier"
+        >
+          <Cart />
+        </Route>
+        <Route
+          exact
           path="/signup"
         >
           <Signup />
         </Route>
+        <Route
+          exact
+          path="/about"
+        >
+          <About />
+        </Route>
+        <Route
+          exact
+          path="/mentions-legales"
+        >
+          <LegalNotice />
+
+        </Route>
         <Error />
       </Switch>
-
     </div>
   );
 }

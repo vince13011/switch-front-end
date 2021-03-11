@@ -1,0 +1,57 @@
+.signup { 
+  &__success{
+    padding:0 1rem;
+    max-width: 500px;
+    margin:auto;
+  }
+  &__button{
+    width: 100%;
+    border:2px solid;
+    box-shadow: none;
+    background-color: #fff;
+    padding:.5rem;
+  }
+  &__form{
+    padding:0 1rem;
+    max-width: 500px;
+    margin:auto;
+  }
+  &__message{
+    color:red;
+    margin-bottom: 1rem;
+  }
+  &__address{
+    
+    
+      &__legend{
+        margin-bottom:1rem;
+      }
+      &__field{
+      padding:.5rem;
+      margin-bottom:.5rem ;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width:70%;
+      
+      &--numero{
+        width:30%;
+      }
+      &--zipcode{
+        width:30%;
+      }
+      &--country{
+        width:100%;
+      }          
+    }
+
+  }
+}
+.fieldwrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}

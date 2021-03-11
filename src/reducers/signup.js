@@ -1,9 +1,24 @@
-import { SET_SIGNUP_INPUT_VALUE } from '../actions';
+import { SET_SIGNUP_INPUT_VALUE, SET_SIGNUP_MESSAGE, SET_SIGNUP_SUCCESS } from '../actions';
 
 const initialState = {
-  firstName: '',
-  lastName: '',
-  address: '',
+  message: '',
+  fields: {
+    email: 'kevdiddnc@kevixxxxxn.fr',
+    password: 'azerty123',
+    passwordConfirm: 'azerty123',
+    firstname: 'kevin',
+    lastname: 'detournay',
+    phoneNumber: '0646520398',
+    number: 47,
+    streetName: 'rue des champs ',
+    zipCode: '59390',
+    city: 'lys lez lannoy',
+    country: 'france',
+    additional: 'étage 5',
+
+  },
+  success: false,
+
 };
 
 const signup = (state = initialState, action = {}) => {
@@ -11,9 +26,18 @@ const signup = (state = initialState, action = {}) => {
     case SET_SIGNUP_INPUT_VALUE:
       return {
         ...state,
-        [action.name]: action.value,
+        fields: { ...state.fields, [action.name]: action.value },
       };
-
+    case SET_SIGNUP_MESSAGE:
+      return {
+        ...state,
+        message: action.message,
+      };
+    case SET_SIGNUP_SUCCESS:
+      return {
+        ...state,
+        success: action.status,
+      };
     default:
       return state;
   }

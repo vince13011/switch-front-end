@@ -1,5 +1,78 @@
 @use 'src/styles/vars';
 
-.recipe {
+
+.article{
   padding: 0 vars.$gutter;
+  &__add-to-cart-button{
+   display:none
+    }
+  &__maincontainer{
+    display:flex;
+    flex-direction:column;
+    padding-top: 100px;
+  }
+  &__picturecontainer{
+    
+    img{
+      max-height:400px;
+    }
+  }
+  &__descriptioncontainer{
+    h1{
+      display: none;
+    }
+    padding: 1rem
+    
+  }
+  & button{
+    border:2px solid;
+    box-shadow: none;
+    background-color: #fff;
+    padding:.5rem;
+    }
+   &__price{
+    display: none;
+   } 
+  @media (min-width:768px){
+    &__info{
+      display:flex;
+      width:100%;
+      justify-content: space-evenly;
+      padding:1rem;
+      &__color,&__size{
+        padding:.8rem;
+        border:2px solid
+      }
+    }
+    &__add-to-cart-button{
+      width:100%;
+      display:block;
+      border:2px solid;
+      box-shadow: none;
+      background-color: #fff;
+      padding:.5rem;
+      }
+    &__maincontainer{
+        margin:auto;
+        max-width: 1000px;
+        padding-top: 200px;
+        flex-direction:row;
+    }
+    &__price{
+      display: block;
+     } 
+    &__descriptioncontainer{
+     width:50%;
+     display:flex;
+     flex-direction: column; 
+     justify-content: space-between;    
+     h1{
+      display: block;
+    }
+  }
+      &__picturecontainer{
+      width:50%;
+       
+      }
+  }
 }

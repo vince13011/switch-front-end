@@ -1,71 +1,60 @@
 @use 'src/styles/vars';
-
 .header {
-  position:fixed;
-  top:0;
-  right:0;
-  left:0;
-  background: white;
-  box-shadow: 0 20px 20px -25px rgba(0,0,0,.4); 
-  text-align: center;
-  display:flex;
-  flex-direction: column;
-  padding:1rem;
-  align-items: center;
-  
-
-
-  &__button{
-    font-size: 2em;
-    position:absolute;
-    background:#fff;
-    padding:none;
-    border:none;
- 
-    
-  }
-  
-  &__logo{
-    margin-left:50%;
-     transform: translateX(-50%);
-  }
-  &__buttons{
-    display:flex;
-    
-    &__btn{
-      font-size:.8em;
-      margin:0 .5rem
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    box-shadow: 0 20px 20px -25px rgba(0, 0, 0, .4);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    &__button {
+        font-size: 2em;
+        position: absolute;
+        background: #fff;
+        padding: none;
+        border: none;
     }
-  } 
-  &__main{
-  align-items: center;
-  display:flex;
-  width: 100%;
-  justify-content: space-between;
-  }
-  &__nav{
-    display: none;
-    
-  }
- @media (min-width:768px){
-  
-   &__main {
-          padding:1rem;
-
-   }
-   &__button{
-     display: none;
-   }
-   &__logo{
-     margin-left:50%;
-     transform: translateX(-50%);
-   }
-   &__nav{
-     display: flex;
-      &__link{
-        padding:.5rem;
-      }
+    &__logo {
+        margin-left: 50%;
+        transform: translateX(-50%);
     }
-  
- };
+    &__buttons {
+        display: flex;
+        &__btn {
+            font-size: .8em;
+            margin: 0 .5rem
+        }
+    }
+    &__main {
+        align-items: center;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    &__nav {
+        display: none;
+    }
+    @media (min-width:768px) {
+        &__main {
+            padding: 1rem;
+        }
+        &__button {
+            display: none;
+        }
+        &__logo {
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        &__nav {
+            display: flex;
+            &__link {
+                padding: .5rem;
+            }
+        }
+    }
+    ;
 }
