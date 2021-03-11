@@ -1,19 +1,31 @@
 export const GET_ARTICLES_FROM_API = 'GET_ARTICLES_FROM_API';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
+
+export const CHECKING_STOCK_FROM_API = 'CHECKING_STOCK_FROM_API';
+
+export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
+export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+export const ARTICLE_LOADED = 'ARTICLE_LOADED';
+export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+
 export const SET_LOGIN_INPUT_VALUE = 'SET_LOGIN_INPUT_VALUE';
 export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
+
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
 export const AUTH_IS_LOADING = 'AUTH_IS_LOADING';
-export const GET_FAVS = 'GET_FAVS';
-export const SAVE_FAVS = 'SAVE_FAVS';
+
 export const TOGGLE_MENU = 'TOGGLE_MENU';
-export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
-export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+
 export const ADD_TO_CART = 'ADD_TO_CART';
-export const ARTICLE_LOADED = 'ARTICLE_LOADED';
-export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const SET_CART_MESSAGE = 'SET_CART_MESSAGE';
+
+export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
+export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
+export const SET_CART_TOTAL = 'SET_CART_TOTAL';
+
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
@@ -65,11 +77,41 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
+
+export const checkingStock = (articles) => ({
+  type: CHECKING_STOCK_FROM_API,
+  articles,
+});
+
 export const addToCart = (article, size) => ({
   type: ADD_TO_CART,
   article,
   size,
 });
+
+export const removeFromCart = (article) => ({
+  type: REMOVE_FROM_CART,
+  article,
+ 
+});
+
+export const setCartMessage = (message) => ({
+  type:SET_CART_MESSAGE,
+  message,
+ 
+});
+
+
+export const increaseQuantity = (article) => ({
+  type: INCREASE_QTY_ARTICLE,
+  article,
+});
+
+export const decreaseQuantity = (article) => ({
+  type: DECREASE_QTY_ARTICLE,
+  article,
+});
+
 
 export const getAllCategories = () => ({
   type: GET_CATEGORIES_FROM_API,
@@ -103,16 +145,5 @@ export const logout = () => ({
 export const setLoginTrue = (authObject) => ({
   type: SET_LOGIN_TRUE,
   authObject,
-
-});
-
-export const fetchFavs = () => ({
-  type: GET_FAVS,
-
-});
-
-export const saveFavs = ({ favorites }) => ({
-  type: SAVE_FAVS,
-  favorites,
 
 });

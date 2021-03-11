@@ -57,8 +57,12 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+
+    "persist": "^0.2.7",
+
     "dotenv": "^8.2.0",
     "emailjs-com": "^2.6.4",
+
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
@@ -69,6 +73,7 @@
     "react-router-dom": "^5.2.0",
     "react-toastify": "^7.0.3",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0"
   }
 }

@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import articles from './articles';
 import categories from './categories';
 import home from './home';
@@ -9,6 +12,11 @@ import app from './app';
 import menu from './menu';
 import article from './article';
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['cart'],
+};
 const globalReducer = combineReducers({
   articles,
   home,
@@ -22,4 +30,4 @@ const globalReducer = combineReducers({
 
 });
 
-export default globalReducer;
+export default persistReducer(persistConfig, globalReducer);
