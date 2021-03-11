@@ -8,7 +8,7 @@ import './style.scss';
 
 const Signup = ({
   changeField,
-  email,
+  name,
   password,
   passwordConfirm,
   firstname,
@@ -34,23 +34,23 @@ const Signup = ({
     <Page>
       {success ? (
         <div className="signup__success">
-          <h1> Votre Compte a bien été créé !</h1>
+          <h1> Votre Article a bien été créé !</h1>
           <Link to="/login">
-            <div className="signup__button">Se Connecter</div>
+            <div className="signup__button">Valider</div>
           </Link>
         </div>
       ) : (
         <>
-          <h1 className="pagetitle">s'enregistrer </h1>
+          <h1 className="pagetitle">Créer un Article </h1>
 
           <form className="signup__form">
 
             <Field
-              name="email"
-              placeholder="Email"
+              name="name"
+              placeholder="name"
               onChange={changeField}
-              value={email}
-              type="email"
+              value={name}
+              type="text"
             />
             <Field
               name="password"
@@ -147,7 +147,7 @@ export default Signup;
 Signup.propTypes = {
   changeField: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   passwordConfirm: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
