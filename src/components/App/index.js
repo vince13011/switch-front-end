@@ -99,7 +99,7 @@ function App({
         </Route>
         <Route
           exact
-          path="/about"
+          path="/a propos"
         >
           <About />
         </Route>

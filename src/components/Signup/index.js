@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Field from 'src/components/Field';
 import PropTypes from 'prop-types';

@@ -1,3 +1,9 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 // == Import : npm
 import React from 'react';
