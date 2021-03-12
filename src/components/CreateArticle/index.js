@@ -8,17 +8,12 @@ import './style.scss';
 
 const Signup = ({
   changeField,
-  name,
-  password,
-  passwordConfirm,
-  firstname,
-  lastname,
-  phoneNumber,
-  number,
-  streetName,
-  zipCode,
-  city,
-  country,
+  title,
+  image,
+  description,
+  price,
+  color,
+  size,
   onSubmit,
   message,
   success,
@@ -46,84 +41,47 @@ const Signup = ({
           <form className="signup__form">
 
             <Field
-              name="name"
-              placeholder="name"
+              name="title"
+              placeholder="title"
               onChange={changeField}
-              value={name}
+              value={title}
               type="text"
             />
             <Field
-              name="password"
-              placeholder="Mot de Passe"
+              name="image"
+              placeholder="image"
               onChange={changeField}
-              value={password}
-              type="password"
+              value={image}
+              type="image"
             />
             <Field
-              name="passwordConfirm"
-              placeholder="Confirmer le mot de passe"
+              name="description"
+              placeholder="description"
               onChange={changeField}
-              value={passwordConfirm}
-              type="password"
+              value={description}
+              type="file"
             />
             <Field
-              name="firstname"
-              placeholder="Prénom"
+              name="price"
+              placeholder="Prix"
               onChange={changeField}
-              value={firstname}
+              value={price}
+              type="number"
             />
             <Field
-              name="lastname"
-              placeholder="Nom"
+              name="color"
+              placeholder="couleur"
               onChange={changeField}
-              value={lastname}
+              value={color}
+              type="file"
             />
             <Field
-              name="phoneNumber"
-              placeholder="Telephone"
+              name="size"
+              placeholder="Taille"
               onChange={changeField}
-              value={phoneNumber}
+              value={size}
+              type="file"
             />
-            <fieldset className="signup__address">
-              <legend className="signup__address__legend">Adresse </legend>
-              <div className="fieldwrapper">
-                <Field
-                  name="number"
-                  placeholder="Numero"
-                  onChange={changeField}
-                  value={number}
-                  className="signup__address__field signup__address__field--numero"
-                />
-                <Field
-                  name="streetName"
-                  placeholder="Nom de Rue"
-                  onChange={changeField}
-                  value={streetName}
-                  className="signup__address__field"
-                />
-                <Field
-                  name="zipCode"
-                  placeholder="Code postal"
-                  onChange={changeField}
-                  value={zipCode}
-                  className="signup__address__field signup__address__field--zipcode"
-                />
-                <Field
-                  name="city"
-                  placeholder="Ville"
-                  onChange={changeField}
-                  value={city}
-                  className="signup__address__field"
-                />
-                <Field
-                  name="country"
-                  placeholder="Pays"
-                  onChange={changeField}
-                  value={country}
-                  className="signup__address__field signup__address__field--country"
-                />
-              </div>
-            </fieldset>
             {message
         && (
           <div className="signup__message">{message}</div>
@@ -147,15 +105,10 @@ export default Signup;
 Signup.propTypes = {
   changeField: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  passwordConfirm: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
-  phoneNumber: PropTypes.number.isRequired,
-  number: PropTypes.number.isRequired,
-  streetName: PropTypes.string.isRequired,
-  zipCode: PropTypes.number.isRequired,
-  city: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
 };

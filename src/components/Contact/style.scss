@@ -1,55 +1,25 @@
 @use 'src/styles/vars';
 .contactForm {
-    width: 80%;
-    background: white;
+    width: 50%;
+    background: #fff;
     border-radius: 1rem;
-    border: 1px solid rgb(0, 0, 0);
-    text-align: start;
+    border: 1px solid #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: .8rem;
-    margin: 10rem auto 2rem;
+    margin: 10rem auto 2rem auto;
 }
-
-.container {
-  margin: 1rem auto;
-}
-.row {
-  margin: 1rem auto;
-
-  &__formRow {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-12 {
-  margin: 1rem auto;
-  &__text-cente {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-6 {
-  margin:1rem auto ;
-  &__text-center{
-    text-align: center;
-  }
+.col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .5rem 0;
 }
 
 #contact-form {
   width: 80%;
-  margin: 1.5 auto;
-}
-
-.form-control {
-  text-align: center;
-  &__formInput{
-    margin: .5rem auto;
-    margin-left: .5rem;
-  }
+  margin: 1.5rem auto;
 }
 
 .errorMessage {
@@ -57,14 +27,33 @@
   color: red;
 }
 
-.col {
-  margin: 1rem auto;
-  width: 100%;
-}
 .submit-btn {
   margin: 1rem auto;
 }
 
-input{
-  font-size: none;
+
+label {
+  padding-bottom: .7rem;
+}
+
+input[type=text], input[type=email], textarea {
+  padding: .3em .7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin:.3em;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #A9A9A9;
+  color: #FFF;
+  padding: 0.5em 0.7em;
+  margin: .5em;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #797979;
 }
