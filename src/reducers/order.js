@@ -2,6 +2,7 @@ import { ORDER_IS_LOADING } from '../actions';
 
 const initialState = {
   loading: false,
+  success: false,
 };
 
 const order = (state = initialState, action = {}) => {

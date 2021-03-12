@@ -1,12 +1,16 @@
 export const GET_ARTICLES_FROM_API = 'GET_ARTICLES_FROM_API';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
-
+export const GET_ONE_ARTICLE = 'GET_ONE_ARTICLE';
+export const SAVE_ONE_ARTICLE = 'SAVE_ONE_ARTICLE';
 export const CHECKING_STOCK_FROM_API = 'CHECKING_STOCK_FROM_API';
+export const CHECKED_CART = 'CHECKED_CART';
 
 export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
 export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
 export const ARTICLE_LOADED = 'ARTICLE_LOADED';
 export const CATEGORY_LOADED = 'CATEGORY_LOADED';
+
+export const ARTICLE_IS_LOADING = 'ARTICLE_IS_LOADING';
 
 export const SET_LOGIN_INPUT_VALUE = 'SET_LOGIN_INPUT_VALUE';
 export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
@@ -31,11 +35,19 @@ export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
 export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
 
-export const SEND_ORDER='SEND_ORDER';
-export const ORDER_IS_LOADING ='ORDER_IS_LOADING';
+export const SEND_ORDER = 'SEND_ORDER';
+export const ORDER_IS_LOADING = 'ORDER_IS_LOADING';
 
-export const sendOrder = () => ({
+export const checkedCart = (status) => ({
+  type: CHECKED_CART,
+  status,
+}
+);
+
+export const sendOrder = (paymentResult, total) => ({
   type: SEND_ORDER,
+  paymentResult,
+  total,
 });
 
 export const orderIsLoading = (status) => ({
@@ -89,6 +101,21 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
+export const getOneArticle = (id) => ({
+  type: GET_ONE_ARTICLE,
+  id,
+
+});
+export const articleLoading = (status) => ({
+  type: ARTICLE_IS_LOADING,
+  status,
+
+});
+
+export const saveOneArticle = (article) => ({
+  type: SAVE_ONE_ARTICLE,
+  article,
+});
 
 export const checkingStock = (articles) => ({
   type: CHECKING_STOCK_FROM_API,
@@ -104,15 +131,14 @@ export const addToCart = (article, size) => ({
 export const removeFromCart = (article) => ({
   type: REMOVE_FROM_CART,
   article,
- 
+
 });
 
 export const setCartMessage = (message) => ({
-  type:SET_CART_MESSAGE,
+  type: SET_CART_MESSAGE,
   message,
- 
-});
 
+});
 
 export const increaseQuantity = (article) => ({
   type: INCREASE_QTY_ARTICLE,
@@ -123,7 +149,6 @@ export const decreaseQuantity = (article) => ({
   type: DECREASE_QTY_ARTICLE,
   article,
 });
-
 
 export const getAllCategories = () => ({
   type: GET_CATEGORIES_FROM_API,

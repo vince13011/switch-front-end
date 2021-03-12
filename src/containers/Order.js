@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Order from 'src/components/Order';
-import { sendOrder } from 'src/actions';
+import { sendOrder, checkedCart } from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => {
@@ -14,16 +14,22 @@ const mapStateToProps = (state) => {
     articles: state.cart.articles,
     total,
     loading: state.order.loading,
-
+    user: state.auth.user,
+    address: state.auth.address,
+    logged: state.auth.logged,
+    isCheckedCart: state.cart.checkedCart,
   };
 };
 
 // branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
-  onClick: async (paiment) => {
-    console.log(paiment);
-  },
 
+  onClick: (paymentResult) => {
+    dispatch(sendOrder(paymentResult));
+  },
+  removeCartStatus: () => {
+    dispatch(checkedCart(false));
+  },
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Order);

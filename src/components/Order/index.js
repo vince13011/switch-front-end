@@ -3,26 +3,32 @@ import './style.scss';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import Page from 'src/components/Page';
-
+import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
 const Order = ({
-  articles, total, loading, onClick,
+  articles,
+  total,
+  loading,
+  onClick,
+  user,
+  address,
+  logged,
+  isCheckedCart,
+  removeCartStatus,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
-
+  const handleCancel = () => {
+    removeCartStatus();
+  };
   const handleSubmit = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-    const response = await axios.post('http://localhost:4000/v1/pay', {
+    const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/pay', {
       email: 'kevin@kevin.fr',
       total,
     });
@@ -36,20 +42,18 @@ const Order = ({
         },
       },
     });
-    if (result.error) {
-      // Show error to your customer (e.g., insufficient funds)
-      console.log(result.error.message);
-    }
-    else {
-      // The payment has been processed!
-      if (result.paymentIntent.status === 'succeeded') {
-        console.log(result.paymentIntent);
-      }
-    }
+
+    onClick(result, address, user);
   };
 
   if (loading) {
     return <Loading />;
+  }
+  if (!logged) {
+    return <Redirect to="/" />;
+  }
+  if (!isCheckedCart) {
+    return <Redirect to="/panier" />;
   }
   return (
     <Page>
@@ -76,24 +80,25 @@ const Order = ({
         </div>
         <div className="order__address">
           <h2 className="order__subtitle">Mon adresse de livraison </h2>
-          <p>
-            12 rue de la tout eiffel
-          </p>
-          <p>
-            59390 lys lez lannoy
-          </p>
+          <p className="order__address__item">{address.number} {address.street_name}</p>
+          <p className="order__address__item">{address.zip_code} {address.city}</p>
         </div>
         <div className="order__footer">
           <p>Livraison : offerte </p>
           <p>total {total}€</p>
-
+          <button
+            className="order__button"
+            type="button"
+            onClick={handleCancel}
+          >Modifier Ma Commande
+          </button>
+          <CardElement className="order__credit" />
           <button
             className="order__button"
             type="submit"
             onClick={handleSubmit}
           >payer maintenant
           </button>
-          <CardElement className="order__credit" />
         </div>
 
       </div>

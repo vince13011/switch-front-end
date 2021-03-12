@@ -5,7 +5,10 @@ import { logout } from 'src/actions/';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
-  user: state.auth,
+  user: state.auth.user,
+  address: state.auth.address,
+  logged: state.auth.logged,
+  orders: state.auth.address.address_orders,
 });
 
 // branchement en écriture du state

@@ -7,11 +7,21 @@
   }
   &__subtitle{
     font-size:1.2em;
+    padding:.8rem;
   }
   &__container{
     max-width: 1024px;
     padding:2rem;
    margin:auto;
+  }
+  &__button{
+      margin:auto;
+      width: 50%;
+      border:2px solid;
+      box-shadow: none;
+      background-color: #fff;
+      padding:.5rem;
+  
   }
    &__article{
      padding:.8rem;
@@ -75,15 +85,16 @@
   height: 40px;
   padding: 10px 12px;
   width: 100%;
+  max-width:500px;
   color: #32325d;
   background-color: white;
   border: 1px solid transparent;
   border-radius: 4px;
-
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
-}
+  margin-bottom:1rem;
+ }
 
 .StripeElement--focus {
   box-shadow: 0 1px 3px 0 #cfd7df;

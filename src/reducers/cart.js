@@ -4,12 +4,14 @@ import {
   DECREASE_QTY_ARTICLE,
   REMOVE_FROM_CART,
   SET_CART_MESSAGE,
+  CHECKED_CART,
 } from '../actions';
 
 const initialState = {
   articles: [],
   count: 0,
   message: '',
+  checkedCart: false,
 
 };
 
@@ -88,6 +90,11 @@ const cart = (state = initialState, action = {}) => {
 
         ...state,
         message: action.message,
+      };
+    case CHECKED_CART:
+      return {
+        ...state,
+        checkedCart: action.status,
       };
 
     default:
