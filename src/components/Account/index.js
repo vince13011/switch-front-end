@@ -30,7 +30,7 @@ const Account = ({
           <h2 className="account__subtitle"> Mes Commandes </h2>
           { orders.map(
             (order) => (
-              <p className="account__item">{order.order_number} {order.total_price}</p>
+              <p className="account__item">{order.order_number} {order.total_price}€</p>
             ),
           )}
 

@@ -1,4 +1,4 @@
-import { ORDER_IS_LOADING } from '../actions';
+import { ORDER_IS_LOADING, SET_ORDER_SUCCESS } from '../actions';
 
 const initialState = {
   loading: false,
@@ -10,6 +10,10 @@ const order = (state = initialState, action = {}) => {
     case ORDER_IS_LOADING:
       return {
         ...state, loading: action.status,
+      };
+    case SET_ORDER_SUCCESS:
+      return {
+        ...state, success: action.status,
       };
     default:
       return state;

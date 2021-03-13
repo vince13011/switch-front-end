@@ -29,6 +29,7 @@ export const SET_CART_MESSAGE = 'SET_CART_MESSAGE';
 export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
 export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
 export const SET_CART_TOTAL = 'SET_CART_TOTAL';
+export const SET_ORDER_SUCCESS='SET_ORDER_SUCCESS'
 
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
@@ -65,6 +66,11 @@ export const setSignupMessage = (message) => ({
 });
 
 export const setSignupSuccess = (status) => ({
+  type: SET_SIGNUP_SUCCESS,
+  status,
+});
+
+export const setOrderSuccess = (status) => ({
   type: SET_SIGNUP_SUCCESS,
   status,
 });

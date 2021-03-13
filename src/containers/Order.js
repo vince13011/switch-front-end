@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     address: state.auth.address,
     logged: state.auth.logged,
     isCheckedCart: state.cart.checkedCart,
+    success: state.order.success,
   };
 };
 

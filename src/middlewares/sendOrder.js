@@ -1,5 +1,7 @@
 import {
-  SEND_ORDER, orderIsLoading,
+  SEND_ORDER,
+  orderIsLoading,
+  setOrderSuccess,
 } from 'src/actions';
 import axios from 'axios';
 
@@ -14,7 +16,7 @@ const sendOrder = (store) => (next) => (action) => {
           console.log()
           store.dispatch(orderIsLoading(true));
           const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/order', {
-            
+
             user_id: store.getState().auth.user.id,
             address_id: 13,
             total_price: (action.paymentResult.paymentIntent.amount/100).toString(),
@@ -35,7 +37,8 @@ const sendOrder = (store) => (next) => (action) => {
             ],
           });
           console.log(response.data);
-          store.dispatch(setSuccessOrder(true));
+          store.dispatch(setOrderSuccess(true))
+          store.dispatch(emptyCart()); //TODO
           store.dispatch(orderIsLoading(false));
         }
         catch (error) {
