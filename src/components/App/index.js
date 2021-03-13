@@ -18,7 +18,7 @@ import Fav from 'src/containers/Fav';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
-import Contact from 'src/components/Contact';
+// import Contact from 'src/components/Contact';
 import CreateArticle from 'src/components/CreateArticle';
 
 import Loading from './Loading';
@@ -114,12 +114,6 @@ function App({
         <Route
           exact
           path="/contact"
-        >
-          <Contact />
-        </Route>
-        <Route
-          exact
-          path="/create-article"
         >
           <CreateArticle />
         </Route>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Field from 'src/components/Field';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Page from 'src/components/Page';
 import './style.scss';
 
-const Signup = ({
+const CreateArticle = ({
   changeField,
   title,
   image,
@@ -19,7 +20,7 @@ const Signup = ({
   success,
 
 }) => {
-  const handleSingupSubmit = (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
     onSubmit();
   };
@@ -28,21 +29,19 @@ const Signup = ({
 
     <Page>
       {success ? (
-        <div className="signup__success">
+        <div className="createArticle__success">
           <h1> Votre Article a bien été créé !</h1>
-          <Link to="/login">
-            <div className="signup__button">Valider</div>
+          <Link to="/home">
+            <div className="createArticle__button">Valider</div>
           </Link>
         </div>
       ) : (
         <>
           <h1 className="pagetitle">Créer un Article </h1>
-
-          <form className="signup__form">
-
+          <form className="createArticle__form">
             <Field
               name="title"
-              placeholder="title"
+              placeholder="Titre"
               onChange={changeField}
               value={title}
               type="text"
@@ -52,14 +51,14 @@ const Signup = ({
               placeholder="image"
               onChange={changeField}
               value={image}
-              type="image"
+              type="file"
             />
             <Field
               name="description"
-              placeholder="description"
+              placeholder="Description"
               onChange={changeField}
               value={description}
-              type="file"
+              type="text"
             />
             <Field
               name="price"
@@ -70,28 +69,28 @@ const Signup = ({
             />
             <Field
               name="color"
-              placeholder="couleur"
+              placeholder="Couleur"
               onChange={changeField}
               value={color}
-              type="file"
+              type="text"
             />
             <Field
               name="size"
               placeholder="Taille"
               onChange={changeField}
               value={size}
-              type="file"
+              type="text"
             />
             {message
-        && (
-          <div className="signup__message">{message}</div>
-        )}
+              && (
+                <div className="createArticle__message">{message}</div>
+              )}
             <button
               type="submit"
-              className="signup__button"
-              onClick={handleSingupSubmit}
+              className="createArticle__button"
+              onClick={handleSignupSubmit}
             >
-              S'inscrire
+              Valider
             </button>
           </form>
         </>
@@ -100,9 +99,9 @@ const Signup = ({
 
   );
 };
-export default Signup;
+export default CreateArticle;
 
-Signup.propTypes = {
+CreateArticle.propTypes = {
   changeField: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,

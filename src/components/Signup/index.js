@@ -24,7 +24,7 @@ const Signup = ({
   success,
 
 }) => {
-  const handleSingupSubmit = (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
     onSubmit();
   };
@@ -131,7 +131,7 @@ const Signup = ({
             <button
               type="submit"
               className="signup__button"
-              onClick={handleSingupSubmit}
+              onClick={handleSignupSubmit}
             >
               S'inscrire
             </button>

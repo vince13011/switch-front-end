@@ -1,4 +1,5 @@
-import { SIGNUP, setSignupMessage,setSignupSuccess } from 'src/actions';
+/* eslint-disable consistent-return */
+import { SIGNUP, setSignupMessage, setSignupSuccess } from 'src/actions';
 import axios from 'axios';
 
 const signup = (store) => (next) => (action) => {

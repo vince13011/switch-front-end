@@ -27,17 +27,12 @@
   color: red;
 }
 
-.submit-btn {
-  margin: 1rem auto;
-}
-
-
 label {
   padding-bottom: .7rem;
 }
 
 input[type=text], input[type=email], textarea {
-  padding: .3em .7rem;
+  padding: .3em .7em;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin:.3em;
@@ -45,9 +40,9 @@ input[type=text], input[type=email], textarea {
 
 .submit-btn {
   width: 100%;
-  background-color: #A9A9A9;
+  background-color: #a9a9a9;
   color: #FFF;
-  padding: 0.5em 0.7em;
+  padding: .5em .7em;
   margin: .5em;
   border: none;
   border-radius: 1em;

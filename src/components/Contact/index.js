@@ -65,7 +65,7 @@ const ContactForm = () => {
                 name="name"
                 id="name"
                 ref={register({
-                  required: { value: true, message: 'Please enter your name' },
+                  required: { value: true, message: 'Veuillez entrer votre nom.' },
                   maxLength: {
                     value: 30,
                     message: 'Please use 30 characters or less',
@@ -88,7 +88,7 @@ const ContactForm = () => {
                 placeholder="xyz@exemple.com"
               />
               {errors.email && (
-                <span className="errorMessage">Please enter a valid email address</span>
+                <span className="errorMessage">Veuillez entrer une adresse valide.</span>
               )}
             </div>
           </div>
@@ -101,14 +101,14 @@ const ContactForm = () => {
                 name="subject"
                 id="subject"
                 ref={register({
-                  required: { value: true, message: 'Please enter a subject' },
+                  required: { value: true, message: 'Veuillez entrer un sujet.' },
                   maxLength: {
                     value: 75,
-                    message: 'Subject cannot exceed 75 characters',
+                    message: 'Le sujet ne peut pas dépasser 75 caractères',
                   },
                 })}
                 className="form-control__formInput"
-                placeholder="suivre ma commande"
+                placeholder="ex: suivre ma commande"
               />
             </div>
           </div>
