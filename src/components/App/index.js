@@ -16,6 +16,8 @@ import Cart from 'src/containers/Cart';
 import Category from 'src/containers/Category';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
+import Order from 'src/containers/Order';
+import Success from 'src/containers/Success';
 import Signup from 'src/containers/Signup';
 import Login from 'src/containers/Login';
 import Checkout from 'src/containers/Checkout';
@@ -59,6 +61,18 @@ function App({
           path="/admin"
         >
           <Admin />
+        </Route>
+        <Route
+          exact
+          path="/success-checkout"
+        >
+          <Success />
+        </Route>
+        <Route
+          exact
+          path="/order/:id"
+        >
+          <Order />
         </Route>
         <Route
           exact

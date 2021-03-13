@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
-import AdminOrder from 'src/components/AdminOrder';
+import { withRouter } from 'react-router-dom';
+import Order from 'src/components/Order';
 import { getOneOrder} from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
-  order: state.adminOrder.order,
+  order: state.order.order,
+  articles: state.order.order.orderArticles
 });
 
 // branchement en écriture du state
@@ -17,4 +19,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
  
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminOrder);
+const connected= connect(mapStateToProps, mapDispatchToProps)(Order);
+export default withRouter(connected);

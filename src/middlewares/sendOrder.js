@@ -13,32 +13,30 @@ const sendOrder = (store) => (next) => (action) => {
           if (action.paymentResult.error) {
             return console.log('mw', action.paymentResult.error.message);
           }
-          console.log()
+          const { articles } = store.getState().cart;
+          const parsedArticle = articles.map((article) => ({
+            article_id: article.id,
+            unit_net_price: article.pre_tax_price,
+            sizes: {
+              size: article.size,
+              quantity: article.qty,
+            },
+          }));
+
+          console.log("parsedArticle",parsedArticle); 
+
           store.dispatch(checkoutIsLoading(true));
           const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/order', {
 
             user_id: store.getState().auth.user.id,
-            address_id: 13,
-            total_price: (action.paymentResult.paymentIntent.amount/100).toString(),
-            articles: [
-              {
-                article_id: 4,
-                size: "M",
-                quantity: 10,
-                unit_net_price: 10,
-              },
-              {
-                article_id: 4,
-                size: "L",
-                quantity: 10,
-                unit_net_price: 10,
-              },
-
-            ],
+            address_id: store.getState().auth.address.id,
+            total_price: (action.paymentResult.paymentIntent.amount / 100).toString(),
+            articles: parsedArticle,
+        
           });
           console.log(response.data);
-          store.dispatch(setcheckoutSuccess(true))
-          store.dispatch(emptyCart()); //TODO
+          store.dispatch(setCheckoutSuccess(true));
+
           store.dispatch(checkoutIsLoading(false));
         }
         catch (error) {

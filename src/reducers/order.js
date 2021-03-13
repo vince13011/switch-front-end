@@ -1,8 +1,10 @@
+import {SAVE_ONE_ORDER} from 'src/actions';
+
 const initialState = {
   order: {},
 };
 
-const adminOrder = (state = initialState, action = {}) => {
+const Order = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_ONE_ORDER:
       return {
@@ -13,4 +15,4 @@ const adminOrder = (state = initialState, action = {}) => {
   }
 };
 
-export default adminOrder;
+export default Order;

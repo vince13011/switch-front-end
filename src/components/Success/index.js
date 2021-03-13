@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import { Link, Redirect } from 'react-router-dom';
 
-const Success = () => {
+import Page from 'src/components/Page';
+
+const Success = ({ resetCheckoutSuccess, user, resetCheckedCart }) => {
   const [redirect, setRedirect] = useState(null);
 
   useEffect(() => {
-    
+    resetCheckoutSuccess();
+    resetCheckedCart();
     setTimeout(() => {
       setRedirect(true);
-    }, 40000);
+    }, 5000);
   }, []);
 
   if (redirect) {
@@ -17,14 +20,17 @@ const Success = () => {
   }
 
   return (
+    <Page>
 
-    <div className="success__container">
-      <div className="success__thankyou">
-        <h1>Merci pour votre commande.</h1>
+      <div className="success__container">
+        <div className="success__thankyou">
+          <h1>Merci pour votre commande {user.firstName}</h1>
+          <h2>Vous allez être redirgé vers, la page d'accueil</h2>
 
+        </div>
+        <Link to="/">si rien ne se passe, cliquez ici  retourner a la page d'accueil </Link>
       </div>
-      <Link to="/">retourner a la page d'accueil </Link>
-    </div>
+    </Page>
   );
 };
 

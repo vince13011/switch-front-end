@@ -1,11 +1,11 @@
-import React, { useEffect,useState} from 'react';
+import React, { useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Admin = ({
   loadOrders,
   orders,
 }) => {
-  
   useEffect(() => {
     loadOrders();
   }, []);
@@ -25,7 +25,9 @@ const Admin = ({
         <div className="admin__orders__totreat">commandes a traiter
 
           {orders && orders.map((order) => (
-            <div> {order.order_number} </div>
+            <Link to={`/order/${order.id}`}>
+              <div> {order.order_number} </div>
+            </Link>
           ))}
         </div>
         <div className="admin__orders__viewAll">voir toute les commandes</div>

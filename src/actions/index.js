@@ -9,7 +9,7 @@ export const GET_CATEGORIES_FROM_API = 'GET_CATEGORIES_FROM_API';
 export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
 export const ARTICLE_LOADED = 'ARTICLE_LOADED';
 export const CATEGORY_LOADED = 'CATEGORY_LOADED';
-
+export const RESET_CART = 'RESET_CART';
 export const ARTICLE_IS_LOADING = 'ARTICLE_IS_LOADING';
 
 export const SET_LOGIN_INPUT_VALUE = 'SET_LOGIN_INPUT_VALUE';
@@ -17,6 +17,7 @@ export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
 
 export const AUTH_IS_LOADING = 'AUTH_IS_LOADING';
@@ -30,7 +31,7 @@ export const SET_CART_MESSAGE = 'SET_CART_MESSAGE';
 export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
 export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
 export const SET_CART_TOTAL = 'SET_CART_TOTAL';
-export const SET_CHECKOUT_SUCCESS = 'SET_ORDER_SUCCESS';
+export const SET_CHECKOUT_SUCCESS = 'SET_CHECKOUT_SUCCESS';
 
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
@@ -43,9 +44,9 @@ export const GET_ALL_ORDERS_FROM_API = 'GET_ALL_ORDERS_FROM_API';
 export const SAVE_ADMIN_ORDERS = 'SAVE_ADMIN_ORDERS';
 export const GET_ONE_ORDER_FROM_API = 'GET_ONE_ORDER_FROM_API';
 export const SAVE_ONE_ORDER = 'SAVE_ONE_ORDER';
-
+export const GET_ALL_USER_ORDERS = 'GET_ALL_USER_ORDERS';
+export const SAVE_ALL_USER_ORDERS = 'SAVE_ALL_USER_ORDERS';
 export const ADMIN_ORDERS_LOADING = 'ADMIN_ORDERS_LOADING';
-
 
 export const adminOrdersLoading = (status) => ({
   type: ADMIN_ORDERS_LOADING,
@@ -73,11 +74,23 @@ export const getAllOrders = () => ({
   type: GET_ALL_ORDERS_FROM_API,
 });
 
+export const getAllUserOrders = () => ({
+  type: GET_ALL_USER_ORDERS,
+
+});
+export const saveAllUserOrders=(orders)=>({
+  type: SAVE_ALL_USER_ORDERS,
+  orders,
+})
 export const checkedCart = (status) => ({
   type: CHECKED_CART,
   status,
 }
 );
+
+export const resetCart = () => ({
+  type: RESET_CART,
+});
 
 export const sendOrder = (paymentResult, total) => ({
   type: SEND_ORDER,
@@ -104,8 +117,8 @@ export const setSignupSuccess = (status) => ({
   status,
 });
 
-export const setOrderSuccess = (status) => ({
-  type: SET_SIGNUP_SUCCESS,
+export const setCheckoutSuccess = (status) => ({
+  type: SET_CHECKOUT_SUCCESS,
   status,
 });
 

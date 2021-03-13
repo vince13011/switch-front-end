@@ -5,6 +5,7 @@ import {
   REMOVE_FROM_CART,
   SET_CART_MESSAGE,
   CHECKED_CART,
+  RESET_CART,
 } from '../actions';
 
 const initialState = {
@@ -96,7 +97,10 @@ const cart = (state = initialState, action = {}) => {
         ...state,
         checkedCart: action.status,
       };
-
+    case RESET_CART:
+      return{
+        ...initialState
+      }
     default:
       return state;
   }
