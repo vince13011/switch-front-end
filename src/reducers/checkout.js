@@ -1,17 +1,17 @@
-import { ORDER_IS_LOADING, SET_ORDER_SUCCESS } from '../actions';
+import { CHECKOUT_IS_LOADING, SET_CHECKOUT_SUCCESS } from '../actions';
 
 const initialState = {
   loading: false,
   success: false,
 };
 
-const order = (state = initialState, action = {}) => {
+const checkout = (state = initialState, action = {}) => {
   switch (action.type) {
-    case ORDER_IS_LOADING:
+    case CHECKOUT_IS_LOADING:
       return {
         ...state, loading: action.status,
       };
-    case SET_ORDER_SUCCESS:
+    case SET_CHECKOUT_SUCCESS:
       return {
         ...state, success: action.status,
       };
@@ -20,4 +20,4 @@ const order = (state = initialState, action = {}) => {
   }
 };
 
-export default order;
+export default checkout;

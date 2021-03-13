@@ -8,10 +8,12 @@ import home from './home';
 import auth from './auth';
 import signup from './signup';
 import cart from './cart';
-import order from './order';
+import checkout from './checkout';
 import app from './app';
 import menu from './menu';
 import article from './article';
+import admin from './admin'
+
 
 const persistConfig = {
   key: 'root',
@@ -28,7 +30,8 @@ const globalReducer = combineReducers({
   signup,
   cart,
   article,
-  order,
+  checkout,
+  admin,
 
 });
 

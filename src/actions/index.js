@@ -18,6 +18,7 @@ export const SET_SIGNUP_INPUT_VALUE = 'SET_SIGNUP_INPUT_VALUE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_LOGIN_TRUE = 'SET_LOGIN_TRUE';
+
 export const AUTH_IS_LOADING = 'AUTH_IS_LOADING';
 
 export const TOGGLE_MENU = 'TOGGLE_MENU';
@@ -29,7 +30,7 @@ export const SET_CART_MESSAGE = 'SET_CART_MESSAGE';
 export const INCREASE_QTY_ARTICLE = 'INCREASE_QTY_ARTICLE';
 export const DECREASE_QTY_ARTICLE = 'DECREASE_QTY_ARTICLE';
 export const SET_CART_TOTAL = 'SET_CART_TOTAL';
-export const SET_ORDER_SUCCESS='SET_ORDER_SUCCESS'
+export const SET_CHECKOUT_SUCCESS = 'SET_ORDER_SUCCESS';
 
 export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
@@ -37,7 +38,40 @@ export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
 export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
 
 export const SEND_ORDER = 'SEND_ORDER';
-export const ORDER_IS_LOADING = 'ORDER_IS_LOADING';
+export const CHECKOUT_IS_LOADING = 'CHECKOUT_IS_LOADING';
+export const GET_ALL_ORDERS_FROM_API = 'GET_ALL_ORDERS_FROM_API';
+export const SAVE_ADMIN_ORDERS = 'SAVE_ADMIN_ORDERS';
+export const GET_ONE_ORDER_FROM_API = 'GET_ONE_ORDER_FROM_API';
+export const SAVE_ONE_ORDER = 'SAVE_ONE_ORDER';
+
+export const ADMIN_ORDERS_LOADING = 'ADMIN_ORDERS_LOADING';
+
+
+export const adminOrdersLoading = (status) => ({
+  type: ADMIN_ORDERS_LOADING,
+  status,
+});
+
+export const saveAdminOrders = (orders) => ({
+  type: SAVE_ADMIN_ORDERS,
+  orders,
+
+});
+
+export const saveOneOrder = (order) => ({
+  type: SAVE_ONE_ORDER,
+  order,
+
+});
+
+export const getOneOrder = (id) => ({
+  type: GET_ONE_ORDER_FROM_API,
+  id,
+});
+
+export const getAllOrders = () => ({
+  type: GET_ALL_ORDERS_FROM_API,
+});
 
 export const checkedCart = (status) => ({
   type: CHECKED_CART,
@@ -51,8 +85,8 @@ export const sendOrder = (paymentResult, total) => ({
   total,
 });
 
-export const orderIsLoading = (status) => ({
-  type: ORDER_IS_LOADING,
+export const checkoutIsLoading = (status) => ({
+  type: CHECKOUT_IS_LOADING,
   status,
 });
 

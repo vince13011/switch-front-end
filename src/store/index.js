@@ -10,6 +10,7 @@ import getOneArticle from '../middlewares/getOneArticle';
 import getCategories from '../middlewares/getCategories';
 import cartChecking from '../middlewares/cartChecking';
 import sendOrder from '../middlewares/sendOrder';
+import getOrders from '../middlewares/getOrders';
 import signup from '../middlewares/signup';
 
 // le store est le gardien du state
@@ -22,6 +23,7 @@ export const store = createStore(reducer, composeWithDevTools(
     signup,
     cartChecking,
     sendOrder,
+    getOrders,
     getOneArticle),
 ));
 export const persistor = persistStore(store);

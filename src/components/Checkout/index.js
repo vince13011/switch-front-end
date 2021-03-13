@@ -3,7 +3,7 @@ import './style.scss';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import Page from 'src/components/Page';
-import Success from 'src/components/Success'
+import Success from 'src/components/Success';
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
@@ -61,7 +61,7 @@ const Order = ({
     <Page>
       {success ? (
 
-       <Success/>
+        <Success />
       ) : (
         <div className="order__container">
           <h1>Récapitulatif</h1>

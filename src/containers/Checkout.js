@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Order from 'src/components/Order';
+import Checkout from 'src/components/Checkout';
 import { sendOrder, checkedCart } from 'src/actions';
 
 // branchement en lecture du state
@@ -13,12 +13,12 @@ const mapStateToProps = (state) => {
   return {
     articles: state.cart.articles,
     total,
-    loading: state.order.loading,
+    loading: state.checkout.loading,
     user: state.auth.user,
     address: state.auth.address,
     logged: state.auth.logged,
     isCheckedCart: state.cart.checkedCart,
-    success: state.order.success,
+    success: state.checkout.success,
   };
 };
 
@@ -33,5 +33,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const connected = connect(mapStateToProps, mapDispatchToProps)(Order);
+const connected = connect(mapStateToProps, mapDispatchToProps)(Checkout);
 export default withRouter(connected);

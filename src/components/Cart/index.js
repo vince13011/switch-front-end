@@ -20,7 +20,7 @@ const CART = ({
   message,
 }) => {
   if (isCheckedCart === true) {
-    return <Redirect to="/order" />;
+    return <Redirect to="/checkout" />;
   }
   return (
     <Page>

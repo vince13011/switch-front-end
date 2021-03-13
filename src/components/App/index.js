@@ -15,9 +15,10 @@ import Article from 'src/containers/Article';
 import Cart from 'src/containers/Cart';
 import Category from 'src/containers/Category';
 import Account from 'src/containers/Account';
+import Admin from 'src/containers/Admin';
 import Signup from 'src/containers/Signup';
 import Login from 'src/containers/Login';
-import Order from 'src/containers/Order';
+import Checkout from 'src/containers/Checkout';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
@@ -53,7 +54,12 @@ function App({
         >
           <Home />
         </Route>
-
+        <Route
+          exact
+          path="/admin"
+        >
+          <Admin />
+        </Route>
         <Route
           exact
           path="/article/:id"
@@ -74,10 +80,10 @@ function App({
         </Route>
         <Route
           exact
-          path="/order"
+          path="/checkout"
         >
           <Elements stripe={stripePromise}>
-            <Order />
+            <Checkout />
           </Elements>
 
         </Route>
