@@ -8,14 +8,18 @@ import home from './home';
 import auth from './auth';
 import signup from './signup';
 import cart from './cart';
+import checkout from './checkout';
 import app from './app';
 import menu from './menu';
 import article from './article';
+import admin from './admin';
+import order from './order';
+
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart'],
+  whitelist: ['cart','auth'],
 };
 const globalReducer = combineReducers({
   articles,
@@ -27,6 +31,9 @@ const globalReducer = combineReducers({
   signup,
   cart,
   article,
+  checkout,
+  admin,
+  order,
 
 });
 

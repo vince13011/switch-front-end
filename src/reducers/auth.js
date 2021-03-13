@@ -3,6 +3,7 @@ import {
   SET_LOGIN_TRUE,
   LOGOUT,
   AUTH_IS_LOADING,
+  SAVE_ALL_USER_ORDERS,
 } from '../actions';
 
 export const initialState = {
@@ -36,7 +37,11 @@ const auth = (state = initialState, action = {}) => {
       return {
         ...initialState,
       };
+    case SAVE_ALL_USER_ORDERS:
+      return {
+        ...state, orders: action.orders,
 
+      };
     default:
       return state;
   }

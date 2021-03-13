@@ -1,7 +1,9 @@
-import { SET_SIZE_VALUE } from '../actions';
+import { ARTICLE_IS_LOADING, SAVE_ONE_ARTICLE, SET_SIZE_VALUE } from '../actions';
 
 const initialState = {
+  article: [],
   size: '',
+  loading: false,
 };
 
 const article = (state = initialState, action = {}) => {
@@ -11,7 +13,12 @@ const article = (state = initialState, action = {}) => {
         ...state,
         size: action.size,
       };
-
+    case ARTICLE_IS_LOADING:
+      return {
+        ...state, loading: action.status,
+      };
+    case SAVE_ONE_ARTICLE:
+      return { ...state, article: action.article };
     default:
       return state;
   }

@@ -4,12 +4,15 @@ import {
   DECREASE_QTY_ARTICLE,
   REMOVE_FROM_CART,
   SET_CART_MESSAGE,
+  CHECKED_CART,
+  RESET_CART,
 } from '../actions';
 
 const initialState = {
   articles: [],
   count: 0,
   message: '',
+  checkedCart: false,
 
 };
 
@@ -89,7 +92,15 @@ const cart = (state = initialState, action = {}) => {
         ...state,
         message: action.message,
       };
-
+    case CHECKED_CART:
+      return {
+        ...state,
+        checkedCart: action.status,
+      };
+    case RESET_CART:
+      return{
+        ...initialState
+      }
     default:
       return state;
   }

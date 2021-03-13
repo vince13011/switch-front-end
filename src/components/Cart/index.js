@@ -15,16 +15,14 @@ const CART = ({
   onLessClick,
   onRemoveClick,
   total,
-  cartChecked,
+  isCheckedCart,
   checkingCart,
-  message
+  message,
 }) => {
-  if (cartChecked) {
-    return <Redirect to="/" />;
+  if (isCheckedCart === true) {
+    return <Redirect to="/checkout" />;
   }
-
   return (
-
     <Page>
       <div className="cart__container">
         {articles ? (
@@ -39,29 +37,29 @@ const CART = ({
                   quantité: {article.qty}
                   <div>
                     {article.qty > 1 ? (
-                      <MdRemove
-                        key={`less${article.id}`}
-                        className="cart__article__item__qty-btn"
-                        onClick={() => {
-                          onLessClick(article);
-                        }}
-                      />
-                    ) : (
-                      <MdDelete
-                        key={`less${article.id}`}
-                        className="cart__article__item__delete"
-                        onClick={() => {
-                          onRemoveClick(article);
-                        }}
-                      />
-                    )}
-                    <MdAdd
-                      key={`plus${article.id}`}
+                    <MdRemove
+                      key={`less${article.id}`}
                       className="cart__article__item__qty-btn"
                       onClick={() => {
-                        onPlusClick(article);
+                        onLessClick(article);
                       }}
                     />
+                  ) : (
+                    <MdDelete
+                      key={`less${article.id}`}
+                      className="cart__article__item__delete"
+                      onClick={() => {
+                        onRemoveClick(article);
+                      }}
+                    />
+                  )}
+                    <MdAdd
+                    key={`plus${article.id}`}
+                    className="cart__article__item__qty-btn"
+                    onClick={() => {
+                      onPlusClick(article);
+                    }}
+                  />
                   </div>
                 </div>
                 <div className="cart__article__item cart__article__item--price">{article.pre_tax_price * article.qty} € </div>
@@ -80,7 +78,7 @@ const CART = ({
           </div>
           <div className="cart__footer__button">
             {message && (
-              <div>{message}</div>)}
+            <div>{message}</div>)}
             <button
               type="button"
               onClick={() => {

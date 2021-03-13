@@ -3,8 +3,8 @@ import { ARTICLE_LOADED, CATEGORY_LOADED } from 'src/actions';
 const initialState = {
   
   loading: {
-    articleLoading: true,
-    categoryLoading: true,
+    articleLoading: false,
+    categoryLoading: false,
   },
 };
 

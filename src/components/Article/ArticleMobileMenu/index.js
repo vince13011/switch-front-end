@@ -23,10 +23,12 @@ const ArticleMobileMenu = ({
         </Dropdown.Toggle>
 
         <Dropdown.Menu className="article__mobile__menu__dropdown">
-          {article.sizes.map((size) => {
+          {article.sizes 
+          && article.sizes.map((size) => {
             if (size.stock !== 0) {
               return (
                 <Dropdown.Item
+                  key={size.id}
                   onClick={handleSizeClick}
                   name={size.size_name}
                 >

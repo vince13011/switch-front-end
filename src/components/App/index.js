@@ -4,17 +4,23 @@ import PropTypes from 'prop-types';
 import {
   Switch,
   Route,
-  Redirect,
+
 } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Article from 'src/containers/Article';
 import Cart from 'src/containers/Cart';
 import Category from 'src/containers/Category';
 import Account from 'src/containers/Account';
+import Admin from 'src/containers/Admin';
+import Order from 'src/containers/Order';
+import Success from 'src/containers/Success';
 import Signup from 'src/containers/Signup';
 import Login from 'src/containers/Login';
-import Fav from 'src/containers/Fav';
+import Checkout from 'src/containers/Checkout';
 import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
@@ -34,6 +40,8 @@ function App({
     loadCategories();
   }, []);
 
+  const stripePromise = loadStripe('pk_test_51ITtjSFqylvRHC31SNrW8LYUUKtyp0MUfNUAgTI3i8mC4fHXB7O5lxSlzISa5ta0KndYihXNbip2ukifjluRmY5r00QAJk4yMO');
+
   if (loading.articleLoading || loading.categoryLoading) {
     return <Loading />;
   }
@@ -47,21 +55,25 @@ function App({
           path="/"
         >
           <Home />
-        </Route> {
-          logged ? (
-            <Route
-              path="/favorites"
-              exact
-            >
-              <Fav />
-            </Route>
-          ) : (
-            <Redirect
-              from="/favorites"
-              to="/"
-            />
-          )
-        }
+        </Route>
+        <Route
+          exact
+          path="/admin"
+        >
+          <Admin />
+        </Route>
+        <Route
+          exact
+          path="/success-checkout"
+        >
+          <Success />
+        </Route>
+        <Route
+          exact
+          path="/order/:id"
+        >
+          <Order />
+        </Route>
         <Route
           exact
           path="/article/:id"
@@ -79,6 +91,15 @@ function App({
           path="/mon-compte"
         >
           <Account />
+        </Route>
+        <Route
+          exact
+          path="/checkout"
+        >
+          <Elements stripe={stripePromise}>
+            <Checkout />
+          </Elements>
+
         </Route>
         <Route
           exact

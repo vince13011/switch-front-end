@@ -1,23 +1,22 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Article from 'src/components/Article';
-import { addToCart, setSizeValue } from '../actions';
-import { findArticleById } from '../selectors/Article';
+import { addToCart, getOneArticle, setSizeValue } from '../actions';
 
 // branchement en lecture du state
-const mapStateToProps = (state, ownProps) => {
-  const { id } = ownProps.match.params;
-  const article = findArticleById(state.articles, Number(id));
-  console.log(article);
-
-  return {
-    article,
-    size: state.article.size,
-  };
-};
+const mapStateToProps = (state) => ({
+  article: state.article.article,
+  size: state.article.size,
+  loading: state.article.loading,
+});
 
 // branchement en écriture du state
-const mapDispatchToProps = (dispatch) => ({
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  loadArticle: () => {
+    const { id } = ownProps.match.params;
+    dispatch(getOneArticle(id));
+  },
   toCart: (article, size) => {
     dispatch(addToCart(article, size));
   },

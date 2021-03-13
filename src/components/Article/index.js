@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
@@ -8,14 +8,17 @@ import { Redirect } from 'react-router-dom';
 // Composants
 import Page from 'src/components/Page';
 import ArticleMobileMenu from './ArticleMobileMenu';
-
+import Loading from '../App/Loading';
 // Style
 import './style.scss';
 
 // == Composant
 function Article({
-  article, toCart, size, setSize,
+  article, toCart, size, setSize, loadArticle, loading,
 }) {
+  useEffect(() => {
+    loadArticle();
+  }, []);
   // if (!article) {
   //   return <Redirect to="/error" />;
   // }
@@ -29,8 +32,14 @@ function Article({
     console.log(e.target.name);
     setSize(e.target.name);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
+
     <Page>
+
       <div className="article__maincontainer">
         <div className="article__picturecontainer">
           <img src={article.image} alt="" />
@@ -52,20 +61,24 @@ function Article({
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
-            {article.sizes.map((size) => {
-              if (size.stock !== 0) {
-                return (
-                  <button
-                    className="article__size__button"
-                    onClick={handleSizeClick}
-                    type="button"
-                    name={size.size_name}
-                  >{size.size_name}
-                  </button>
+            {console.log('articlesizedans le composant ', article)}
+            {article.sizes
 
-                );
-              }
-            })}
+             && article.sizes.map((size) => {
+               console.log('size.article_has_size.stock', size);
+               if (size.article_has_size.stock !== 0) {
+                 return (
+                   <button
+                     className="article__size__button"
+                     onClick={handleSizeClick}
+                     type="button"
+                     name={size.size_name}
+                   >{size.size_name}
+                   </button>
+
+                 );
+               }
+             })}
 
           </div>
           <button

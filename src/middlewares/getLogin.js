@@ -13,8 +13,18 @@ const getLogin = (store) => (next) => (action) => {
             email: store.getState().auth.email,
             password: store.getState().auth.password,
           });
+          if (response.data.errors) {
+            console.log(response.data.errors[0]);
+            return store.dispatch(logout());
+          }
           console.log(response.data);
-          store.dispatch(setLoginTrue(response.data[0]));
+          const user = {
+            user: { ...response.data[0] },
+            address: { ...response.data[1] },
+
+          };
+          delete user.address.address_orders;
+          store.dispatch(setLoginTrue(user));
           store.dispatch(authIsLoading(false));
         }
         catch (error) {

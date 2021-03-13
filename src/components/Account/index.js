@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Page from 'src/components/Page';
-import { Redirect } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import './style.scss';
 
-const Account = ({ user, logout }) => {
-  if (!user.logged) {
+const Account = ({
+  user,
+  logout,
+  address,
+  logged,
+  orders,
+  loadOrders,
+}) => {
+  if (!logged) {
     return <Redirect to="/" />;
   }
+  useEffect(() => {
+    loadOrders();
+  },[]);
+
   return (
     <Page>
       <div className="account__maincontainer">
@@ -21,8 +32,18 @@ const Account = ({ user, logout }) => {
         </div>
         <div className="account__address">
           <h2 className="account__subtitle"> Mon Adresse</h2>
-          <p className="account__item">{user.number} {user.street_name}</p>
-          <p className="account__item">{user.zip_code} {user.city}</p>
+          <p className="account__item">{address.number} {address.street_name}</p>
+          <p className="account__item">{address.zip_code} {address.city}</p>
+        </div>
+        <div className="account__orders">
+          <h2 className="account__subtitle"> Mes Commandes </h2>
+          { orders && orders.map(
+             (order) => (
+               <Link to = {`/order/${order.id}`}>
+                 <p className="account__item">{order.order_number} {order.total_price}€</p>
+               </Link>
+             ),
+           )}
 
         </div>
         <button

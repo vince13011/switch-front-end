@@ -1,0 +1,53 @@
+.admin{
+  &__mainContainer{
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__articlesButtons{
+    display: flex;
+    justify-content: space-between;
+    max-width:500px;
+    margin:auto;
+
+    &__createArticleButton,&__modifyArticleButton{
+      height:100px;
+      width:100px;
+      margin:1rem;
+      padding: .5rem;
+      border:1px solid;
+      border-radius:10px;
+    }
+   
+  }
+ &__stats{
+    display: flex;
+    justify-content: center;
+      &__lastOrders,&__lastInscription{
+        height:200px;
+        width:40%;
+        border:1px solid;
+        margin:1rem;
+        padding: .5rem;
+        border-radius:10px
+
+      }
+    }
+  &__orders{
+    display: flex;
+    &__totreat{
+     flex:1;
+     border:1px solid
+    }
+    &__viewAll{
+      height:100px;
+      width:100px;
+      margin:1rem;
+      padding: .5rem;
+      border:1px solid;
+      border-radius:10px;
+    }
+
+  }
+}
