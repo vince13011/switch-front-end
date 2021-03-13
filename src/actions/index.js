@@ -77,7 +77,6 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
-
 export const checkingStock = (articles) => ({
   type: CHECKING_STOCK_FROM_API,
   articles,
@@ -92,15 +91,14 @@ export const addToCart = (article, size) => ({
 export const removeFromCart = (article) => ({
   type: REMOVE_FROM_CART,
   article,
- 
+
 });
 
 export const setCartMessage = (message) => ({
-  type:SET_CART_MESSAGE,
+  type: SET_CART_MESSAGE,
   message,
- 
-});
 
+});
 
 export const increaseQuantity = (article) => ({
   type: INCREASE_QTY_ARTICLE,
@@ -111,7 +109,6 @@ export const decreaseQuantity = (article) => ({
   type: DECREASE_QTY_ARTICLE,
   article,
 });
-
 
 export const getAllCategories = () => ({
   type: GET_CATEGORIES_FROM_API,
