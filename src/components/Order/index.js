@@ -23,7 +23,8 @@ const Order = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(modifiedStatus,modifiedTracking)
+    onSubmit(modifiedStatus,
+      modifiedTracking);
   };
 
   // if (loading) {
@@ -87,13 +88,13 @@ const Order = ({
 
           <div className="order__select--container">
 
-            <label htmlFor="mon_select">Selectionner un statut</label>
+            <label htmlFor="status_select">Selectionner un statut</label>
             <select
-              id="mon_select"
+              id="status_select"
               name="modifiedStatus"
               onChange={handleChangeField}
             >
-             <option value="">-Selectionner un statut-</option>
+              <option value="">-Selectionner un statut-</option>
               {status
           && status.map(
             (stat) => (
