@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import './style.scss';
+
+import CreateArticle from 'src/components/CreateArticle';
 
 const Admin = ({
   loadOrders,
@@ -21,30 +24,36 @@ const Admin = ({
       <h1 className="admin__title"> Panneau d'Administration </h1>
 
       <div className="admin__articles">
-        <div className="admin__subtitle">Mes articles en vente</div>
-        {articles
-        && articles.map(
-          (article) => (
-            <Link to={`/article/${article.id}`}>
-              <div className="admin__articles__item">
-                <div className="admin__articles__item__image">
-                  <img src={article.image} alt="" />
+        <div className="article__modify">
+          <div className="admin__subtitle">Mes articles en vente</div>
+          {articles
+          && articles.map(
+            (article) => (
+              <Link to={`/article/${article.id}`}>
+                <div className="admin__articles__item">
+                  <div className="admin__articles__item__image">
+                    <img src={article.image} alt="" />
+                  </div>
+                  <div className="admin__articles__item__description">
+                    {article.name} ref :{article.reference}
+  
+                    {article.sizes.map(
+                      (size) => (
+                        <div className="admin__articles__item__stock">
+                          taille: {size.size_name} stock: {size.article_has_size.stock}
+                        </div>
+                      ),
+                    )}
+                  </div>
                 </div>
-                <div className="admin__articles__item__description">
-                  {article.name} ref :{article.reference}
-
-                  {article.sizes.map(
-                    (size) => (
-                      <div className="admin__articles__item__stock">
-                        taille: {size.size_name} stock: {size.article_has_size.stock}
-                      </div>
-                    ),
-                  )}
-                </div>
-              </div>
-            </Link>
-          ),
-        )}
+              </Link>
+            ),
+          )}
+        </div>
+        <div className="article__create">
+       
+          <CreateArticle />
+        </div>
       </div>
 
       <div className="admin__orders__container ">

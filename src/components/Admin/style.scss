@@ -21,7 +21,8 @@
     margin: auto;
   }
   &__articles{
-    max-width: 400px;
+    
+    display :flex;
     
     &__item{
       display:flex;
