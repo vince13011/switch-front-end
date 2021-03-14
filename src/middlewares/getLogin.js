@@ -19,8 +19,9 @@ const getLogin = (store) => (next) => (action) => {
           }
           console.log(response.data);
           const user = {
-            user: { ...response.data[0] },
-            address: { ...response.data[1] },
+            token: response.data[0],
+            user: { ...response.data[1] },
+            address: { ...response.data[2] },
 
           };
           delete user.address.address_orders;

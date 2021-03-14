@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Order from 'src/components/Order';
-import { getOneOrder} from 'src/actions';
+import {
+  getOneOrder, getOrderStatus, setOrderInputValue, modifyOneOrder,
+} from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
   order: state.order.order,
-  articles: state.order.order.orderArticles
+  address: state.order.order.address,
+  status: state.order.status,
+  modifiedTracking: state.order.form.modifiedTracking,
+  modifiedStatus: state.order.form.modifiedStatus,
 });
 
 // branchement en écriture du state
@@ -16,8 +21,16 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     const { id } = ownProps.match.params;
     dispatch(getOneOrder(id));
   },
- 
+  loadStatus: () => {
+    dispatch(getOrderStatus());
+  },
+  changeField: (value, name) => {
+    dispatch(setOrderInputValue(value, name));
+  },
+  onSubmit: (status, tracking) => {
+    dispatch(modifyOneOrder(status, tracking));
+  },
 });
 
-const connected= connect(mapStateToProps, mapDispatchToProps)(Order);
+const connected = connect(mapStateToProps, mapDispatchToProps)(Order);
 export default withRouter(connected);

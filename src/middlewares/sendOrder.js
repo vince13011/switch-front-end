@@ -32,7 +32,7 @@ const sendOrder = (store) => (next) => (action) => {
             address_id: store.getState().auth.address.id,
             total_price: (action.paymentResult.paymentIntent.amount / 100).toString(),
             articles: parsedArticle,
-        
+
           });
           console.log(response.data);
           store.dispatch(setCheckoutSuccess(true));
