@@ -19,6 +19,7 @@ const CreateArticle = ({
   discount,
   description,
   changeField,
+  onChangeCheckbox,
 
 }) => {
   useEffect(() => {
@@ -32,15 +33,19 @@ const CreateArticle = ({
     const fileRef = storageRef.child(file.name);
 
     await fileRef.put(file);
-    await console.log(fileRef.getDownloadURL());
+    const url = await fileRef.getDownloadURL();
+    console.log(url);
   };
 
-  const onClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const onSizeSelect = (e) => {
+  const handleSizeSelect = (e) => {
     selectSize(e.target.value);
+  };
+  const handleChangeCheckBox = (e) => {
+    onChangeCheckbox(e.target.checked, e.target.name);
   };
 
   return (
@@ -71,7 +76,7 @@ const CreateArticle = ({
           name="description"
           className="field"
           onChange={(e) => (changeField(e.target.value, 'description'))}
-          value = {description}
+          value={description}
         />
         <div className="createArticle__price">
           <Field
@@ -102,7 +107,7 @@ const CreateArticle = ({
         <select
           name="size"
           id=""
-          onChange={onSizeSelect}
+          onChange={handleSizeSelect}
         >
           <option value=""> -Selectioner une taille-</option>
           {sizes && sizes.map(
@@ -134,7 +139,7 @@ const CreateArticle = ({
               type="checkbox"
               id={`checkbox--${categorie.title}`}
               name={categorie.title}
-              onChange={(e) => console.log(e.target.checked)}
+              onChange={handleChangeCheckBox}
             />
           </div>
         ))}
@@ -145,7 +150,7 @@ const CreateArticle = ({
 
         <button
           type="submit"
-          onClick={onClick}
+          onClick={handleSubmit}
         >Creer l'article
         </button>
       </form>

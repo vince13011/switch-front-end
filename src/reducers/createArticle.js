@@ -1,11 +1,15 @@
-import { SAVE_SIZES,
+import {
+  SAVE_SIZES,
   NEW_SELECTED_SIZE,
   SET_SELECTED_SIZE_QTY,
   SET_CREATE_ARTICLE_INPUT_VALUE,
+  ADD_SELECTED_CATEGORY,
+  REMOVE_SELECTED_CATEGORY,
 } from '../actions';
 
 const initialState = {
   selectedSizes: [],
+  selectedCategories: [],
 };
 
 const createArticle = (state = initialState, action = {}) => {
@@ -37,6 +41,20 @@ const createArticle = (state = initialState, action = {}) => {
       return {
         ...state, [action.name]: action.value,
 
+      };
+    case ADD_SELECTED_CATEGORY:
+      return {
+        ...state,
+        selectedCategories: [
+          ...state.selectedCategories, action.name,
+        ],
+      };
+    case REMOVE_SELECTED_CATEGORY:
+      return {
+        ...state,
+        selectedCategories: state.selectedCategories.filter(
+          (category) => category !== action.name,
+        ),
       };
     default:
       return state;

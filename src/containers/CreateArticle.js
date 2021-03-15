@@ -6,6 +6,8 @@ import {
   newSelectedSize,
   setCreateArticleInputValue,
   setSelectedSizeQty,
+  addSelectedCategory,
+  removeSelectedCategory,
 } from '../actions';
 
 // branchement en lecture du state
@@ -32,6 +34,9 @@ const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(setCreateArticleInputValue(value, name));
   },
+  onChangeCheckbox: (value, name) => (value
+    ? dispatch(addSelectedCategory(name))
+    : dispatch(removeSelectedCategory(name))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateArticle);

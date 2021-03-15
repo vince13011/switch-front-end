@@ -56,8 +56,21 @@ export const MODIFY_ONE_ORDER = 'MODIFY_ONE_ORDER';
 export const GET_ORDER_STATUS_FROM_API = 'GET_ORDER_STATUS_FROM_API';
 export const SAVE_ORDER_STATUS = 'SAVE_ORDER_STATUS';
 export const SET_ORDER_INPUT_VALUE = 'SET_ORDER_INPUT_VALUE';
+
 export const SET_SELECTED_SIZE_QTY = 'SET_SELECTED_SIZE_QTY';
 export const SET_CREATE_ARTICLE_INPUT_VALUE = 'SET_CREATE_ARTICLE_INPUT_VALUE';
+export const ADD_SELECTED_CATEGORY = 'ADD_SELECTED_CATEGORY';
+export const REMOVE_SELECTED_CATEGORY = 'REMOVE_SELECTED_CATEGORY';
+
+export const addSelectedCategory = (name) => ({
+  type: ADD_SELECTED_CATEGORY,
+  name,
+});
+
+export const removeSelectedCategory = (name) => ({
+  type: REMOVE_SELECTED_CATEGORY,
+  name,
+});
 
 export const setCreateArticleInputValue = (value, name) => ({
   type: SET_CREATE_ARTICLE_INPUT_VALUE,
