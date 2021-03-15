@@ -13,6 +13,7 @@ import sendOrder from '../middlewares/sendOrder';
 import getOrders from '../middlewares/getOrders';
 import signup from '../middlewares/signup';
 import getSizes from '../middlewares/getSizes';
+import createOneArticle from '../middlewares/createOneArticle';
 
 // le store est le gardien du state
 // la fonction createStore prend en argument le reducer
@@ -26,7 +27,8 @@ export const store = createStore(reducer, composeWithDevTools(
     sendOrder,
     getOrders,
     getOneArticle,
-    getSizes),
+    getSizes,
+    createOneArticle),
 ));
 export const persistor = persistStore(store);
 

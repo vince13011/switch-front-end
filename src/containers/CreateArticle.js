@@ -9,6 +9,7 @@ import {
   addSelectedCategory,
   removeSelectedCategory,
   setSelectedImage,
+  createOneArticle,
 } from '../actions';
 
 // branchement en lecture du state
@@ -40,6 +41,9 @@ const mapDispatchToProps = (dispatch) => ({
     : dispatch(removeSelectedCategory(name))),
   selectImage: (url) => {
     dispatch(setSelectedImage(url));
+  },
+  onSubmit: () => {
+    dispatch(createOneArticle());
   },
 });
 

@@ -15,6 +15,7 @@ const CreateArticle = ({
   setSizeQty,
   reference,
   name,
+  color,
   pre_tax_price,
   vat_rate,
   discount,
@@ -23,6 +24,7 @@ const CreateArticle = ({
   onChangeCheckbox,
   selectImage,
   image,
+  onSubmit,
 
 }) => {
   const [loading, setLoading] = useState(false);
@@ -51,6 +53,7 @@ const CreateArticle = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onSubmit()
   };
 
   const handleSizeSelect = (e) => {
@@ -86,6 +89,13 @@ const CreateArticle = ({
           placeholder="nom de l'article "
           onChange={changeField}
           value={name}
+        />
+        <Field
+          name="color"
+          type="text"
+          placeholder="Couleur "
+          onChange={changeField}
+          value={color}
         />
         <label htmlFor="desc">description</label>
         <textarea
