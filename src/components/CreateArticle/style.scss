@@ -1,0 +1,14 @@
+.createArticle{
+  &__maincontainer{
+    display: flex;
+    flex-direction: column;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+  
+  }
+  &__price{
+    display:flex;
+  }
+}

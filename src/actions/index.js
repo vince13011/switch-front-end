@@ -47,6 +47,30 @@ export const SAVE_ONE_ORDER = 'SAVE_ONE_ORDER';
 export const GET_ALL_USER_ORDERS = 'GET_ALL_USER_ORDERS';
 export const SAVE_ALL_USER_ORDERS = 'SAVE_ALL_USER_ORDERS';
 export const ADMIN_ORDERS_LOADING = 'ADMIN_ORDERS_LOADING';
+export const MODIFY_ONE_ORDER = 'MODIFY_ONE_ORDER';
+export const GET_ORDER_STATUS_FROM_API = 'GET_ORDER_STATUS_FROM_API';
+export const SAVE_ORDER_STATUS = 'SAVE_ORDER_STATUS';
+export const SET_ORDER_INPUT_VALUE = 'SET_ORDER_INPUT_VALUE';
+
+export const setOrderInputValue = (value, name) => ({
+  type: SET_ORDER_INPUT_VALUE,
+  value,
+  name,
+});
+export const saveOrderStatus = (status) => ({
+  type: SAVE_ORDER_STATUS,
+  status,
+});
+
+export const getOrderStatus = () => ({
+  type: GET_ORDER_STATUS_FROM_API,
+});
+
+export const modifyOneOrder = (status, tracking = '') => ({
+  type: MODIFY_ONE_ORDER,
+  status,
+  tracking,
+});
 
 export const adminOrdersLoading = (status) => ({
   type: ADMIN_ORDERS_LOADING,
@@ -78,10 +102,10 @@ export const getAllUserOrders = () => ({
   type: GET_ALL_USER_ORDERS,
 
 });
-export const saveAllUserOrders=(orders)=>({
+export const saveAllUserOrders = (orders) => ({
   type: SAVE_ALL_USER_ORDERS,
   orders,
-})
+});
 export const checkedCart = (status) => ({
   type: CHECKED_CART,
   status,

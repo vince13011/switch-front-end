@@ -1,4 +1,4 @@
-import { GET_ALL_ORDERS_FROM_API, SAVE_ADMIN_ORDERS } from '../actions';
+import { SAVE_ADMIN_ORDERS } from '../actions';
 
 const initialState = {
   orders: [],

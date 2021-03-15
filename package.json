@@ -61,6 +61,7 @@
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "emailjs-com": "^2.6.4",
+    "firebase": "^8.3.0",
     "persist": "^0.2.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",

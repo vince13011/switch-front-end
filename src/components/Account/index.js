@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Page from 'src/components/Page';
-import { Link,Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './style.scss';
 
 const Account = ({
@@ -16,7 +16,7 @@ const Account = ({
   }
   useEffect(() => {
     loadOrders();
-  },[]);
+  }, []);
 
   return (
     <Page>
@@ -38,12 +38,12 @@ const Account = ({
         <div className="account__orders">
           <h2 className="account__subtitle"> Mes Commandes </h2>
           { orders && orders.map(
-             (order) => (
-               <Link to = {`/order/${order.id}`}>
-                 <p className="account__item">{order.order_number} {order.total_price}€</p>
-               </Link>
-             ),
-           )}
+            (order) => (
+              <Link to={`/order/${order.id}`}>
+                <p className="account__item">{order.order_number} {order.total_price}€ {order.status_name}</p>
+              </Link>
+            ),
+          )}
 
         </div>
         <button

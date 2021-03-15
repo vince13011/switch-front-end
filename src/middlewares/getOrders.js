@@ -2,6 +2,9 @@ import {
   GET_ALL_ORDERS_FROM_API,
   GET_ONE_ORDER_FROM_API,
   GET_ALL_USER_ORDERS,
+  GET_ORDER_STATUS_FROM_API,
+  MODIFY_ONE_ORDER,
+  saveOrderStatus,
   saveAdminOrders,
   adminOrdersLoading,
   saveOneOrder,
@@ -29,7 +32,10 @@ const getOrders = (store) => (next) => (action) => {
       axios.get(`https://switch-e-commerce.herokuapp.com/v1/order/${action.id}`)
         .then(
           (response) => {
-            const order = response.data;
+            const order = {
+              ...response.data[0],
+              address: { ...response.data[0].address[0] },
+            };
             store.dispatch(saveOneOrder(order));
           },
         );
@@ -43,6 +49,24 @@ const getOrders = (store) => (next) => (action) => {
             store.dispatch(saveAllUserOrders(orders));
           },
         ); }
+      break;
+    case MODIFY_ONE_ORDER: {
+      const { id } = store.getState().order.order;
+      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${id}`, {
+        status_name: action.status,
+        tracking_number: action.tracking,
+      }).then(
+        (response) => console.log(response.data),
+      );
+    }
+      break;
+
+    case GET_ORDER_STATUS_FROM_API:
+      axios.get('https://switch-e-commerce.herokuapp.com/v1/status')
+        .then((response) => {
+          const status = response.data;
+          store.dispatch(saveOrderStatus(status));
+        });
       break;
     default:
       next(action);
