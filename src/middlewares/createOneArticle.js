@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const createOneArticle = (store) => (next) => (action) => {
   switch (action.type) {
-    case CREATE_ONE_ARTICLE:
+    case CREATE_ONE_ARTICLE: {
       const article = { ...store.getState().createArticle };
       delete article.sizes;
       article.categories = article.selectedCategories.map((category) => ({ title: category }));
@@ -12,7 +12,6 @@ const createOneArticle = (store) => (next) => (action) => {
       delete article.selectedCategories;
       console.log(article);
 
-     
       axios.post('https://switch-e-commerce.herokuapp.com/v1/article/', {
         ...article,
       })
@@ -23,7 +22,7 @@ const createOneArticle = (store) => (next) => (action) => {
           },
         ).catch((err) => console.log(err))
         .finally();
-
+    }
       break;
     default:
       next(action);
