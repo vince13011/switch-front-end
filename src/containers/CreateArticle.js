@@ -8,6 +8,7 @@ import {
   setSelectedSizeQty,
   addSelectedCategory,
   removeSelectedCategory,
+  setSelectedImage,
 } from '../actions';
 
 // branchement en lecture du state
@@ -37,6 +38,9 @@ const mapDispatchToProps = (dispatch) => ({
   onChangeCheckbox: (value, name) => (value
     ? dispatch(addSelectedCategory(name))
     : dispatch(removeSelectedCategory(name))),
+  selectImage: (url) => {
+    dispatch(setSelectedImage(url));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateArticle);

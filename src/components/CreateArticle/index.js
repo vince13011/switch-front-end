@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Loading from 'src/components/App/Loading';
 
 import Field from 'src/components/Field';
 import { app } from '../../base';
@@ -20,21 +21,32 @@ const CreateArticle = ({
   description,
   changeField,
   onChangeCheckbox,
+  selectImage,
+  image,
 
 }) => {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     loadSizes();
     loadCategories();
   }, []);
 
   const onFileChange = async (e) => {
-    const file = e.target.files[0];
-    const storageRef = app.storage().ref();
-    const fileRef = storageRef.child(file.name);
+    try {
+      setLoading(true);
+      const file = e.target.files[0];
+      const storageRef = app.storage().ref();
+      const fileRef = storageRef.child(file.name);
+      await fileRef.put(file);
+      const url = await fileRef.getDownloadURL();
+      selectImage(url);
+    }
+    catch (error) {
+      console.log(error);
+    }
 
-    await fileRef.put(file);
-    const url = await fileRef.getDownloadURL();
-    console.log(url);
+    setLoading(false);
   };
 
   const handleSubmit = (e) => {
@@ -48,6 +60,11 @@ const CreateArticle = ({
     onChangeCheckbox(e.target.checked, e.target.name);
   };
 
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
   return (
     <div className="createArticle__maincontainer">
 
@@ -147,6 +164,9 @@ const CreateArticle = ({
           type="file"
           onChange={onFileChange}
         />
+
+        {image
+        && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
 
         <button
           type="submit"

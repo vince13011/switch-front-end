@@ -5,6 +5,7 @@ import {
   SET_CREATE_ARTICLE_INPUT_VALUE,
   ADD_SELECTED_CATEGORY,
   REMOVE_SELECTED_CATEGORY,
+  SET_SELECTED_IMAGE,
 } from '../actions';
 
 const initialState = {
@@ -55,6 +56,10 @@ const createArticle = (state = initialState, action = {}) => {
         selectedCategories: state.selectedCategories.filter(
           (category) => category !== action.name,
         ),
+      };
+    case SET_SELECTED_IMAGE:
+      return {
+        ...state, image: action.url,
       };
     default:
       return state;

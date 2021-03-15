@@ -61,6 +61,12 @@ export const SET_SELECTED_SIZE_QTY = 'SET_SELECTED_SIZE_QTY';
 export const SET_CREATE_ARTICLE_INPUT_VALUE = 'SET_CREATE_ARTICLE_INPUT_VALUE';
 export const ADD_SELECTED_CATEGORY = 'ADD_SELECTED_CATEGORY';
 export const REMOVE_SELECTED_CATEGORY = 'REMOVE_SELECTED_CATEGORY';
+export const SET_SELECTED_IMAGE = 'SET_SELECTED_IMAGE';
+
+export const setSelectedImage = (url) => ({
+  type: SET_SELECTED_IMAGE,
+  url,
+});
 
 export const addSelectedCategory = (name) => ({
   type: ADD_SELECTED_CATEGORY,
