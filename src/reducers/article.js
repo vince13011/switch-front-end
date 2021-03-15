@@ -1,5 +1,9 @@
 import {
-  ARTICLE_IS_LOADING, SAVE_ONE_ARTICLE, SET_SIZE_VALUE, SET_MODIFY_ARTICLE_SIZE_VALUE,
+  ARTICLE_IS_LOADING,
+  SAVE_ONE_ARTICLE,
+  SET_SIZE_VALUE,
+  SET_MODIFY_ARTICLE_SIZE_VALUE,
+  SET_MODIFY_ARTICLE_INPUT_VALUE,
 } from '../actions';
 
 const initialState = {
@@ -43,6 +47,13 @@ const article = (state = initialState, action = {}) => {
           ),
         },
 
+      };
+    case SET_MODIFY_ARTICLE_INPUT_VALUE:
+      return {
+        ...state,
+        article: {
+          ...state.article, [action.name]: action.value,
+        },
       };
   }
 };

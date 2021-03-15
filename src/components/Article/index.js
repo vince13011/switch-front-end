@@ -15,7 +15,14 @@ import './style.scss';
 
 // == Composant
 function Article({
-  article, toCart, size, setSize, loadArticle, loading,changeField
+  article,
+  toCart,
+  size,
+  setSize,
+  loadArticle,
+  loading,
+  changeSizeField,
+  changeField,
 }) {
   useEffect(() => {
     loadArticle();
@@ -100,10 +107,18 @@ function Article({
             name={size.size_name}
             placeholder={`stock taille ${size.size_name}`}
             value={size.article_has_size.stock}
-            onChange={changeField}
+            onChange={changeSizeField}
           />
         ),
       )}
+
+      <Field
+        type="text"
+        name="pre_tax_price"
+        placeholder="prix HT"
+        value={article.pre_tax_price}
+        onChange={changeField}
+      />
     </Page>
   );
 }

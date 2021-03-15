@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Article from 'src/components/Article';
-import { addToCart, getOneArticle, setSizeValue,setModifyArticleSizeValue} from '../actions';
+import {
+  addToCart, getOneArticle, setSizeValue, setModifyArticleSizeValue, setModifyArticleInputValue,
+} from '../actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
@@ -24,9 +26,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(setSizeValue(size));
   },
 
-  changeField:(value,name)=>{
-    dispatch(setModifyArticleSizeValue(value,name))
-  }
+  changeSizeField: (value, name) => {
+    dispatch(setModifyArticleSizeValue(value, name));
+  },
+  changeField: (value, name) => {
+    dispatch(setModifyArticleInputValue(value, name));
+  },
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Article);

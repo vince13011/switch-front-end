@@ -65,8 +65,15 @@ export const SET_SELECTED_IMAGE = 'SET_SELECTED_IMAGE';
 
 export const SET_MODIFY_ARTICLE_SIZE_VALUE = 'SET_MODIFY_ARTICLE_SIZE_VALUE';
 export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
+export const SET_MODIFY_ARTICLE_INPUT_VALUE = 'SET_MODIFY_ARTICLE_INPUT_VALUE';
 
-export const setModifyArticleSizeValue = (value , name ) => ({
+export const setModifyArticleInputValue = (value, name) => ({
+  type: SET_MODIFY_ARTICLE_INPUT_VALUE,
+  value,
+  name,
+});
+
+export const setModifyArticleSizeValue = (value, name) => ({
   type: SET_MODIFY_ARTICLE_SIZE_VALUE,
   value,
   name,
