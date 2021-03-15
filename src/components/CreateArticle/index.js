@@ -11,6 +11,7 @@ const CreateArticle = ({
   categories,
   selectSize,
   selectedSizes,
+  setSizeQty,
 }) => {
   useEffect(() => {
     loadSizes();
@@ -30,10 +31,16 @@ const CreateArticle = ({
     e.preventDefault();
   };
 
-  const onSizeChange = (e) => {
-    console.log(e.target.value);
+  const onSizeSelect = (e) => {
     selectSize(e.target.value);
   };
+
+  const onSizeInputChange = (e)=> {
+    /*setSizeQty(name,
+      e.target.value);*/
+      console.log(name)
+  }
+
   return (
     <div className="createArticle__maincontainer">
 
@@ -77,7 +84,7 @@ const CreateArticle = ({
         <select
           name="size"
           id=""
-          onChange={onSizeChange}
+          onChange={onSizeSelect}
         >
           <option value=""> -Selectioner une taille-</option>
           {sizes && sizes.map(
@@ -96,6 +103,8 @@ const CreateArticle = ({
               type="text"
               name={size.size_name}
               placeholder={`Taille ${size.size_name},Quantité :`}
+              onChange={setSizeQty}
+              value={size.stock}
             />
           ),
         )}

@@ -6,6 +6,7 @@ export const SAVE_ONE_ARTICLE = 'SAVE_ONE_ARTICLE';
 export const GET_SIZES_FROM_API = 'GET_SIZES_FROM_API';
 export const SAVE_SIZES = 'SAVE_SIZES';
 export const NEW_SELECTED_SIZE = ' NEW_SELECTED_SIZE ';
+
 export const CHECKING_STOCK_FROM_API = 'CHECKING_STOCK_FROM_API';
 export const CHECKED_CART = 'CHECKED_CART';
 
@@ -55,11 +56,18 @@ export const MODIFY_ONE_ORDER = 'MODIFY_ONE_ORDER';
 export const GET_ORDER_STATUS_FROM_API = 'GET_ORDER_STATUS_FROM_API';
 export const SAVE_ORDER_STATUS = 'SAVE_ORDER_STATUS';
 export const SET_ORDER_INPUT_VALUE = 'SET_ORDER_INPUT_VALUE';
+export const SET_SELECTED_SIZE_QTY = 'SET_SELECTED_SIZE_QTY';
 
-export const newSelectedSize= (size)=>({
+export const setSelectedSizeQty = (name, value) => ({
+  type: SET_SELECTED_SIZE_QTY,
+  name,
+  value,
+});
+
+export const newSelectedSize = (size) => ({
   type: NEW_SELECTED_SIZE,
   size,
-})
+});
 export const getAllSizes = () => ({
   type: GET_SIZES_FROM_API,
 });

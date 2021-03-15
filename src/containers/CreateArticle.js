@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import CreateArticle from 'src/components/CreateArticle';
-import { getAllCategories, getAllSizes, newSelectedSize } from '../actions';
+import {
+   getAllCategories, 
+  getAllSizes,
+   newSelectedSize,
+   setSelectedSizeQty
+   } from '../actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
@@ -20,6 +25,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   selectSize:(size)=>{
     dispatch(newSelectedSize(size))
+  },
+  setSizeQty:(value,name)=>{
+    dispatch(setSelectedSizeQty(name,value))
   }
 });
 
