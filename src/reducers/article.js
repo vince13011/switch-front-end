@@ -1,4 +1,6 @@
-import { ARTICLE_IS_LOADING, SAVE_ONE_ARTICLE, SET_SIZE_VALUE } from '../actions';
+import {
+  ARTICLE_IS_LOADING, SAVE_ONE_ARTICLE, SET_SIZE_VALUE, SET_MODIFY_ARTICLE_SIZE_VALUE,
+} from '../actions';
 
 const initialState = {
   article: [],
@@ -21,6 +23,27 @@ const article = (state = initialState, action = {}) => {
       return { ...state, article: action.article };
     default:
       return state;
+    case SET_MODIFY_ARTICLE_SIZE_VALUE:
+      return {
+        ...state,
+        article: {
+          ...state.article,
+          sizes: state.article.sizes.map(
+            (size) => (
+              size.size_name === action.name
+                ? {
+                  ...size,
+                  article_has_size: {
+                    ...size.article_has_size, stock: Number(action.value),
+
+                  },
+                }
+                : size
+            ),
+          ),
+        },
+
+      };
   }
 };
 

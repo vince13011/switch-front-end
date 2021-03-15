@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 // == Import : local
 // Composants
 import Page from 'src/components/Page';
+import Field from 'src/components/Field';
 import ArticleMobileMenu from './ArticleMobileMenu';
 import Loading from '../App/Loading';
 // Style
@@ -14,7 +15,7 @@ import './style.scss';
 
 // == Composant
 function Article({
-  article, toCart, size, setSize, loadArticle, loading,
+  article, toCart, size, setSize, loadArticle, loading,changeField
 }) {
   useEffect(() => {
     loadArticle();
@@ -90,6 +91,19 @@ function Article({
 
         </div>
       </div>
+      {article.sizes
+
+      && article.sizes.map(
+        (size) => (
+          <Field
+            type="text"
+            name={size.size_name}
+            placeholder={`stock taille ${size.size_name}`}
+            value={size.article_has_size.stock}
+            onChange={changeField}
+          />
+        ),
+      )}
     </Page>
   );
 }
