@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import Field from 'src/components/Field';
 import { app } from '../../base';
 import './style.scss';
 
-const CreateArticle = () => {
+const CreateArticle = ({
+  loadSizes,
+  loadCategories,
+  sizes,
+  categories,
+  selectSize,
+  selectedSizes,
+}) => {
+  useEffect(() => {
+    loadSizes();
+    loadCategories();
+  }, []);
+
   const onFileChange = async (e) => {
     const file = e.target.files[0];
     const storageRef = app.storage().ref();
@@ -15,6 +28,11 @@ const CreateArticle = () => {
 
   const onClick = (e) => {
     e.preventDefault();
+  };
+
+  const onSizeChange = (e) => {
+    console.log(e.target.value);
+    selectSize(e.target.value);
   };
   return (
     <div className="createArticle__maincontainer">
@@ -35,7 +53,7 @@ const CreateArticle = () => {
           placeholder="nom de l'article "
         />
         <label htmlFor="desc">description</label>
-        <textarea id="desc" name="description" />
+        <textarea id="desc" name="description" className="field" />
         <div className="createArticle__price">
           <Field
             name="pre_tax_price"
@@ -59,14 +77,40 @@ const CreateArticle = () => {
         <select
           name="size"
           id=""
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
+          onChange={onSizeChange}
         >
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
+          <option value=""> -Selectioner une taille-</option>
+          {sizes && sizes.map(
+            (size) => (
+              <option
+                value={size.size_name}
+              >{size.size_name}
+              </option>
+            ),
+          )}
         </select>
+        {selectedSizes
+        && selectedSizes.map(
+          (size) => (
+            <Field
+              type="text"
+              name={size.size_name}
+              placeholder={`Taille ${size.size_name},Quantité :`}
+            />
+          ),
+        )}
+        {categories
+        && categories.map((categorie) => (
+          <div className="createArticle__checkbox">
+            <label htmlFor={`checkbox--${categorie.title}`}> {categorie.title} </label>
+            <input
+              type="checkbox"
+              id={`checkbox--${categorie.title}`}
+              name={categorie.title}
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </div>
+        ))}
         <input
           type="file"
           onChange={onFileChange}

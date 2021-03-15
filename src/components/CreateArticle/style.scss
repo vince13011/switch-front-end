@@ -1,12 +1,14 @@
 .createArticle{
+  
   &__maincontainer{
+    padding:2rem;
     display: flex;
     flex-direction: column;
   }
   &__form{
     display: flex;
     flex-direction: column;
-  
+    
   }
   &__price{
     display:flex;
