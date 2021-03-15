@@ -119,6 +119,9 @@ function Article({
         value={article.pre_tax_price}
         onChange={changeField}
       />
+      <button type="button"
+      onClick=""
+      > modifier l'article</button>
     </Page>
   );
 }
