@@ -12,6 +12,14 @@ const CreateArticle = ({
   selectSize,
   selectedSizes,
   setSizeQty,
+  reference,
+  name,
+  pre_tax_price,
+  vat_rate,
+  discount,
+  description,
+  changeField,
+
 }) => {
   useEffect(() => {
     loadSizes();
@@ -35,12 +43,6 @@ const CreateArticle = ({
     selectSize(e.target.value);
   };
 
-  const onSizeInputChange = (e)=> {
-    /*setSizeQty(name,
-      e.target.value);*/
-      console.log(name)
-  }
-
   return (
     <div className="createArticle__maincontainer">
 
@@ -52,32 +54,48 @@ const CreateArticle = ({
         <Field
           name="reference"
           placeholder="réference de l'article "
+          onChange={changeField}
+          value={reference}
         />
 
         <Field
           name="name"
           type="text"
           placeholder="nom de l'article "
+          onChange={changeField}
+          value={name}
         />
         <label htmlFor="desc">description</label>
-        <textarea id="desc" name="description" className="field" />
+        <textarea
+          id="desc"
+          name="description"
+          className="field"
+          onChange={(e) => (changeField(e.target.value, 'description'))}
+          value = {description}
+        />
         <div className="createArticle__price">
           <Field
             name="pre_tax_price"
             type="text"
             placeholder="prix HT"
+            onChange={changeField}
+            value={pre_tax_price}
           />
 
           <Field
             name="vat_rate"
             type="text"
             placeholder="TVA"
+            onChange={changeField}
+            value={vat_rate}
           />
 
           <Field
             name="discount"
             type="text"
             placeholder="réduction"
+            onChange={changeField}
+            value={discount}
           />
         </div>
 

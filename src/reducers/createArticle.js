@@ -1,4 +1,8 @@
-import { SAVE_SIZES, NEW_SELECTED_SIZE, SET_SELECTED_SIZE_QTY } from '../actions';
+import { SAVE_SIZES,
+  NEW_SELECTED_SIZE,
+  SET_SELECTED_SIZE_QTY,
+  SET_CREATE_ARTICLE_INPUT_VALUE,
+} from '../actions';
 
 const initialState = {
   selectedSizes: [],
@@ -19,7 +23,7 @@ const createArticle = (state = initialState, action = {}) => {
         ],
       };
     case SET_SELECTED_SIZE_QTY:
-     
+
       return {
         ...state,
         selectedSizes: state.selectedSizes.map(
@@ -27,11 +31,13 @@ const createArticle = (state = initialState, action = {}) => {
             size.size_name === action.name
               ? { ...size, stock: action.value }
               : size),
-
         ),
+      };
+    case SET_CREATE_ARTICLE_INPUT_VALUE:
+      return {
+        ...state, [action.name]: action.value,
 
       };
-
     default:
       return state;
   }
