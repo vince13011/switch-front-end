@@ -1,21 +1,52 @@
 @use 'src/styles/vars';
 @use 'sass:color';
 
-.card {
-  
-  border: 1px solid #ddd;
-  width: 100%;
-  max-height:50vh;
-  margin-top: vars.$gutter;
-  overflow: hidden;
-  
-  @media(min-width:768px){
-    width:200px;
-    height:200px
-  }
-
-
-    &:hover {
-      background-color: filter();
+@media(max-width:768px){
+  .card {
+    width: 100%;
+    object-fit: cover;
+    margin: vars.$gutter 0;
+    
+    &-img {
+      width: auto;
+      height: 500px;
+      border: 1px solid grey;
+      border-radius: 3px;
+      width: 100%;
+      object-fit: cover;
+      transition: 0.2s;
     }
+
+    &-name {
+      margin: vars.$gutter/2 0;
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.3em;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &-price {
+      margin: vars.$gutter/2 0;
+      text-align: left;
+      font-size: 0.9em;
+    }
+
+    &-sizes {
+      display: flex;
+      text-align: left;
+
+      .card-size {
+        margin-right: 1em;
+        font-size: 0.7em;
+        border: 0.5px solid grey;
+        padding: 0.5em;
+      }
+    }
+  }
+  .card-img:hover {
+    transform: scale(1.01);
+    transition: 0.2s;
+  }
 }
