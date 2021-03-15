@@ -15,7 +15,7 @@ const Card = ({
     <Link to={`/article/${id}`} className="card-link">
       <img className="card-img" src={image} alt="" />
       <p className="card-name">{name}</p>
-      <p className="card-price">{pre_tax_price * (vat_rate / 100)} €</p>
+      <p className="card-price">{(pre_tax_price * (vat_rate / 100)).toFixed(2)} €</p>
       <div className="card-sizes">
         {sizes.map((size) => (<p className="card-size"> { size.size_name}</p>))}
       </div>

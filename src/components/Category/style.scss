@@ -1,14 +1,18 @@
 @use 'src/styles/vars';
 @use 'sass:color';
 
-@media(max-width:768px){
+@media(max-width:3650px){
 
   .content-list {
     display: flex;
     justify-content: space-between;
-    // flex-wrap: wrap;
-    // margin: 1rem;
-    // border: 2px solid red;
   }
 
 }
+
+// @media all and (min-width: 651px) and (max-width: 768px){
+//   .content-list {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
