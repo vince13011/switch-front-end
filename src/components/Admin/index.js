@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './style.scss';
 
-import CreateArticle from 'src/components/CreateArticle';
+import CreateArticle from 'src/containers/CreateArticle';
 
 const Admin = ({
   loadOrders,

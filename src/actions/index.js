@@ -2,6 +2,11 @@ export const GET_ARTICLES_FROM_API = 'GET_ARTICLES_FROM_API';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
 export const GET_ONE_ARTICLE = 'GET_ONE_ARTICLE';
 export const SAVE_ONE_ARTICLE = 'SAVE_ONE_ARTICLE';
+
+export const GET_SIZES_FROM_API = 'GET_SIZES_FROM_API';
+export const SAVE_SIZES = 'SAVE_SIZES';
+export const NEW_SELECTED_SIZE = ' NEW_SELECTED_SIZE ';
+
 export const CHECKING_STOCK_FROM_API = 'CHECKING_STOCK_FROM_API';
 export const CHECKED_CART = 'CHECKED_CART';
 
@@ -51,6 +56,58 @@ export const MODIFY_ONE_ORDER = 'MODIFY_ONE_ORDER';
 export const GET_ORDER_STATUS_FROM_API = 'GET_ORDER_STATUS_FROM_API';
 export const SAVE_ORDER_STATUS = 'SAVE_ORDER_STATUS';
 export const SET_ORDER_INPUT_VALUE = 'SET_ORDER_INPUT_VALUE';
+
+export const SET_SELECTED_SIZE_QTY = 'SET_SELECTED_SIZE_QTY';
+export const SET_CREATE_ARTICLE_INPUT_VALUE = 'SET_CREATE_ARTICLE_INPUT_VALUE';
+export const ADD_SELECTED_CATEGORY = 'ADD_SELECTED_CATEGORY';
+export const REMOVE_SELECTED_CATEGORY = 'REMOVE_SELECTED_CATEGORY';
+export const SET_SELECTED_IMAGE = 'SET_SELECTED_IMAGE';
+
+export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
+
+export const createOneArticle =()=>({
+  type: CREATE_ONE_ARTICLE
+})
+
+export const setSelectedImage = (url) => ({
+  type: SET_SELECTED_IMAGE,
+  url,
+});
+
+export const addSelectedCategory = (name) => ({
+  type: ADD_SELECTED_CATEGORY,
+  name,
+});
+
+export const removeSelectedCategory = (name) => ({
+  type: REMOVE_SELECTED_CATEGORY,
+  name,
+});
+
+export const setCreateArticleInputValue = (value, name) => ({
+  type: SET_CREATE_ARTICLE_INPUT_VALUE,
+  name,
+  value,
+});
+
+export const setSelectedSizeQty = (value, name) => ({
+  type: SET_SELECTED_SIZE_QTY,
+  name,
+  value,
+});
+
+export const newSelectedSize = (size) => ({
+  type: NEW_SELECTED_SIZE,
+  size,
+});
+export const getAllSizes = () => ({
+  type: GET_SIZES_FROM_API,
+});
+
+export const saveSizes = (sizes) => ({
+  type: SAVE_SIZES,
+  sizes,
+});
 
 export const setOrderInputValue = (value, name) => ({
   type: SET_ORDER_INPUT_VALUE,

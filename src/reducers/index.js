@@ -14,6 +14,7 @@ import menu from './menu';
 import article from './article';
 import admin from './admin';
 import order from './order';
+import createArticle from './createArticle';
 
 
 const persistConfig = {
@@ -34,6 +35,7 @@ const globalReducer = combineReducers({
   checkout,
   admin,
   order,
+  createArticle,
 
 });
 

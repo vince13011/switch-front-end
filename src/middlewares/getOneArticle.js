@@ -19,6 +19,8 @@ const getOneArticles = (store) => (next) => (action) => {
       break;
     default:
       next(action);
+
+      
   }
 };
 
