@@ -32,34 +32,35 @@ const CART = ({
               <div className="cart__article__image"> <img src={article.image} alt="" /></div>
               <div className="cart__article__description">
                 <div className="cart__article__item cart__article__item--title">{article.name}</div>
-                <div className="cart__article__item cart__article__item--size">Taille: {article.size}</div>
+                <div className="cart__article__item cart__article__item--size">Taille : {article.size}</div>
                 <div className="cart__article__item cart__article__item--qty">
-                  quantité: {article.qty}
-                  <div>
+                  {/* {article.qty} */}
+                  <div className="cart__article__item--qty-change">
                     {article.qty > 1 ? (
-                    <MdRemove
-                      key={`less${article.id}`}
+                      <MdRemove
+                        key={`less${article.id}`}
+                        className="cart__article__item__qty-btn"
+                        onClick={() => {
+                          onLessClick(article);
+                        }}
+                      />
+                    ) : (
+                      <MdDelete
+                        key={`less${article.id}`}
+                        className="cart__article__item__delete"
+                        onClick={() => {
+                          onRemoveClick(article);
+                        }}
+                      />
+                    )}
+                    <p className="cart__article__item__number">{article.qty}</p>
+                    <MdAdd
+                      key={`plus${article.id}`}
                       className="cart__article__item__qty-btn"
                       onClick={() => {
-                        onLessClick(article);
+                        onPlusClick(article);
                       }}
                     />
-                  ) : (
-                    <MdDelete
-                      key={`less${article.id}`}
-                      className="cart__article__item__delete"
-                      onClick={() => {
-                        onRemoveClick(article);
-                      }}
-                    />
-                  )}
-                    <MdAdd
-                    key={`plus${article.id}`}
-                    className="cart__article__item__qty-btn"
-                    onClick={() => {
-                      onPlusClick(article);
-                    }}
-                  />
                   </div>
                 </div>
                 <div className="cart__article__item cart__article__item--price">{article.pre_tax_price * article.qty} € </div>
@@ -73,13 +74,13 @@ const CART = ({
           )}
         <div className="cart__footer">
           <div className="cart__footer__total">
-            <h2>Total</h2>
+            <h2 className="cart__total">Total</h2>
             <div>{total}€</div>
           </div>
           <div className="cart__footer__button">
             {message && (
-            <div>{message}</div>)}
-            <button
+              <div>{message}</div>)}
+            <button className="cart__btn"
               type="button"
               onClick={() => {
                 checkingCart(articles);
@@ -89,7 +90,7 @@ const CART = ({
           </div>
         </div>
       </div>
-    </Page>
+    </Page >
   );
 };
 
