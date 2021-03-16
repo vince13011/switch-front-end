@@ -25,6 +25,7 @@ const CreateArticle = ({
   selectImage,
   image,
   onSubmit,
+  className,
 
 }) => {
   const [loading, setLoading] = useState(false);
@@ -69,7 +70,7 @@ const CreateArticle = ({
     );
   }
   return (
-    <div className="createArticle__maincontainer">
+    <div className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
 
       <h2>Creer un nouvel Article </h2>
       <form
