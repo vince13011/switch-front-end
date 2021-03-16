@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Admin from 'src/components/Admin';
-import { getAllOrders, getAllArticles } from 'src/actions';
+import { getAllOrders, getAllArticles,toggleAdmin} from 'src/actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadArticles: () => {
     dispatch(getAllArticles());
+  },
+  adminClick: () => {
+    dispatch(toggleAdmin());
   },
 });
 

@@ -14,12 +14,13 @@ import menu from './menu';
 import article from './article';
 import admin from './admin';
 import order from './order';
+import createArticle from './createArticle';
 
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart','auth'],
+  whitelist: ['cart'],
 };
 const globalReducer = combineReducers({
   articles,
@@ -34,6 +35,7 @@ const globalReducer = combineReducers({
   checkout,
   admin,
   order,
+  createArticle,
 
 });
 
