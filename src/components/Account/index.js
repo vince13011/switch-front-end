@@ -22,26 +22,30 @@ const Account = ({
     <Page>
       <div className="account__maincontainer">
         <div className="account__title">
-          <h1>Bienvenue: {user.firstname}</h1>
+          <h1 className="account__title-name">Bienvenue : {user.firstname}</h1>
         </div>
         <div className="account__info">
-          <h2 className="account__subtitle"> Mes infos </h2>
-          <p className="account__item">Prénom: {user.firstname}</p>
-          <p className="account__item">Nom: {user.lastname}</p>
-          <p className="account__item">Numero de téléphone: {user.phone_number}</p>
+          <h2 className="account__subtitle">Mes infos</h2>
+          <p className="account__item account__item-name">{user.firstname} {user.lastname}</p>
+          {/* <p className="account__item">Nom: {user.lastname}</p> */}
+          <p className="account__item account__item-tel">Tél : {user.phone_number}</p>
         </div>
         <div className="account__address">
-          <h2 className="account__subtitle"> Mon Adresse</h2>
+          <h2 className="account__subtitle">Mon Adresse</h2>
           <p className="account__item">{address.number} {address.street_name}</p>
           <p className="account__item">{address.zip_code} {address.city}</p>
         </div>
         <div className="account__orders">
-          <h2 className="account__subtitle"> Mes Commandes </h2>
-          { orders && orders.map(
+          <h2 className="account__subtitle">Mes Commandes</h2>
+          {orders && orders.map(
             (order) => (
-              <Link to={`/order/${order.id}`}>
-                <p className="account__item">{order.order_number} {order.total_price}€ {order.status_name}</p>
-              </Link>
+              <div className="account_item-orders">
+                <Link to={`/order/${order.id}`}>
+                  <p className="account__item-order-number">Numéro de Commande : {order.order_number}</p>
+                  <p className="account__item-order-status">Status : <span className="account__item-order-status-type">{order.status_name}</span></p>
+                  <p className="account__item-total-amount">Montant Total : {order.total_price}€</p>
+                </Link>
+              </div>
             ),
           )}
 
