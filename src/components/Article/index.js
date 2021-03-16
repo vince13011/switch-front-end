@@ -52,10 +52,8 @@ function Article({
             size={size}
             handleSizeClick={handleSizeClick}
           />
-          <p>
-            {article.description}
-          </p>
-          <p className="article__price ">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
+          <p>{article.description}</p>
+          <p className="article__price">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
           <div className="article__info">
             <p className="article__info__size">taille: {size}</p>
             <p className="article__info__color">{article.color}</p>
@@ -64,28 +62,28 @@ function Article({
             {console.log('articlesizedans le composant ', article)}
             {article.sizes
 
-             && article.sizes.map((size) => {
-               console.log('size.article_has_size.stock', size);
-               if (size.article_has_size.stock !== 0) {
-                 return (
-                   <button
-                     className="article__size__button"
-                     onClick={handleSizeClick}
-                     type="button"
-                     name={size.size_name}
-                   >{size.size_name}
-                   </button>
+              && article.sizes.map((size) => {
+                console.log('size.article_has_size.stock', size);
+                if (size.article_has_size.stock !== 0) {
+                  return (
+                    <button
+                      className="article__size__button"
+                      onClick={handleSizeClick}
+                      type="button"
+                      name={size.size_name}
+                    >{size.size_name}
+                    </button>
 
-                 );
-               }
-             })}
+                  );
+                }
+              })}
 
           </div>
           <button
             type="button"
             className="article__add-to-cart-button"
             onClick={handleCartClick}
-          > ajouter au panier
+          > Ajouter au Panier
           </button>
 
         </div>

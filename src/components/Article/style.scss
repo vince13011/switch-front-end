@@ -1,24 +1,26 @@
 @use 'src/styles/vars';
 
 
-.article{
+.article {
   padding: 0 vars.$gutter;
-  &__add-to-cart-button{
-   display:none
+
+    &__add-to-cart-button {
+      display:none
     }
-  &__maincontainer{
-    display:flex;
-    flex-direction:column;
-    padding-top: 100px;
-  }
-  &__picturecontainer{
     
-    img{
+    &__maincontainer {
+      display:flex;
+      flex-direction:column;
+      padding-top: 100px;
+    }
+    &__picturecontainer {
+    
+    img {
       max-height:400px;
     }
   }
   &__descriptioncontainer{
-    h1{
+    h1 {
       display: none;
     }
     padding: 1rem
@@ -30,9 +32,9 @@
     background-color: #fff;
     padding:.5rem;
     }
-   &__price{
-    display: none;
-   } 
+  //  &__price{
+  //   display: none;
+  //  } 
   @media (min-width:768px){
     &__info{
       display:flex;
@@ -45,13 +47,25 @@
       }
     }
     &__add-to-cart-button{
-      width:100%;
-      display:block;
-      border:2px solid;
+      width: 100%;
+      display: block;
+      border: 2px solid black;
+      background-color: black;
+      color: white;
       box-shadow: none;
-      background-color: #fff;
       padding:.5rem;
+      transition: 0.2s;
+      font-weight: bold;
+
+        &:hover {
+          border: 2px solid ;
+          color: black;
+          border: 2px solid black;
+          background-color: white;
+          transition: 0.2s;
+        }
       }
+
     &__maincontainer{
         margin:auto;
         max-width: 1000px;
@@ -60,6 +74,9 @@
     }
     &__price{
       display: block;
+      margin-top: vars.$gutter;
+      font-weight: bold;
+      font-size: 1.5em;
      } 
     &__descriptioncontainer{
      width:50%;
