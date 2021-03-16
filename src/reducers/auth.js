@@ -4,13 +4,15 @@ import {
   LOGOUT,
   AUTH_IS_LOADING,
   SAVE_ALL_USER_ORDERS,
+  TOGGLE_ADMIN,
 } from '../actions';
 
 export const initialState = {
-  email: 'kevdiddnc@javascript.fr',
-  password: 'azertuiop',
+  email: 'toto@tata.fr',
+  password: '123456789',
   logged: false,
   AuthIsLoading: false,
+  admin: false,
 };
 
 const auth = (state = initialState, action = {}) => {
@@ -41,6 +43,10 @@ const auth = (state = initialState, action = {}) => {
       return {
         ...state, orders: action.orders,
 
+      };
+    case TOGGLE_ADMIN:
+      return {
+        ...state, admin: !state.admin,
       };
     default:
       return state;

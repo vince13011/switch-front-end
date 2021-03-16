@@ -10,6 +10,7 @@ const Admin = ({
   loadArticles,
   orders,
   articles,
+  adminClick,
 
 }) => {
   const [showAll, setShowAll] = useState(false);
@@ -21,11 +22,19 @@ const Admin = ({
   return (
 
     <div className="admin__mainContainer">
+
       <h1 className="admin__title"> Panneau d'Administration </h1>
 
       <div className="admin__articles">
+
         <div className="article__modify">
           <div className="admin__subtitle">Mes articles en vente</div>
+          <button
+            type="button"
+            className=""
+            onClick={() => adminClick()}
+          >secret
+          </button>
           {articles
           && articles.map(
             (article) => (
@@ -36,7 +45,7 @@ const Admin = ({
                   </div>
                   <div className="admin__articles__item__description">
                     {article.name} ref :{article.reference}
-  
+
                     {article.sizes.map(
                       (size) => (
                         <div className="admin__articles__item__stock">
@@ -51,7 +60,7 @@ const Admin = ({
           )}
         </div>
         <div className="article__create">
-       
+
           <CreateArticle />
         </div>
       </div>

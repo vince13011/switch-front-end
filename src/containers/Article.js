@@ -2,7 +2,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Article from 'src/components/Article';
 import {
-  addToCart, getOneArticle, setSizeValue, setModifyArticleSizeValue, setModifyArticleInputValue,
+  addToCart,
+  getOneArticle,
+  setSizeValue,
+  modifyArticle,
+  setModifyArticleSizeValue,
+  setModifyArticleInputValue,
 } from '../actions';
 
 // branchement en lecture du state
@@ -10,6 +15,7 @@ const mapStateToProps = (state) => ({
   article: state.article.article,
   size: state.article.size,
   loading: state.article.loading,
+  admin: state.auth.admin,
 });
 
 // branchement en écriture du state
@@ -31,6 +37,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   changeField: (value, name) => {
     dispatch(setModifyArticleInputValue(value, name));
+  },
+  onSubmit: () => {
+    dispatch(modifyArticle());
   },
 });
 

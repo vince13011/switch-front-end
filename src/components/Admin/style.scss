@@ -23,7 +23,10 @@
   &__articles{
     
     display :flex;
-    
+  &__button{
+    box-shadow: none;
+    background-color:white;
+  }  
     &__item{
       display:flex;
       justify-content:space-between;
