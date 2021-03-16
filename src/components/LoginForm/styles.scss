@@ -9,10 +9,23 @@
   
   &__button{
     width: 100%;
-    border:2px solid;
+    border: 2px solid black;
     box-shadow: none;
-    background-color: #fff;
-    padding:.5rem;
+    background-color: black;
+    color: white;
+    padding:.7rem;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      transition: 0.2s;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
   }
   @media(min-width:768px){
     width:50%;
