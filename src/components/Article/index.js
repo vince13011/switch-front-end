@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 // == Import : local
 // Composants
 import Page from 'src/components/Page';
+import Field from 'src/components/Field';
 import ArticleMobileMenu from './ArticleMobileMenu';
 import Loading from '../App/Loading';
 // Style
@@ -14,7 +15,17 @@ import './style.scss';
 
 // == Composant
 function Article({
-  article, toCart, size, setSize, loadArticle, loading,
+  article,
+  toCart,
+  size,
+  setSize,
+  loadArticle,
+  loading,
+  changeSizeField,
+  changeField,
+  onSubmit,
+  admin,
+
 }) {
   useEffect(() => {
     loadArticle();
@@ -31,6 +42,11 @@ function Article({
   const handleSizeClick = (e) => {
     console.log(e.target.name);
     setSize(e.target.name);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
   };
 
   if (loading) {
@@ -90,6 +106,36 @@ function Article({
 
         </div>
       </div>
+      {admin && (
+      <form action="">
+        {article.sizes
+
+        && article.sizes.map(
+          (size) => (
+            <Field
+              type="text"
+              name={size.size_name}
+              placeholder={`stock taille ${size.size_name}`}
+              value={size.article_has_size.stock}
+              onChange={changeSizeField}
+            />
+          ),
+        )}
+
+        <Field
+          type="text"
+          name="pre_tax_price"
+          placeholder="prix HT"
+          value={article.pre_tax_price}
+          onChange={changeField}
+        />
+        <button
+          type="submit"
+          onClick={handleSubmit}
+        > modifier l'article
+        </button>
+      </form>
+      )}
     </Page>
   );
 }

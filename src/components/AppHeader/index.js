@@ -14,6 +14,7 @@ const AppHeader = ({
   count,
   name,
   logout,
+
 }) => (
   <header className="header">
     <div className="header__main">
@@ -69,6 +70,7 @@ const AppHeader = ({
 
           )}
 
+        
       </div>
     </div>
     <nav className="header__nav">
@@ -84,7 +86,6 @@ const AppHeader = ({
 
         </NavLink>
       ))}
-
     </nav>
   </header>
 );

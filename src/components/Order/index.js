@@ -12,6 +12,7 @@ const Order = ({
   modifiedTracking,
   modifiedStatus,
   onSubmit,
+  admin,
 }) => {
   useEffect(() => {
     loadOrder();
@@ -81,6 +82,7 @@ const Order = ({
           </div>
         </div>
 
+        {admin && (
         <form
           action=""
           className="order__form"
@@ -118,7 +120,7 @@ const Order = ({
           >Mettre a jour la commande
           </button>
         </form>
-
+        )}
       </div>
     </div>
     )}
