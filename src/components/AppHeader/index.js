@@ -64,7 +64,7 @@ const AppHeader = ({
               <div>
                 <MdAccountCircle />
               </div>
-              <div className="header__buttons__btn">login
+              <div className="header__buttons__btn">se connecter
               </div>
             </Link>
 
