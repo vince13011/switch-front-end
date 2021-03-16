@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 // == Import : local
 // Composants
 import Page from 'src/components/Page';
-import ArticleMobileMenu from './ArticleMobileMenu';
+// import ArticleMobileMenu from './ArticleMobileMenu';
 import Loading from '../App/Loading';
 // Style
 import './style.scss';
@@ -39,35 +39,33 @@ function Article({
   return (
 
     <Page>
-
       <div className="article__maincontainer">
         <div className="article__picturecontainer">
-          <img src={article.image} alt="" />
+          <img className="article__picturecontainer-picture" src={article.image} alt={article.name} />
         </div>
         <div className="article__descriptioncontainer">
-          <h1>{article.name}</h1>
-          <ArticleMobileMenu
+          <h1 className="article__title">{article.name}</h1>
+          {/* <ArticsleMobileMenu
             article={article}
             handleCartClick={handleCartClick}
             size={size}
             handleSizeClick={handleSizeClick}
-          />
-          <p>{article.description}</p>
+          /> */}
           <p className="article__price">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
+          <p className="article__description">{article.description}</p>
           <div className="article__info">
-            <p className="article__info__size">taille: {size}</p>
+            {/* <p className="article__info__size">taille: {size}</p> */}
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
-            {console.log('articlesizedans le composant ', article)}
+            {/* {console.log('articlesizedans le composant ', article)} */}
             {article.sizes
-
               && article.sizes.map((size) => {
                 console.log('size.article_has_size.stock', size);
                 if (size.article_has_size.stock !== 0) {
                   return (
                     <button
-                      className="article__size__button"
+                      className="article__size__btn"
                       onClick={handleSizeClick}
                       type="button"
                       name={size.size_name}
@@ -77,13 +75,13 @@ function Article({
                   );
                 }
               })}
-
           </div>
+          <p className="article__info__size">taille : {size}</p>
           <button
             type="button"
             className="article__add-to-cart-button"
             onClick={handleCartClick}
-          > Ajouter au Panier
+          >Ajouter au Panier
           </button>
 
         </div>
