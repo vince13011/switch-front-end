@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 
 import './style.scss';
 
@@ -10,7 +10,7 @@ const Admin = ({
   loadArticles,
   orders,
   articles,
-  adminClick,
+ 
 
 }) => {
   const [showAllorders, setShowAllorders] = useState(false);
@@ -21,17 +21,23 @@ const Admin = ({
   }, []);
 
   return (
+    <>
 
-    <div className="admin__mainContainer">
+      <header className="admin__header">
+        <h1 className="admin__title"> Panneau d'Administration </h1>
+        <div className="">
+          <NavLink className="admin__header__link" to="/">Retour à l'accueil du site </NavLink>
+          <a className="admin__header__link" href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Mes Paiments</a>
+        </div>
+      </header>
+      <main className="admin__mainContainer">
 
-      <h1 className="admin__title"> Panneau d'Administration </h1>
-      
-      <div className="admin__first__row__wrapper">
-        <div className="admin__articles">
-          <div className="admin__subtitle">Mes articles en vente</div>
+        <div className="admin__first__row__wrapper">
+          <div className="admin__articles">
+            <div className="admin__subtitle">Mes articles en vente</div>
 
-          <div className="admin__articles__modify">
-            {articles
+            <div className="admin__articles__modify">
+              {articles
             && articles.map(
               (article) => (
                 <Link to={`/article/${article.id}`}>
@@ -41,7 +47,7 @@ const Admin = ({
                     </div>
                     <div className="admin__articles__item__description">
                       {article.name} ref :{article.reference}
-  
+
                       {article.sizes.map(
                         (size) => (
                           <div className="admin__articles__item__stock">
@@ -54,63 +60,63 @@ const Admin = ({
                 </Link>
               ),
             )}
+            </div>
           </div>
-        </div>
-        <div className="admin__orders__container ">
-          <div className="admin__orders">
-            <div className="admin__subtitle">
-              {
+          <div className="admin__orders__container ">
+            <div className="admin__orders">
+              <div className="admin__subtitle">
+                {
           showAllorders ? 'Toutes les commandes' : 'Commandes à traiter'
         }
 
-              <button
-                className="admin__orders__button"
-                type="button"
-                onClick={() => {
-                  setShowAllorders(!showAllorders);
-                }}
-              > {showAllorders
-                ? 'voir seulement les commandes a traiter '
-                : 'voir toutes les commandes ' }
-              </button>
-            </div>
+                <button
+                  className="admin__orders__button"
+                  type="button"
+                  onClick={() => {
+                    setShowAllorders(!showAllorders);
+                  }}
+                > {showAllorders
+                  ? 'voir seulement les commandes a traiter '
+                  : 'voir toutes les commandes ' }
+                </button>
+              </div>
 
-            {/* if local state showAll is false, will show order where status is pending
+              {/* if local state showAll is false, will show order where status is pending
            */}
-            {!showAllorders
-              ? (orders && orders.map(
-                (order) => {
-                  if (order.status_name === 'pending') {
-                    return (
-                      <Link to={`/order/${order.id}`}>
-                        <div className="admin__orders__item admin__orders__item--pending"> {order.order_number} {order.status_name} </div>
-                      </Link>
-                    );
-                  }
-                },
-              ))
+              {!showAllorders
+                ? (orders && orders.map(
+                  (order) => {
+                    if (order.status_name === 'pending') {
+                      return (
+                        <Link to={`/order/${order.id}`}>
+                          <div className="admin__orders__item admin__orders__item--pending"> {order.order_number} {order.status_name} </div>
+                        </Link>
+                      );
+                    }
+                  },
+                ))
               /* if local state showAll is true, will show all the loaded orders
            */
-              : (
-                orders && orders.map(
-                  (order) => (
-                    <Link to={`/order/${order.id}`}>
-                      <div className={`admin__orders__item admin__orders__item--${order.status_name}`}> {order.order_number} {order.status_name} </div>
-                    </Link>
-                  ),
-                )
-              )}
+                : (
+                  orders && orders.map(
+                    (order) => (
+                      <Link to={`/order/${order.id}`}>
+                        <div className={`admin__orders__item admin__orders__item--${order.status_name}`}> {order.order_number} {order.status_name} </div>
+                      </Link>
+                    ),
+                  )
+                )}
 
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="admin__articles__create">
-        <CreateArticle />
-      </div>
+        <div className="admin__articles__create">
+          <CreateArticle />
+        </div>
 
-    </div>
-
+      </main>
+    </>
   );
 };
 

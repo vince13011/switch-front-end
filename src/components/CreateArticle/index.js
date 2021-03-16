@@ -70,9 +70,9 @@ const CreateArticle = ({
     );
   }
   return (
-    <div className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
+    <div  className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
 
-      <h2>Creer un nouvel Article </h2>
+      <h2 className="createArticle__title">Creer un nouvel Article </h2>
       <form
         action=""
         className="createArticle__form"
@@ -98,7 +98,7 @@ const CreateArticle = ({
           onChange={changeField}
           value={color}
         />
-        <label htmlFor="desc">description</label>
+        <label className="field__label" htmlFor="desc">description</label>
         <textarea
           id="desc"
           name="description"
@@ -133,14 +133,16 @@ const CreateArticle = ({
         </div>
 
         <select
+          className="createArticle__form__select"
           name="size"
           id=""
           onChange={handleSizeSelect}
         >
-          <option value=""> -Selectioner une taille-</option>
+          <option value="" className="createArticle__form__select__option"> -Selectioner une taille-</option>
           {sizes && sizes.map(
             (size) => (
               <option
+                className="createArticle__form__select__option"
                 value={size.size_name}
               >{size.size_name}
               </option>
@@ -172,6 +174,7 @@ const CreateArticle = ({
           </div>
         ))}
         <input
+         
           type="file"
           onChange={onFileChange}
         />
@@ -180,6 +183,7 @@ const CreateArticle = ({
         && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
 
         <button
+          className="createArticle__form__button"
           type="submit"
           onClick={handleSubmit}
         >Creer l'article

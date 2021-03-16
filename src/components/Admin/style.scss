@@ -1,8 +1,23 @@
 .admin{
+  &__header{
+    height:100px;
+    color:white;
+    background-color: #5221c6;
+    padding:2rem;
+    position:fixed;
+    top:0;
+    left :0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    &__link{
+      margin: 1rem;
+    }
+  }
   &__title{
     font-size:2em;
     align-self:center;
-    color:black;
+    color:white;
     margin-bottom: 1rem;
   }
   &__subtitle{
@@ -19,6 +34,7 @@
     width: 100%;
     min-height: 100vh;
     margin: auto;
+    margin-top:100px;
   }
   &__first__row__wrapper{
     
@@ -35,11 +51,7 @@
     overflow:scroll;
     overflow-x: hidden;
     max-height:80vh;
-    transform-origin: 50% 0;
-    transition:transform 1s ease;
-      &::-webkit-scrollbar {
-        display: none;
-      }  
+
     }
 
 
@@ -47,10 +59,15 @@
       
       display:flex;
       justify-content:space-between;
-      background-color: rgb(200, 235, 255);
+      background-color: whitesmoke;
       padding:1rem;
       border-radius: .5rem;
       margin-bottom: 1rem;
+      transition:all .2s;
+      &:hover{
+        background:#5221c6;
+        color:white;
+      }
       &__image{
         height:50px;
       }
@@ -72,12 +89,21 @@
       padding:1rem;
       border-radius: .5rem;
       margin-bottom: 1rem;
+      &:hover{
+        background:#5221c6;
+        color:white;
+      }
       &--pending{
-        background-color: rgb(255, 177, 177);
+        background-color: #F8A5C2;
+        &:hover{
+          background:#ff8fb6;
+          color:white;
+        }
       }
     }
     &__button{
-      background-color: whitesmoke;
+      background-color: #5221c6;
+      color:white;
       border:none;
       box-shadow: none;
       padding:1rem;
