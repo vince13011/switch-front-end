@@ -27,14 +27,13 @@ function Article({
   changeField,
   onSubmit,
   admin,
+  onDelete,
 
 }) {
   useEffect(() => {
     loadArticle();
   }, []);
-  // if (!article) {
-  //   return <Redirect to="/error" />;
-  // }
+ 
   const handleCartClick = () => {
     if (!size) {
       return console.log('pas de size ');
@@ -51,9 +50,16 @@ function Article({
     onSubmit();
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    onDelete();
+  };
+
   if (isLoading) {
     return <Loading />;
   }
+  
+
   return (
 
     <Page>
@@ -63,12 +69,7 @@ function Article({
         </div>
         <div className="article__descriptioncontainer">
           <h1 className="article__title">{article.name}</h1>
-          {/* <ArticsleMobileMenu
-            article={article}
-            handleCartClick={handleCartClick}
-            size={size}
-            handleSizeClick={handleSizeClick}
-          /> */}
+        
           <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
@@ -131,6 +132,11 @@ function Article({
           type="submit"
           onClick={handleSubmit}
         > modifier l'article
+        </button>
+        <button
+          type="submit"
+          onClick={handleDelete}
+        >Supprimer l'article
         </button>
       </form>
       )}

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import './style.scss';
-
 import CreateArticle from 'src/containers/CreateArticle';
+import Loading from '../App/Loading';
 
 const Admin = ({
   loadOrders,
   loadArticles,
   orders,
   articles,
- 
+  isLoading,
 
 }) => {
   const [showAllorders, setShowAllorders] = useState(false);
@@ -19,7 +19,11 @@ const Admin = ({
     loadOrders();
     loadArticles();
   }, []);
-
+  if (isLoading) {
+    return (
+      <Loading />
+    );
+  }
   return (
     <>
 

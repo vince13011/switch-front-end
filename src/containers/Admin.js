@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   ordersloading: state.admin.loading,
   admin: state.auth.logged,
   articles: state.articles,
+  isLoading: state.admin.isLoading,
 });
 
 // branchement en écriture du state

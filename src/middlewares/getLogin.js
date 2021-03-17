@@ -1,5 +1,5 @@
 import {
-  LOGIN, setLoginTrue, logout, authIsLoading,setAdminTrue
+  LOGIN, setLoginTrue, logout, authIsLoading, setAdminTrue,
 } from 'src/actions';
 import axios from 'axios';
 
@@ -24,9 +24,10 @@ const getLogin = (store) => (next) => (action) => {
             address: { ...response.data[2] },
 
           };
+
           delete user.address.address_orders;
-          if (user.user.user_has_role.name==='admin'){
-            store.dispatch(setAdminTrue())
+          if (user.user.user_has_role.name === 'admin') {
+            store.dispatch(setAdminTrue());
           }
           store.dispatch(setLoginTrue(user));
           store.dispatch(authIsLoading(false));

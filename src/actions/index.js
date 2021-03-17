@@ -68,7 +68,26 @@ export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
 export const SET_MODIFY_ARTICLE_INPUT_VALUE = 'SET_MODIFY_ARTICLE_INPUT_VALUE';
 export const MODIFY_ARTICLE = 'MODIFY_ARTICLE';
 export const SET_ADMIN_TRUE = 'SET_ADMIN_TRUE';
+export const SET_ORDER_LOADING = 'SET_ORDER_LOADING:';
+export const SET_ADMIN_LOADING = 'SET_ADMIN_LOADING:';
 
+export const DELETE_ONE_ARTICLE = 'DELETE_ONE_ARTICLE';
+
+export const deleteOneArticle = (history) => ({
+  type: DELETE_ONE_ARTICLE,
+  history,
+});
+
+export const setAdminLoading = (status) => ({
+
+  type: SET_ADMIN_LOADING,
+  status,
+});
+
+export const setOrderLoading = (status) => ({
+  type: SET_ORDER_LOADING,
+  status,
+});
 export const setAdminTrue = () => ({
   type: SET_ADMIN_TRUE,
 });
