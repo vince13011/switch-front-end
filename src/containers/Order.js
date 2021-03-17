@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
   status: state.order.status,
   modifiedTracking: state.order.form.modifiedTracking,
   modifiedStatus: state.order.form.modifiedStatus,
-  admin: state.auth.admin
+  admin: state.auth.admin,
+  isLoading: state.order.isLoading,
 });
 
 // branchement en écriture du state

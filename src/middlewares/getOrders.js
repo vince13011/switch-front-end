@@ -9,6 +9,7 @@ import {
   adminOrdersLoading,
   saveOneOrder,
   saveAllUserOrders,
+  setOrderLoading,
 } from 'src/actions';
 import axios from 'axios';
 
@@ -28,7 +29,7 @@ const getOrders = (store) => (next) => (action) => {
 
       break;
     case GET_ONE_ORDER_FROM_API:
-
+      store.dispatch(setOrderLoading(true));
       axios.get(`https://switch-e-commerce.herokuapp.com/v1/order/${action.id}`)
         .then(
           (response) => {
@@ -37,6 +38,7 @@ const getOrders = (store) => (next) => (action) => {
               address: { ...response.data[0].address[0] },
             };
             store.dispatch(saveOneOrder(order));
+            store.dispatch(setOrderLoading(false));
           },
         );
       break;
@@ -51,13 +53,24 @@ const getOrders = (store) => (next) => (action) => {
         ); }
       break;
     case MODIFY_ONE_ORDER: {
-      const { id } = store.getState().order.order;
-      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${id}`, {
+      store.dispatch(setOrderLoading(true));
+      const { order } = store.getState().order;
+      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${order.id}`, {
         status_name: action.status,
         tracking_number: action.tracking,
       }).then(
-        (response) => console.log(response.data),
-      );
+        (response) => {
+          console.log(response.data);
+
+          store.dispatch(saveOneOrder({
+            ...order,
+            status_name: action.status,
+            tracking_number: action.tracking,
+          }));
+          store.dispatch(setOrderLoading(false));
+        },
+      )
+        .catch((err) => console.log(err));
     }
       break;
 

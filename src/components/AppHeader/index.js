@@ -14,6 +14,7 @@ const AppHeader = ({
   count,
   name,
   logout,
+  admin,
 
 }) => {
   // removing the text from cart and my account logos when 
@@ -43,9 +44,28 @@ const AppHeader = ({
           to="/"
           className="header__logo"
         >
+    
           <div className="header__project-title">SW<span className="header__project-title-i">IT</span>CH</div>
-        </Link>
 
+        </Link>
+         <div className="header__buttons">
+        {admin
+          && (
+          <Link to="/admin">
+            <div>
+              <MdAccountCircle color="#5221c6"/>
+            </div>
+            <div>{name}</div>
+            <div className="header__buttons__btn--admin">admin</div>
+
+          </Link>
+          )}
+        <Link to="/panier">
+          <div>
+            <MdShoppingCart />
+          </div>
+          <div className="header__buttons__btn">Panier ({count})
+          </div>
         <div className="header__buttons">
           <Link to="/panier">
             <div className="header__buttons-cart">
@@ -101,7 +121,7 @@ const AppHeader = ({
 
             )}
 
-        </div>
+
       </div>
       <nav className="header__nav">
         {categories.map((category) => (

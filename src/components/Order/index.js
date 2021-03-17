@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './style.scss';
 import Page from '/src/components/Page';
+import Loading from 'src/components/App/Loading';
 
 const Order = ({
   order,
@@ -13,10 +14,11 @@ const Order = ({
   modifiedStatus,
   onSubmit,
   admin,
+  isLoading,
 }) => {
   useEffect(() => {
     loadOrder();
-    loadStatus();
+    loadStatus();// only for the select button
   }, []);
   const handleChangeField = (event) => {
     changeField(event.target.value, event.target.name);
@@ -28,11 +30,13 @@ const Order = ({
       modifiedTracking);
   };
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <Page>
+      {console.log('render order')}
       {order
     && (
     <div className="order__maincontainer">

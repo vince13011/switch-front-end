@@ -8,13 +8,14 @@ import {
   modifyArticle,
   setModifyArticleSizeValue,
   setModifyArticleInputValue,
+  deleteOneArticle,
 } from '../actions';
 
 // branchement en lecture du state
 const mapStateToProps = (state) => ({
   article: state.article.article,
   size: state.article.size,
-  loading: state.article.loading,
+  isLoading: state.article.isLoading,
   admin: state.auth.admin,
 });
 
@@ -40,6 +41,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   onSubmit: () => {
     dispatch(modifyArticle());
+  },
+  onDelete: () => {
+    dispatch(deleteOneArticle(ownProps.history));
   },
 });
 

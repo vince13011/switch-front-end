@@ -54,7 +54,7 @@ const CreateArticle = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit()
+    onSubmit();
   };
 
   const handleSizeSelect = (e) => {
@@ -64,13 +64,8 @@ const CreateArticle = ({
     onChangeCheckbox(e.target.checked, e.target.name);
   };
 
-  if (loading) {
-    return (
-      <Loading />
-    );
-  }
   return (
-    <div  className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
+    <div className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
 
       <h2 className="createArticle__title">Creer un nouvel Article </h2>
       <form
@@ -174,11 +169,12 @@ const CreateArticle = ({
           </div>
         ))}
         <input
-         
+
           type="file"
           onChange={onFileChange}
         />
-
+        {loading
+          && <div className="uploadLoader">Loading...</div>}
         {image
         && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
 
