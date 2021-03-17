@@ -22,7 +22,7 @@ const Login = ({ logged }) => {
           to="/signup"
           exact
         >
-          S'inscrire
+          Créer un Compte
         </Link>
       </div>
     </Page>
