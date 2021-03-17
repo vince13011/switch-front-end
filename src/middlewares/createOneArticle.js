@@ -17,8 +17,12 @@ const createOneArticle = (store) => (next) => (action) => {
         ...article,
       })
         .then(
+
           (response) => {
-            store.dispatch(saveArticles([]));
+            const oldArticles = [...store.getState().articles];
+            const newArticles = [...oldArticles, response.data];
+            console.log(newArticles);
+            store.dispatch(saveArticles(newArticles));
             store.dispatch(setAdminLoading(false));
           },
         ).catch((err) => {
