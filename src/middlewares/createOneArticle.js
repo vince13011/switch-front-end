@@ -1,9 +1,10 @@
-import { CREATE_ONE_ARTICLE } from 'src/actions';
+import { CREATE_ONE_ARTICLE, setAdminLoading, saveArticles } from 'src/actions';
 import axios from 'axios';
 
 const createOneArticle = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_ONE_ARTICLE: {
+      store.dispatch(setAdminLoading(true));
       const article = { ...store.getState().createArticle };
       delete article.sizes;
       article.categories = article.selectedCategories.map((category) => ({ title: category }));
@@ -16,11 +17,18 @@ const createOneArticle = (store) => (next) => (action) => {
         ...article,
       })
         .then(
+
           (response) => {
-            const article = response.data;
-            console.log(article);
+            const oldArticles = [...store.getState().articles];
+            const newArticles = [...oldArticles, response.data];
+            console.log(newArticles);
+            store.dispatch(saveArticles(newArticles));
+            store.dispatch(setAdminLoading(false));
           },
-        ).catch((err) => console.log(err))
+        ).catch((err) => {
+          console.log(err);
+          store.dispatch(setAdminLoading(false));
+        })
         .finally();
     }
       break;

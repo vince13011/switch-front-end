@@ -1,7 +1,8 @@
-import { SAVE_ADMIN_ORDERS } from '../actions';
+import { SAVE_ADMIN_ORDERS, SET_ADMIN_LOADING } from '../actions';
 
 const initialState = {
   orders: [],
+  isLoading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         orders:
           action.orders,
+      };
+    case SET_ADMIN_LOADING:
+      return {
+        ...state,
+        isLoading: action.status,
       };
     default:
       return state;

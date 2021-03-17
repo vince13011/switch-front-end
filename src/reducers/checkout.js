@@ -1,15 +1,15 @@
-import { CHECKOUT_IS_LOADING, SET_CHECKOUT_SUCCESS } from '../actions';
+import { SET_CHECKOUT_LOADING, SET_CHECKOUT_SUCCESS } from '../actions';
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   success: false,
 };
 
 const checkout = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHECKOUT_IS_LOADING:
+    case SET_CHECKOUT_LOADING:
       return {
-        ...state, loading: action.status,
+        ...state, isLoading: action.status,
       };
     case SET_CHECKOUT_SUCCESS:
       return {
