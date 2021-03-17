@@ -54,17 +54,19 @@ const getOrders = (store) => (next) => (action) => {
       break;
     case MODIFY_ONE_ORDER: {
       store.dispatch(setOrderLoading(true));
-      const { id } = store.getState().order.order;
-      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${id}`, {
+      const { order } = store.getState().order;
+      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${order.id}`, {
         status_name: action.status,
         tracking_number: action.tracking,
       }).then(
         (response) => {
           console.log(response.data);
-          store.dispatch(setOrderLoading(true))
+
+          store.dispatch(saveOneOrder({ ...order, status_name: action.status,tracking_number:action.tracking}));
+          store.dispatch(setOrderLoading(false));
         },
       )
-      .catch((err)=>console.log(err));
+        .catch((err) => console.log(err));
     }
       break;
 

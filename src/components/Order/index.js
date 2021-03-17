@@ -33,7 +33,6 @@ const Order = ({
   if (isLoading) {
     return <Loading />;
   }
- 
 
   return (
     <Page>

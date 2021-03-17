@@ -1,5 +1,5 @@
 import {
-  GET_ONE_ARTICLE, saveOneArticle, articleLoading, MODIFY_ARTICLE,DELETE_ONE_ARTICLE
+  GET_ONE_ARTICLE, saveOneArticle, articleLoading, MODIFY_ARTICLE, DELETE_ONE_ARTICLE,
 } from 'src/actions';
 import axios from 'axios';
 
@@ -11,8 +11,9 @@ const getOneArticles = (store) => (next) => (action) => {
         .then(
           (response) => {
             const article = response.data;
-            store.dispatch(saveOneArticle(article));
+            console.log('rep',response.data)
             
+            store.dispatch(saveOneArticle(article));
             store.dispatch(articleLoading(false));
           },
         ).catch((err) => console.log(err))
@@ -45,11 +46,11 @@ const getOneArticles = (store) => (next) => (action) => {
     }
       break;
     case DELETE_ONE_ARTICLE: {
-      store.dispatch(articleLoading(true))
+      store.dispatch(articleLoading(true));
       const { article } = store.getState().article;
       const reqid = article.id;
       axios.delete(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`)
-      .then(response=>(action.history.push('/admin')))
+        .then((response) => (action.history.push('/admin')));
       store.dispatch(articleLoading(false));
     }
       break;

@@ -26,7 +26,7 @@ const Order = (state = initialState, action = {}) => {
         form: { ...state.form, [action.name]: action.value },
       };
     case SET_ORDER_LOADING:
-      return{
+      return {
         ...state,
         isLoading: action.status,
       };
