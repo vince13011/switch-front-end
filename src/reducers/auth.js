@@ -12,7 +12,7 @@ export const initialState = {
   password: '123456789',
   logged: false,
   AuthIsLoading: false,
-  admin: true,
+  admin: false,
 };
 
 const auth = (state = initialState, action = {}) => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import './style.scss';
 import CreateArticle from 'src/containers/CreateArticle';
@@ -11,6 +12,7 @@ const Admin = ({
   orders,
   articles,
   isLoading,
+  admin,
 
 }) => {
   const [showAllorders, setShowAllorders] = useState(false);
@@ -23,6 +25,9 @@ const Admin = ({
     return (
       <Loading />
     );
+  }
+  if (!admin) {
+    return <Redirect to="/" />;
   }
   return (
     <>

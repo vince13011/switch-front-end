@@ -14,6 +14,7 @@ const AppHeader = ({
   count,
   name,
   logout,
+  admin,
 
 }) => (
   <header className="header">
@@ -33,6 +34,17 @@ const AppHeader = ({
       </Link>
 
       <div className="header__buttons">
+        {admin
+          && (
+          <Link to="/admin">
+            <div>
+              <MdAccountCircle color="#5221c6"/>
+            </div>
+            <div>{name}</div>
+            <div className="header__buttons__btn--admin">admin</div>
+
+          </Link>
+          )}
         <Link to="/panier">
           <div>
             <MdShoppingCart />
@@ -70,7 +82,6 @@ const AppHeader = ({
 
           )}
 
-        
       </div>
     </div>
     <nav className="header__nav">
