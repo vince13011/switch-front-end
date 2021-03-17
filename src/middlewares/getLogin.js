@@ -9,19 +9,20 @@ const getLogin = (store) => (next) => (action) => {
       const checkLogin = async () => {
         try {
           store.dispatch(authIsLoading(true));
-          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/user', {
-            email: store.getState().auth.email,
-            password: store.getState().auth.password,
+          const { email, password } = store.getState().auth;
+          const auth = await axios.post('https://switch-e-commerce.herokuapp.com/v1/user', {
+            email,
+            password,
           });
-          if (response.data.errors) {
-            console.log(response.data.errors[0]);
-            return store.dispatch(logout());
-          }
+
+          console.log(auth.data);
+          const response = await axios.get(`https://switch-e-commerce.herokuapp.com/v1/user/${auth.data[1]}`, { headers: { Authorization: `Bearer ${auth.data[0]}` } });
           console.log(response.data);
+
           const user = {
-            token: response.data[0],
-            user: { ...response.data[1] },
-            address: { ...response.data[2] },
+            token: auth.data[0],
+            user: { ...response.data[0] },
+            address: { ...response.data[1] },
 
           };
 

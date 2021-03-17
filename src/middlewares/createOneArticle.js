@@ -1,4 +1,4 @@
-import { CREATE_ONE_ARTICLE, setAdminLoading } from 'src/actions';
+import { CREATE_ONE_ARTICLE, setAdminLoading, saveArticles } from 'src/actions';
 import axios from 'axios';
 
 const createOneArticle = (store) => (next) => (action) => {
@@ -18,8 +18,7 @@ const createOneArticle = (store) => (next) => (action) => {
       })
         .then(
           (response) => {
-            const article = response.data;
-            console.log(article);
+            store.dispatch(saveArticles([]));
             store.dispatch(setAdminLoading(false));
           },
         ).catch((err) => {

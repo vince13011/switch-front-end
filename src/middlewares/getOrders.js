@@ -62,7 +62,9 @@ const getOrders = (store) => (next) => (action) => {
         (response) => {
           console.log(response.data);
 
-          store.dispatch(saveOneOrder({ ...order, status_name: action.status,tracking_number:action.tracking}));
+          store.dispatch(saveOneOrder({ ...order, 
+            status_name: action.status,
+            tracking_number: action.tracking}));
           store.dispatch(setOrderLoading(false));
         },
       )

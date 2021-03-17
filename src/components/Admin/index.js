@@ -18,7 +18,7 @@ const Admin = ({
   useEffect(() => {
     loadOrders();
     loadArticles();
-  }, []);
+  }, [articles]);
   if (isLoading) {
     return (
       <Loading />
@@ -52,7 +52,8 @@ const Admin = ({
                     <div className="admin__articles__item__description">
                       {article.name} ref :{article.reference}
 
-                      {article.sizes.map(
+                      {article.sizes &&  
+                      article.sizes.map(
                         (size) => (
                           <div className="admin__articles__item__stock">
                             taille: {size.size_name} stock: {size.article_has_size.stock}
