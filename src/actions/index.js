@@ -63,11 +63,34 @@ export const ADD_SELECTED_CATEGORY = 'ADD_SELECTED_CATEGORY';
 export const REMOVE_SELECTED_CATEGORY = 'REMOVE_SELECTED_CATEGORY';
 export const SET_SELECTED_IMAGE = 'SET_SELECTED_IMAGE';
 
+export const SET_MODIFY_ARTICLE_SIZE_VALUE = 'SET_MODIFY_ARTICLE_SIZE_VALUE';
 export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
+export const SET_MODIFY_ARTICLE_INPUT_VALUE = 'SET_MODIFY_ARTICLE_INPUT_VALUE';
+export const MODIFY_ARTICLE = 'MODIFY_ARTICLE';
+export const TOGGLE_ADMIN = 'TOGGLE_ADMIN';
 
-export const createOneArticle =()=>({
-  type: CREATE_ONE_ARTICLE
-})
+export const toggleAdmin = () => ({
+  type: TOGGLE_ADMIN,
+});
+
+export const modifyArticle = () => ({
+  type: MODIFY_ARTICLE,
+});
+
+export const setModifyArticleInputValue = (value, name) => ({
+  type: SET_MODIFY_ARTICLE_INPUT_VALUE,
+  value,
+  name,
+});
+
+export const setModifyArticleSizeValue = (value, name) => ({
+  type: SET_MODIFY_ARTICLE_SIZE_VALUE,
+  value,
+  name,
+});
+export const createOneArticle = () => ({
+  type: CREATE_ONE_ARTICLE,
+});
 
 export const setSelectedImage = (url) => ({
   type: SET_SELECTED_IMAGE,

@@ -14,6 +14,7 @@ const AppHeader = ({
   count,
   name,
   logout,
+
 }) => (
   <header className="header">
     <div className="header__main">
@@ -63,12 +64,13 @@ const AppHeader = ({
               <div>
                 <MdAccountCircle />
               </div>
-              <div className="header__buttons__btn">login
+              <div className="header__buttons__btn">se connecter
               </div>
             </Link>
 
           )}
 
+        
       </div>
     </div>
     <nav className="header__nav">
@@ -84,7 +86,6 @@ const AppHeader = ({
 
         </NavLink>
       ))}
-
     </nav>
   </header>
 );

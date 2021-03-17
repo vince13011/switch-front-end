@@ -1,19 +1,32 @@
-.loginpage{
-  
-  &__signup{
-    margin:auto;
-    display:flex;
+.loginpage {
+  &__signup {
+    margin: auto;
+    display: flex;
     flex-direction: column;
-    width:50%;
-    max-width:200px;
+    width: 50%;
+    max-width: 200px;
   }
-  &__link{
-    font-size:.8em;
-    border:2px solid;
-    padding:.5rem;
+  
+  &__link {
+    font-size: .8em;
+    border: 2px solid black;
+    padding: .7rem;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgb(72, 31, 186);
+      border: 2px solid rgb(72, 31, 186);
+      color: white;
+      transition: 0.2s;
+      border-radius: 5px;
+    }
     
+    &:active {
+      transform: scale(0.95);
+    }
   }
-  &__subtitle{
-    margin-bottom: 1rem;
+
+  &__subtitle {
+    margin: 1rem auto 0.5rem auto;
   }
 }

@@ -16,13 +16,13 @@ const Login = ({ logged }) => {
       <h1 className="loginpage__title">Se connecter</h1>
       <LoginForm />
       <div className="loginpage__signup">
-        <h2 className="loginpage__subtitle"> Pas encore de compte ? </h2>
+        <h2 className="loginpage__subtitle">Pas encore de compte ?</h2>
         <Link
           className="loginpage__link"
           to="/signup"
           exact
         >
-          s'inscrire
+          Créer un Compte
         </Link>
       </div>
     </Page>

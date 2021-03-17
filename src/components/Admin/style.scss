@@ -1,8 +1,23 @@
 .admin{
+  &__header{
+    height:100px;
+    color:white;
+    background-color: #5221c6;
+    padding:2rem;
+    position:fixed;
+    top:0;
+    left :0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    &__link{
+      margin: 1rem;
+    }
+  }
   &__title{
     font-size:2em;
     align-self:center;
-    color:black;
+    color:white;
     margin-bottom: 1rem;
   }
   &__subtitle{
@@ -12,25 +27,47 @@
     align-items:center;
   }
   &__mainContainer{
-    background:rgb(224, 224, 224);
+    background:rgb(255, 255, 255);
     padding:2rem;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
     margin: auto;
+    margin-top:100px;
   }
-  &__articles{
+  &__first__row__wrapper{
     
     display :flex;
+    justify-content: space-between;
+  }
+  &__articles{  
+    width:50%;
     
+    background-color: rgb(255, 255, 255);
+    &__modify{
+    
+    padding: 0 1rem;
+    overflow:scroll;
+    overflow-x: hidden;
+    max-height:80vh;
+
+    }
+
+
     &__item{
+      
       display:flex;
       justify-content:space-between;
       background-color: whitesmoke;
       padding:1rem;
       border-radius: .5rem;
       margin-bottom: 1rem;
+      transition:all .2s;
+      &:hover{
+        background:#5221c6;
+        color:white;
+      }
       &__image{
         height:50px;
       }
@@ -41,26 +78,39 @@
 }
  
   &__orders{
+    &__container{
+      width:45%;
+    }
+
     display: flex;
     flex-direction: column;
-    
-     &__item{
-      background-color: white;
+    &__item{
+      background-color: whitesmoke;
       padding:1rem;
       border-radius: .5rem;
       margin-bottom: 1rem;
-      &--pending{
-        background-color: rgb(255, 177, 177);
+      &:hover{
+        background:#5221c6;
+        color:white;
       }
-     }
+      &--pending{
+        background-color: #F8A5C2;
+        &:hover{
+          background:#ff8fb6;
+          color:white;
+        }
+      }
+    }
     &__button{
-      background-color: white;
+      background-color: #5221c6;
+      color:white;
+      border:none;
+      box-shadow: none;
       padding:1rem;
       border-radius: .5rem;
       margin:1rem 1rem;
       
     }
-    
 
   }
 }

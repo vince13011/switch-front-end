@@ -22,6 +22,7 @@ const Footer = () => (
         </NavLink>
       </div>
     </div>
+    
   </footer>
 );
 
