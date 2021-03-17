@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import Page from 'src/components/Page';
-import HomeButton from 'src/components/Error/HomeButton';
 
 import './style.scss';
 
@@ -20,7 +20,7 @@ const Error = () => (
         <div className="_404">404</div>
         <div className="p1">LA PAGE</div>
         <div className="p2">N'A PAS ÉTÉ TROUVÉ</div>
-        <HomeButton className="btn" />
+        <Link to="/" className="btn">Retour à l'accueil</Link>
       </div>
     </div>
   </Page>

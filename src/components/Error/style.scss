@@ -1,8 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=opensans:500);
 
 .error{
+  position: fixed;
   width: 100%;
-  margin-top: 11em;
+  margin-top: 8em;
 }
 
 .clouds {
@@ -14,23 +15,20 @@
 }
 
 ._404 {
-  font-size: 220px;
-  position: relative;
+  font-size: 7rem;
   display: inline-block;
-  margin: 0 -4rem;
+  margin: .2rem auto;
   z-index: 2;
-  height: 250px;
-  letter-spacing: 15px;
+  letter-spacing: 1rem;
 }
 
 .p1 {
   text-align: center;
   display: block;
   position: relative;
-  margin: 0 auto;
-  margin-bottom: .5em;
+  margin: 2rem auto;
   letter-spacing: 12px;
-  font-size: 4em;
+  font-size: 3rem;
   line-height: 80%;
 }
 
@@ -38,36 +36,32 @@
   text-align: center;
   display: block;
   position: relative;
-  margin: 0 auto;
-  margin-bottom: .5em;
-  font-size: 20px;
+  margin: 2rem auto;
+  font-size: 1.7rem;
 }
 
 .container-text {
   width: 80%;
-  margin:0 auto;
-  color: #fff;
-  font-size: 70px;
+  margin:2rem auto;
+  color: #7141d1;
+  font-size: 1.7rem;
   text-align: center;
-  position: relative;
+  position: static;
   display: inline-block;
   z-index: 3;
   line-height: 1.2em;
-  display: inline-block;
 }
 
 .btn {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(190, 190, 190);
   position: relative;
   display: inline-block;
-  width: 358px;
-  padding: 5px;
+  padding: 1.5rem;
   z-index: 5;
-  font-size: 25px;
+  font-size: 1.5rem;
   margin: 1em auto;
   color: #7141d1;
   text-decoration: none;
-  margin-right: 10px
 }
 
 .right {
@@ -79,7 +73,6 @@
   width: 350px;
   height: 120px;
   background: #FFF;
-  background: linear-gradient(top, #FFF 100%);
   border-radius: 100px;
   position: absolute;
   margin: 120px auto 20px;
@@ -100,7 +93,6 @@ width: 100px;
 height: 100px;
 top: -50px;
 left: 50px;
-
 border-radius: 100px;
 }
 
@@ -109,7 +101,6 @@ width: 180px;
 height: 180px;
 top: -90px;
 right: 50px;
-
 border-radius: 200px;
 }
 
@@ -160,12 +151,29 @@ opacity: 0.8;
 animation: moveclouds 20s linear infinite;
 }
 
+.page{
+  min-height: 88vh !important;
+}
+
 @keyframes moveclouds {
   0% {
-    margin-left: 1000px;
+    margin-left: 900px;
   }
 
   100% {
-    margin-left: -1000px;
+    margin-left: -900px;
+  }
+}
+
+@media only screen and (min-width:768px){
+  ._404{
+    font-size: 11rem;
+  }
+  .container-text{
+    width: 22rem;
+    margin: 5rem auto;
+  }
+  .error{
+    margin-top: 11rem;
   }
 }
