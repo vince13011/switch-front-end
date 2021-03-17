@@ -18,7 +18,7 @@ const Admin = ({
   useEffect(() => {
     loadOrders();
     loadArticles();
-  }, [articles]);
+  }, []);
   if (isLoading) {
     return (
       <Loading />
