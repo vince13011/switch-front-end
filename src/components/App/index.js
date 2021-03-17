@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable linebreak-style */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
