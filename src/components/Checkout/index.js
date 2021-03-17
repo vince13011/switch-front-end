@@ -6,7 +6,7 @@ import Page from 'src/components/Page';
 
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
-import { SET_ADMIN_TRUE } from '../../actions';
+
 
 const Checkout = ({
   articles,

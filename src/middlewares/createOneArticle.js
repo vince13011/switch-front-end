@@ -1,4 +1,4 @@
-import { CREATE_ONE_ARTICLE, setAdminLoading, saveArticles } from 'src/actions';
+import { CREATE_ONE_ARTICLE, setAdminLoading, getAllArticles } from 'src/actions';
 import axios from 'axios';
 
 const createOneArticle = (store) => (next) => (action) => {
@@ -11,7 +11,7 @@ const createOneArticle = (store) => (next) => (action) => {
       article.sizes = article.selectedSizes;
       delete article.selectedSizes;
       delete article.selectedCategories;
-      console.log(article);
+     
 
       axios.post('https://switch-e-commerce.herokuapp.com/v1/article/', {
         ...article,
@@ -19,10 +19,7 @@ const createOneArticle = (store) => (next) => (action) => {
         .then(
 
           (response) => {
-            const oldArticles = [...store.getState().articles];
-            const newArticles = [...oldArticles, response.data];
-            console.log(newArticles);
-            store.dispatch(saveArticles(newArticles));
+            store.dispatch(getAllArticles());
             store.dispatch(setAdminLoading(false));
           },
         ).catch((err) => {
