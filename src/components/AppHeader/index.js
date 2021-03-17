@@ -44,31 +44,23 @@ const AppHeader = ({
           to="/"
           className="header__logo"
         >
-    
           <div className="header__project-title">SW<span className="header__project-title-i">IT</span>CH</div>
-
         </Link>
-         <div className="header__buttons">
-        {admin
-          && (
-          <Link to="/admin">
-            <div>
-              <MdAccountCircle color="#5221c6"/>
-            </div>
-            <div>{name}</div>
-            <div className="header__buttons__btn--admin">admin</div>
 
-          </Link>
-          )}
-        <Link to="/panier">
-          <div>
-            <MdShoppingCart />
-          </div>
-          <div className="header__buttons__btn">Panier ({count})
-          </div>
         <div className="header__buttons">
+          {admin
+            && (
+              <Link to="/admin">
+                <div>
+                  <MdAccountCircle color="#5221c6" />
+                </div>
+                <div>{name}</div>
+                <div className="header__buttons__btn--admin">admin</div>
+              </Link>
+            )}
           <Link to="/panier">
             <div className="header__buttons-cart">
+
               <MdShoppingCart className={"" + width > breakpoint ? "" : "logo logo-cart"} />
             </div>
             {/* ternary condition to remove text when screen width smaller than
@@ -121,7 +113,7 @@ const AppHeader = ({
 
             )}
 
-
+        </div>
       </div>
       <nav className="header__nav">
         {categories.map((category) => (
@@ -146,4 +138,5 @@ export default AppHeader;
 AppHeader.propTypes = {
   onClick: PropTypes.func.isRequired,
   logged: PropTypes.bool.isRequired,
+  admin: PropTypes.bool.isRequired,
 };
