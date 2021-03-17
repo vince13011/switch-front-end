@@ -60,6 +60,7 @@
             display: flex;
             &__link {
                 padding: .5rem;
+                text-transform: capitalize;
             }
         }
     };
@@ -86,14 +87,14 @@
 }
 
 .header__mobile-count {
-  position: sticky;
+  position: fixed;
   border: 1px solid black;
   // top: 50%;
-  // left: 68%;
+  // left: 69%;
   font-size: .7em;
   background-color: red;
   color: white;
   border-radius: 10px;
   padding: 3.5px;
-  transform: translate(40%, -50%);
+  transform: translate(90%, -90%);
 }
