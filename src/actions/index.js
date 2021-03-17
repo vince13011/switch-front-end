@@ -67,10 +67,10 @@ export const SET_MODIFY_ARTICLE_SIZE_VALUE = 'SET_MODIFY_ARTICLE_SIZE_VALUE';
 export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
 export const SET_MODIFY_ARTICLE_INPUT_VALUE = 'SET_MODIFY_ARTICLE_INPUT_VALUE';
 export const MODIFY_ARTICLE = 'MODIFY_ARTICLE';
-export const TOGGLE_ADMIN = 'TOGGLE_ADMIN';
+export const SET_ADMIN_TRUE = 'SET_ADMIN_TRUE';
 
-export const toggleAdmin = () => ({
-  type: TOGGLE_ADMIN,
+export const setAdminTrue = () => ({
+  type: SET_ADMIN_TRUE,
 });
 
 export const modifyArticle = () => ({

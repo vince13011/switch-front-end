@@ -4,7 +4,7 @@ import {
   LOGOUT,
   AUTH_IS_LOADING,
   SAVE_ALL_USER_ORDERS,
-  TOGGLE_ADMIN,
+  SET_ADMIN_TRUE,
 } from '../actions';
 
 export const initialState = {
@@ -12,7 +12,7 @@ export const initialState = {
   password: '123456789',
   logged: false,
   AuthIsLoading: false,
-  admin: false,
+  admin: true,
 };
 
 const auth = (state = initialState, action = {}) => {
@@ -28,13 +28,15 @@ const auth = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-    case SET_LOGIN_TRUE:
+    case SET_LOGIN_TRUE: {
+      delete state.email;
+      delete state.password;
       return {
         ...state,
         ...action.authObject,
         logged: true,
 
-      };
+      }; }
     case LOGOUT:
       return {
         ...initialState,
@@ -44,9 +46,9 @@ const auth = (state = initialState, action = {}) => {
         ...state, orders: action.orders,
 
       };
-    case TOGGLE_ADMIN:
+    case SET_ADMIN_TRUE:
       return {
-        ...state, admin: !state.admin,
+        ...state, admin: true,
       };
     default:
       return state;

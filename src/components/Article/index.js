@@ -22,7 +22,7 @@ function Article({
   size,
   setSize,
   loadArticle,
-  loading,
+  isLoading,
   changeSizeField,
   changeField,
   onSubmit,
@@ -51,7 +51,7 @@ function Article({
     onSubmit();
   };
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
   return (
@@ -69,7 +69,7 @@ function Article({
             size={size}
             handleSizeClick={handleSizeClick}
           /> */}
-          <p className="article__price">{article.pre_tax_price + article.pre_tax_price * article.vat_rate / 100} €</p>
+          <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
             {/* <p className="article__info__size">taille: {size}</p> */}

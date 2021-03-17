@@ -14,7 +14,7 @@ import {
 const mapStateToProps = (state) => ({
   article: state.article.article,
   size: state.article.size,
-  loading: state.article.loading,
+  isLoading: state.article.isLoading,
   admin: state.auth.admin,
 });
 
