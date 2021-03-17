@@ -43,7 +43,7 @@ const AppHeader = ({
           to="/"
           className="header__logo"
         >
-          <div>SWITCH</div>
+          <div className="header__project-title">SW<span className="header__project-title-i">IT</span>CH</div>
         </Link>
 
         <div className="header__buttons">
@@ -71,7 +71,7 @@ const AppHeader = ({
                 {width > breakpoint ? (
                   <>
                     <div>{name}</div>
-                    <div className="header__buttons__btn">mon Compte</div>
+                    <div className="header__buttons__btn">Mon Compte</div>
                   </>
                 ) : (<div className="header__buttons__btn" />)}
 
@@ -92,7 +92,7 @@ const AppHeader = ({
                   <MdAccountCircle className={'' + width > breakpoint ? '' : 'logo logo-account'} />
                 </div>
                 {width > breakpoint ? (
-                  <div className="header__buttons__btn">se connecter
+                  <div className="header__buttons__btn">Connexion
                   </div>
                 ) : (
                   <div className="header__buttons__btn" />
