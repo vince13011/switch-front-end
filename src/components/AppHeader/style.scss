@@ -25,13 +25,12 @@
     }
     &__buttons {
         display: flex;
-        position: relative;
+        // position: relative;
         @media (max-width:768px) {
           justify-content: space-around;
           width: 85%;
         }
-        // border: 2px solid red;
-        // margin-right: 10px;
+        
         &__btn {
             font-size: .8em;
             margin: 0 .5rem
@@ -71,7 +70,7 @@
   width: 30px;
 
   &-account {
-    // margin-right: 20px;
+    
   }
 
   &-cart {
@@ -81,13 +80,20 @@
 
 }
 
+.header__buttons-cart {
+  position: relative;
+  // border: 2px solid red;
+}
+
 .header__mobile-count {
-  position: absolute;
-  top: 50%;
-  left: 17%;
+  position: sticky;
+  border: 1px solid black;
+  // top: 50%;
+  // left: 68%;
+  font-size: .7em;
   background-color: red;
   color: white;
-  border-radius: 20px;
-  padding: 5px;
-  transform: translate(0%, -10%);
+  border-radius: 10px;
+  padding: 3.5px;
+  transform: translate(40%, -50%);
 }

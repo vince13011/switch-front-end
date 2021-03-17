@@ -48,7 +48,7 @@ const AppHeader = ({
 
         <div className="header__buttons">
           <Link to="/panier">
-            <div>
+            <div className="header__buttons-cart">
               <MdShoppingCart className={"" + width > breakpoint ? "" : "logo logo-cart"} />
             </div>
             {/* ternary condition to remove text when screen width smaller than
