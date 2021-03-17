@@ -6,10 +6,23 @@
   }
   &__button{
     width: 100%;
-    border:2px solid;
+    border: 2px solid black;
     box-shadow: none;
-    background-color: #fff;
-    padding:.5rem;
+    background-color: black;
+    color: white;
+    padding: .7rem;
+    margin-bottom: 1rem;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      transition: 0.2s;
+    }
+    &:active {
+      transform: scale(0.95);
+      transition: 0.2s;
+    }
   }
   &__form{
     padding:0 1rem;
@@ -21,7 +34,9 @@
     margin-bottom: 1rem;
   }
   &__address{
-    
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 1rem;
     
       &__legend{
         margin-bottom:1rem;
@@ -42,7 +57,7 @@
         width:30%;
       }
       &--country{
-        width:100%;
+        width: 100%;
       }          
     }
 

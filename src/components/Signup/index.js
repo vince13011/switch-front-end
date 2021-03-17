@@ -40,7 +40,7 @@ const Signup = ({
         </div>
       ) : (
         <>
-          <h1 className="pagetitle">s'enregistrer </h1>
+          <h1 className="pagetitle">Créer un Compte</h1>
 
           <form className="signup__form">
 
@@ -79,7 +79,7 @@ const Signup = ({
             />
             <Field
               name="phoneNumber"
-              placeholder="Telephone"
+              placeholder="Numéro de Téléphone"
               onChange={changeField}
               value={phoneNumber}
             />
@@ -88,7 +88,7 @@ const Signup = ({
               <div className="fieldwrapper">
                 <Field
                   name="number"
-                  placeholder="Numero"
+                  placeholder="Numéro"
                   onChange={changeField}
                   value={number}
                   className="signup__address__field signup__address__field--numero"
@@ -124,15 +124,15 @@ const Signup = ({
               </div>
             </fieldset>
             {message
-        && (
-          <div className="signup__message">{message}</div>
-        )}
+              && (
+                <div className="signup__message">{message}</div>
+              )}
             <button
               type="submit"
               className="signup__button"
               onClick={handleSingupSubmit}
             >
-              S'inscrire
+              Enregistrer
             </button>
           </form>
         </>
