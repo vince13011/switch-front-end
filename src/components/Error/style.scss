@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=opensans:500);
 
 .error{
-  position: fixed;
+  overflow: hidden;
   width: 100%;
   margin-top: 8em;
 }
@@ -151,10 +151,6 @@ opacity: 0.8;
 animation: moveclouds 20s linear infinite;
 }
 
-.page{
-  min-height: 88vh !important;
-}
-
 @keyframes moveclouds {
   0% {
     margin-left: 900px;
@@ -165,15 +161,15 @@ animation: moveclouds 20s linear infinite;
   }
 }
 
-@media only screen and (min-width:768px){
-  ._404{
-    font-size: 11rem;
-  }
-  .container-text{
-    width: 22rem;
-    margin: 5rem auto;
-  }
-  .error{
-    margin-top: 11rem;
-  }
-}
+// @media only screen and (min-width:768px){
+//   ._404{
+//     font-size: 11rem;
+//   }
+//   .container-text{
+//     width: 22rem;
+//     margin: 5rem auto;
+//   }
+//   .error{
+//     margin-top: 11rem;
+//   }
+// }

@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 .contactForm {
-    width: 80%;
+    width: 40%;
     background: white;
     border-radius: 1rem;
     border: 1px solid rgb(0, 0, 0);
@@ -9,27 +9,15 @@
     flex-direction: column;
     align-items: center;
     font-size: .8rem;
-    margin: 10rem auto 2rem;
+    margin: 10rem auto 2rem auto;
 }
 
-.container {
-  margin: 1rem auto;
-}
 .row {
   margin: 1rem auto;
-
-  &__formRow {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-12 {
-  margin: 1rem auto;
-  &__text-cente {
-    text-align: center;
-    margin-right: 9rem;
-  }
+    &__formRow {
+      text-align: center;
+      margin-right: 9rem;
+    }
 }
 
 .col-6 {
@@ -40,8 +28,9 @@
 }
 
 #contact-form {
-  width: 80%;
-  margin: 1.5 auto;
+  align-items: center;
+  width: 30%;
+  margin: 1.5rem auto;
 }
 
 .form-control {
@@ -57,14 +46,11 @@
   color: red;
 }
 
-.col {
-  margin: 1rem auto;
-  width: 100%;
-}
 .submit-btn {
   margin: 1rem auto;
 }
 
 input{
   font-size: none;
+  align-items: center;
 }
