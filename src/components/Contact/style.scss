@@ -1,4 +1,14 @@
-@use 'src/styles/vars';
+
+.contact{
+  width: 100%;
+  margin:-1.5em auto ;
+}
+
+.h1{
+  margin: 0 auto;
+}
+
+
 .contactForm {
     width: 80%;
     background: white;
@@ -9,47 +19,24 @@
     flex-direction: column;
     align-items: center;
     font-size: .8rem;
-    margin: 10rem auto 2rem;
-}
-
-.container {
-  margin: 1rem auto;
-}
-.row {
-  margin: 1rem auto;
-
-  &__formRow {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-12 {
-  margin: 1rem auto;
-  &__text-cente {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-6 {
-  margin:1rem auto ;
-  &__text-center{
-    text-align: center;
-  }
+    margin: 9em auto;
 }
 
 #contact-form {
   width: 80%;
-  margin: 1.5 auto;
+  margin: 1.5em auto;
+}
+
+.formRow {
+    text-align: center;
+}
+
+.row{
+  margin: .7em auto;
 }
 
 .form-control {
-  text-align: center;
-  &__formInput{
-    margin: .5rem auto;
-    margin-left: .5rem;
-  }
+  width: 89%;
 }
 
 .errorMessage {
@@ -57,14 +44,66 @@
   color: red;
 }
 
-.col {
-  margin: 1rem auto;
-  width: 100%;
-}
 .submit-btn {
   margin: 1rem auto;
 }
 
 input{
+  margin: .5em auto;
   font-size: none;
+}
+
+.infoForm{
+  width: 80%;
+  background: #000000;
+  color: #fff;
+  border-radius: 1rem;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: .8rem;
+  margin: 5em auto;
+}
+
+
+.p-number{
+  margin: 2em auto;
+  font-size: 2rem;
+}
+
+.p-address{
+  margin: 2em auto;
+  font-size: 1rem;
+}
+
+@media screen and (min-width:769px){
+  .contactForm{
+    width: 50%;
+    margin: 16em auto 0 auto;
+  }
+  .submit-btn{
+    font-size: 1.5rem;
+    width: 13rem;
+    height: 4rem;
+  }
+  .form-control {
+    width: 62%;
+  }
+  .infoForm{
+    width: 50%;
+    height: 20rem;
+  }
+  .h1-info{
+    font-size: 4rem;
+  }
+  .p-number{
+    margin: 0 auto;
+    font-size: 5rem;
+  }
+  .p-address{
+    font-size: 2.5rem;
+    margin: 1em auto;
+  }
 }

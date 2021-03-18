@@ -53,87 +53,92 @@ const ContactForm = () => {
 
   return (
     <Page>
-      <div className="ContactForm">
-        <div className="container">
-          <div className="row">
-            <div className="col-12__text-center">
-              <div className="contactForm">
-                <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-                  {/* Row 1 of form */}
-                  <div className="row__formRow">
-                    <div className="col-6">
-                      <input
-                        type="text"
-                        name="name"
-                        ref={register({
-                          required: { value: true, message: 'Please enter your name' },
-                          maxLength: {
-                            value: 30,
-                            message: 'Please use 30 characters or less',
-                          },
-                        })}
-                        placeholder="Name"
-                      />
-                      {errors.name && <span className="errorMessage">{errors.name.message}</span>}
-                    </div>
-                    <div className="col-6">
-                      <input
-                        type="email"
-                        name="email"
-                        ref={register({
-                          required: true,
-                          pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                        })}
-                        placeholder="Email address"
-                      />
-                      {errors.email && (
-                        <span className="errorMessage">Please enter a valid email address</span>
-                      )}
-                    </div>
-                  </div>
-                  {/* Row 2 of form */}
-                  <div className="row__formRow">
-                    <div className="col">
-                      <input
-                        type="text"
-                        name="subject"
-                        ref={register({
-                          required: { value: true, message: 'Please enter a subject' },
-                          maxLength: {
-                            value: 75,
-                            message: 'Subject cannot exceed 75 characters',
-                          },
-                        })}
-                        className="form-control__formInput"
-                        placeholder="Subject"
-                      />
-                    </div>
-                  </div>
-                  {/* Row 3 of form */}
-                  <div className="row__formRow">
-                    <div className="col">
-                      <textarea
-                        rows={3}
-                        name="message"
-                        ref={register({
-                          required: true,
-                        })}
-                        className="form-control__formInput"
-                        placeholder="Message"
-                      />
-                      {errors.message && <span className="errorMessage">Please enter a message</span>}
-                    </div>
-                  </div>
-                  <button className="submit-btn" type="submit">
-                    Submit
-                  </button>
-                </form>
+      <div className="contact">
+        <div className="contactForm">
+          <h1 className="h1">Nous envoyer un message</h1>
+          <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+            {/* Row 1 of form */}
+            <div className="formRow">
+              <div className="row">
+                <input
+                  type="text"
+                  name="name"
+                  ref={register({
+                    required: { value: true, message: 'Veuillez entrer votre nom, s\'il vous plaît.' },
+                    maxLength: {
+                      value: 30,
+                      message: 'Veuillez utiliser 30 caractères ou moins',
+                    },
+                  })}
+                  className="form-control"
+                  placeholder="Chuck Norris"
+                />
+                {errors.name && <span className="errorMessage">{errors.name.message}</span>}
               </div>
-              <ToastContainer />
+              <div className="formRow">
+                <div className="row">
+                  <input
+                    type="email"
+                    name="email"
+                    ref={register({
+                      required: true,
+                      pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    })}
+                    className="form-control"
+                    placeholder="xyz@xxx.com"
+                  />
+                  {errors.email && (
+                    <span className="errorMessage">Entrer une adresse valide</span>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+            {/* Row 2 of form */}
+            <div className="formRow">
+              <div className="row">
+                <input
+                  type="text"
+                  name="subject"
+                  ref={register({
+                    required: { value: true, message: 'Veuillez entrer un sujet' },
+                    maxLength: {
+                      value: 75,
+                      message: 'Le sujet ne peut pas dépasser 75 caractères',
+                    },
+                  })}
+                  className="form-control"
+                  placeholder="Sujet"
+                />
+              </div>
+            </div>
+            {/* Row 3 of form */}
+            <div className="formRow">
+              <div className="row">
+                <textarea
+                  rows={3}
+                  name="message"
+                  ref={register({
+                    required: true,
+                  })}
+                  className="form-control"
+                  placeholder="Message"
+                />
+                {errors.message && <span className="errorMessage">Veuillez saisir un message</span>}
+              </div>
+            </div>
+            <button className="submit-btn" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
+      <div className="infoForm">
+        <h1 className="h1-info">Nous appeler</h1>
+        <p className="p-number">04 03 90 03 92 </p>
+        <p className="p-address"> 1 Bd Général de Gaulle, 7500 Paris</p>
+        <div />
+      </div>
+      <ToastContainer />
     </Page>
   );
 };
