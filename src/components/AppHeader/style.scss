@@ -35,8 +35,11 @@
         &__btn {
             font-size: .8em;
             margin: 0 .5rem;
-            &--admin{
-              color: #5221c6
+            
+            &--admin {
+              color: #5221c6;
+              font-size: 0.8em;
+              margin: 0 .5rem;
             }
         }
     }
@@ -62,9 +65,26 @@
         }
         &__nav {
             display: flex;
+
             &__link {
                 padding: .5rem;
                 text-transform: capitalize;
+                transition: 0.2s;
+
+                &:hover {
+                  // transform: scale(1.05);
+                  font-weight: bold;
+                  transition: 0.2s;
+                }
+
+                &:active {
+                  transform: scale(0.9);
+                  transition: 0.2s;
+                }
+
+                &--active {
+                  border-bottom: 1px solid black;
+                }
             }
         }
     };
@@ -73,16 +93,6 @@
 .logo {
   height: 30px;
   width: 30px;
-
-  &-account {
-    
-  }
-
-  &-cart {
-    // margin-right: 30px;
-  }
-
-
 }
 
 .header__buttons-cart {
@@ -112,5 +122,21 @@
     color: rgb(65, 43, 179);
     // text-transform: lowercase;
     font-size: 1.2em;
+  }
+}
+
+
+.big-logo {
+  height: 30px;
+  width: 30px;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }
