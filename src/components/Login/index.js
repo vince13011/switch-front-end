@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import './style.scss';
 
-const Login = ({ logged }) => {
+const Login = ({ logged, message }) => {
   if (logged) {
     return (
       <Redirect to="/mon-compte" />
@@ -15,6 +15,8 @@ const Login = ({ logged }) => {
     <Page>
       <h1 className="loginpage__title">Se connecter</h1>
       <LoginForm />
+      {message
+      && <p className="loginpage__message">{message}</p>}
       <div className="loginpage__signup">
         <h2 className="loginpage__subtitle">Pas encore de compte ?</h2>
         <Link

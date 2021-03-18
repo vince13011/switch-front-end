@@ -42,7 +42,7 @@ export const SET_SIZE_VALUE = 'SET_SIZE_VALUE';
 export const SIGNUP = 'SIGNUP';
 export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
 export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
-
+export const SET_LOGIN_MESSAGE = 'SET_LOGIN_MESSAGE';
 export const SEND_ORDER = 'SEND_ORDER';
 
 export const GET_ALL_ORDERS_FROM_API = 'GET_ALL_ORDERS_FROM_API';
@@ -74,6 +74,11 @@ export const SET_ADMIN_LOADING = 'SET_ADMIN_LOADING:';
 export const SET_CHECKOUT_LOADING = 'SET_CHECKOUT_LOADING';
 
 export const DELETE_ONE_ARTICLE = 'DELETE_ONE_ARTICLE';
+
+export const setLogginMessage = (message) => ({
+  type: SET_LOGIN_MESSAGE,
+  message,
+});
 
 export const deleteOneArticle = (history) => ({
   type: DELETE_ONE_ARTICLE,

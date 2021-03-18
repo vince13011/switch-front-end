@@ -40,7 +40,10 @@ const getOrders = (store) => (next) => (action) => {
             store.dispatch(saveOneOrder(order));
             store.dispatch(setOrderLoading(false));
           },
-        );
+        ).catch(err=>{
+          console.log(err)
+          store.dispatch(setOrderLoading(false))
+        });
       break;
     case GET_ALL_USER_ORDERS: {
       const { id } = store.getState().auth.user;

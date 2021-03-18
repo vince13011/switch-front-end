@@ -6,7 +6,9 @@
     width: 50%;
     max-width: 200px;
   }
-  
+  &__message{
+    color:red;
+  }
   &__link {
     font-size: .8em;
     border: 2px solid black;

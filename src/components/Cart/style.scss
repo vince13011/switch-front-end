@@ -101,13 +101,16 @@
     align-items: flex-end;
 
     } 
+    &__message{
+      color:red;
+    }
     &__total{
     display: flex;
     justify-content: space-between;
     // flex-direction:column;
     font-weight: bold;
     font-size: 1.2em;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
       @media (min-width:768px) {
         flex-direction: row;
         justify-content: space-between;
@@ -116,7 +119,7 @@
     }
   }
   &__btn {
-    margin-top: 2rem;
+    margin-top: 1rem;
     box-sizing: border-box;
     padding: 1em;
     background-color: black;
