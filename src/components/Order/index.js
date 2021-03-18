@@ -3,6 +3,8 @@ import './style.scss';
 import Page from '/src/components/Page';
 import Loading from 'src/components/App/Loading';
 
+import { Redirect } from 'react-router-dom';
+
 const Order = ({
   order,
   loadOrder,
@@ -15,6 +17,7 @@ const Order = ({
   onSubmit,
   admin,
   isLoading,
+  user,
 }) => {
   useEffect(() => {
     loadOrder();
@@ -36,7 +39,6 @@ const Order = ({
 
   return (
     <Page>
-      {console.log('render order')}
       {order
     && (
     <div className="order__maincontainer">
