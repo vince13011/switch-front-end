@@ -134,7 +134,7 @@ const AppHeader = ({
           </NavLink>
         ))}
       </nav>
-    </header >
+    </header>
   );
 };
 
