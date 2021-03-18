@@ -31,7 +31,7 @@ const About = () => (
                     Kevin Detournay
                   </h6>
                   <small className="text-muted">
-                    Lead - dev - front & Product Owner
+                    Lead dev front & Product Owner
                   </small>
                 </div>
               </div>
