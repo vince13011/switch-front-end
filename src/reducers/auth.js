@@ -5,6 +5,7 @@ import {
   AUTH_IS_LOADING,
   SAVE_ALL_USER_ORDERS,
   SET_ADMIN_TRUE,
+  SET_LOGIN_MESSAGE,
 } from '../actions';
 
 export const initialState = {
@@ -13,6 +14,7 @@ export const initialState = {
   logged: false,
   AuthIsLoading: false,
   admin: false,
+  message: '',
 };
 
 const auth = (state = initialState, action = {}) => {
@@ -49,6 +51,11 @@ const auth = (state = initialState, action = {}) => {
     case SET_ADMIN_TRUE:
       return {
         ...state, admin: true,
+      };
+
+    case SET_LOGIN_MESSAGE:
+      return {
+        ...state, message: action.message,
       };
     default:
       return state;

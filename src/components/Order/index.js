@@ -81,9 +81,11 @@ const Order = ({
               Statut: {order.status_name}
             </div>
           </div>
+          {order.tracking_number && (
           <div className="order__footer__status">
             N° de suivi : {order.tracking_number}
           </div>
+          )}
         </div>
 
         {admin && (

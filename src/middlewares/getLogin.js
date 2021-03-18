@@ -1,7 +1,8 @@
 import {
-  LOGIN, setLoginTrue, logout, authIsLoading, setAdminTrue,
+  LOGIN, setLoginTrue, logout, authIsLoading, setAdminTrue, setLogginMessage,
 } from 'src/actions';
 import axios from 'axios';
+import { getStoredState } from 'redux-persist';
 
 const getLogin = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,6 +17,11 @@ const getLogin = (store) => (next) => (action) => {
           });
 
           console.log(auth.data);
+          if (auth.data.errors) {
+            store.dispatch(setLogginMessage('Oups, Veuillez verifier vos identifiants'));
+            store.dispatch(authIsLoading(false));
+            return;
+          }
           const response = await axios.get(`https://switch-e-commerce.herokuapp.com/v1/user/${auth.data[1]}`, { headers: { Authorization: `Bearer ${auth.data[0]}` } });
           console.log(response.data);
 

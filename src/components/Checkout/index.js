@@ -7,7 +7,6 @@ import Page from 'src/components/Page';
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
-
 const Checkout = ({
   articles,
   total,
@@ -23,6 +22,12 @@ const Checkout = ({
   const [cardLoader, setCardLoader] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  setTimeout(
+    () => {
+      removeCartStatus();
+    }, 300000,
+  );
+
   const handleCancel = () => {
     removeCartStatus();
   };

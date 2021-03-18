@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {
   MdAdd,
   MdRemove,
@@ -15,10 +15,16 @@ const CART = ({
   onLessClick,
   onRemoveClick,
   total,
+  removeCartMessage,
   isCheckedCart,
   checkingCart,
   message,
 }) => {
+  useEffect(
+    ()=>{
+      removeCartMessage()
+    },[]
+  )
   if (isCheckedCart === true) {
     return <Redirect to="/checkout" />;
   }
@@ -79,8 +85,9 @@ const CART = ({
           </div>
           <div className="cart__footer__button">
             {message && (
-              <div>{message}</div>)}
-            <button className="cart__btn"
+              <div className="cart__footer__message">{message}</div>)}
+            <button
+              className="cart__btn"
               type="button"
               onClick={() => {
                 checkingCart(articles);
@@ -90,7 +97,7 @@ const CART = ({
           </div>
         </div>
       </div>
-    </Page >
+    </Page>
   );
 };
 

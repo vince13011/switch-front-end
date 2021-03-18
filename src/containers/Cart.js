@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Cart from 'src/components/Cart';
 import {
-  increaseQuantity, decreaseQuantity, removeFromCart, checkingStock,
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+  checkingStock,
+  setCartMessage,
 } from 'src/actions';
 
 // branchement en lecture du state
@@ -34,6 +38,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   checkingCart: (articles) => {
     dispatch(checkingStock(articles));
+  },
+  removeCartMessage: () => {
+    dispatch(setCartMessage(''));
   },
 });
 
