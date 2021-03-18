@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Link, Redirect } from 'react-router-dom';
 
 import './style.scss';
 import CreateArticle from 'src/containers/CreateArticle';
@@ -33,7 +32,7 @@ const Admin = ({
     <>
 
       <header className="admin__header">
-        <h1 className="admin__title">Panel d'Administrateur</h1>
+        <h1 className="admin__title">Panel d'Admin</h1>
         <div className="">
           <NavLink className="admin__header__link" to="/">Retour à l'accueil du site </NavLink>
           <a className="admin__header__link" href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Mes Paiments</a>
@@ -57,8 +56,8 @@ const Admin = ({
                         <div className="admin__articles__item__description">
                           {article.name} ref :{article.reference}
 
-                          {article.sizes &&
-                            article.sizes.map(
+                          {article.sizes
+                            && article.sizes.map(
                               (size) => (
                                 <div className="admin__articles__item__stock">
                                   taille: {size.size_name} stock: {size.article_has_size.stock}
@@ -79,8 +78,28 @@ const Admin = ({
                   showAllorders ? 'Toutes les commandes' : 'Commandes à traiter'
                 } */}
                 Les Commandes
-
-                <button
+                <div className="admin__orders__buttons">
+                  <button
+                    className={`admin__orders__button admin__orders__button-${showAllorders}`}
+                    type="button"
+                    onClick={() => {
+                      setShowAllorders(true);
+                    }}
+                  >
+                    Toutes
+                  </button>
+                  <button
+                    className={`admin__orders__button admin__orders__button-${!showAllorders}`}
+                    type="button"
+                    onClick={() => {
+                      setShowAllorders(false);
+                    }}
+                  >
+                    A Traiter
+                  </button>
+                </div>
+                {/* anciens boutons */}
+                {/* <button
                   className="admin__orders__button"
                   type="button"
                   onClick={() => {
@@ -89,7 +108,7 @@ const Admin = ({
                 > {showAllorders
                   ? 'A Traiter'
                   : 'Toutes'}
-                </button>
+                </button> */}
               </div>
 
               {/* if local state showAll is false, will show order where status is pending
@@ -100,7 +119,11 @@ const Admin = ({
                     if (order.status_name === 'pending') {
                       return (
                         <Link to={`/order/${order.id}`}>
-                          <div className="admin__orders__item admin__orders__item--pending"> {order.order_number} {order.status_name} </div>
+                          <div className="admin__orders__item admin__orders__item--pending">
+                            <p>{order.status_name}</p>
+                            <p>{order.order_number}</p>
+                            <p>Total : {order.total_price}€</p>
+                          </div>
                         </Link>
                       );
                     }
@@ -112,7 +135,11 @@ const Admin = ({
                   orders && orders.map(
                     (order) => (
                       <Link to={`/order/${order.id}`}>
-                        <div className={`admin__orders__item admin__orders__item--${order.status_name}`}> {order.order_number} {order.status_name} </div>
+                        <div className={`admin__orders__item admin__orders__item--${order.status_name}`}>
+                          <p>{order.status_name}</p>
+                          <p>{order.order_number}</p>
+                          <p>Total : {order.total_price}€</p>
+                        </div>
                       </Link>
                     ),
                   )
