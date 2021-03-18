@@ -55,24 +55,28 @@
 
     }
 
-
-    &__item{
-      
+    // la liste des orders
+    &__item {
       display:flex;
       justify-content:space-between;
       background-color: whitesmoke;
       padding:1rem;
-      border-radius: .5rem;
+      // border-radius: .5rem;
       margin-bottom: 1rem;
       transition:all .2s;
+
       &:hover{
-        background:#5221c6;
+        // background:#5221c6;
+        background-color: black;
+        transform: scale(1.05);
         color:white;
       }
+
       &__image{
         height:50px;
       }
-     &__stock{
+
+      &__stock{
        font-size:.8em;
      } 
   }
@@ -82,34 +86,24 @@
     border: 1px solid black;
     border-radius: 5px;
     padding: 1rem;
-    &__container{
-      width:45%;
-    }
-
     display: flex;
     flex-direction: column;
-    &__item{
-      background-color: whitesmoke;
-      padding:1rem;
-      border-radius: .5rem;
-      margin-bottom: 1rem;
-      &:hover{
-        background:#5221c6;
-        color:white;
-      }
-      &--pending{
-        background-color: #F8A5C2;
-        &:hover{
-          background:#ff8fb6;
-          color:white;
-        }
-      }
+
+    &__container{
+      width:45%;
+      // max-height: 500px;
+      // overflow: scroll;
+    }
+
+    &__item {
+      margin: 1rem auto;
+      padding: 1rem;
+      border: 2px solid lightgray;
+      border-radius: 5px;
     }
 
     // buttons of orders
     &__buttons {
-      max-height: 200px;
-      overflow: scroll;
       display: flex;
       justify-content: center;
       background-color: white;
@@ -132,6 +126,59 @@
       }
 
     }
+  }
+}
 
+.status {
+  
+  &-cancelled {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: capitalize;
+    background-color: rgb(255, 0, 0, 0.7);
+    color: white;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
+  }
+  // &-confirmed
+  &-sent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: capitalize;
+    background-color: rgb(0, 148, 0, 0.7);
+    transition: 0.2s;
+      
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
+  
+  }
+
+  // &-delivered {
+
+  // }
+  // &-returned    
+  &-pending {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: capitalize;
+    background-color: rgb(255, 255, 0, 0.7);
+    transition: 0.2s;
+      
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
   }
 }

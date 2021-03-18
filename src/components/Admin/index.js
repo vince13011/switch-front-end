@@ -119,7 +119,7 @@ const Admin = ({
                     if (order.status_name === 'pending') {
                       return (
                         <Link to={`/order/${order.id}`}>
-                          <div className="admin__orders__item admin__orders__item--pending">
+                          <div className="admin__orders__item status-pending">
                             <p>{order.status_name}</p>
                             <p>{order.order_number}</p>
                             <p>Total : {order.total_price}€</p>
@@ -135,7 +135,7 @@ const Admin = ({
                   orders && orders.map(
                     (order) => (
                       <Link to={`/order/${order.id}`}>
-                        <div className={`admin__orders__item admin__orders__item--${order.status_name}`}>
+                        <div className={`admin__orders__item status-${order.status_name}`}>
                           <p>{order.status_name}</p>
                           <p>{order.order_number}</p>
                           <p>Total : {order.total_price}€</p>
