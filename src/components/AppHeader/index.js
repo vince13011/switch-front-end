@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import {
-  MdAccountCircle, MdShoppingCart, MdMenu, MdClose,
+  MdAccountCircle, MdShoppingCart, MdMenu, MdExitToApp, MdBuild, MdStore,
 } from 'react-icons/md';
 import './style.scss';
 
@@ -52,16 +52,21 @@ const AppHeader = ({
             && (
               <Link to="/admin">
                 <div>
-                  <MdAccountCircle color="#5221c6" />
+                  {/* <MdAccountCircle color="#5221c6" /> */}
+                  <MdStore className={"" + width > breakpoint ? "big-logo" : "logo"} color="#5221c6" />
                 </div>
-                <div>{name}</div>
-                <div className="header__buttons__btn--admin">admin</div>
+                {/* <div>{name}</div> */}
+                {width > breakpoint ? (
+                  <div className="header__buttons__btn--admin">Admin</div>
+                ) : (
+                  <div className="header__buttons__btn--admin" />
+                )}
               </Link>
             )}
           <Link to="/panier">
             <div className="header__buttons-cart">
 
-              <MdShoppingCart className={"" + width > breakpoint ? "" : "logo logo-cart"} />
+              <MdShoppingCart className={"" + width > breakpoint ? "big-logo" : "logo"} />
             </div>
             {/* ternary condition to remove text when screen width smaller than
             768px */}
@@ -78,30 +83,30 @@ const AppHeader = ({
             <>
               <Link to="/mon-compte">
                 <div>
-                  <MdAccountCircle className={'' + width > breakpoint ? '' : 'logo logo-account'} />
+                  <MdAccountCircle className={'' + width > breakpoint ? 'big-logo' : 'logo'} />
                 </div>
                 {width > breakpoint ? (
                   <>
-                    <div>{name}</div>
+                    {/* <div>{name}</div> */}
                     <div className="header__buttons__btn">Mon Compte</div>
                   </>
                 ) : (<div className="header__buttons__btn" />)}
 
               </Link>
-              <div><MdClose
+              {/* <div><MdExitToApp
                 className={"" + width > breakpoint ? "" : "logo logo-cart"}
                 onClick={() => {
                   logout();
                 }}
                 cursor="pointer"
               />
-              </div>
+              </div> */}
             </>
           )
             : (
               <Link to="/login">
                 <div>
-                  <MdAccountCircle className={'' + width > breakpoint ? '' : 'logo logo-account'} />
+                  <MdAccountCircle className={'' + width > breakpoint ? 'big-logo' : 'logo'} />
                 </div>
                 {width > breakpoint ? (
                   <div className="header__buttons__btn">Connexion
@@ -129,7 +134,7 @@ const AppHeader = ({
           </NavLink>
         ))}
       </nav>
-    </header>
+    </header >
   );
 };
 
