@@ -33,7 +33,7 @@ const Admin = ({
     <>
 
       <header className="admin__header">
-        <h1 className="admin__title"> Panneau d'Administration </h1>
+        <h1 className="admin__title">Panel d'Administrateur</h1>
         <div className="">
           <NavLink className="admin__header__link" to="/">Retour à l'accueil du site </NavLink>
           <a className="admin__header__link" href="https://dashboard.stripe.com/test/dashboard" target="_blank" rel="noopener noreferrer">Mes Paiments</a>
@@ -47,37 +47,38 @@ const Admin = ({
 
             <div className="admin__articles__modify">
               {articles
-            && articles.map(
-              (article) => (
-                <Link to={`/article/${article.id}`}>
-                  <div className="admin__articles__item">
-                    <div className="admin__articles__item__image">
-                      <img src={article.image} alt="" />
-                    </div>
-                    <div className="admin__articles__item__description">
-                      {article.name} ref :{article.reference}
+                && articles.map(
+                  (article) => (
+                    <Link to={`/article/${article.id}`}>
+                      <div className="admin__articles__item">
+                        <div className="admin__articles__item__image">
+                          <img src={article.image} alt="" />
+                        </div>
+                        <div className="admin__articles__item__description">
+                          {article.name} ref :{article.reference}
 
-                      {article.sizes &&  
-                      article.sizes.map(
-                        (size) => (
-                          <div className="admin__articles__item__stock">
-                            taille: {size.size_name} stock: {size.article_has_size.stock}
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              ),
-            )}
+                          {article.sizes &&
+                            article.sizes.map(
+                              (size) => (
+                                <div className="admin__articles__item__stock">
+                                  taille: {size.size_name} stock: {size.article_has_size.stock}
+                                </div>
+                              ),
+                            )}
+                        </div>
+                      </div>
+                    </Link>
+                  ),
+                )}
             </div>
           </div>
           <div className="admin__orders__container ">
             <div className="admin__orders">
               <div className="admin__subtitle">
-                {
-          showAllorders ? 'Toutes les commandes' : 'Commandes à traiter'
-        }
+                {/* {
+                  showAllorders ? 'Toutes les commandes' : 'Commandes à traiter'
+                } */}
+                Les Commandes
 
                 <button
                   className="admin__orders__button"
@@ -86,8 +87,8 @@ const Admin = ({
                     setShowAllorders(!showAllorders);
                   }}
                 > {showAllorders
-                  ? 'voir seulement les commandes a traiter '
-                  : 'voir toutes les commandes ' }
+                  ? 'A Traiter'
+                  : 'Toutes'}
                 </button>
               </div>
 
@@ -105,8 +106,8 @@ const Admin = ({
                     }
                   },
                 ))
-              /* if local state showAll is true, will show all the loaded orders
-           */
+                /* if local state showAll is true, will show all the loaded orders
+             */
                 : (
                   orders && orders.map(
                     (order) => (
