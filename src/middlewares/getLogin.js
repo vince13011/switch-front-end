@@ -2,7 +2,7 @@ import {
   LOGIN, setLoginTrue, logout, authIsLoading, setAdminTrue, setLogginMessage,
 } from 'src/actions';
 import axios from 'axios';
-import { getStoredState } from 'redux-persist';
+
 
 const getLogin = (store) => (next) => (action) => {
   switch (action.type) {
