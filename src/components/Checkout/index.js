@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import Page from 'src/components/Page';
-import Success from 'src/containers/Success';
+
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
-const Order = ({
+
+const Checkout = ({
   articles,
   total,
-  loading,
+  isLoading,
   onClick,
   user,
   address,
@@ -19,6 +20,7 @@ const Order = ({
   removeCartStatus,
   success,
 }) => {
+  const [cardLoader, setCardLoader] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const handleCancel = () => {
@@ -26,12 +28,12 @@ const Order = ({
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setCardLoader(true);
     if (!stripe || !elements) {
       return;
     }
     const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/pay', {
-      email: 'kevin@kevin.fr',
+      email: user.email,
       total,
     });
     const secret = response.data.client_secret;
@@ -40,15 +42,15 @@ const Order = ({
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: 'Jenny Rosen',
+          name: `${user.firstname} ${user.lastname}`,
         },
       },
     });
-
+    setCardLoader(false);
     onClick(result, address, user);
   };
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
   if (!logged) {
@@ -99,13 +101,20 @@ const Order = ({
             onClick={handleCancel}
           >Modifier Ma Commande
           </button>
+
           <CardElement className="checkout__credit" />
-          <button
-            className="checkout__button"
-            type="submit"
-            onClick={handleSubmit}
-          >payer maintenant
-          </button>
+          {cardLoader
+            ? (<div className="cardLoader">Loading...</div>)
+            : (
+              <>
+                <button
+                  className="checkout__button"
+                  type="submit"
+                  onClick={handleSubmit}
+                >payer maintenant
+                </button>
+              </>
+            )}
         </div>
 
       </div>
@@ -115,4 +124,4 @@ const Order = ({
   );
 };
 
-export default Order;
+export default Checkout;

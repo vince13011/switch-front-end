@@ -9,7 +9,7 @@ import {
 const initialState = {
   article: [],
   size: '',
-  loading: false,
+  isLoading: false,
   
 };
 
@@ -22,7 +22,7 @@ const article = (state = initialState, action = {}) => {
       };
     case ARTICLE_IS_LOADING:
       return {
-        ...state, loading: action.status,
+        ...state, isLoading: action.status,
       };
     case SAVE_ONE_ARTICLE:
       return { ...state, article: action.article };

@@ -34,11 +34,13 @@ function App({
   loading,
   loadArticles,
   loadCategories,
-  logged,
+  removeCartStatus,
+  
 }) {
   useEffect(() => {
     loadArticles();
     loadCategories();
+    removeCartStatus();
   }, []);
 
   const stripePromise = loadStripe('pk_test_51ITtjSFqylvRHC31SNrW8LYUUKtyp0MUfNUAgTI3i8mC4fHXB7O5lxSlzISa5ta0KndYihXNbip2ukifjluRmY5r00QAJk4yMO');
@@ -148,7 +150,8 @@ App.propTypes = {
   loading: PropTypes.bool,
   loadArticles: PropTypes.func.isRequired,
   loadCategories: PropTypes.func.isRequired,
-  logged: PropTypes.bool.isRequired,
+  removeCartStatus: PropTypes.func.isRequired,
+
 };
 
 App.defaultProps = {

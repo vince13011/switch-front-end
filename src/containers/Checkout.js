@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
   return {
     articles: state.cart.articles,
     total,
-    loading: state.checkout.loading,
+    isLoading: state.checkout.isLoading,
     user: state.auth.user,
     address: state.auth.address,
     logged: state.auth.logged,

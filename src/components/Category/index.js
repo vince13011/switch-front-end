@@ -10,11 +10,11 @@ const Category = ({ title, text, articles }) => (
       <h1 className="content-title">{title}</h1>
       <p className="content-text">{text}</p>
       {articles && (
-      <div className="content-list">
-        {articles.map((article) => (
-          <Card key={article.id} {...article} />
-        ))}
-      </div>
+        <div className="content-list">
+          {articles.map((article) => (
+            <Card key={article.id} {...article} />
+          ))}
+        </div>
       )}
     </section>
   </Page>

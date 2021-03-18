@@ -44,7 +44,7 @@ export const SET_SIGNUP_MESSAGE = 'SET_SIGNUP_MESSAGE';
 export const SET_SIGNUP_SUCCESS = 'SET_SIGNUP_SUCCESS';
 
 export const SEND_ORDER = 'SEND_ORDER';
-export const CHECKOUT_IS_LOADING = 'CHECKOUT_IS_LOADING';
+
 export const GET_ALL_ORDERS_FROM_API = 'GET_ALL_ORDERS_FROM_API';
 export const SAVE_ADMIN_ORDERS = 'SAVE_ADMIN_ORDERS';
 export const GET_ONE_ORDER_FROM_API = 'GET_ONE_ORDER_FROM_API';
@@ -67,10 +67,31 @@ export const SET_MODIFY_ARTICLE_SIZE_VALUE = 'SET_MODIFY_ARTICLE_SIZE_VALUE';
 export const CREATE_ONE_ARTICLE = 'CREATE_ONE_ARTICLE';
 export const SET_MODIFY_ARTICLE_INPUT_VALUE = 'SET_MODIFY_ARTICLE_INPUT_VALUE';
 export const MODIFY_ARTICLE = 'MODIFY_ARTICLE';
-export const TOGGLE_ADMIN = 'TOGGLE_ADMIN';
+export const SET_ADMIN_TRUE = 'SET_ADMIN_TRUE';
 
-export const toggleAdmin = () => ({
-  type: TOGGLE_ADMIN,
+export const SET_ORDER_LOADING = 'SET_ORDER_LOADING:';
+export const SET_ADMIN_LOADING = 'SET_ADMIN_LOADING:';
+export const SET_CHECKOUT_LOADING = 'SET_CHECKOUT_LOADING';
+
+export const DELETE_ONE_ARTICLE = 'DELETE_ONE_ARTICLE';
+
+export const deleteOneArticle = (history) => ({
+  type: DELETE_ONE_ARTICLE,
+  history,
+});
+
+export const setAdminLoading = (status) => ({
+
+  type: SET_ADMIN_LOADING,
+  status,
+});
+
+export const setOrderLoading = (status) => ({
+  type: SET_ORDER_LOADING,
+  status,
+});
+export const setAdminTrue = () => ({
+  type: SET_ADMIN_TRUE,
 });
 
 export const modifyArticle = () => ({
@@ -202,8 +223,8 @@ export const sendOrder = (paymentResult, total) => ({
   total,
 });
 
-export const checkoutIsLoading = (status) => ({
-  type: CHECKOUT_IS_LOADING,
+export const setCheckoutLoading = (status) => ({
+  type: SET_CHECKOUT_LOADING,
   status,
 });
 

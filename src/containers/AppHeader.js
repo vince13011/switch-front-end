@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   logged: state.auth.logged,
   count: state.cart.count,
   name: state.auth.firstname,
+  admin: state.auth.admin,
 
 });
 
