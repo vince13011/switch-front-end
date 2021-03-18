@@ -67,7 +67,7 @@ const CreateArticle = ({
   return (
     <div className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
 
-      <h2 className="createArticle__title">Creer un nouvel Article </h2>
+      <h2 className="admin__subtitle createArticle__title">Creer un nouvel Article </h2>
       <form
         action=""
         className="createArticle__form"
@@ -145,29 +145,29 @@ const CreateArticle = ({
           )}
         </select>
         {selectedSizes
-        && selectedSizes.map(
-          (size) => (
-            <Field
-              type="text"
-              name={size.size_name}
-              placeholder={`Taille ${size.size_name},Quantité :`}
-              onChange={setSizeQty}
-              value={size.stock}
-            />
-          ),
-        )}
+          && selectedSizes.map(
+            (size) => (
+              <Field
+                type="text"
+                name={size.size_name}
+                placeholder={`Taille ${size.size_name},Quantité :`}
+                onChange={setSizeQty}
+                value={size.stock}
+              />
+            ),
+          )}
         {categories
-        && categories.map((categorie) => (
-          <div className="createArticle__checkbox">
-            <label htmlFor={`checkbox--${categorie.title}`}> {categorie.title} </label>
-            <input
-              type="checkbox"
-              id={`checkbox--${categorie.title}`}
-              name={categorie.title}
-              onChange={handleChangeCheckBox}
-            />
-          </div>
-        ))}
+          && categories.map((categorie) => (
+            <div className="createArticle__checkbox">
+              <label htmlFor={`checkbox--${categorie.title}`}> {categorie.title} </label>
+              <input
+                type="checkbox"
+                id={`checkbox--${categorie.title}`}
+                name={categorie.title}
+                onChange={handleChangeCheckBox}
+              />
+            </div>
+          ))}
         <input
 
           type="file"
@@ -176,7 +176,7 @@ const CreateArticle = ({
         {loading
           && <div className="uploadLoader">Loading...</div>}
         {image
-        && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
+          && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
 
         <button
           className="createArticle__form__button"
