@@ -11,11 +11,12 @@ const createOneArticle = (store) => (next) => (action) => {
       article.sizes = article.selectedSizes;
       delete article.selectedSizes;
       delete article.selectedCategories;
-     
 
+      const { token } = store.getState().auth;
       axios.post('https://switch-e-commerce.herokuapp.com/v1/article/', {
+
         ...article,
-      })
+      }, { headers: { Authorization: `Bearer ${token}` } })
         .then(
 
           (response) => {
