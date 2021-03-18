@@ -20,7 +20,7 @@ const Error = () => (
         <div className="_404">404</div>
         <div className="p1">LA PAGE</div>
         <div className="p2">N'A PAS ÉTÉ TROUVÉ</div>
-        <Link to="/" className="btn">Retour à l'accueil</Link>
+        <Link to="/" className="buton-submit">Retour à l'accueil</Link>
       </div>
     </div>
   </Page>
