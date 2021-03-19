@@ -195,9 +195,10 @@ export const saveOneOrder = (order) => ({
 
 });
 
-export const getOneOrder = (id) => ({
+export const getOneOrder = (id, history) => ({
   type: GET_ONE_ORDER_FROM_API,
   id,
+  history,
 });
 
 export const getAllOrders = () => ({
@@ -284,11 +285,15 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
-export const getOneArticle = (id) => ({
+export const getOneArticle = (id, history) => ({
   type: GET_ONE_ARTICLE,
   id,
+  history,
 
 });
+
+
+
 export const articleLoading = (status) => ({
   type: ARTICLE_IS_LOADING,
   status,

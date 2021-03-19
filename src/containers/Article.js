@@ -24,7 +24,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   loadArticle: () => {
     const { id } = ownProps.match.params;
-    dispatch(getOneArticle(id));
+    const { history } = ownProps;
+    dispatch(getOneArticle(id, history));
   },
   toCart: (article, size) => {
     dispatch(addToCart(article, size));

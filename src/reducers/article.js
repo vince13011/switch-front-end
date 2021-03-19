@@ -10,7 +10,6 @@ const initialState = {
   article: [],
   size: '',
   isLoading: false,
-  
 };
 
 const article = (state = initialState, action = {}) => {

@@ -20,7 +20,7 @@ import createArticle from './createArticle';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart'],
+  whitelist: ['cart','auth'],
 };
 const globalReducer = combineReducers({
   articles,

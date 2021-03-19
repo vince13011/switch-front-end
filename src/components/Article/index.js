@@ -80,7 +80,7 @@ function Article({
             {/* {console.log('articlesizedans le composant ', article)} */}
             {article.sizes
               && article.sizes.map((size) => {
-                console.log('size.article_has_size.stock', size);
+               
                 if (size.article_has_size.stock !== 0) {
                   return (
                     <button
