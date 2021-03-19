@@ -67,7 +67,7 @@ const CreateArticle = ({
   return (
     <div className={`createArticle__maincontainer createArticle__maincontainer--${className}`}>
 
-      <h2 className="admin__subtitle createArticle__title">Creer un nouvel Article </h2>
+      <h2 className="admin__subtitle createArticle__title">Créer un nouvel Article </h2>
       <form
         action=""
         className="createArticle__form"

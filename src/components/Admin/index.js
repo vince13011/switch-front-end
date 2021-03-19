@@ -32,12 +32,14 @@ const Admin = ({
     <>
 
       <header className="admin__header">
-        <h1 className="admin__title">Panel d'Admin</h1>
+        <h1 className="admin__title">Administrateur</h1>
         <div className="">
           <NavLink className="admin__header__link" to="/">SWITCH</NavLink>
-          <a className="admin__header__link"
+          <a
+            className="admin__header__link"
             href="https://dashboard.stripe.com/test/dashboard"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             STRIPE
           </a>
@@ -46,7 +48,9 @@ const Admin = ({
       <main className="admin__mainContainer">
         <div className="admin__first__row__wrapper">
           <div className="admin__articles">
-            <div className="admin__subtitle admin__subtitle-title">Mes articles en vente</div>
+            <div className="admin__subtitle admin__subtitle-title">
+              Mes articles en vente
+            </div>
 
             <div className="admin__articles__modify">
               {articles
@@ -55,19 +59,20 @@ const Admin = ({
                     <Link to={`/article/${article.id}`}>
                       <div className="admin__articles__item">
                         <div className="admin__articles__item__image">
-                          <img src={article.image} alt={article.name} />
+                          <img className="admin__articles__item__image-img" src={article.image} alt={article.name} />
                         </div>
                         <div className="admin__articles__item__description">
-                          {article.name} ref :{article.reference}
-
+                          <p className="admin__articles__item__description-name">{article.name}</p>
+                          <p className="admin__articles__item__description-reference">Réf: {article.reference}</p>
                           {article.sizes
                             && article.sizes.map(
                               (size) => (
-                                <div className="admin__articles__item__stock">
+                                <div className="admin__articles__item__description-stock">
                                   taille: {size.size_name} stock: {size.article_has_size.stock}
                                 </div>
                               ),
                             )}
+                          <p className="admin__articles__item__description-price">{article.pre_tax_price} €</p>
                         </div>
                       </div>
                     </Link>
