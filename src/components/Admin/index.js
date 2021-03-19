@@ -46,7 +46,9 @@ const Admin = ({
       <main className="admin__mainContainer">
         <div className="admin__first__row__wrapper">
           <div className="admin__articles">
-            <div className="admin__subtitle admin__subtitle-title">Mes articles en vente</div>
+            <div className="admin__subtitle admin__subtitle-title">
+              Mes articles en vente
+            </div>
 
             <div className="admin__articles__modify">
               {articles
@@ -55,11 +57,11 @@ const Admin = ({
                     <Link to={`/article/${article.id}`}>
                       <div className="admin__articles__item">
                         <div className="admin__articles__item__image">
-                          <img src={article.image} alt={article.name} />
+                          <img className="admin__articles__item__image-img" src={article.image} alt={article.name} />
                         </div>
                         <div className="admin__articles__item__description">
-                          {article.name} ref :{article.reference}
-
+                          <p>{article.name}</p>
+                          <p>Réference : {article.reference}</p>
                           {article.sizes
                             && article.sizes.map(
                               (size) => (
@@ -68,6 +70,7 @@ const Admin = ({
                                 </div>
                               ),
                             )}
+                          <p>{article.pre_tax_price}</p>
                         </div>
                       </div>
                     </Link>
