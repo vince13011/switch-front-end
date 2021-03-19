@@ -32,12 +32,14 @@ const Admin = ({
     <>
 
       <header className="admin__header">
-        <h1 className="admin__title">Panel d'Admin</h1>
+        <h1 className="admin__title">Administrateur</h1>
         <div className="">
           <NavLink className="admin__header__link" to="/">SWITCH</NavLink>
-          <a className="admin__header__link"
+          <a
+            className="admin__header__link"
             href="https://dashboard.stripe.com/test/dashboard"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             STRIPE
           </a>
@@ -60,17 +62,17 @@ const Admin = ({
                           <img className="admin__articles__item__image-img" src={article.image} alt={article.name} />
                         </div>
                         <div className="admin__articles__item__description">
-                          <p>{article.name}</p>
-                          <p>Réference : {article.reference}</p>
+                          <p className="admin__articles__item__description-name">{article.name}</p>
+                          <p className="admin__articles__item__description-reference">Réf: {article.reference}</p>
                           {article.sizes
                             && article.sizes.map(
                               (size) => (
-                                <div className="admin__articles__item__stock">
+                                <div className="admin__articles__item__description-stock">
                                   taille: {size.size_name} stock: {size.article_has_size.stock}
                                 </div>
                               ),
                             )}
-                          <p>{article.pre_tax_price}</p>
+                          <p className="admin__articles__item__description-price">{article.pre_tax_price} €</p>
                         </div>
                       </div>
                     </Link>
