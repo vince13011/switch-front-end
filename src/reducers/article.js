@@ -4,12 +4,14 @@ import {
   SET_SIZE_VALUE,
   SET_MODIFY_ARTICLE_SIZE_VALUE,
   SET_MODIFY_ARTICLE_INPUT_VALUE,
+  SET_ARTICLE_MESSAGE,
 } from '../actions';
 
 const initialState = {
   article: [],
   size: '',
   isLoading: false,
+  message: '',
 };
 
 const article = (state = initialState, action = {}) => {
@@ -54,6 +56,10 @@ const article = (state = initialState, action = {}) => {
         article: {
           ...state.article, [action.name]: action.value,
         },
+      };
+    case SET_ARTICLE_MESSAGE:
+      return {
+        ...state, message: action.message,
       };
   }
 };

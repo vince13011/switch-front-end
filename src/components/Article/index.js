@@ -14,6 +14,7 @@ import Field from 'src/components/Field';
 import Loading from '../App/Loading';
 // Style
 import './style.scss';
+import { setCartMessage } from '../../actions';
 
 // == Composant
 function Article({
@@ -28,20 +29,23 @@ function Article({
   onSubmit,
   admin,
   onDelete,
+  message,
+  setMessage,
 
 }) {
   useEffect(() => {
     loadArticle();
   }, []);
- 
+
   const handleCartClick = () => {
     if (!size) {
-      return console.log('pas de size ');
+      return setMessage('vous devez choisir une taille');
     }
     toCart(article, size);
   };
   const handleSizeClick = (e) => {
     console.log(e.target.name);
+    setMessage('')
     setSize(e.target.name);
   };
 
@@ -58,7 +62,6 @@ function Article({
   if (isLoading) {
     return <Loading />;
   }
-  
 
   return (
 
@@ -69,7 +72,7 @@ function Article({
         </div>
         <div className="article__descriptioncontainer">
           <h1 className="article__title">{article.name}</h1>
-        
+
           <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
@@ -80,7 +83,6 @@ function Article({
             {/* {console.log('articlesizedans le composant ', article)} */}
             {article.sizes
               && article.sizes.map((size) => {
-               
                 if (size.article_has_size.stock !== 0) {
                   return (
                     <button
@@ -96,13 +98,14 @@ function Article({
               })}
           </div>
           <p className="article__info__size">taille : {size}</p>
+          {message
+              && (<div className="article__message">{message}</div>) }
           <button
             type="button"
             className="article__add-to-cart-button"
             onClick={handleCartClick}
           >Ajouter au Panier
           </button>
-
         </div>
       </div>
       {admin && (
