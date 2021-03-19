@@ -73,6 +73,7 @@ const CreateArticle = ({
         className="createArticle__form"
       >
         <Field
+          className="createArticle__form__reference"
           name="reference"
           placeholder="réference de l'article "
           onChange={changeField}
@@ -103,6 +104,7 @@ const CreateArticle = ({
         />
         <div className="createArticle__price">
           <Field
+            className="createArticle__price-values"
             name="pre_tax_price"
             type="text"
             placeholder="prix HT"
@@ -111,6 +113,7 @@ const CreateArticle = ({
           />
 
           <Field
+            className="createArticle__price-values"
             name="vat_rate"
             type="text"
             placeholder="TVA"
@@ -119,6 +122,7 @@ const CreateArticle = ({
           />
 
           <Field
+            className="createArticle__price-values"
             name="discount"
             type="text"
             placeholder="réduction"
@@ -133,7 +137,7 @@ const CreateArticle = ({
           id=""
           onChange={handleSizeSelect}
         >
-          <option value="" className="createArticle__form__select__option"> -Selectioner une taille-</option>
+          <option value="" className="createArticle__form__select__option">Selection des tailles et stocks</option>
           {sizes && sizes.map(
             (size) => (
               <option
@@ -150,16 +154,17 @@ const CreateArticle = ({
               <Field
                 type="text"
                 name={size.size_name}
-                placeholder={`Taille ${size.size_name},Quantité :`}
+                placeholder={`Taille "${size.size_name}", Stock :`}
                 onChange={setSizeQty}
                 value={size.stock}
               />
             ),
           )}
+        <p className="createArticle__checkbox__title">Catégories</p>
         {categories
           && categories.map((categorie) => (
             <div className="createArticle__checkbox">
-              <label htmlFor={`checkbox--${categorie.title}`}> {categorie.title} </label>
+              <label htmlFor={`checkbox--${categorie.title}`}>{categorie.title}</label>
               <input
                 type="checkbox"
                 id={`checkbox--${categorie.title}`}
@@ -168,13 +173,14 @@ const CreateArticle = ({
               />
             </div>
           ))}
-        <input
 
+        <input
+          className="createArticle__picture"
           type="file"
           onChange={onFileChange}
         />
         {loading
-          && <div className="uploadLoader">Loading...</div>}
+          && <div className="uploadLoader">Chargement...</div>}
         {image
           && (<div className="createArticle__preview"><img src={image} alt="" /></div>)}
 
@@ -182,7 +188,7 @@ const CreateArticle = ({
           className="createArticle__form__button"
           type="submit"
           onClick={handleSubmit}
-        >Creer l'article
+        >Créer l'article
         </button>
       </form>
     </div>
