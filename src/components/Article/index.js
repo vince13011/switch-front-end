@@ -45,7 +45,7 @@ function Article({
   };
   const handleSizeClick = (e) => {
     console.log(e.target.name);
-    setMessage('')
+    setMessage('');
     setSize(e.target.name);
   };
 
