@@ -35,6 +35,7 @@ function Article({
 }) {
   useEffect(() => {
     loadArticle();
+    setSize('');
   }, []);
 
   const handleCartClick = () => {
