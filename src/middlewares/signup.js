@@ -21,7 +21,7 @@ const signup = (store) => (next) => (action) => {
             street_name: fields.streetName,
             zip_code: fields.zipCode,
             phone_number: fields.phoneNumber,
-            roleId:1,
+            
           });
           console.log(response.data);
           if (response.data.errors) {

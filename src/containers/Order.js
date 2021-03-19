@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   modifiedStatus: state.order.form.modifiedStatus,
   admin: state.auth.admin,
   isLoading: state.order.isLoading,
+  user: state.auth.user,
 });
 
 // branchement en écriture du state
@@ -21,7 +22,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   loadOrder: () => {
     const { id } = ownProps.match.params;
-    dispatch(getOneOrder(id));
+    const { history } = ownProps;
+
+    dispatch(getOneOrder(id, history));
   },
   loadStatus: () => {
     dispatch(getOrderStatus());

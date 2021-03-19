@@ -36,6 +36,9 @@ const Order = ({
   if (isLoading) {
     return <Loading />;
   }
+  if (!user) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <Page>

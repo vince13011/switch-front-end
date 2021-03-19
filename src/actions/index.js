@@ -75,6 +75,13 @@ export const SET_CHECKOUT_LOADING = 'SET_CHECKOUT_LOADING';
 
 export const DELETE_ONE_ARTICLE = 'DELETE_ONE_ARTICLE';
 
+export const SET_ARTICLE_MESSAGE = 'SET_ARTICLE_MESSAGE';
+
+export const setArticleMessage = (message) => ({
+  type: SET_ARTICLE_MESSAGE,
+  message,
+});
+
 export const setLogginMessage = (message) => ({
   type: SET_LOGIN_MESSAGE,
   message,
@@ -195,9 +202,10 @@ export const saveOneOrder = (order) => ({
 
 });
 
-export const getOneOrder = (id) => ({
+export const getOneOrder = (id, history) => ({
   type: GET_ONE_ORDER_FROM_API,
   id,
+  history,
 });
 
 export const getAllOrders = () => ({
@@ -284,11 +292,13 @@ export const saveArticles = (articles) => ({
   articles,
 });
 
-export const getOneArticle = (id) => ({
+export const getOneArticle = (id, history) => ({
   type: GET_ONE_ARTICLE,
   id,
+  history,
 
 });
+
 export const articleLoading = (status) => ({
   type: ARTICLE_IS_LOADING,
   status,

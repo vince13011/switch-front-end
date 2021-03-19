@@ -9,6 +9,8 @@ import {
   setModifyArticleSizeValue,
   setModifyArticleInputValue,
   deleteOneArticle,
+  setArticleMessage,
+
 } from '../actions';
 
 // branchement en lecture du state
@@ -17,6 +19,7 @@ const mapStateToProps = (state) => ({
   size: state.article.size,
   isLoading: state.article.isLoading,
   admin: state.auth.admin,
+  message: state.article.message,
 });
 
 // branchement en écriture du state
@@ -24,13 +27,18 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   loadArticle: () => {
     const { id } = ownProps.match.params;
-    dispatch(getOneArticle(id));
+    const { history } = ownProps;
+    dispatch(getOneArticle(id, history));
   },
   toCart: (article, size) => {
     dispatch(addToCart(article, size));
   },
   setSize: (size) => {
     dispatch(setSizeValue(size));
+  },
+
+  setMessage: (message) => {
+    dispatch(setArticleMessage(message));
   },
 
   changeSizeField: (value, name) => {

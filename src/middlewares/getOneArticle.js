@@ -5,6 +5,7 @@ import {
   MODIFY_ARTICLE,
   DELETE_ONE_ARTICLE,
   getOneArticle,
+  
 } from 'src/actions';
 import axios from 'axios';
 
@@ -12,6 +13,7 @@ const getOneArticles = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_ONE_ARTICLE:
       store.dispatch(articleLoading(true));
+
       axios.get(`https://switch-e-commerce.herokuapp.com/v1/article/${action.id}`)
         .then(
           (response) => {
@@ -20,7 +22,11 @@ const getOneArticles = (store) => (next) => (action) => {
             store.dispatch(saveOneArticle(article));
             store.dispatch(articleLoading(false));
           },
-        ).catch((err) => console.log(err))
+        ).catch((err) => {
+          console.log(err);
+          action.history.push('/error');
+          store.dispatch(articleLoading(false));
+        })
         .finally();
       break;
     case MODIFY_ARTICLE: {
@@ -38,7 +44,7 @@ const getOneArticles = (store) => (next) => (action) => {
       delete reqArticle.id;
       const { token } = store.getState().auth;
       axios.put(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`,
-        {...reqArticle}, { headers: { Authorization: `Bearer ${token}` } })
+        { ...reqArticle }, { headers: { Authorization: `Bearer ${token}` } })
         .then(() => {
           store.dispatch(getOneArticle(reqid));
           store.dispatch(articleLoading(false));
@@ -54,7 +60,7 @@ const getOneArticles = (store) => (next) => (action) => {
       const { article } = store.getState().article;
       const { token } = store.getState().auth;
       const reqid = article.id;
-      axios.delete(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`,{ headers: { Authorization: `Bearer ${token}` } })
+      axios.delete(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`, { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
           (action.history.push('/admin'));
         });

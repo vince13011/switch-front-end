@@ -44,6 +44,7 @@ const getOrders = (store) => (next) => (action) => {
           },
         ).catch((err) => {
           console.log(err);
+          action.history.push('/error');
           store.dispatch(setOrderLoading(false));
         });
       break;
