@@ -64,14 +64,50 @@ const Admin = ({
                         <div className="admin__articles__item__description">
                           <p className="admin__articles__item__description-name">{article.name}</p>
                           <p className="admin__articles__item__description-reference">Réf: {article.reference}</p>
+
+                          {/* <p className="admin__articles__item__description-stock">Taille :
                           {article.sizes
-                            && article.sizes.map(
-                              (size) => (
-                                <div className="admin__articles__item__description-stock">
-                                  taille: {size.size_name} stock: {size.article_has_size.stock}
-                                </div>
-                              ),
-                            )}
+                              && article.sizes.map(
+                                (size) => (
+                                  <div className="admin__articles__item__description-stock">
+                                    { size.size_name}
+                                  </div>
+                                ),
+                                )}
+                          </p>
+
+                          <p className="admin__articles__item__description-stock">Stock :
+                          {article.sizes
+                              && article.sizes.map(
+                                (size) => (
+                                  <div className="admin__articles__item__description-stock">
+                                    { size.article_has_size.stock}
+                                  </div>
+                                ),
+                              )}
+                          </p> */}
+
+                          <table className="admin__articles__item__description-stock">
+                            <thead>
+                              <tr>
+                                <td className="admin__articles__item__description-stock-title">Taille</td>
+                                <td className="admin__articles__item__description-stock-title">Stock</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {/* className="admin__articles__item__description-stock" */}
+                              {article.sizes
+                                && article.sizes.map(
+                                  (size) => (
+                                    <tr>
+                                      <td className="admin__articles__item__description-stock-infos">{size.size_name}</td>
+                                      <td className="admin__articles__item__description-stock-infos">{size.article_has_size.stock}</td>
+                                    </tr>
+                                  ),
+                                )}
+                            </tbody>
+                          </table>
+
                           <p className="admin__articles__item__description-price">{article.pre_tax_price} €</p>
                         </div>
                       </div>
