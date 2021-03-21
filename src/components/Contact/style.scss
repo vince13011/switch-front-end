@@ -1,4 +1,5 @@
 @use 'src/styles/vars';
+
 .contactForm {
     width: 80%;
     background: white;
@@ -12,59 +13,67 @@
     margin: 10rem auto 2rem;
 }
 
-.container {
-  margin: 1rem auto;
-}
-.row {
-  margin: 1rem auto;
-
-  &__formRow {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-12 {
-  margin: 1rem auto;
-  &__text-cente {
-    text-align: center;
-    margin-right: 9rem;
-  }
-}
-
-.col-6 {
-  margin:1rem auto ;
-  &__text-center{
-    text-align: center;
-  }
-}
-
 #contact-form {
-  width: 80%;
-  margin: 1.5 auto;
-}
-
-.form-control {
-  text-align: center;
-  &__formInput{
-    margin: .5rem auto;
-    margin-left: .5rem;
-  }
-}
-
-.errorMessage {
-  margin: 1rem auto;
-  color: red;
-}
-
-.col {
-  margin: 1rem auto;
   width: 100%;
-}
-.submit-btn {
-  margin: 1rem auto;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
 }
 
-input{
-  font-size: none;
-}
+// .container {
+//   margin: 1rem auto;
+// }
+
+// .row {
+//   margin: 1rem auto;
+
+//   &__formRow {
+//     text-align: center;
+//     margin-right: 9rem;
+//   }
+// }
+
+// .col-12 {
+//   margin: 1rem auto;
+//   &__text-cente {
+//     text-align: center;
+//     margin-right: 9rem;
+//   }
+// }
+
+// .col-6 {
+//   margin:1rem auto ;
+//   &__text-center{
+//     text-align: center;
+//   }
+// }
+
+// #contact-form {
+//   width: 80%;
+//   margin: 1.5 auto;
+// }
+
+// .form-control {
+//   text-align: center;
+//   &__formInput{
+//     margin: .5rem auto;
+//     margin-left: .5rem;
+//   }
+// }
+
+// .errorMessage {
+//   margin: 1rem auto;
+//   color: red;
+// }
+
+// .col {
+//   margin: 1rem auto;
+//   width: 100%;
+// }
+// .submit-btn {
+//   margin: 1rem auto;
+// }
+
+// input{
+//   font-size: none;
+// }

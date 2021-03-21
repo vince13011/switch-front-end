@@ -13,7 +13,7 @@ import './style.scss';
 const About = () => (
   <Page>
     <div className="wrapper">
-      <h1 className="about_title"> À propos de nous</h1>
+      <h1 className="about_title">À propos de nous</h1>
       <div className="container">
         <div className="d-flex">
           <div className="card_profil">
@@ -27,9 +27,9 @@ const About = () => (
               </div>
               <div className="pw_content">
                 <div className="pw_header">
-                  <h6 className="card-title">
+                  <h2 className="card-title">
                     Kevin Detournay
-                  </h6>
+                  </h2>
                   <small className="text-muted">
                     Lead dev front & Product Owner
                   </small>
@@ -48,9 +48,9 @@ const About = () => (
               </div>
               <div className="pw_content">
                 <div className="pw_header">
-                  <h6 className="card-title">
+                  <h2 className="card-title">
                     Magomed Voraev
-                  </h6>
+                  </h2>
                   <small className="text-muted">
                     Scrum Master
                   </small>
@@ -69,9 +69,9 @@ const About = () => (
               </div>
               <div className="pw_content">
                 <div className="pw_header">
-                  <h6 className="card-title">
+                  <h2 className="card-title">
                     Vincent Giglio
-                  </h6>
+                  </h2>
                   <small className="text-muted">
                     Lead - dev - back
                   </small>
@@ -90,9 +90,9 @@ const About = () => (
               </div>
               <div className="pw_content">
                 <div className="pw_header">
-                  <h6 className="card-title">
+                  <h2 className="card-title">
                     Florent Gorski
-                  </h6>
+                  </h2>
                   <small className="text-muted">
                     Git Master
                   </small>
@@ -102,13 +102,16 @@ const About = () => (
           </div>
         </div>
         <p className="card_text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Sed mattis nulla vitae diam cursus vestibulum.Sed ornare
-          purus odio, in molestie lectus mollis quis.Duis pretium
-          tortor ipsum, sed ultricies augue imperdiet quis.Nulla
-          bibendum placerat sollicitudin.Orci varius natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus.
-          Aenean cursus ex nec dignissim tempus.
+          De nos jours, afin d’exister sur le marché, les commerçants ont besoin
+          d’une présence en ligne et donc forcément d’un site internet.
+          Il est très facile de faire un site internet et très difficile de trouver
+          une solution e-commerce qui correspond à 100% à son projet.
+
+          C'est pour cela que nous lançons Switch, une solution e-commerce facile à
+          gérer pour le client (commerçant)
+          et rapide à implémenter pour le développeur.
+          C’est une sorte de template très optimisé (utilisation des dernières technologies),
+          pour un résultat unique et original.
         </p>
       </div>
     </div>
