@@ -59,7 +59,6 @@ function Article({
     return <Loading />;
   }
 
-
   return (
 
     <Page>
