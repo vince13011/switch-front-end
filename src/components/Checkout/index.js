@@ -74,7 +74,7 @@ const Checkout = ({
         <h1>Récapitulatif</h1>
 
         <div className="checkout__articles">
-          <h2 className="checkout__subtitle">Mes Articles </h2>
+          {/* <h2 className="checkout__subtitle">Mes Articles</h2> */}
           {articles.map((article) => (
             <div className="checkout__article">
               <div className="checkout__article__image"> <img src={article.image} alt="" /></div>
@@ -91,32 +91,33 @@ const Checkout = ({
           ))}
 
         </div>
+        <p className="checkout__address__costs">Livraison : offerte </p>
+        <p className="checkout__address__total">Total {total}€</p>
         <div className="checkout__address">
-          <h2 className="checkout__subtitle">Mon adresse de livraison </h2>
-          <p className="checkout__address__item">{user.lastname} {user.firstname}</p>
-          <p className="checkout__address__item">{address.number} {address.street_name}</p>
-          <p className="checkout__address__item">{address.zip_code} {address.city}</p>
+          <h2 className="checkout__subtitle">Adresse de livraison</h2>
+          <p className="checkout__address__item-name">{user.lastname} {user.firstname}</p>
+          <p className="checkout__address__item-address1">{address.number} {address.street_name}</p>
+          <p className="checkout__address__item-address2">{address.zip_code} {address.city}</p>
         </div>
         <div className="checkout__footer">
-          <p>Livraison : offerte </p>
-          <p>total {total}€</p>
           <button
             className="checkout__button"
             type="button"
             onClick={handleCancel}
-          >Modifier Ma Commande
+          >Modifier ma Commande
           </button>
 
+          <h2 className="checkout__subtitle-cb">Paiement par Carte Bancaire</h2>
           <CardElement className="checkout__credit" />
           {cardLoader
-            ? (<div className="cardLoader">Loading...</div>)
+            ? (<div className="cardLoader">Chargement...</div>)
             : (
               <>
                 <button
                   className="checkout__button"
                   type="submit"
                   onClick={handleSubmit}
-                >payer maintenant
+                >Payer !
                 </button>
               </>
             )}
