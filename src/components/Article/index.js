@@ -110,39 +110,48 @@ function Article({
         </div>
       </div>
       {admin && (
-      <form action="">
-        {article.sizes
+        <form className="article__modify-form" action="">
+          <p className="article__modify-form_title">Modification des stocks de l'Article</p>
+          <div className="article__modify-form_details">
+            {article.sizes
+              && article.sizes.map(
+                (size) => (
+                  <Field
+                    className="article__modify-form_details-name-stock"
+                    type="text"
+                    name={size.size_name}
+                    placeholder={`Taille ${size.size_name}`}
+                    value={size.article_has_size.stock}
+                    onChange={changeSizeField}
+                  />
+                ),
+              )}
 
-        && article.sizes.map(
-          (size) => (
-            <Field
-              type="text"
-              name={size.size_name}
-              placeholder={`stock taille ${size.size_name}`}
-              value={size.article_has_size.stock}
-              onChange={changeSizeField}
-            />
-          ),
-        )}
+          </div>
+          <Field
+            className="article__modify-form_details-price"
+            type="text"
+            name="pre_tax_price"
+            placeholder="Prix HT"
+            value={article.pre_tax_price + " €"}
+            onChange={changeField}
+          />
+          <div className="article__modify-form_details-btn">
+            <button
+              className="article__modify-form_details-btn-modify"
+              type="submit"
+              onClick={handleSubmit}
+            >Confirmer
+            </button>
+            <button
+              className="article__modify-form_details-btn-delete"
+              type="submit"
+              onClick={handleDelete}
+            >Supprimer
+            </button>
+          </div>
 
-        <Field
-          type="text"
-          name="pre_tax_price"
-          placeholder="prix HT"
-          value={article.pre_tax_price}
-          onChange={changeField}
-        />
-        <button
-          type="submit"
-          onClick={handleSubmit}
-        > modifier l'article
-        </button>
-        <button
-          type="submit"
-          onClick={handleDelete}
-        >Supprimer l'article
-        </button>
-      </form>
+        </form>
       )}
     </Page>
   );
