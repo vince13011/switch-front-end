@@ -9,8 +9,8 @@ import {
 } from '../actions';
 
 export const initialState = {
-  email: 'toto@tata.fr',
-  password: '123456789',
+  email: '',
+  password: '',
   logged: false,
   AuthIsLoading: false,
   admin: false,
