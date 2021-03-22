@@ -133,7 +133,7 @@ function Article({
             type="text"
             name="pre_tax_price"
             placeholder="Prix HT"
-            value={article.pre_tax_price + " €"}
+            value={article.pre_tax_price}
             onChange={changeField}
           />
           <div className="article__modify-form_details-btn">
