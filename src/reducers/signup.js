@@ -3,9 +3,9 @@ import { SET_SIGNUP_INPUT_VALUE, SET_SIGNUP_MESSAGE, SET_SIGNUP_SUCCESS } from '
 const initialState = {
   message: '',
   fields: {
-    email: 'kevdiddnc@kevixxxxxn.fr',
-    password: 'azerty123',
-    passwordConfirm: 'azerty123',
+    email: '',
+    password: '',
+    passwordConfirm: '',
     firstname: 'kevin',
     lastname: 'detournay',
     phoneNumber: '0646520398',

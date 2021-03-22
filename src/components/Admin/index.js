@@ -108,7 +108,7 @@ const Admin = ({
                             </tbody>
                           </table>
 
-                          <p className="admin__articles__item__description-price">{article.pre_tax_price} €</p>
+                          <p className="admin__articles__item__description-price">{article.pre_tax_price} € ht</p>
                         </div>
                       </div>
                     </Link>

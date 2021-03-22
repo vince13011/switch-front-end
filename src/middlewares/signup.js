@@ -18,10 +18,7 @@ const signup = (store) => (next) => (action) => {
           }
           const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/signup', {
             ...fields,
-            street_name: fields.streetName,
-            zip_code: fields.zipCode,
-            phone_number: fields.phoneNumber,
-            
+           
           });
           console.log(response.data);
           if (response.data.errors) {

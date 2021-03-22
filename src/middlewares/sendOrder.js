@@ -32,7 +32,7 @@ const sendOrder = (store) => (next) => (action) => {
             articles: parsedArticle,
 
           }, { headers: { Authorization: `Bearer ${token}` } });
-          
+
           console.log(response.data);
           store.dispatch(setCheckoutSuccess(true));
 
