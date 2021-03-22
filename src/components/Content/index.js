@@ -9,7 +9,7 @@ import './style.scss';
 const Content = ({ title, text, articles }) => (
   <section className="content">
     <h1 className="content-title">{title}</h1>
-    <p className="content-text">Les nouveautés du mois sont à l'honneur.</p>
+    <p className="content-text">{text}</p>
     {articles && (
       <div className="content-list">
         {articles.map((article) => (

@@ -5,7 +5,7 @@ import Content from 'src/components/Content';
 const mapStateToProps = (state) => ({
   articles: state.articles,
   title: state.home.title,
-  text: state.home.text,
+  text: "Les nouveautés du mois sont à l'honneur.",
 });
 
 // branchement en écriture du state
