@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Page from 'src/components/Page';
 import LoginForm from 'src/containers/LoginForm';
 import { Link, Redirect } from 'react-router-dom';
@@ -16,7 +17,7 @@ const Login = ({ logged, message }) => {
       <h1 className="loginpage__title">Se connecter</h1>
       <LoginForm />
       {message
-      && <p className="loginpage__message">{message}</p>}
+        && <p className="loginpage__message">{message}</p>}
       <div className="loginpage__signup">
         <h2 className="loginpage__subtitle">Pas encore de compte ?</h2>
         <Link
@@ -29,6 +30,11 @@ const Login = ({ logged, message }) => {
       </div>
     </Page>
   );
+};
+
+Login.propTypes = {
+  logged: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default Login;

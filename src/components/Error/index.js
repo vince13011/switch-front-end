@@ -11,7 +11,7 @@ const Error = () => (
       title="404"
       text="Nous sommes désolé, Une erreur s'est produite."
     />
-    
+
     <Link to="/">Retour à l'accueil</Link>
   </Page>
 );

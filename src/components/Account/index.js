@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Page from 'src/components/Page';
 import { Link, Redirect } from 'react-router-dom';
 import './style.scss';
@@ -61,6 +62,15 @@ const Account = ({
       </div>
     </Page>
   );
+};
+
+Account.propTypes = {
+  user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  address: PropTypes.object.isRequired,
+  logged: PropTypes.bool.isRequired,
+  orders: PropTypes.object.isRequired,
+  loadOrders: PropTypes.func.isRequired,
 };
 
 export default Account;

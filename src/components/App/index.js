@@ -35,7 +35,7 @@ function App({
   loadArticles,
   loadCategories,
   removeCartStatus,
-  
+
 }) {
   useEffect(() => {
     loadArticles();

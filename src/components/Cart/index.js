@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   MdAdd,
   MdRemove,
@@ -21,9 +22,9 @@ const CART = ({
   message,
 }) => {
   useEffect(
-    ()=>{
+    () => {
       removeCartMessage()
-    },[]
+    }, []
   )
   if (isCheckedCart === true) {
     return <Redirect to="/checkout" />;
@@ -99,6 +100,18 @@ const CART = ({
       </div>
     </Page>
   );
+};
+
+CART.propTypes = {
+  articles: PropTypes.object.isRequired,
+  onPlusClick: PropTypes.func.isRequired,
+  onLessClick: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
+  removeCartMessage: PropTypes.func.isRequired,
+  isCheckedCart: PropTypes.bool.isRequired,
+  checkingCart: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default CART;

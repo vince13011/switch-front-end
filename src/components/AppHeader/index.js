@@ -12,8 +12,6 @@ const AppHeader = ({
   categories,
   logged,
   count,
-  name,
-  logout,
   admin,
 
 }) => {
@@ -103,20 +101,11 @@ const AppHeader = ({
                 </div>
                 {width > breakpoint ? (
                   <>
-                    {/* <div>{name}</div> */}
                     <div className="header__buttons__btn">Mon Compte</div>
                   </>
                 ) : (<div className="header__buttons__btn" />)}
 
               </Link>
-              {/* <div><MdExitToApp
-                className={"" + width > breakpoint ? "" : "logo logo-cart"}
-                onClick={() => {
-                  logout();
-                }}
-                cursor="pointer"
-              />
-              </div> */}
             </>
           )
             : (

@@ -7,7 +7,6 @@ import './style.scss';
 
 const Menu = ({
   categories,
-
   onClick,
   showMenu,
 }) => (
@@ -43,10 +42,9 @@ const Menu = ({
 );
 
 Menu.propTypes = {
-
   onClick: PropTypes.func.isRequired,
   showMenu: PropTypes.bool.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 export default Menu;

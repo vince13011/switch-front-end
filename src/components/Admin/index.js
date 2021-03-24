@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, Redirect } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import './style.scss';
 import CreateArticle from 'src/containers/CreateArticle';
 import Loading from '../App/Loading';
@@ -64,28 +64,6 @@ const Admin = ({
                         <div className="admin__articles__item__description">
                           <p className="admin__articles__item__description-name">{article.name}</p>
                           <p className="admin__articles__item__description-reference">Réf: {article.reference}</p>
-
-                          {/* <p className="admin__articles__item__description-stock">Taille :
-                          {article.sizes
-                              && article.sizes.map(
-                                (size) => (
-                                  <div className="admin__articles__item__description-stock">
-                                    { size.size_name}
-                                  </div>
-                                ),
-                                )}
-                          </p>
-
-                          <p className="admin__articles__item__description-stock">Stock :
-                          {article.sizes
-                              && article.sizes.map(
-                                (size) => (
-                                  <div className="admin__articles__item__description-stock">
-                                    { size.article_has_size.stock}
-                                  </div>
-                                ),
-                              )}
-                          </p> */}
 
                           <table className="admin__articles__item__description-stock">
                             <thead>
@@ -185,6 +163,15 @@ const Admin = ({
       </main>
     </>
   );
+};
+
+Admin.propTypes = {
+  loadOrders: PropTypes.func.isRequired,
+  loadArticles: PropTypes.func.isRequired,
+  orders: PropTypes.object.isRequired,
+  articles: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  admin: PropTypes.bool.isRequired,
 };
 
 export default Admin;
