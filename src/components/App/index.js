@@ -25,6 +25,7 @@ import LegalNotice from 'src/components/LegalNotice';
 import Error from 'src/components/Error';
 import About from 'src/components/About';
 import Contact from 'src/components/Contact';
+import StaticAdmin from 'src/components/StaticAdmin';
 
 import Loading from './Loading';
 import './style.scss';
@@ -57,6 +58,12 @@ function App({
           path="/"
         >
           <Home />
+        </Route>
+        <Route
+          exact
+          path="/static-admin"
+        >
+          <StaticAdmin />
         </Route>
         <Route
           exact
