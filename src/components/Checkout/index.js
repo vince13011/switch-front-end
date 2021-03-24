@@ -42,7 +42,7 @@ const Checkout = ({
       total,
     });
     const secret = response.data.client_secret;
-    console.log(secret);
+    ;
     const result = await stripe.confirmCardPayment(secret, {
       payment_method: {
         card: elements.getElement(CardElement),

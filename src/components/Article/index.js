@@ -45,7 +45,7 @@ function Article({
     toCart(article, size);
   };
   const handleSizeClick = (e) => {
-    console.log(e.target.name);
+    ;
     setMessage('');
     setSize(e.target.name);
   };
@@ -81,7 +81,7 @@ function Article({
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
-            {/* {console.log('articlesizedans le composant ', article)} */}
+            
             {article.sizes
               && article.sizes.map((size) => {
                 if (size.article_has_size.stock !== 0) {

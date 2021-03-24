@@ -33,7 +33,7 @@ const sendOrder = (store) => (next) => (action) => {
 
           }, { headers: { Authorization: `Bearer ${token}` } });
 
-          console.log(response.data);
+         
           store.dispatch(setCheckoutSuccess(true));
 
           store.dispatch(setCheckoutLoading(false));
