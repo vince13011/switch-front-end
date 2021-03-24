@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 import Page from '/src/components/Page';
 import Loading from 'src/components/App/Loading';
@@ -134,4 +135,20 @@ const Order = ({
     </Page>
   );
 };
+
+Order.propTypes = {
+  order: PropTypes.object.isRequired,
+  loadOrder: PropTypes.func.isRequired,
+  address: PropTypes.object.isRequired,
+  loadStatus: PropTypes.func.isRequired,
+  status: PropTypes.object.isRequired,
+  changeField: PropTypes.func.isRequired,
+  modifiedTracking: PropTypes.func.isRequired,
+  modifiedStatus: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  admin: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  user: PropTypes.bool.isRequired,
+};
+
 export default Order;

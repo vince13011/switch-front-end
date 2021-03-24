@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Loading from 'src/components/App/Loading';
 
 import Field from 'src/components/Field';
@@ -194,6 +195,29 @@ const CreateArticle = ({
     </div>
 
   );
+};
+
+CreateArticle.propTypes = {
+  loadSizes: PropTypes.func.isRequired,
+  loadCategories: PropTypes.func.isRequired,
+  sizes: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+  selectSize: PropTypes.func.isRequired,
+  selectedSizes: PropTypes.object.isRequired,
+  setSizeQty: PropTypes.func.isRequired,
+  reference: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  pre_tax_price: PropTypes.number.isRequired,
+  vat_rate: PropTypes.number.isRequired,
+  discount: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  onChangeCheckbox: PropTypes.func.isRequired,
+  selectImage: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default CreateArticle;

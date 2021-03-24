@@ -157,4 +157,6 @@ Signup.propTypes = {
   zipCode: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  success: PropTypes.bool.isRequired,
 };
