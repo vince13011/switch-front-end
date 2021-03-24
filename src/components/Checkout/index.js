@@ -37,7 +37,7 @@ const Checkout = ({
     if (!stripe || !elements) {
       return;
     }
-    const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/pay', {
+    const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/pay', {
       email: user.email,
       total,
     });

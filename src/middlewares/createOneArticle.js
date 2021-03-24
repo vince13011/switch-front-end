@@ -13,7 +13,7 @@ const createOneArticle = (store) => (next) => (action) => {
       delete article.selectedCategories;
 
       const { token } = store.getState().auth;
-      axios.post('https://switch-e-commerce.herokuapp.com/v1/article/', {
+      axios.post('https://switch-ecommerce.herokuapp.com/v1/article/', {
 
         ...article,
       }, { headers: { Authorization: `Bearer ${token}` } })

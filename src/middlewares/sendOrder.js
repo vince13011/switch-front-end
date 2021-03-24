@@ -24,7 +24,7 @@ const sendOrder = (store) => (next) => (action) => {
           }));
           const { token } = store.getState().auth;
           store.dispatch(setCheckoutLoading(true));
-          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/order', {
+          const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/order', {
 
             user_id: store.getState().auth.user.id,
             address_id: store.getState().auth.address.id,

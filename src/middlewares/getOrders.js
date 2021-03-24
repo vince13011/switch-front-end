@@ -19,7 +19,7 @@ const getOrders = (store) => (next) => (action) => {
     case GET_ALL_ORDERS_FROM_API: {
       store.dispatch(adminOrdersLoading(true));
       const { token } = store.getState().auth;
-      axios.get('https://switch-e-commerce.herokuapp.com/v1/orders', { headers: { Authorization: `Bearer ${token}` } })
+      axios.get('https://switch-ecommerce.herokuapp.com/v1/orders', { headers: { Authorization: `Bearer ${token}` } })
         .then(
           (response) => {
             const orders = response.data;
@@ -32,7 +32,7 @@ const getOrders = (store) => (next) => (action) => {
       break;
     case GET_ONE_ORDER_FROM_API:
       store.dispatch(setOrderLoading(true));
-      axios.get(`https://switch-e-commerce.herokuapp.com/v1/order/${action.id}`)
+      axios.get(`https://switch-ecommerce.herokuapp.com/v1/order/${action.id}`)
         .then(
           (response) => {
             const order = {
@@ -51,7 +51,7 @@ const getOrders = (store) => (next) => (action) => {
     case GET_ALL_USER_ORDERS: {
       const { id } = store.getState().auth.user;
       const { token } = store.getState().auth;
-      axios.get(`https://switch-e-commerce.herokuapp.com/v1/user-orders/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+      axios.get(`https://switch-ecommerce.herokuapp.com/v1/user-orders/${id}`, { headers: { Authorization: `Bearer ${token}` } })
         .then(
           (response) => {
             const orders = response.data;
@@ -63,7 +63,7 @@ const getOrders = (store) => (next) => (action) => {
       store.dispatch(setOrderLoading(true));
       const { order } = store.getState().order;
       const { token } = store.getState().auth;
-      axios.put(`https://switch-e-commerce.herokuapp.com/v1/order/${order.id}`, {
+      axios.put(`https://switch-ecommerce.herokuapp.com/v1/order/${order.id}`, {
         status_name: action.status,
         tracking_number: action.tracking,
       }, { headers: { Authorization: `Bearer ${token}` } }).then(
@@ -79,7 +79,7 @@ const getOrders = (store) => (next) => (action) => {
       break;
 
     case GET_ORDER_STATUS_FROM_API:
-      axios.get('https://switch-e-commerce.herokuapp.com/v1/status')
+      axios.get('https://switch-ecommerce.herokuapp.com/v1/status')
         .then((response) => {
           const status = response.data;
           store.dispatch(saveOrderStatus(status));

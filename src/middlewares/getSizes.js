@@ -5,7 +5,7 @@ const getAllSizes = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_SIZES_FROM_API:
 
-      axios.get('https://switch-e-commerce.herokuapp.com/v1/sizes')
+      axios.get('https://switch-ecommerce.herokuapp.com/v1/sizes')
         .then(
           (response) => {
             const sizes = response.data;
