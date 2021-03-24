@@ -17,21 +17,22 @@ const AppHeader = ({
   admin,
 
 }) => {
-  // removing the text from cart and my account logos when 
+  // removing the text from cart and my account logos when
   // mobile screen width < 768
   const [width, setWidth] = React.useState(window.innerWidth);
   const breakpoint = 768;
 
   React.useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
+    window.addEventListener('resize', handleWindowResize);
 
     // Return a function from the effect that removes the event listener
-    return () => window.removeEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
 
   return (
     <header className="header">
+
       <div className="header__main">
         <button
           className="header__button"
@@ -53,7 +54,7 @@ const AppHeader = ({
               <Link to="/admin">
                 <div>
                   {/* <MdAccountCircle color="#5221c6" /> */}
-                  <MdStore className={"" + width > breakpoint ? "big-logo" : "logo"} color="#5221c6" />
+                  <MdStore className={`${width}` > breakpoint ? 'big-logo' : 'logo'} color="#5221c6" />
                 </div>
                 {/* <div>{name}</div> */}
                 {width > breakpoint ? (
@@ -63,10 +64,25 @@ const AppHeader = ({
                 )}
               </Link>
             )}
+          {/* link to demo admin */}
+          <Link
+            to="/static-admin"
+            className="header__adminddemoButton"
+          >
+            <div>
+              <MdStore className={`${width}` > breakpoint ? 'big-logo' : 'logo'} color="#5221c6" />
+            </div>
+            {width > breakpoint ? (
+              <div className="header__buttons__btn--admin">Admin(Demo)</div>
+            ) : (
+              <div className="header__buttons__btn--admin" />
+            )}
+          </Link>
+
           <Link to="/panier">
             <div className="header__buttons-cart">
 
-              <MdShoppingCart className={"" + width > breakpoint ? "big-logo" : "logo"} />
+              <MdShoppingCart className={`${width}` > breakpoint ? 'big-logo' : 'logo'} />
             </div>
             {/* ternary condition to remove text when screen width smaller than
             768px */}
@@ -83,7 +99,7 @@ const AppHeader = ({
             <>
               <Link to="/mon-compte">
                 <div>
-                  <MdAccountCircle className={'' + width > breakpoint ? 'big-logo' : 'logo'} />
+                  <MdAccountCircle className={`${width}` > breakpoint ? 'big-logo' : 'logo'} />
                 </div>
                 {width > breakpoint ? (
                   <>
@@ -106,7 +122,7 @@ const AppHeader = ({
             : (
               <Link to="/login">
                 <div>
-                  <MdAccountCircle className={'' + width > breakpoint ? 'big-logo' : 'logo'} />
+                  <MdAccountCircle className={`${width}` > breakpoint ? 'big-logo' : 'logo'} />
                 </div>
                 {width > breakpoint ? (
                   <div className="header__buttons__btn">Connexion

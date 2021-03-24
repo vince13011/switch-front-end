@@ -16,7 +16,7 @@ const signup = (store) => (next) => (action) => {
           if (!allfilled) {
             return store.dispatch(setSignupMessage('Vous devez remplir tous les champs '));
           }
-          const response = await axios.post('https://switch-e-commerce.herokuapp.com/v1/signup', {
+          const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/signup', {
             ...fields,
            
           });

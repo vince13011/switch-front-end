@@ -8,11 +8,11 @@ const Footer = () => (
     <div className="footer__main">
 
       <div className="footer__nav">
-        <NavLink to="/contact">
+        <NavLink to="#">
           <div className="footer__nav__link"> Nous contacter
           </div>
         </NavLink>
-        <NavLink to="/a-propos">
+        <NavLink to="/#">
           <div className="footer__nav__link"> A propos de nous
           </div>
         </NavLink>

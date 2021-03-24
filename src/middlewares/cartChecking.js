@@ -12,7 +12,7 @@ const checkingCart = (store) => (next) => (action) => {
         return store.dispatch(setCartMessage('Votre panier est vide'));
       }
       store.dispatch(setCartMessage(''));
-      const promises = action.articles.map((article) => axios.get(`https://switch-e-commerce.herokuapp.com/v1/article/${article.id}`));
+      const promises = action.articles.map((article) => axios.get(`https://switch-ecommerce.herokuapp.com/v1/article/${article.id}`));
       Promise.all(promises)
         .then((responses) => {
           responses.forEach((response, index) => {

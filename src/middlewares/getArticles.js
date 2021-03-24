@@ -5,7 +5,7 @@ const getAllArticles = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_ARTICLES_FROM_API:
 
-      axios.get('https://switch-e-commerce.herokuapp.com/v1/articles')
+      axios.get('https://switch-ecommerce.herokuapp.com/v1/articles')
         .then(
           (response) => {
             const Articles = response.data;

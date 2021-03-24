@@ -14,7 +14,7 @@ const getOneArticles = (store) => (next) => (action) => {
     case GET_ONE_ARTICLE:
       store.dispatch(articleLoading(true));
 
-      axios.get(`https://switch-e-commerce.herokuapp.com/v1/article/${action.id}`)
+      axios.get(`https://switch-ecommerce.herokuapp.com/v1/article/${action.id}`)
         .then(
           (response) => {
             const article = response.data;
@@ -43,7 +43,7 @@ const getOneArticles = (store) => (next) => (action) => {
       delete reqArticle.updated_at;
       delete reqArticle.id;
       const { token } = store.getState().auth;
-      axios.put(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`,
+      axios.put(`https://switch-ecommerce.herokuapp.com/v1/article/${reqid}`,
         { ...reqArticle }, { headers: { Authorization: `Bearer ${token}` } })
         .then(() => {
           store.dispatch(getOneArticle(reqid));
@@ -60,7 +60,7 @@ const getOneArticles = (store) => (next) => (action) => {
       const { article } = store.getState().article;
       const { token } = store.getState().auth;
       const reqid = article.id;
-      axios.delete(`https://switch-e-commerce.herokuapp.com/v1/article/${reqid}`, { headers: { Authorization: `Bearer ${token}` } })
+      axios.delete(`https://switch-ecommerce.herokuapp.com/v1/article/${reqid}`, { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
           (action.history.push('/admin'));
         });
