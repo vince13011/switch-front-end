@@ -16,7 +16,7 @@ export default (state = initialState, action = {}) => {
         loading: { ...state.loading, articleLoading: false },
       };
     case CATEGORY_LOADED:
-      console.log({ ...state.loading });
+      
       return {
         ...state,
         loading: { ...state.loading, categoryLoading: false },

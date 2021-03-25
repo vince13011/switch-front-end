@@ -1,4 +1,4 @@
-import { SIGNUP, setSignupMessage,setSignupSuccess } from 'src/actions';
+import { SIGNUP, setSignupMessage, setSignupSuccess } from 'src/actions';
 import axios from 'axios';
 
 const signup = (store) => (next) => (action) => {
@@ -18,9 +18,9 @@ const signup = (store) => (next) => (action) => {
           }
           const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/signup', {
             ...fields,
-           
+
           });
-          console.log(response.data);
+
           if (response.data.errors) {
             return store.dispatch(setSignupMessage(response.data.errors[0]));
           }

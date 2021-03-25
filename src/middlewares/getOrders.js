@@ -68,8 +68,6 @@ const getOrders = (store) => (next) => (action) => {
         tracking_number: action.tracking,
       }, { headers: { Authorization: `Bearer ${token}` } }).then(
         (response) => {
-          console.log(response.data);
-
           store.dispatch(getOneOrder(order.id));
           store.dispatch(setOrderLoading(false));
         },
