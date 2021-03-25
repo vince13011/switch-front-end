@@ -79,7 +79,7 @@ const Order = ({
                     <p className="order__footer__address__item">{address.zip_code} {address.city}</p>
                   </div>
                 )}
-
+                <div className="order__footer__status__current">Statut: {order.status_name}</div>
                 {order.tracking_number && (
                   <div className="order__footer__status">N° de suivi : {order.tracking_number}</div>
                 )}
