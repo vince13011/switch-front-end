@@ -3,13 +3,10 @@ import Success from 'src/components/Success';
 
 import { resetCart, setCheckoutSuccess } from '../actions';
 
-// branchement en lecture du state
 const mapStateToProps = (state) => ({
   user: state.auth.user,
-
 });
 
-// branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
 
   resetCheckoutSuccess: () => {

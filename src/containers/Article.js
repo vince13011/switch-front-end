@@ -13,7 +13,6 @@ import {
 
 } from '../actions';
 
-// branchement en lecture du state
 const mapStateToProps = (state) => ({
   article: state.article.article,
   size: state.article.size,
@@ -22,11 +21,10 @@ const mapStateToProps = (state) => ({
   message: state.article.message,
 });
 
-// branchement en écriture du state
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
   loadArticle: () => {
     const { id } = ownProps.match.params;
+    /* giving history in the action to be able to redirect in the middleware */
     const { history } = ownProps;
     dispatch(getOneArticle(id, history));
   },
@@ -56,4 +54,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Article);
+/* using withRouter to get OwnProps */
 export default withRouter(connected);
