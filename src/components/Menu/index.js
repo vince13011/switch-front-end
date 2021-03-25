@@ -1,47 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { MdClose } from 'react-icons/md';
+
 import './style.scss';
 
 const Menu = ({
   categories,
-  logged,
   onClick,
   showMenu,
 }) => (
-
   <nav className={showMenu ? 'menu' : 'menu menu--hidden'}>
+  {/*hiding or showing the menu according to the global state (toggle on click) */}
     <button
+      className="menu__button"
       type="button"
       onClick={onClick}
-    >X
+    ><MdClose />
     </button>
+
     <NavLink
-      className="menu-link"
-      activeClassName="menu-link--active"
+      className="menu__link"
+      activeClassName="menu__link--active"
       exact
       to="/"
     >
       Accueil
     </NavLink>
-    {logged && (
-    <NavLink
-      className="menu-link"
-      to="/favorites"
-      activeClassName="menu-link--active"
-      exact
-    >
-      Mes recettes préférées
-    </NavLink>
-    )}
     {categories.map((category) => (
       <NavLink
-        activeClassName="menu-link--active"
-        key={category}
-        className="menu-link"
-        to={`/recipe/${category}`}
+        activeClassName="menu__link--active"
+        key={category.id}
+        className="menu__link"
+        to={`/categories/${category.title}`}
       >
-        {category}
+        {category.title}
       </NavLink>
     ))}
 
@@ -49,16 +42,9 @@ const Menu = ({
 );
 
 Menu.propTypes = {
-  logged: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   showMenu: PropTypes.bool.isRequired,
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 export default Menu;

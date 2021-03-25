@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Field from './Field';
-// import { useField } from './hooks';
+import Field from 'src/components/Field';
 
-import './styles.css';
+import './styles.scss';
 
 const LoginForm = ({
   email,
   password,
   changeField,
   handleLogin,
-  handleLogout,
-  isLogged,
-  loggedMessage,
+
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -21,46 +18,30 @@ const LoginForm = ({
   };
 
   return (
-    <div className="login-form">
-      {isLogged && (
-        <div className="login-form-logged">
-          <p className="login-form-message">
-            {loggedMessage}
-          </p>
-          <button
-            type="button"
-            className="login-form-button"
-            onClick={handleLogout}
-          >
-            Déconnexion
-          </button>
-        </div>
-      )}
-      {!isLogged && (
 
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
-          <button
-            type="submit"
-            className="login-form-button"
-          >
-            OK
-          </button>
-        </form>
-      )}
-    </div>
+    <form autoComplete="off" className="loginform" onSubmit={handleSubmit}>
+      <Field
+        name="email"
+        placeholder="Adresse Email"
+        onChange={changeField}
+        value={email}
+      />
+      <Field
+        name="password"
+        type="password"
+        placeholder="Mot de passe"
+        onChange={changeField}
+        value={password}
+      />
+      <button
+        type="submit"
+        className="loginform__button"
+        onClick={handleSubmit}
+      >
+        Se Connecter
+      </button>
+    </form>
+
   );
 };
 
@@ -69,14 +50,6 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool,
-  loggedMessage: PropTypes.string,
-};
-
-LoginForm.defaultProps = {
-  isLogged: false,
-  loggedMessage: 'Connecté',
 };
 
 export default LoginForm;

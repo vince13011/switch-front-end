@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppHeader from 'src/containers/AppHeader';
+import Footer from 'src/components/Footer';
 import './style.scss';
+
+// main layout component;
 
 const Page = ({ children }) => (
   <>
@@ -9,6 +12,8 @@ const Page = ({ children }) => (
     <main className="page">
       {children}
     </main>
+    <Footer />
+
   </>
 );
 

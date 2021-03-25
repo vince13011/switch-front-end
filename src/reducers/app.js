@@ -1,16 +1,27 @@
-import { IS_LOADING } from 'src/actions';
+import { ARTICLE_LOADED, CATEGORY_LOADED } from 'src/actions';
 
 const initialState = {
-  loading: false,
+ // monting the app after articles and categories are loaded;
+  loading: {
+    articleLoading: false,
+    categoryLoading: false,
+  },
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case IS_LOADING:
+    case ARTICLE_LOADED:
       return {
         ...state,
-        loading: action.status,
+        loading: { ...state.loading, articleLoading: false },
       };
+    case CATEGORY_LOADED:
+
+      return {
+        ...state,
+        loading: { ...state.loading, categoryLoading: false },
+      };
+
     default:
       return state;
   }

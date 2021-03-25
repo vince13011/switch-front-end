@@ -1,0 +1,72 @@
+.signup { 
+  &__success{
+    padding:0 1rem;
+    max-width: 500px;
+    margin:auto;
+  }
+  &__button{
+    width: 100%;
+    border: 2px solid black;
+    box-shadow: none;
+    background-color: black;
+    color: white;
+    padding: .7rem;
+    margin-bottom: 1rem;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      transition: 0.2s;
+    }
+    &:active {
+      transform: scale(0.95);
+      transition: 0.2s;
+    }
+  }
+  &__form{
+    padding:0 1rem;
+    max-width: 500px;
+    margin:auto;
+  }
+  &__message{
+    color:red;
+    margin-bottom: 1rem;
+  }
+  &__address{
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 1rem;
+    
+      &__legend{
+        margin-bottom:1rem;
+      }
+      &__field{
+      padding:.5rem;
+      margin-bottom:.5rem ;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width:70%;
+      
+      &--numero{
+        width:30%;
+      }
+      &--zipcode{
+        width:30%;
+      }
+      &--country{
+        width: 100%;
+      }          
+    }
+
+  }
+}
+.fieldwrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}

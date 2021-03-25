@@ -1,6 +1,6 @@
 const initialState = {
   title: 'Nouveautés',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.',
+  text: '',
 };
 
 const home = (state = initialState, action = {}) => {

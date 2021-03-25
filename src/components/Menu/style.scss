@@ -3,21 +3,34 @@
 
 .menu {
   position: fixed;
+  display:flex;
+  padding-top:4rem;
+  flex-direction: column;
   left: 0;
   top: 0;
   width: 70%;
   z-index:2;
-  padding: (vars.$gutter / 2) 0;
+ 
   background-color: color.scale(vars.$color, $lightness: -80%);
   box-shadow: inset -20px 0 20px -20px rgba(0,0,0,.75);
   height: 100vh;
   overflow: hidden;
   transition: all .3s;
-   &--hidden{
-     width:0%
+   
+  &--hidden{
+    transform:translateX(-100%)
    }
+  &__button{
+    position: absolute;
+    right:10px;
+    top:10px;
+    background: none;
+    color:#fff;
+    border: none;
+    font-size:2em
+  }
+  &__link {
 
-  &-link {
     display: block;
     padding: (vars.$gutter / 2) vars.$gutter;
     transition: color .2s, box-shadow .4s;
