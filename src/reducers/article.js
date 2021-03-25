@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  article: [],
+  article: {},
   size: '',
   isLoading: false,
   message: '',
