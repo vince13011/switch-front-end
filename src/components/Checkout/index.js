@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
@@ -42,7 +43,6 @@ const Checkout = ({
       total,
     });
     const secret = response.data.client_secret;
-    ;
     const result = await stripe.confirmCardPayment(secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -130,4 +130,16 @@ const Checkout = ({
   );
 };
 
+Checkout.propTypes = {
+  articles: PropTypes.array.isRequired,
+  total: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  address: PropTypes.object.isRequired,
+  logged: PropTypes.bool.isRequired,
+  isCheckedCart: PropTypes.bool.isRequired,
+  removeCartStatus: PropTypes.func.isRequired,
+  success: PropTypes.bool.isRequired,
+};
 export default Checkout;

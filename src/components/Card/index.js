@@ -17,7 +17,7 @@ const Card = ({
       <p className="card-name">{name}</p>
       <p className="card-price">{(pre_tax_price + (pre_tax_price * (vat_rate / 100))).toFixed(2)} €</p>
       <div className="card-sizes">
-        {sizes.map((size) => (<p className="card-size"> { size.size_name}</p>))}
+        {sizes.map((size) => (<p className="card-size" key={size.article_has_size.size_id}>{size.size_name}</p>))}
       </div>
     </Link>
   </article>

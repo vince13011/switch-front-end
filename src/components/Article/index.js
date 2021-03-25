@@ -2,7 +2,6 @@
 // == Import : npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 // == Import : local
 // Composants
@@ -14,7 +13,6 @@ import Field from 'src/components/Field';
 import Loading from '../App/Loading';
 // Style
 import './style.scss';
-import { setCartMessage } from '../../actions';
 
 // == Composant
 function Article({
@@ -45,7 +43,6 @@ function Article({
     toCart(article, size);
   };
   const handleSizeClick = (e) => {
-    ;
     setMessage('');
     setSize(e.target.name);
   };
@@ -77,11 +74,9 @@ function Article({
           <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
-            {/* <p className="article__info__size">taille: {size}</p> */}
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
-            
             {article.sizes
               && article.sizes.map((size) => {
                 if (size.article_has_size.stock !== 0) {
@@ -90,6 +85,7 @@ function Article({
                       className="article__size__btn"
                       onClick={handleSizeClick}
                       type="button"
+                      key={size.id}
                       name={size.size_name}
                     >{size.size_name}
                     </button>
@@ -100,7 +96,7 @@ function Article({
           </div>
           <p className="article__info__size">taille : {size}</p>
           {message
-              && (<div className="article__message">{message}</div>) }
+            && (<div className="article__message">{message}</div>)}
           <button
             type="button"
             className="article__add-to-cart-button"
@@ -117,6 +113,7 @@ function Article({
               && article.sizes.map(
                 (size) => (
                   <Field
+                    key={size.id}
                     className="article__modify-form_details-name-stock"
                     type="text"
                     name={size.size_name}
@@ -156,20 +153,25 @@ function Article({
     </Page>
   );
 }
-// Article.propTypes = {
-//   recipe: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     thumbnail: PropTypes.string.isRequired,
-//     author: PropTypes.string.isRequired,
-//     difficulty: PropTypes.string.isRequired,
-//     ingredients: PropTypes.array.isRequired,
-//     instructions: PropTypes.array.isRequired,
-//   }),
-// };
+Article.propTypes = {
+  article: PropTypes.array.isRequired,
+  size: PropTypes.array.isRequired,
+  toCart: PropTypes.func.isRequired,
+  setSize: PropTypes.func.isRequired,
+  loadArticle: PropTypes.func.isRequired,
+  changeSizeField: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  admin: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  message: PropTypes.string,
+  setMessage: PropTypes.func.isRequired,
+};
 
-// Article.defaultProps = {
-//   article: null,
-// };
+Article.defaultProps = {
+  message: null,
+};
 
 // == Export
 export default Article;
