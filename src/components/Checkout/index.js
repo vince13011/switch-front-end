@@ -20,9 +20,14 @@ const Checkout = ({
   removeCartStatus,
   success,
 }) => {
+  /* loading state during payment */
   const [cardLoader, setCardLoader] = useState(false);
+
+  /* custom hooks from stripe */
   const stripe = useStripe();
   const elements = useElements();
+
+  /* cart checking is true for 5 min after we redirect to cart page */
   setTimeout(
     () => {
       removeCartStatus();
@@ -30,19 +35,30 @@ const Checkout = ({
   );
 
   const handleCancel = () => {
+    /* if we want to modify order , we turn the cart checking to false and redirect to cart page  */
     removeCartStatus();
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    /* loading for payment */
     setCardLoader(true);
+    /* checking that stripe is on the page */
+
     if (!stripe || !elements) {
       return;
     }
+
+    /* sending a request payment to the backend for security,
+   then back responds with a client secret */
+
     const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/pay', {
       email: user.email,
       total,
     });
     const secret = response.data.client_secret;
+
+    /* building and sending the request to stripe */
+
     const result = await stripe.confirmCardPayment(secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -52,6 +68,7 @@ const Checkout = ({
       },
     });
     setCardLoader(false);
+    /* dispatching the action with the result of payment (through the container) */
     onClick(result, address, user);
   };
 
@@ -74,7 +91,6 @@ const Checkout = ({
         <h1>Récapitulatif</h1>
 
         <div className="checkout__articles">
-          {/* <h2 className="checkout__subtitle">Mes Articles</h2> */}
           {articles.map((article) => (
             <div className="checkout__article">
               <div className="checkout__article__image"> <img src={article.image} alt="" /></div>

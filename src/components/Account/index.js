@@ -28,7 +28,6 @@ const Account = ({
         <div className="account__info">
           <h2 className="account__subtitle">Mes infos</h2>
           <p className="account__item account__item-name">{user.firstname} {user.lastname}</p>
-          {/* <p className="account__item">Nom: {user.lastname}</p> */}
           <p className="account__item account__item-tel">Tél : {user.phone_number}</p>
         </div>
         <div className="account__address">

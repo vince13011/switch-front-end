@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import {
-  MdAccountCircle, MdShoppingCart, MdMenu, MdExitToApp, MdBuild, MdStore,
+  MdAccountCircle, MdShoppingCart, MdMenu, MdStore,
 } from 'react-icons/md';
 import './style.scss';
 
@@ -11,6 +11,7 @@ const AppHeader = ({
   onClick,
   categories,
   logged,
+  /* small counter for the cart */
   count,
   admin,
 
@@ -47,11 +48,11 @@ const AppHeader = ({
         </Link>
 
         <div className="header__buttons">
+          {/* if admin, show the admin link/button  */}
           {admin
             && (
               <Link to="/admin">
                 <div>
-                  {/* <MdAccountCircle color="#5221c6" /> */}
                   <MdStore className={`${width}` > breakpoint ? 'big-logo' : 'logo'} color="#5221c6" />
                 </div>
                 {/* <div>{name}</div> */}
@@ -93,6 +94,7 @@ const AppHeader = ({
             )}
 
           </Link>
+          {/* if logged, show the myAccount link/button  else show the login page link/button */}
           {logged ? (
             <>
               <Link to="/mon-compte">

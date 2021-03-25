@@ -1,4 +1,4 @@
-/* eslint-disable linebreak-style */
+
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -28,7 +28,6 @@ import Contact from 'src/components/Contact';
 import StaticAdmin from 'src/components/StaticAdmin';
 
 import Loading from './Loading';
-import './style.scss';
 
 function App({
   loading,
@@ -42,6 +41,8 @@ function App({
     loadCategories();
     removeCartStatus();
   }, []);
+
+  // loading stripe public key at app mount
 
   const stripePromise = loadStripe('pk_test_51ITtjSFqylvRHC31SNrW8LYUUKtyp0MUfNUAgTI3i8mC4fHXB7O5lxSlzISa5ta0KndYihXNbip2ukifjluRmY5r00QAJk4yMO');
 
@@ -59,6 +60,7 @@ function App({
         >
           <Home />
         </Route>
+        {/* static-admin is a demo route to show what admin panel look like not for prod */}
         <Route
           exact
           path="/static-admin"
@@ -104,7 +106,7 @@ function App({
         <Route
           exact
           path="/checkout"
-        >
+        >{/* providing the stripe promise only to the checkout page */}
           <Elements stripe={stripePromise}>
             <Checkout />
           </Elements>
@@ -153,7 +155,10 @@ function App({
 }
 
 App.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.shape({
+    articleLoading: PropTypes.bool.isRequired,
+    categoryLoading: PropTypes.bool.isRequired,
+  }),
   loadArticles: PropTypes.func.isRequired,
   loadCategories: PropTypes.func.isRequired,
   removeCartStatus: PropTypes.func.isRequired,

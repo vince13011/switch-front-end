@@ -27,6 +27,7 @@ function Article({
   onSubmit,
   admin,
   onDelete,
+  /* error message  */
   message,
   setMessage,
 
@@ -37,6 +38,7 @@ function Article({
   }, []);
 
   const handleCartClick = () => {
+    /* if there is no selected sizes, set error message and return */
     if (!size) {
       return setMessage('vous devez choisir une taille');
     }
@@ -48,11 +50,13 @@ function Article({
   };
 
   const handleSubmit = (e) => {
+    /* handler to modify the article : only admin */
     e.preventDefault();
     onSubmit();
   };
 
   const handleDelete = (e) => {
+    /* handler to delete  the article : only admin */
     e.preventDefault();
     onDelete();
   };
@@ -71,12 +75,17 @@ function Article({
         <div className="article__descriptioncontainer">
           <h1 className="article__title">{article.name}</h1>
 
+          {/* calculating price including vat */}
+
           <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
+
+            {/* if there is sizes, let create button for each size */}
+
             {article.sizes
               && article.sizes.map((size) => {
                 if (size.article_has_size.stock !== 0) {
@@ -95,6 +104,9 @@ function Article({
               })}
           </div>
           <p className="article__info__size">taille : {size}</p>
+
+          {/* if error Message , it will be shown here */}
+
           {message
             && (<div className="article__message">{message}</div>)}
           <button
@@ -105,6 +117,8 @@ function Article({
           </button>
         </div>
       </div>
+
+      {/* editting article part only for admin */}
       {admin && (
         <form className="article__modify-form" action="">
           <p className="article__modify-form_title">Modification des stocks de l'Article</p>

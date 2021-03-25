@@ -23,9 +23,9 @@ const CART = ({
 }) => {
   useEffect(
     () => {
-      removeCartMessage()
-    }, []
-  )
+      removeCartMessage();
+    }, [],
+  );
   if (isCheckedCart === true) {
     return <Redirect to="/checkout" />;
   }
@@ -41,8 +41,13 @@ const CART = ({
                 <div className="cart__article__item cart__article__item--title">{article.name}</div>
                 <div className="cart__article__item cart__article__item--size">Taille : {article.size}</div>
                 <div className="cart__article__item cart__article__item--qty">
-                  {/* {article.qty} */}
                   <div className="cart__article__item--qty-change">
+
+                    {/* if click on + then increase quanty ,
+                     if click on - then decrease qty ,
+                     if article qty is 1, decrease quantity button will
+                     transform into a delete button */}
+
                     {article.qty > 1 ? (
                       <MdRemove
                         key={`less${article.id}`}
