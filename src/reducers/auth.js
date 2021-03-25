@@ -27,11 +27,13 @@ const auth = (state = initialState, action = {}) => {
 
     case SET_LOGIN_INPUT_VALUE:
       return {
+        // using [action.name] to get one dynamic action.
         ...state,
         [action.name]: action.value,
       };
     case SET_LOGIN_TRUE: {
       delete state.email;
+      // deleting password from the state after loggin is accepted by the Api
       delete state.password;
       return {
         ...state,
@@ -40,6 +42,7 @@ const auth = (state = initialState, action = {}) => {
 
       }; }
     case LOGOUT:
+      // returning initial state, is the most efficient way to logout
       return {
         ...initialState,
       };

@@ -14,7 +14,7 @@ const initialState = {
     zipCode: '',
     city: '',
     country: '',
-    additional: 'un additionnal',
+    additional: 'un additionnal', // required by api
 
   },
   success: false,

@@ -18,10 +18,18 @@ const initialState = {
 
 const cart = (state = initialState, action = {}) => {
   switch (action.type) {
+    /* in the actions below, i always compare article.id AND article.size,
+     if they are the same => only one entry in the cart , if they are different,
+     (ex:same id but different size) <= 2 entries in the cart */
+
     case ADD_TO_CART: {
+    /* checking if same article with same size is already in the cart */
+
       const alreadyInCart = state.articles.find((article) => (
         article.id === action.article.id && article.size === action.size
       ));
+      /* in this case I just increase the qty :
+       mapping articles, changing qty of targeted element */
 
       if (alreadyInCart) {
         return {
@@ -32,6 +40,7 @@ const cart = (state = initialState, action = {}) => {
                 ? { ...article, qty: article.qty + 1 }
                 : article),
           ),
+          // increase the small counter;
           count: state.count + 1,
 
         };
@@ -62,6 +71,7 @@ const cart = (state = initialState, action = {}) => {
       };
 
     case DECREASE_QTY_ARTICLE:
+      /* mapping articles, is target article's qty >1 ? if yes i decrease , if no i do nothing */
       return {
         ...state,
         articles: state.articles.map(
@@ -76,6 +86,9 @@ const cart = (state = initialState, action = {}) => {
       };
 
     case REMOVE_FROM_CART:
+      /* to remove article from cart,
+      I make article.state = everything but the article i want to remove */
+
       return {
         ...state,
         articles: [
@@ -98,9 +111,9 @@ const cart = (state = initialState, action = {}) => {
         checkedCart: action.status,
       };
     case RESET_CART:
-      return{
-        ...initialState
-      }
+      return {
+        ...initialState,
+      };
     default:
       return state;
   }
