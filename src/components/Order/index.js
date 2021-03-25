@@ -62,7 +62,7 @@ const Order = ({
                         Quantité: {article.sizes.quantity}
                         <div />
                       </div>
-                      <div className="order__article__item order__article__item--price">Prix {article.unit_net_price} €</div>
+                      <div className="order__article__item order__article__item--price">Prix unitaire HT {article.unit_net_price} €</div>
                     </div>
                   </div>
                 ))}
@@ -70,7 +70,7 @@ const Order = ({
               </div>
               <div className="order__footer">
 
-                <div className="order__footer__total">Total: {order.total_price} €</div>
+                <div className="order__footer__total">Total TTC: {order.total_price} €</div>
                 {address && (
                   <div className="order__footer__address">
                     <h2 className="order__footer__subtitle">Adresse de livraison</h2>

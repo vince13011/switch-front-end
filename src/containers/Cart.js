@@ -9,11 +9,13 @@ import {
   setCartMessage,
 } from 'src/actions';
 
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice';
+
 const mapStateToProps = (state) => {
   /* calculating the total of the cart here */
   let total = 0;
   state.cart.articles.forEach((article) => {
-    total += article.qty * article.pre_tax_price;
+    total += getIncludingVATprice(article.pre_tax_price, article.vat_rate) * article.qty;
   });
 
   return {

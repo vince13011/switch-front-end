@@ -5,6 +5,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import Page from 'src/components/Page';
 
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice'
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
@@ -101,14 +102,14 @@ const Checkout = ({
                   quantité: {article.qty}
                   <div />
                 </div>
-                <div className="checkout__article__item checkout__article__item--price">{article.pre_tax_price * article.qty} € </div>
+                <div className="checkout__article__item checkout__article__item--price">{(getIncludingVATprice(article.pre_tax_price,article.vat_rate)* article.qty).toFixed(2)} € </div>
               </div>
             </div>
           ))}
 
         </div>
         <p className="checkout__address__costs">Livraison : offerte </p>
-        <p className="checkout__address__total">Total {total}€</p>
+        <p className="checkout__address__total">Total {total.toFixed(2)}€</p>
         <div className="checkout__address">
           <h2 className="checkout__subtitle">Adresse de livraison</h2>
           <p className="checkout__address__item-name">{user.lastname} {user.firstname}</p>

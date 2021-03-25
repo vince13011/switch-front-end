@@ -9,6 +9,7 @@ import Page from 'src/components/Page';
 
 import Field from 'src/components/Field';
 // import ArticleMobileMenu from './ArticleMobileMenu';
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice';
 
 import Loading from '../App/Loading';
 // Style
@@ -77,7 +78,7 @@ function Article({
 
           {/* calculating price including vat */}
 
-          <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
+          <p className="article__price">{getIncludingVATprice(article.pre_tax_price,article.vat_rate).toFixed(2)} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
             <p className="article__info__color">{article.color}</p>

@@ -9,6 +9,7 @@ import {
 import Page from 'src/components/Page';
 import { Redirect } from 'react-router-dom';
 import './style.scss';
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice'
 
 const CART = ({
   articles,
@@ -75,7 +76,7 @@ const CART = ({
                     />
                   </div>
                 </div>
-                <div className="cart__article__item cart__article__item--price">{article.pre_tax_price * article.qty} € </div>
+                <div className="cart__article__item cart__article__item--price">{(getIncludingVATprice(article.pre_tax_price,article.vat_rate)* article.qty).toFixed(2)} € </div>
               </div>
             </div>
           ))
@@ -87,7 +88,7 @@ const CART = ({
         <div className="cart__footer">
           <div className="cart__footer__total">
             <h2 className="cart__total">Total</h2>
-            <div>{total}€</div>
+            <div>{total.toFixed(2)}€</div>
           </div>
           <div className="cart__footer__button">
             {message && (
