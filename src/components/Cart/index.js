@@ -35,7 +35,7 @@ const CART = ({
         {articles ? (
 
           articles.map((article) => (
-            <div className="cart__article">
+            <div key = {`${article.id}${article.size}`} className="cart__article">
               <div className="cart__article__image"> <img src={article.image} alt="" /></div>
               <div className="cart__article__description">
                 <div className="cart__article__item cart__article__item--title">{article.name}</div>
@@ -108,7 +108,7 @@ const CART = ({
 };
 
 CART.propTypes = {
-  articles: PropTypes.object.isRequired,
+  articles: PropTypes.array.isRequired,
   onPlusClick: PropTypes.func.isRequired,
   onLessClick: PropTypes.func.isRequired,
   onRemoveClick: PropTypes.func.isRequired,

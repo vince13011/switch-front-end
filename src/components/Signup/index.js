@@ -151,10 +151,19 @@ Signup.propTypes = {
   passwordConfirm: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
-  phoneNumber: PropTypes.number.isRequired,
-  number: PropTypes.number.isRequired,
+  phoneNumber: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  number: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   streetName: PropTypes.string.isRequired,
-  zipCode: PropTypes.number.isRequired,
+  zipCode: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   city: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,

@@ -39,7 +39,7 @@ const Account = ({
           <h2 className="account__subtitle">Mes Commandes</h2>
           {orders && orders.map(
             (order) => (
-              <div className="account_item-orders">
+              <div key = {order.id} className="account_item-orders">
                 <Link to={`/order/${order.id}`}>
                   <p className="account__item-order-number">Numéro de Commande : {order.order_number}</p>
                   <p className="account__item-order-status">Status : <span className="account__item-order-status-type">{order.status_name}</span></p>
@@ -68,7 +68,7 @@ Account.propTypes = {
   logout: PropTypes.func.isRequired,
   address: PropTypes.object.isRequired,
   logged: PropTypes.bool.isRequired,
-  orders: PropTypes.object.isRequired,
+  orders: PropTypes.array.isRequired,
   loadOrders: PropTypes.func.isRequired,
 };
 

@@ -92,7 +92,7 @@ const Checkout = ({
 
         <div className="checkout__articles">
           {articles.map((article) => (
-            <div className="checkout__article">
+            <div key = {`${article.id}${article.size}`} className="checkout__article">
               <div className="checkout__article__image"> <img src={article.image} alt="" /></div>
               <div className="checkout__article__description">
                 <div className="checkout__article__item checkout__article__item--title">{article.name}</div>
