@@ -4,6 +4,8 @@ import image from 'src/assets/images/staticAdmin-min.png';
 
 import { Link } from 'react-router-dom';
 
+// component only for Demo, to show how tha admin pannel look like 
+
 const StaticAdmin = () => (
 
   <div>

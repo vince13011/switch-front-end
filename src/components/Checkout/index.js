@@ -125,6 +125,9 @@ const Checkout = ({
 
           <h2 className="checkout__subtitle-cb">Paiement par Carte Bancaire</h2>
           <CardElement className="checkout__credit" />
+
+          {/* we show the loader or the payment button */}
+
           {cardLoader
             ? (<div className="cardLoader">Chargement...</div>)
             : (

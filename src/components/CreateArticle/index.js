@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Loading from 'src/components/App/Loading';
 
 import Field from 'src/components/Field';
 import { app } from '../../base';
@@ -29,6 +30,7 @@ const CreateArticle = ({
   className,
 
 }) => {
+  /* local loading state just for the upload of the image */
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -38,12 +40,16 @@ const CreateArticle = ({
 
   const onFileChange = async (e) => {
     try {
+      /* uploading to firebase : */
       setLoading(true);
       const file = e.target.files[0];
+      /* sending the file to the online storage */
       const storageRef = app.storage().ref();
       const fileRef = storageRef.child(file.name);
       await fileRef.put(file);
+      /* getting back the url */
       const url = await fileRef.getDownloadURL();
+      /* saving the url to the store through the container */
       selectImage(url);
     }
     catch (error) {
@@ -149,6 +155,9 @@ const CreateArticle = ({
             ),
           )}
         </select>
+
+        {/* checking in the props to make size fields and categories checkbox based on API data */}
+
         {selectedSizes
           && selectedSizes.map(
             (size) => (
