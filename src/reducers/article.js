@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  article: [],
+  article: {},
   size: '',
   isLoading: false,
   message: '',
@@ -31,6 +31,7 @@ const article = (state = initialState, action = {}) => {
       return state;
     case SET_MODIFY_ARTICLE_SIZE_VALUE:
       return {
+        // formating state.article, the same shape as the api gave me
         ...state,
         article: {
           ...state.article,
@@ -52,6 +53,7 @@ const article = (state = initialState, action = {}) => {
       };
     case SET_MODIFY_ARTICLE_INPUT_VALUE:
       return {
+        // using [action.name] to get one dynamic action.
         ...state,
         article: {
           ...state.article, [action.name]: action.value,

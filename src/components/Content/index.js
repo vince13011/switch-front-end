@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,6 +22,11 @@ const Content = ({ title, text, articles }) => (
 Content.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  ).isRequired,
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

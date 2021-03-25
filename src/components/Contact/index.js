@@ -43,7 +43,7 @@ const ContactForm = () => {
         'user_AwR2Hl44WRiKU4CyxjWAO',
       );
 
-      reset();
+      reset(); 
       toastifySuccess();
     }
     catch (e) {

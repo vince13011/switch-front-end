@@ -16,11 +16,14 @@ import admin from './admin';
 import order from './order';
 import createArticle from './createArticle';
 
+/* below reducers in "whitelist" get their
+state persistent(in localStorage)
+it's a convenient way with redux-persists */
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart','auth'],
+  whitelist: ['cart', 'auth'],
 };
 const globalReducer = combineReducers({
   articles,

@@ -15,8 +15,7 @@ import signup from '../middlewares/signup';
 import getSizes from '../middlewares/getSizes';
 import createOneArticle from '../middlewares/createOneArticle';
 
-// le store est le gardien du state
-// la fonction createStore prend en argument le reducer
+// creating the store,applying middlewares,wrapping into the persistor(redux-persist)
 
 export const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(getCategories,

@@ -12,14 +12,12 @@ import {
   createOneArticle,
 } from '../actions';
 
-// branchement en lecture du state
 const mapStateToProps = (state) => ({
   articles: state.articles,
   categories: state.categories,
   ...state.createArticle,
 });
 
-// branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
   loadSizes: () => {
     dispatch(getAllSizes());
@@ -36,6 +34,8 @@ const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(setCreateArticleInputValue(value, name));
   },
+  // adding or removing the category for the new article according if we check or uncheck the box
+
   onChangeCheckbox: (value, name) => (value
     ? dispatch(addSelectedCategory(name))
     : dispatch(removeSelectedCategory(name))),

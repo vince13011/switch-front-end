@@ -9,6 +9,7 @@ import Page from 'src/components/Page';
 
 import Field from 'src/components/Field';
 // import ArticleMobileMenu from './ArticleMobileMenu';
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice';
 
 import Loading from '../App/Loading';
 // Style
@@ -27,6 +28,7 @@ function Article({
   onSubmit,
   admin,
   onDelete,
+  /* error message  */
   message,
   setMessage,
 
@@ -37,6 +39,7 @@ function Article({
   }, []);
 
   const handleCartClick = () => {
+    /* if there is no selected sizes, set error message and return */
     if (!size) {
       return setMessage('vous devez choisir une taille');
     }
@@ -48,11 +51,13 @@ function Article({
   };
 
   const handleSubmit = (e) => {
+    /* handler to modify the article : only admin */
     e.preventDefault();
     onSubmit();
   };
 
   const handleDelete = (e) => {
+    /* handler to delete  the article : only admin */
     e.preventDefault();
     onDelete();
   };
@@ -71,23 +76,28 @@ function Article({
         <div className="article__descriptioncontainer">
           <h1 className="article__title">{article.name}</h1>
 
-          <p className="article__price">{Number(article.pre_tax_price) + article.pre_tax_price * article.vat_rate / 100} €</p>
+          {/* calculating price including vat */}
+
+          <p className="article__price">{getIncludingVATprice(article.pre_tax_price,article.vat_rate).toFixed(2)} €</p>
           <p className="article__description">{article.description}</p>
           <div className="article__info">
             <p className="article__info__color">{article.color}</p>
           </div>
           <div className="article__size">
+
+            {/* if there is sizes, let create button for each size */}
+
             {article.sizes
-              && article.sizes.map((size) => {
-                if (size.article_has_size.stock !== 0) {
+              && article.sizes.map((s) => {
+                if (s.article_has_size.stock !== 0) {
                   return (
                     <button
                       className="article__size__btn"
                       onClick={handleSizeClick}
                       type="button"
-                      key={size.id}
-                      name={size.size_name}
-                    >{size.size_name}
+                      key={s.id}
+                      name={s.size_name}
+                    >{s.size_name}
                     </button>
 
                   );
@@ -95,6 +105,9 @@ function Article({
               })}
           </div>
           <p className="article__info__size">taille : {size}</p>
+
+          {/* if error Message , it will be shown here */}
+
           {message
             && (<div className="article__message">{message}</div>)}
           <button
@@ -105,20 +118,22 @@ function Article({
           </button>
         </div>
       </div>
+
+      {/* editting article part only for admin */}
       {admin && (
         <form className="article__modify-form" action="">
           <p className="article__modify-form_title">Modification des stocks de l'Article</p>
           <div className="article__modify-form_details">
             {article.sizes
               && article.sizes.map(
-                (size) => (
+                (s) => (
                   <Field
-                    key={size.id}
+                    key={s.id}
                     className="article__modify-form_details-name-stock"
                     type="text"
-                    name={size.size_name}
-                    placeholder={`Taille ${size.size_name}`}
-                    value={size.article_has_size.stock}
+                    name={s.size_name}
+                    placeholder={`Taille ${s.size_name}`}
+                    value={s.article_has_size.stock}
                     onChange={changeSizeField}
                   />
                 ),
@@ -154,8 +169,19 @@ function Article({
   );
 }
 Article.propTypes = {
-  article: PropTypes.array.isRequired,
-  size: PropTypes.array.isRequired,
+  article: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    sizes: PropTypes.array,
+    pre_tax_price: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    description: PropTypes.string,
+    color: PropTypes.string,
+    vat_rate: PropTypes.number,
+  }).isRequired,
+  size: PropTypes.string.isRequired,
   toCart: PropTypes.func.isRequired,
   setSize: PropTypes.func.isRequired,
   loadArticle: PropTypes.func.isRequired,

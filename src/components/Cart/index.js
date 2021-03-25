@@ -9,6 +9,7 @@ import {
 import Page from 'src/components/Page';
 import { Redirect } from 'react-router-dom';
 import './style.scss';
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice'
 
 const CART = ({
   articles,
@@ -23,9 +24,9 @@ const CART = ({
 }) => {
   useEffect(
     () => {
-      removeCartMessage()
-    }, []
-  )
+      removeCartMessage();
+    }, [],
+  );
   if (isCheckedCart === true) {
     return <Redirect to="/checkout" />;
   }
@@ -35,14 +36,19 @@ const CART = ({
         {articles ? (
 
           articles.map((article) => (
-            <div className="cart__article">
+            <div key = {`${article.id}${article.size}`} className="cart__article">
               <div className="cart__article__image"> <img src={article.image} alt="" /></div>
               <div className="cart__article__description">
                 <div className="cart__article__item cart__article__item--title">{article.name}</div>
                 <div className="cart__article__item cart__article__item--size">Taille : {article.size}</div>
                 <div className="cart__article__item cart__article__item--qty">
-                  {/* {article.qty} */}
                   <div className="cart__article__item--qty-change">
+
+                    {/* if click on + then increase quanty ,
+                     if click on - then decrease qty ,
+                     if article qty is 1, decrease quantity button will
+                     transform into a delete button */}
+
                     {article.qty > 1 ? (
                       <MdRemove
                         key={`less${article.id}`}
@@ -70,7 +76,7 @@ const CART = ({
                     />
                   </div>
                 </div>
-                <div className="cart__article__item cart__article__item--price">{article.pre_tax_price * article.qty} € </div>
+                <div className="cart__article__item cart__article__item--price">{(getIncludingVATprice(article.pre_tax_price,article.vat_rate)* article.qty).toFixed(2)} € </div>
               </div>
             </div>
           ))
@@ -82,7 +88,7 @@ const CART = ({
         <div className="cart__footer">
           <div className="cart__footer__total">
             <h2 className="cart__total">Total</h2>
-            <div>{total}€</div>
+            <div>{total.toFixed(2)}€</div>
           </div>
           <div className="cart__footer__button">
             {message && (
@@ -103,7 +109,7 @@ const CART = ({
 };
 
 CART.propTypes = {
-  articles: PropTypes.object.isRequired,
+  articles: PropTypes.array.isRequired,
   onPlusClick: PropTypes.func.isRequired,
   onLessClick: PropTypes.func.isRequired,
   onRemoveClick: PropTypes.func.isRequired,

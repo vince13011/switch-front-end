@@ -10,9 +10,11 @@ const sendOrder = (store) => (next) => (action) => {
     case SEND_ORDER: {
       const postOrder = async () => {
         try {
+          // request only if payment is a success
           if (action.paymentResult.error) {
             return console.log('mw', action.paymentResult.error.message);
           }
+          // formating the order's articles  in the good shape for the API;
           const { articles } = store.getState().cart;
           const parsedArticle = articles.map((article) => ({
             article_id: article.id,
@@ -22,9 +24,9 @@ const sendOrder = (store) => (next) => (action) => {
               quantity: article.qty,
             },
           }));
-          const { token } = store.getState().auth;
+          const { token } = store.getState().auth;// user token needed
           store.dispatch(setCheckoutLoading(true));
-          const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/order', {
+          await axios.post('https://switch-ecommerce.herokuapp.com/v1/order', {
 
             user_id: store.getState().auth.user.id,
             address_id: store.getState().auth.address.id,
@@ -33,7 +35,6 @@ const sendOrder = (store) => (next) => (action) => {
 
           }, { headers: { Authorization: `Bearer ${token}` } });
 
-         
           store.dispatch(setCheckoutSuccess(true));
 
           store.dispatch(setCheckoutLoading(false));

@@ -10,8 +10,8 @@ const Menu = ({
   onClick,
   showMenu,
 }) => (
-
   <nav className={showMenu ? 'menu' : 'menu menu--hidden'}>
+  {/*hiding or showing the menu according to the global state (toggle on click) */}
     <button
       className="menu__button"
       type="button"

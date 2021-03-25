@@ -4,6 +4,8 @@ import AppHeader from 'src/containers/AppHeader';
 import Footer from 'src/components/Footer';
 import './style.scss';
 
+// main layout component;
+
 const Page = ({ children }) => (
   <>
     <AppHeader />

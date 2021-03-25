@@ -17,13 +17,12 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-// branchement en écriture du state
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
   loadOrder: () => {
     const { id } = ownProps.match.params;
     const { history } = ownProps;
-
+    // dispatching the action with history to be able to redirect into the middleware
     dispatch(getOneOrder(id, history));
   },
   loadStatus: () => {
@@ -38,4 +37,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Order);
+/* using withRouter to get OwnProps */
 export default withRouter(connected);

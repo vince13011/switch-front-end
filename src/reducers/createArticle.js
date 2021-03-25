@@ -30,6 +30,7 @@ const createArticle = (state = initialState, action = {}) => {
     case SET_SELECTED_SIZE_QTY:
 
       return {
+        // formatting data , in the good shape for the API.
         ...state,
         selectedSizes: state.selectedSizes.map(
           (size) => (

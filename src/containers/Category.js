@@ -6,7 +6,6 @@ import { findArticlesByCategory } from '../selectors/Category';
 const mapStateToProps = (state, ownProps) => {
   const { name } = ownProps.match.params;
   const articles = findArticlesByCategory(state.articles, name);
-  
 
   return {
     articles,
@@ -15,9 +14,6 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// branchement en écriture du state
-const mapDispatchToProps = (dispatch) => ({
-
-});
-const connected = connect(mapStateToProps, mapDispatchToProps)(Category);
+const connected = connect(mapStateToProps)(Category);
+/* using withRouter to get OwnProps */
 export default withRouter(connected);

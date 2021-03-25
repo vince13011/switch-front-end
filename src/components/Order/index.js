@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import Page from '/src/components/Page';
+import Page from 'src/components/Page';
 import Loading from 'src/components/App/Loading';
 
 import { Redirect } from 'react-router-dom';
@@ -22,7 +23,7 @@ const Order = ({
 }) => {
   useEffect(() => {
     loadOrder();
-    loadStatus();// only for the select button
+    loadStatus();
   }, []);
   const handleChangeField = (event) => {
     changeField(event.target.value, event.target.name);
@@ -61,7 +62,7 @@ const Order = ({
                         Quantité: {article.sizes.quantity}
                         <div />
                       </div>
-                      <div className="order__article__item order__article__item--price">Prix {article.unit_net_price} €</div>
+                      <div className="order__article__item order__article__item--price">Prix unitaire HT {article.unit_net_price} €</div>
                     </div>
                   </div>
                 ))}
@@ -69,29 +70,26 @@ const Order = ({
               </div>
               <div className="order__footer">
 
-                <div className="order__footer__total">Total: {order.total_price} €</div>
+                <div className="order__footer__total">Total TTC: {order.total_price} €</div>
                 {address && (
                   <div className="order__footer__address">
                     <h2 className="order__footer__subtitle">Adresse de livraison</h2>
-                    {/* <p className="order__footer__address__item" /> */}
+
                     <p className="order__footer__address__item">{address.number} {address.street_name}</p>
                     <p className="order__footer__address__item">{address.zip_code} {address.city}</p>
                   </div>
                 )}
-
-                {/* <div className="order__footer__status"> */}
                 <div className="order__footer__status__current">Statut: {order.status_name}</div>
-                {/* </div> */}
                 {order.tracking_number && (
                   <div className="order__footer__status">N° de suivi : {order.tracking_number}</div>
                 )}
               </div>
-
+              {/* modifying the order , only for admin */}
               {admin && (
                 <form action="" className="order__form">
-
+                  {/* modifying the status */}
                   <div className="order__select--container">
-                    <label className="order__select--container-select" htmlFor="status_select"></label>
+                    <label className="order__select--container-select" htmlFor="status_select" />
                     <select
                       className="order__select--container-select-status"
                       id="status_select"
@@ -111,6 +109,7 @@ const Order = ({
 
                   </div>
                   <div className="order__select--container__tracking-number">
+                    {/* modifying the tracking number  */}
                     <input
                       className="order__select--container-input"
                       type="text"

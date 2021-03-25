@@ -5,7 +5,7 @@ import {
   MODIFY_ARTICLE,
   DELETE_ONE_ARTICLE,
   getOneArticle,
-  
+
 } from 'src/actions';
 import axios from 'axios';
 
@@ -31,6 +31,9 @@ const getOneArticles = (store) => (next) => (action) => {
       break;
     case MODIFY_ARTICLE: {
       store.dispatch(articleLoading(true));
+
+      // formating the article i want to modify with the goodshape for the API
+
       const { article } = store.getState().article;
       const reqid = article.id;
       const reqArticle = { ...article };
@@ -42,10 +45,17 @@ const getOneArticles = (store) => (next) => (action) => {
       delete reqArticle.created_at;
       delete reqArticle.updated_at;
       delete reqArticle.id;
-      const { token } = store.getState().auth;
+
+      // getting the token from the store
+
+      const { token } = store.getState().auth;// admin token needed
       axios.put(`https://switch-ecommerce.herokuapp.com/v1/article/${reqid}`,
         { ...reqArticle }, { headers: { Authorization: `Bearer ${token}` } })
         .then(() => {
+          /* after modifing the article ,
+          i dispatch action to get this article from api,
+          then the useEffect will run and render the page with the modified article ,
+           from the api (to be sure the modifying has been done ) */
           store.dispatch(getOneArticle(reqid));
           store.dispatch(articleLoading(false));
         })
@@ -58,10 +68,14 @@ const getOneArticles = (store) => (next) => (action) => {
     case DELETE_ONE_ARTICLE: {
       store.dispatch(articleLoading(true));
       const { article } = store.getState().article;
-      const { token } = store.getState().auth;
+      const { token } = store.getState().auth; // admin token needed
       const reqid = article.id;
       axios.delete(`https://switch-ecommerce.herokuapp.com/v1/article/${reqid}`, { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
+          /* to avoid the 404 after the article has been deleted,
+          i redirect to /admin then we can see all the articles
+          without the article just deleted */
+
           (action.history.push('/admin'));
         });
       store.dispatch(articleLoading(false));

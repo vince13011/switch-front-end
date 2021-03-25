@@ -9,11 +9,13 @@ import {
   setCartMessage,
 } from 'src/actions';
 
-// branchement en lecture du state
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice';
+
 const mapStateToProps = (state) => {
+  /* calculating the total of the cart here */
   let total = 0;
   state.cart.articles.forEach((article) => {
-    total += article.qty * article.pre_tax_price;
+    total += getIncludingVATprice(article.pre_tax_price, article.vat_rate) * article.qty;
   });
 
   return {
@@ -25,7 +27,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// branchement en écriture du state
 const mapDispatchToProps = (dispatch) => ({
   onPlusClick: (article) => {
     dispatch(increaseQuantity(article));
@@ -45,4 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(Cart);
+
+/* using withRouter to get OwnProps */
 export default withRouter(connected);

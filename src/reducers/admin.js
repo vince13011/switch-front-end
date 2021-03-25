@@ -5,6 +5,8 @@ const initialState = {
   isLoading: false,
 };
 
+// storing all the orders in the state
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_ADMIN_ORDERS:

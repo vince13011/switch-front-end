@@ -5,6 +5,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import Page from 'src/components/Page';
 
+import getIncludingVATprice from 'src/selectors/getIncludingVATprice'
 import { Redirect } from 'react-router-dom';
 import Loading from '../App/Loading';
 
@@ -20,9 +21,14 @@ const Checkout = ({
   removeCartStatus,
   success,
 }) => {
+  /* loading state during payment */
   const [cardLoader, setCardLoader] = useState(false);
+
+  /* custom hooks from stripe */
   const stripe = useStripe();
   const elements = useElements();
+
+  /* cart checking is true for 5 min after we redirect to cart page */
   setTimeout(
     () => {
       removeCartStatus();
@@ -30,19 +36,30 @@ const Checkout = ({
   );
 
   const handleCancel = () => {
+    /* if we want to modify order , we turn the cart checking to false and redirect to cart page  */
     removeCartStatus();
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    /* loading for payment */
     setCardLoader(true);
+    /* checking that stripe is on the page */
+
     if (!stripe || !elements) {
       return;
     }
+
+    /* sending a request payment to the backend for security,
+   then back responds with a client secret */
+
     const response = await axios.post('https://switch-ecommerce.herokuapp.com/v1/pay', {
       email: user.email,
       total,
     });
     const secret = response.data.client_secret;
+
+    /* building and sending the request to stripe */
+
     const result = await stripe.confirmCardPayment(secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -52,6 +69,7 @@ const Checkout = ({
       },
     });
     setCardLoader(false);
+    /* dispatching the action with the result of payment (through the container) */
     onClick(result, address, user);
   };
 
@@ -74,9 +92,8 @@ const Checkout = ({
         <h1>Récapitulatif</h1>
 
         <div className="checkout__articles">
-          {/* <h2 className="checkout__subtitle">Mes Articles</h2> */}
           {articles.map((article) => (
-            <div className="checkout__article">
+            <div key = {`${article.id}${article.size}`} className="checkout__article">
               <div className="checkout__article__image"> <img src={article.image} alt="" /></div>
               <div className="checkout__article__description">
                 <div className="checkout__article__item checkout__article__item--title">{article.name}</div>
@@ -85,14 +102,14 @@ const Checkout = ({
                   quantité: {article.qty}
                   <div />
                 </div>
-                <div className="checkout__article__item checkout__article__item--price">{article.pre_tax_price * article.qty} € </div>
+                <div className="checkout__article__item checkout__article__item--price">{(getIncludingVATprice(article.pre_tax_price,article.vat_rate)* article.qty).toFixed(2)} € </div>
               </div>
             </div>
           ))}
 
         </div>
         <p className="checkout__address__costs">Livraison : offerte </p>
-        <p className="checkout__address__total">Total {total}€</p>
+        <p className="checkout__address__total">Total {total.toFixed(2)}€</p>
         <div className="checkout__address">
           <h2 className="checkout__subtitle">Adresse de livraison</h2>
           <p className="checkout__address__item-name">{user.lastname} {user.firstname}</p>
@@ -109,6 +126,9 @@ const Checkout = ({
 
           <h2 className="checkout__subtitle-cb">Paiement par Carte Bancaire</h2>
           <CardElement className="checkout__credit" />
+
+          {/* we show the loader or the payment button */}
+
           {cardLoader
             ? (<div className="cardLoader">Chargement...</div>)
             : (
