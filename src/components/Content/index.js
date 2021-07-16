@@ -1,22 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { VscLoading } from 'react-icons/vsc';
 import Card from 'src/components/Card';
 
 import './style.scss';
 
 const Content = ({ title, text, articles }) => (
-  <section className="content">
-    <h1 className="content-title">{title}</h1>
-    <p className="content-text">{text}</p>
-    {articles && (
-      <div className="content-list">
-        {articles.map((article) => (
-          <Card key={article.id} {...article} />
-        ))}
-      </div>
-    )}
-  </section>
+  <>
+    {!articles.length ?
+      <section className="content">
+        <div className="content-text">
+          <VscLoading className="loading__icon" />
+          <h1 className="content-title">Chargement des données</h1>
+        </div>
+      </section>
+      :
+      <section className="content">
+        <h1 className="content-title">{title}</h1>
+        <p className="content-text">{text}</p>
+        {articles && (
+          <div className="content-list">
+            {articles.map((article) => (
+              <Card key={article.id} {...article} />
+            ))}
+          </div>
+        )}
+      </section>}
+  </>
 );
 
 Content.propTypes = {

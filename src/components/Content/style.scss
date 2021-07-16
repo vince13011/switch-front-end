@@ -20,3 +20,21 @@
 
   
 }
+
+.loading__icon{
+  font-size: 3rem;
+        margin-top: 3rem;
+        animation: rotate-center 2s ease-in-out infinite both;
+
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
